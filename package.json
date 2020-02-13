@@ -22,10 +22,12 @@
   "license": "AGPL-3.0",
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "async": "^3.1.1",
     "babel-loader": "^8.0.4",
     "babel-preset-env": "^1.7.0",
     "css-loader": "^3.2.1",
     "cssnano": "^4.1.7",
+    "csv-parse": "^4.8.5",
     "cypress": "^3.7.0",
     "dotenv": "^8.2.0",
     "expose-loader": "^0.7.5",

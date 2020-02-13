@@ -1,871 +1,2426 @@
+const data = [
+  {
+    name: ".NET Core",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: ".NET Core",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Alpine",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "Alpine",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "AMQP",
+    quadrant: "Technieken",
+    ring: "Trial",
+    label: "AMQP",
+    description:
+      "Advanced Messaging Queueing Protocol (Apache Kafka, RabbitMQ, AWS SQS)",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "A-Frame",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Assess",
+    label: "A-Frame",
+    description: "A web framework for building virtual reality experiences",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+
+  {
+    name: "Angular 2+",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Assess",
+    label: "Angular 2+",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "AngularJS (Angular 1)",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Hold",
+    label: "AngularJS (Angular 1)",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Apache",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "Apache",
+    description: "In NL voorkeur Nginx",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Apache Kafka",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Trial",
+    label: "Apache Kafka",
+    description: "Messaging Queue",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Apache SOLR",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "Apache SOLR",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "API Platform (symfony)",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "API Platform (symfony)",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "AppCenter",
+    quadrant: "Tooling en testing",
+    ring: "Trial",
+    label: "AppCenter",
+    description:
+      "Microsoft - Platform to build, test, release, and monitor apps for every platform",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Arc42 ",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "Arc42 ",
+    description: "Open Source Software Architectuur model",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "ASP.NET MVC",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "ASP.NET MVC",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Aurelia",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Trial",
+    label: "Aurelia",
+    description: "JS Framework for browser, mobile and desktop applications",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Automated security testing",
+    quadrant: "Technieken",
+    ring: "Assess",
+    label: "Automated security testing",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Automated Testing",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "Automated Testing",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "AWS API Gateway",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Trial",
+    label: "AWS API Gateway",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "AWS CloudFront",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "AWS CloudFront",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "AWS EC2",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "AWS EC2",
+    description: "VM instances",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "AWS Elastic Transcoder",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Trial",
+    label: "AWS Elastic Transcoder",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "AWS Lambda",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "AWS Lambda",
+    description: "Serverless functions",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "AWS S3",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "AWS S3",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Azure",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Trial",
+    label: "Azure",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Azure DevOps",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Trial",
+    label: "Azure DevOps",
+    description: "CI/ CD ",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Backbone.JS",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Hold",
+    label: "Backbone.JS",
+    description: "JS Framework for browser applications",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "BackstopJS",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "BackstopJS",
+    description: "Visual regression testing",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Bamboo",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "Bamboo",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Behat",
+    quadrant: "Tooling en testing",
+    ring: "Hold",
+    label: "Behat",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "BEM, Atomic etc",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "BEM, Atomic etc",
+    description: "CSS structure WoW (Blocks, Elements and Modifiers)",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Bitbucket",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Bitbucket",
+    description: "Git Repo with CI/ CD options",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Bitrise",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Assess",
+    label: "Bitrise",
+    description: "CI/ CD for Mobile Apps (builds -> release)",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Blackfire",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "Blackfire",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Bootstrap 4+",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Bootstrap 4+",
+    description: "CSS Framework",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Bower",
+    quadrant: "Tooling en testing",
+    ring: "Hold",
+    label: "Bower",
+    description: "Package manager",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Buildozer",
+    quadrant: "Tooling en testing",
+    ring: "Trial",
+    label: "Buildozer",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Burpsuite",
+    quadrant: "Tooling en testing",
+    ring: "Trial",
+    label: "Burpsuite",
+    description: "Security scanning",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "C#",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "C#",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Certified ethical hacking CEH",
+    quadrant: "Technieken",
+    ring: "Trial",
+    label: "Certified ethical hacking CEH",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Certmanager",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Trial",
+    label: "Certmanager",
+    description:
+      "Certificate Manager for e.g. managing TLS Certs on Kubernetes",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "CircleCi",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Assess",
+    label: "CircleCi",
+    description: "CloudNative CI/ CD",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "CodeIgniter",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Hold",
+    label: "CodeIgniter",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Component based development",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "Component based development",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Composer",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Composer",
+    description: "PHP Package management",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Configuratie/secret management",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "Configuratie/secret management",
+    description: "in repository",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Confluence",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Confluence",
+    description: "Team Collaboration & Wiki",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Continous Deployment",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "Continous Deployment",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Continous Integration",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "Continous Integration",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Cordova",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Cordova",
+    description: "Hybrid Mobile App Framework",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "CraftCMS",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "CraftCMS",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Cucumber",
+    quadrant: "Tooling en testing",
+    ring: "Assess",
+    label: "Cucumber",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Cypress.io",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Cypress.io",
+    description: "Browser testing",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Debian Linux",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "Debian Linux",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Drupal Decoupled",
+    quadrant: "Technieken",
+    ring: "Trial",
+    label: "Drupal Decoupled",
+    description: "Headless",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Dependabot",
+    quadrant: "Tooling en testing",
+    ring: "Trial",
+    label: "Dependabot",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Design Systems",
+    quadrant: "Technieken",
+    ring: "Trial",
+    label: "Design Systems",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "DevOps",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "DevOps",
+    description: "Methodiek, pipelines, automatisering",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "DialogFlow",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Trial",
+    label: "DialogFlow",
+    description: "Chatbot",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Docker",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "Docker",
+    description: "Containerisation",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Domain Driven Design",
+    quadrant: "Technieken",
+    ring: "Trial",
+    label: "Domain Driven Design",
+    description: "...",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Drupal",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Drupal",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Drupal Commerce",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Drupal Commerce",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Drupal Test Traits",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Drupal Test Traits",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Elasticsearch",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Assess",
+    label: "Elasticsearch",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Electron",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Trial",
+    label: "Electron",
+    description: "Desktop applications build with JS",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "ELK Stack",
+    quadrant: "Technieken",
+    ring: "Trial",
+    label: "ELK Stack",
+    description: "Logging, Monitoring & Dashboarding (Technical)",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Ember.js",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Hold",
+    label: "Ember.js",
+    description: "JS Framework for Frontend Applications",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Emotion.css",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Assess",
+    label: "Emotion.css",
+    description: "JS Driven CSS Framework",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Episerver",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Episerver",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "ESLint",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "ESLint",
+    description: "Linter",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Express/ Fastify/ Koa",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "Express/ Fastify/ Koa",
+    description: "NodeJS based Webserver",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Fastlane",
+    quadrant: "Tooling en testing",
+    ring: "Assess",
+    label: "Fastlane",
+    description: "CI/ CD for Mobile Apps (builds -> release)",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "eXtreme Programming",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "eXtreme Programming",
+    description: "methodiek om samen te werken",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Firebase",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Assess",
+    label: "Firebase",
+    description:
+      "Google - Platform for building Frontend & Mobile Apps (incl. backend/ digital services)",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Flutter / Dart",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Assess",
+    label: "Flutter / Dart",
+    description: "Cross Native Mobile App Framework",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Gatsby",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Trial",
+    label: "Gatsby",
+    description: "React based Frontend & CMS Framework supported by GraphQL",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Google Cloud Platform - Cloud Functions",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Assess",
+    label: "Google Cloud Platform - Cloud Functions",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Google Cloud Platform - GKE",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Trial",
+    label: "Google Cloud Platform - GKE",
+    description: "Google Kubernetes Engine",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Gitflow",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "Gitflow",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Github",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Github",
+    description: "Git Repo with CI/ CD options",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Gitlab",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Gitlab",
+    description: "Git Repo with CI/ CD options",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Gitlab CI",
+    quadrant: "Tooling en testing",
+    ring: "Trial",
+    label: "Gitlab CI",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Gophish",
+    quadrant: "Tooling en testing",
+    ring: "Assess",
+    label: "Gophish",
+    description: "Phishing attack software",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Grafana",
+    quadrant: "Tooling en testing",
+    ring: "Assess",
+    label: "Grafana",
+    description: "Dashboarding Tool for e.g. Databases",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "GraphQL (Apollo)",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "GraphQL (Apollo)",
+    description: "RESTfull API alternative",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Greensock",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Trial",
+    label: "Greensock",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "GrumPHP",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "GrumPHP",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Grunt",
+    quadrant: "Tooling en testing",
+    ring: "Hold",
+    label: "Grunt",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Gulp",
+    quadrant: "Tooling en testing",
+    ring: "Hold",
+    label: "Gulp",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Hubspot (CMS)",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Hubspot (CMS)",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "IAM",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "IAM",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "IBM Watson",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Assess",
+    label: "IBM Watson",
+    description:
+      "AI Driven Platform with prebuild services (e.g. TTS, NLP etc.)",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "IIS",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "IIS",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Infrastructure as code",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Trial",
+    label: "Infrastructure as code",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Ionic Framework",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Ionic Framework",
+    description:
+      "Hybrid Framework for Mobile (cordova), Frontend (incl. PWA) and Desktop (electron) for multiple Frameworks",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "ISO 25001",
+    quadrant: "Technieken",
+    ring: "Trial",
+    label: "ISO 25001",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "ISO 27001",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "ISO 27001",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Jasmine",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Jasmine",
+    description: "JS BDD Testing",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "JavaScript",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "JavaScript",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Jenkins",
+    quadrant: "Tooling en testing",
+    ring: "Hold",
+    label: "Jenkins",
+    description: "CI/ CD Tooling",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Jest",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Jest",
+    description: "JS Testing Framework",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "JIRA",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "JIRA",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "jMeter",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "jMeter",
+    description: "User scenarios frontend testing",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "jQuery",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Hold",
+    label: "jQuery",
+    description: "JS Framework for DOM manipulation",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Jumpcloud",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Jumpcloud",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "JWT",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "JWT",
+    description: "JSON Web Tokens",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Kanban",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "Kanban",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Karma",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Karma",
+    description: "JS Testing Framework",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Katalon",
+    quadrant: "Tooling en testing",
+    ring: "Trial",
+    label: "Katalon",
+    description: "Interface testing",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Kubernetes",
+    quadrant: "Tooling en testing",
+    ring: "Trial",
+    label: "Kubernetes",
+    description: "Container orchistration engine (native, GKE and AWS EKS)",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Lando",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Trial",
+    label: "Lando",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Laravel",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Laravel",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Lerna",
+    quadrant: "Tooling en testing",
+    ring: "Trial",
+    label: "Lerna",
+    description:
+      "A tool for managing JavaScript projects with multiple packages",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Less",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Hold",
+    label: "Less",
+    description: "CSS Pre-processor",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Lit Element",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Assess",
+    label: "Lit Element",
+    description:
+      "A simple base class for creating fast, lightweight web components",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Lit-html",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Assess",
+    label: "Lit-html",
+    description:
+      "An efficient, expressive, extensible HTML templating library for JavaScript",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Locust (Performance test)",
+    quadrant: "Tooling en testing",
+    ring: "Assess",
+    label: "Locust (Performance test)",
+    description: "Lightweight performance testing tool",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Magento",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Hold",
+    label: "Magento",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Marionette JS",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Hold",
+    label: "Marionette JS",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Matomo",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Matomo",
+    description: "Opensource google analytics alternatief (voorheen piwik)",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Memcache",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "Memcache",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Metabase",
+    quadrant: "Tooling en testing",
+    ring: "Trial",
+    label: "Metabase",
+    description: "reporting tool",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Metasploit",
+    quadrant: "Tooling en testing",
+    ring: "Trial",
+    label: "Metasploit",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Micro Frontend Architecture",
+    quadrant: "Technieken",
+    ring: "Assess",
+    label: "Micro Frontend Architecture",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Microservices Architecture",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "Microservices Architecture",
+    description: "Backend services",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Mocha (+ chai)",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Mocha (+ chai)",
+    description: "JS Testing Framework",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Mod Security",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "Mod Security",
+    description: "Web Application Firewall",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Momentjs",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Momentjs",
+    description: "JS Date Library",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "MongoDB",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "MongoDB",
+    description: "NoSQL DB / Document Store",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "MySQL",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "MySQL",
+    description: "Relational Database (SQL)",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "MySQL (MariaDB)",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "MySQL (MariaDB)",
+    description: "Relational Database (SQL)",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "MySQL (Percona)",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "MySQL (Percona)",
+    description: "Relational Database (SQL)",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Native Script",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Assess",
+    label: "Native Script",
+    description: "Native iOS and Android Apps with JavaScript (Angular & Vue)",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Neo4j",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Hold",
+    label: "Neo4j",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Nestjs",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Assess",
+    label: "Nestjs",
+    description:
+      "A progressive Node.js framework for building efficient, reliable and scalable server-side applications",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Netlify",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Trial",
+    label: "Netlify",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Next.js",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Next.js",
+    description: "Server Side Rendering (SSR) Framework for React",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Nginx",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "Nginx",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "No code - Low code",
+    quadrant: "Technieken",
+    ring: "Assess",
+    label: "No code - Low code",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Node.js",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Node.js",
+    description: "Javascript Runtime Framework based on Chromium webengine",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Norea 2.0 nomenkader",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "Norea 2.0 nomenkader",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "NPM",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "NPM",
+    description: "NodeJS Package Manager",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Nuxt.js",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Nuxt.js",
+    description: "Server Side Rendering (SSR) Framework for Vue",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "NX (nrwl)",
+    quadrant: "Tooling en testing",
+    ring: "Trial",
+    label: "NX (nrwl)",
+    description:
+      "Develop multiple full-stack applications holistically and share code between them all in the same workspace",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "OAuth2",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "OAuth2",
+    description: "OAuth2 is an open standard for access delegation",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "OpenAPI / Swagger",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "OpenAPI / Swagger",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "OpenCart",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Hold",
+    label: "OpenCart",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "OpenID Connect",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "OpenID Connect",
+    description: "OIDC is an identity layer on top of OAuth2",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "OpenStack",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Assess",
+    label: "OpenStack",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "OpenVAS",
+    quadrant: "Tooling en testing",
+    ring: "Assess",
+    label: "OpenVAS",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Owasp ZAP",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Owasp ZAP",
+    description: "Security scanning",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Parcel",
+    quadrant: "Tooling en testing",
+    ring: "Assess",
+    label: "Parcel",
+    description: "Zero configuration web application bundler",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "PatternLab",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Hold",
+    label: "PatternLab",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "PHP",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "PHP",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "PhpCS",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "PhpCS",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "PHPStorm",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "PHPStorm",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "PHPUnit",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "PHPUnit",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "PM2",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "PM2",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Polymer",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Hold",
+    label: "Polymer",
+    description:
+      "Libraries, tools, and standards for Frontends based on web components",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "PostCSS",
+    quadrant: "Technieken",
+    ring: "Trial",
+    label: "PostCSS",
+    description: "A tool for transforming CSS with JavaScript",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "PostgreSQL",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "PostgreSQL",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Prettier",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Prettier",
+    description: "Code formatter",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Progressive Web Apps (PWA)",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "Progressive Web Apps (PWA)",
+    description: "Already part of most Frontend Frameworks by default",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Drupal Progressively decoupled",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "Drupal Progressively decoupled",
+    description: "drupal componenten in vue",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Prometheus",
+    quadrant: "Tooling en testing",
+    ring: "Assess",
+    label: "Prometheus",
+    description: "Metrics & Insight for e.g. Kubernetes",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Protractor",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Protractor",
+    description: "Angular(JS) Testing Framework",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Puppeteer",
+    quadrant: "Tooling en testing",
+    ring: "Assess",
+    label: "Puppeteer",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Python",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Trial",
+    label: "Python",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "RabbitMQ",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "RabbitMQ",
+    description: "Message Queue based on AMQP",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "React",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "React",
+    description: "Frontend Library",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "React Native",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "React Native",
+    description: "A Framework for building Mobile Apps with React",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "React-hooks",
+    quadrant: "Technieken",
+    ring: "Trial",
+    label: "React-hooks",
+    description: "Hook functionality for React",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Redis",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "Redis",
+    description: "Key Value Store",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Redux",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Redux",
+    description: "A Predictable State Container for JS Apps",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Risk based testing",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "Risk based testing",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Rollup.js",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Rollup.js",
+    description: "Module bundler for JavaScript",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "RX.JS",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "RX.JS",
+    description: "JS Functional Event Library",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "SAML",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "SAML",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Sass",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Sass",
+    description: "CSS pre-processor with syntax advancements",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Scrum",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "Scrum",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Secure Development",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "Secure Development",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Selenium",
+    quadrant: "Tooling en testing",
+    ring: "Hold",
+    label: "Selenium",
+    description: "Browser automation tooling",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Serverless",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Assess",
+    label: "Serverless",
+    description:
+      "Framework to develop, test and deploy Serverless functions to AWS, GC and Azure",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Shopware",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Assess",
+    label: "Shopware",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "SimpleSAML",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "SimpleSAML",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Sitecore",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Hold",
+    label: "Sitecore",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "SonarQube",
+    quadrant: "Tooling en testing",
+    ring: "Trial",
+    label: "SonarQube",
+    description: "Code Quality and Security tooling",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Sonata CMS",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Hold",
+    label: "Sonata CMS",
+    description: "Symfony based CMS",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Stencil",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Trial",
+    label: "Stencil",
+    description:
+      "Stencil is a toolchain for building reusable, scalable Design Systems",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Storybook",
+    quadrant: "Tooling en testing",
+    ring: "Trial",
+    label: "Storybook",
+    description:
+      "Storybook is an open source tool for developing UI components in isolation for React, Vue, and Angular",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Svelte",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Assess",
+    label: "Svelte",
+    description: "JS Frontend Framework",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "SVN",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Hold",
+    label: "SVN",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Sylius",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Trial",
+    label: "Sylius",
+    description: "Symfony based e-commerce framework",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Symfony",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Symfony",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Tailwind.css",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Trial",
+    label: "Tailwind.css",
+    description: "Utility-first CSS framework",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Teamcity",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Assess",
+    label: "Teamcity",
+    description: "CI/ CD Server",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "TestCafe",
+    quadrant: "Tooling en testing",
+    ring: "Assess",
+    label: "TestCafe",
+    description: "A node.js tool to automate end-to-end web testing",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Three.js",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Three.js",
+    description: "JS 3D Library",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Typescript",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Typescript",
+    description: "Superset of JS",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Umbraco",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Umbraco",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Umbraco Heartcore",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Trial",
+    label: "Umbraco Heartcore",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Umbraco uCommerce",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Trial",
+    label: "Umbraco uCommerce",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Vagrant",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Vagrant",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Varnish",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "Varnish",
+    description: "Caching",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Visual Studio",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Visual Studio",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "VMware",
+    quadrant: "Platforms, infrastructure & Data",
+    ring: "Adopt",
+    label: "VMware",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Vue.JS",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "Vue.JS",
+    description: "JS Frontend Framework",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Vuestorefront",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Trial",
+    label: "Vuestorefront",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "WCAG 2.1",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "WCAG 2.1",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Web assembly",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Assess",
+    label: "Web assembly",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Web components",
+    quadrant: "Technieken",
+    ring: "Adopt",
+    label: "Web components",
+    description:
+      "A suite of different technologies allowing you to create reusable custom elements for the web",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Webdriver",
+    quadrant: "Tooling en testing",
+    ring: "Assess",
+    label: "Webdriver",
+    description:
+      "WebDriver is a remote control interface that enables introspection and control of user agents",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "WebPack",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "WebPack",
+    description: "Module Bundler",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "WordPress",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "WordPress",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Yarn",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Yarn",
+    description: "Package manager",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Yarn workspaces",
+    quadrant: "Technieken",
+    ring: "Assess",
+    label: "Yarn workspaces",
+    description: "Private space for bundles packages ",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Yii PHP Framework",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Hold",
+    label: "Yii PHP Framework",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
+    name: "Zabbix",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Zabbix",
+    description: "Monitoring",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  },
+  {
+    name: "Ansible",
+    quadrant: "Tooling en testing",
+    ring: "Adopt",
+    label: "Ansible",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: false
+  }
+]
+  .filter(d => d.inRadar)
+  .map(r => [r.name, r.quadrant, r.ring, `${r.active}`, r.description]);
+
 module.exports = {
   range: "Blad1!A1:E999",
   majorDimension: "ROWS",
-  values: [
-    ["name", "quadrant", "ring", "isNew", "description"],
-    [".NET Core", "Frameworks, CMS & Programmeertalen", "Adopt", "TRUE"],
-    [
-      "A-Frame",
-      "Frameworks, CMS & Programmeertalen",
-      "Assess",
-      "TRUE",
-      "A web framework for building virtual reality experiences"
-    ],
-    ["Alpine", "Platforms, infrastructure & Data", "Adopt", "TRUE"],
-    [
-      "AMQP",
-      "Technieken",
-      "Trial",
-      "TRUE",
-      "Advanced Messaging Queueing Protocol (Apache Kafka, RabbitMQ, AWS SQS)"
-    ],
-    ["Angular 2+", "Frameworks, CMS & Programmeertalen", "Assess", "TRUE"],
-    [
-      "AngularJS (Angular 1)",
-      "Frameworks, CMS & Programmeertalen",
-      "Hold",
-      "TRUE"
-    ],
-    [
-      "Apache",
-      "Platforms, infrastructure & Data",
-      "Adopt",
-      "TRUE",
-      "In NL voorkeur Nginx"
-    ],
-    [
-      "Apache Kafka",
-      "Platforms, infrastructure & Data",
-      "Trial",
-      "TRUE",
-      "Messaging Queue"
-    ],
-    ["Apache SOLR", "Platforms, infrastructure & Data", "Adopt", "TRUE"],
-    [
-      "API Platform (symfony)",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE"
-    ],
-    [
-      "AppCenter",
-      "Tooling en testing",
-      "Trial",
-      "TRUE",
-      "Microsoft - Platform to build, test, release, and monitor apps for every platform"
-    ],
-    [
-      "Arc42 ",
-      "Technieken",
-      "Adopt",
-      "TRUE",
-      "Open Source Software Architectuur model"
-    ],
-    ["ASP.NET MVC", "Frameworks, CMS & Programmeertalen", "Adopt", "TRUE"],
-    [
-      "Aurelia",
-      "Frameworks, CMS & Programmeertalen",
-      "Trial",
-      "TRUE",
-      "JS Framework for browser, mobile and desktop applications"
-    ],
-    ["Automated security testing", "Technieken", "Assess", "TRUE"],
-    ["Automated Testing", "Technieken", "Adopt", "TRUE"],
-    ["AWS API Gateway", "Platforms, infrastructure & Data", "Trial", "TRUE"],
-    ["AWS CloudFront", "Platforms, infrastructure & Data", "Adopt", "TRUE"],
-    [
-      "AWS EC2",
-      "Platforms, infrastructure & Data",
-      "Adopt",
-      "TRUE",
-      "VM instances"
-    ],
-    [
-      "AWS Elastic Transcoder",
-      "Platforms, infrastructure & Data",
-      "Trial",
-      "TRUE"
-    ],
-    [
-      "AWS Lambda",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "Serverless functions"
-    ],
-    ["AWS S3", "Platforms, infrastructure & Data", "Adopt", "TRUE"],
-    ["Azure", "Platforms, infrastructure & Data", "Trial", "TRUE"],
-    [
-      "Azure DevOps",
-      "Platforms, infrastructure & Data",
-      "Trial",
-      "TRUE",
-      "CI/ CD "
-    ],
-    [
-      "Backbone.JS",
-      "Frameworks, CMS & Programmeertalen",
-      "Hold",
-      "TRUE",
-      "JS Framework for browser applications"
-    ],
-    [
-      "BackstopJS",
-      "Tooling en testing",
-      "Adopt",
-      "TRUE",
-      "Visual regression testing"
-    ],
-    ["Bamboo", "Platforms, infrastructure & Data", "Adopt", "TRUE"],
-    ["Behat", "Tooling en testing", "Hold", "TRUE"],
-    [
-      "BEM, Atomic etc",
-      "Technieken",
-      "Adopt",
-      "TRUE",
-      "CSS structure WoW (Blocks, Elements and Modifiers)"
-    ],
-    [
-      "Bitbucket",
-      "Tooling en testing",
-      "Adopt",
-      "TRUE",
-      "Git Repo with CI/ CD options"
-    ],
-    [
-      "Bitrise",
-      "Platforms, infrastructure & Data",
-      "Assess",
-      "TRUE",
-      "CI/ CD for Mobile Apps (builds -\u003e release)"
-    ],
-    ["Blackfire", "Platforms, infrastructure & Data", "Adopt", "TRUE"],
-    [
-      "Bootstrap 4+",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "CSS Framework"
-    ],
-    ["Bower", "Tooling en testing", "Hold", "TRUE", "Package manager"],
-    ["Buildozer", "Tooling en testing", "Trial", "TRUE"],
-    ["Burpsuite", "Tooling en testing", "Trial", "TRUE", "Security scanning"],
-    ["C#", "Frameworks, CMS & Programmeertalen", "Adopt", "TRUE"],
-    ["Certified ethical hacking CEH", "Technieken", "Trial", "TRUE"],
-    [
-      "Certmanager",
-      "Platforms, infrastructure & Data",
-      "Trial",
-      "TRUE",
-      "Certificate Manager for e.g. managing TLS Certs on Kubernetes"
-    ],
-    [
-      "CircleCi",
-      "Platforms, infrastructure & Data",
-      "Assess",
-      "TRUE",
-      "CloudNative CI/ CD"
-    ],
-    ["CodeIgniter", "Frameworks, CMS & Programmeertalen", "Hold", "TRUE"],
-    ["Component based development", "Technieken", "Adopt", "TRUE"],
-    [
-      "Composer",
-      "Tooling en testing",
-      "Adopt",
-      "TRUE",
-      "PHP Package management"
-    ],
-    [
-      "Configuratie/secret management",
-      "Technieken",
-      "Adopt",
-      "TRUE",
-      "in repository"
-    ],
-    [
-      "Confluence",
-      "Tooling en testing",
-      "Adopt",
-      "TRUE",
-      "Team Collaboration & Wiki"
-    ],
-    ["Continous Deployment", "Technieken", "Adopt", "TRUE"],
-    ["Continous Integration", "Technieken", "Adopt", "TRUE"],
-    [
-      "Cordova",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "Hybrid Mobile App Framework"
-    ],
-    ["CraftCMS", "Frameworks, CMS & Programmeertalen", "Adopt", "TRUE"],
-    ["Cucumber", "Tooling en testing", "Assess", "TRUE"],
-    ["Cypress.io", "Tooling en testing", "Adopt", "TRUE", "Browser testing"],
-    ["Debian Linux", "Platforms, infrastructure & Data", "Adopt", "TRUE"],
-    ["Drupal Decoupled", "Technieken", "Trial", "TRUE", "Headless"],
-    ["Dependabot", "Tooling en testing", "Trial", "TRUE"],
-    ["Design Systems", "Technieken", "Trial", "TRUE"],
-    [
-      "DevOps",
-      "Technieken",
-      "Adopt",
-      "TRUE",
-      "Methodiek, pipelines, automatisering"
-    ],
-    [
-      "DialogFlow",
-      "Platforms, infrastructure & Data",
-      "Trial",
-      "TRUE",
-      "Chatbot"
-    ],
-    [
-      "Docker",
-      "Platforms, infrastructure & Data",
-      "Adopt",
-      "TRUE",
-      "Containerisation"
-    ],
-    ["Domain Driven Design", "Technieken", "Trial", "TRUE", "..."],
-    ["Drupal", "Frameworks, CMS & Programmeertalen", "Adopt", "TRUE"],
-    ["Drupal Commerce", "Frameworks, CMS & Programmeertalen", "Adopt", "TRUE"],
-    ["Drupal Test Traits", "Tooling en testing", "Adopt", "TRUE"],
-    ["Elasticsearch", "Platforms, infrastructure & Data", "Assess", "TRUE"],
-    [
-      "Electron",
-      "Frameworks, CMS & Programmeertalen",
-      "Trial",
-      "TRUE",
-      "Desktop applications build with JS"
-    ],
-    [
-      "ELK Stack",
-      "Technieken",
-      "Trial",
-      "TRUE",
-      "Logging, Monitoring & Dashboarding (Technical)"
-    ],
-    [
-      "Ember.js",
-      "Frameworks, CMS & Programmeertalen",
-      "Hold",
-      "TRUE",
-      "JS Framework for Frontend Applications"
-    ],
-    [
-      "Emotion.css",
-      "Frameworks, CMS & Programmeertalen",
-      "Assess",
-      "TRUE",
-      "JS Driven CSS Framework"
-    ],
-    ["Episerver", "Frameworks, CMS & Programmeertalen", "Adopt", "TRUE"],
-    ["ESLint", "Tooling en testing", "Adopt", "TRUE", "Linter"],
-    [
-      "Express/ Fastify/ Koa",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "NodeJS based Webserver"
-    ],
-    [
-      "Fastlane",
-      "Tooling en testing",
-      "Assess",
-      "TRUE",
-      "CI/ CD for Mobile Apps (builds -\u003e release)"
-    ],
-    [
-      "eXtreme Programming",
-      "Technieken",
-      "Adopt",
-      "TRUE",
-      "methodiek om samen te werken"
-    ],
-    [
-      "Firebase",
-      "Platforms, infrastructure & Data",
-      "Assess",
-      "TRUE",
-      "Google - Platform for building Frontend & Mobile Apps (incl. backend/ digital services)"
-    ],
-    [
-      "Flutter / Dart",
-      "Frameworks, CMS & Programmeertalen",
-      "Assess",
-      "TRUE",
-      "Cross Native Mobile App Framework"
-    ],
-    [
-      "Gatsby",
-      "Frameworks, CMS & Programmeertalen",
-      "Trial",
-      "TRUE",
-      "React based Frontend & CMS Framework supported by GraphQL"
-    ],
-    [
-      "Google Cloud Platform - Cloud Functions",
-      "Frameworks, CMS & Programmeertalen",
-      "Assess",
-      "TRUE"
-    ],
-    [
-      "Google Cloud Platform - GKE",
-      "Platforms, infrastructure & Data",
-      "Trial",
-      "TRUE",
-      "Google Kubernetes Engine"
-    ],
-    ["Gitflow", "Technieken", "Adopt", "TRUE"],
-    [
-      "Github",
-      "Tooling en testing",
-      "Adopt",
-      "TRUE",
-      "Git Repo with CI/ CD options"
-    ],
-    [
-      "Gitlab",
-      "Tooling en testing",
-      "Adopt",
-      "TRUE",
-      "Git Repo with CI/ CD options"
-    ],
-    ["Gitlab CI", "Tooling en testing", "Trial", "TRUE"],
-    [
-      "Gophish",
-      "Tooling en testing",
-      "Assess",
-      "TRUE",
-      "Phishing attack software"
-    ],
-    [
-      "Grafana",
-      "Tooling en testing",
-      "Assess",
-      "TRUE",
-      "Dashboarding Tool for e.g. Databases"
-    ],
-    [
-      "GraphQL (Apollo)",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "RESTfull API alternative"
-    ],
-    ["Greensock", "Frameworks, CMS & Programmeertalen", "Trial", "TRUE"],
-    ["GrumPHP", "Tooling en testing", "Adopt", "TRUE"],
-    ["Grunt", "Tooling en testing", "Hold", "TRUE"],
-    ["Gulp", "Tooling en testing", "Hold", "TRUE"],
-    ["Hubspot (CMS)", "Frameworks, CMS & Programmeertalen", "Adopt", "TRUE"],
-    ["IAM", "Technieken", "Adopt", "TRUE"],
-    [
-      "IBM Watson",
-      "Platforms, infrastructure & Data",
-      "Assess",
-      "TRUE",
-      "AI Driven Platform with prebuild services (e.g. TTS, NLP etc.)"
-    ],
-    ["IIS", "Platforms, infrastructure & Data", "Adopt", "TRUE"],
-    [
-      "Infrastructure as code",
-      "Platforms, infrastructure & Data",
-      "Trial",
-      "TRUE"
-    ],
-    [
-      "Ionic Framework",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "Hybrid Framework for Mobile (cordova), Frontend (incl. PWA) and Desktop (electron) for multiple Frameworks"
-    ],
-    ["ISO 25001", "Technieken", "Trial", "TRUE"],
-    ["ISO 27001", "Technieken", "Adopt", "TRUE"],
-    ["Jasmine", "Tooling en testing", "Adopt", "TRUE", "JS BDD Testing"],
-    ["JavaScript", "Frameworks, CMS & Programmeertalen", "Adopt", "TRUE"],
-    ["Jenkins", "Tooling en testing", "Hold", "TRUE", "CI/ CD Tooling"],
-    ["Jest", "Tooling en testing", "Adopt", "TRUE", "JS Testing Framework"],
-    ["JIRA", "Tooling en testing", "Adopt", "TRUE"],
-    [
-      "jMeter",
-      "Tooling en testing",
-      "Adopt",
-      "TRUE",
-      "User scenarios frontend testing"
-    ],
-    [
-      "jQuery",
-      "Frameworks, CMS & Programmeertalen",
-      "Hold",
-      "TRUE",
-      "JS Framework for DOM manipulation"
-    ],
-    ["Jumpcloud", "Tooling en testing", "Adopt", "TRUE"],
-    ["JWT", "Technieken", "Adopt", "TRUE", "JSON Web Tokens"],
-    ["Kanban", "Technieken", "Adopt", "TRUE"],
-    ["Karma", "Tooling en testing", "Adopt", "TRUE", "JS Testing Framework"],
-    ["Katalon", "Tooling en testing", "Trial", "TRUE", "Interface testing"],
-    [
-      "Kubernetes",
-      "Platforms, infrastructure & Data",
-      "Trial",
-      "TRUE",
-      "Container orchistration engine (native, GKE and AWS EKS)"
-    ],
-    ["Lando", "Platforms, infrastructure & Data", "Trial", "TRUE"],
-    ["Laravel", "Frameworks, CMS & Programmeertalen", "Adopt", "TRUE"],
-    [
-      "Lerna",
-      "Tooling en testing",
-      "Trial",
-      "TRUE",
-      "A tool for managing JavaScript projects with multiple packages"
-    ],
-    [
-      "Less",
-      "Frameworks, CMS & Programmeertalen",
-      "Hold",
-      "TRUE",
-      "CSS Pre-processor"
-    ],
-    [
-      "Lit Element",
-      "Frameworks, CMS & Programmeertalen",
-      "Hold",
-      "TRUE",
-      "A simple base class for creating fast, lightweight web components"
-    ],
-    [
-      "Lit-html",
-      "Frameworks, CMS & Programmeertalen",
-      "Hold",
-      "TRUE",
-      "An efficient, expressive, extensible HTML templating library for JavaScript"
-    ],
-    [
-      "Locust (Performance test)",
-      "Tooling en testing",
-      "Assess",
-      "TRUE",
-      "Lightweight performance testing tool"
-    ],
-    ["Magento", "Frameworks, CMS & Programmeertalen", "Hold", "TRUE"],
-    ["Marionette JS", "Frameworks, CMS & Programmeertalen", "Hold", "TRUE"],
-    [
-      "Matomo",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "Opensource google analytics alternatief (voorheen piwik)"
-    ],
-    ["Memcache", "Platforms, infrastructure & Data", "Adopt", "TRUE"],
-    ["Metabase", "Tooling en testing", "Trial", "TRUE", "reporting tool"],
-    ["Metasploit", "Tooling en testing", "Trial", "TRUE"],
-    ["Micro Frontend Architecture", "Technieken", "Assess", "TRUE"],
-    [
-      "Microservices Architecture",
-      "Technieken",
-      "Adopt",
-      "TRUE",
-      "Backend services"
-    ],
-    [
-      "Mocha (+ chai)",
-      "Tooling en testing",
-      "Adopt",
-      "TRUE",
-      "JS Testing Framework"
-    ],
-    [
-      "Mod Security",
-      "Platforms, infrastructure & Data",
-      "Adopt",
-      "TRUE",
-      "Web Application Firewall"
-    ],
-    [
-      "Momentjs",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "JS Date Library"
-    ],
-    [
-      "MongoDB",
-      "Platforms, infrastructure & Data",
-      "Adopt",
-      "TRUE",
-      "NoSQL DB / Document Store"
-    ],
-    [
-      "MySQL",
-      "Platforms, infrastructure & Data",
-      "Adopt",
-      "TRUE",
-      "Relational Database (SQL)"
-    ],
-    [
-      "MySQL (MariaDB)",
-      "Platforms, infrastructure & Data",
-      "Adopt",
-      "TRUE",
-      "Relational Database (SQL)"
-    ],
-    [
-      "MySQL (Percona)",
-      "Platforms, infrastructure & Data",
-      "Adopt",
-      "TRUE",
-      "Relational Database (SQL)"
-    ],
-    [
-      "Native Script",
-      "Frameworks, CMS & Programmeertalen",
-      "Assess",
-      "TRUE",
-      "Native iOS and Android Apps with JavaScript (Angular & Vue)"
-    ],
-    ["Neo4j", "Platforms, infrastructure & Data", "Hold", "TRUE"],
-    [
-      "Nestjs",
-      "Frameworks, CMS & Programmeertalen",
-      "Assess",
-      "TRUE",
-      "A progressive Node.js framework for building efficient, reliable and scalable server-side applications"
-    ],
-    ["Netlify", "Platforms, infrastructure & Data", "Trial", "TRUE"],
-    [
-      "Next.js",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "Server Side Rendering (SSR) Framework for React"
-    ],
-    ["Nginx", "Platforms, infrastructure & Data", "Adopt", "TRUE"],
-    ["No code - Low code", "Technieken", "Assess", "TRUE"],
-    [
-      "Node.js",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "Javascript Runtime Framework based on Chromium webengine"
-    ],
-    ["Norea 2.0 nomenkader", "Technieken", "Adopt", "TRUE"],
-    ["NPM", "Tooling en testing", "Adopt", "TRUE", "NodeJS Package Manager"],
-    [
-      "Nuxt.js",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "Server Side Rendering (SSR) Framework for Vue"
-    ],
-    [
-      "NX (nrwl)",
-      "Tooling en testing",
-      "Trial",
-      "TRUE",
-      "Develop multiple full-stack applications holistically and share code between them all in the same workspace"
-    ],
-    [
-      "OAuth2",
-      "Technieken",
-      "Adopt",
-      "TRUE",
-      "OAuth2 is an open standard for access delegation"
-    ],
-    ["OpenAPI / Swagger", "Tooling en testing", "Adopt", "TRUE"],
-    ["OpenCart", "Frameworks, CMS & Programmeertalen", "Hold", "TRUE"],
-    [
-      "OpenID Connect",
-      "Technieken",
-      "Adopt",
-      "TRUE",
-      "OIDC is an identity layer on top of OAuth2"
-    ],
-    ["OpenStack", "Platforms, infrastructure & Data", "Assess", "TRUE"],
-    ["OpenVAS", "Tooling en testing", "Assess", "TRUE"],
-    ["Owasp ZAP", "Tooling en testing", "Adopt", "TRUE", "Security scanning"],
-    [
-      "Parcel",
-      "Tooling en testing",
-      "Assess",
-      "TRUE",
-      "Zero configuration web application bundler"
-    ],
-    ["PatternLab", "Frameworks, CMS & Programmeertalen", "Hold", "TRUE"],
-    ["PHP", "Frameworks, CMS & Programmeertalen", "Adopt", "TRUE"],
-    ["PhpCS", "Tooling en testing", "Adopt", "TRUE"],
-    ["PHPStorm", "Tooling en testing", "Adopt", "TRUE"],
-    ["PHPUnit", "Tooling en testing", "Adopt", "TRUE"],
-    ["PM2", "Tooling en testing", "Adopt", "TRUE"],
-    [
-      "Polymer",
-      "Frameworks, CMS & Programmeertalen",
-      "Hold",
-      "TRUE",
-      "Libraries, tools, and standards for Frontends based on web components"
-    ],
-    [
-      "PostCSS",
-      "Technieken",
-      "Trial",
-      "TRUE",
-      "A tool for transforming CSS with JavaScript"
-    ],
-    ["PostgreSQL", "Platforms, infrastructure & Data", "Adopt", "TRUE"],
-    ["Prettier", "Tooling en testing", "Adopt", "TRUE", "Code formatter"],
-    [
-      "Progressive Web Apps (PWA)",
-      "Technieken",
-      "Adopt",
-      "TRUE",
-      "Already part of most Frontend Frameworks by default"
-    ],
-    [
-      "Drupal Progressively decoupled",
-      "Technieken",
-      "Adopt",
-      "TRUE",
-      "drupal componenten in vue"
-    ],
-    [
-      "Prometheus",
-      "Tooling en testing",
-      "Assess",
-      "TRUE",
-      "Metrics & Insight for e.g. Kubernetes"
-    ],
-    [
-      "Protractor",
-      "Tooling en testing",
-      "Adopt",
-      "TRUE",
-      "Angular(JS) Testing Framework"
-    ],
-    ["Puppeteer", "Tooling en testing", "Assess", "TRUE"],
-    ["Python", "Frameworks, CMS & Programmeertalen", "Trial", "TRUE"],
-    [
-      "RabbitMQ",
-      "Platforms, infrastructure & Data",
-      "Adopt",
-      "TRUE",
-      "Message Queue based on AMQP"
-    ],
-    [
-      "React",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "Frontend Library"
-    ],
-    [
-      "React Native",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "A Framework for building Mobile Apps with React"
-    ],
-    [
-      "React-hooks",
-      "Technieken",
-      "Adopt",
-      "TRUE",
-      "Hook functionality for React"
-    ],
-    [
-      "Redis",
-      "Platforms, infrastructure & Data",
-      "Adopt",
-      "TRUE",
-      "Key Value Store"
-    ],
-    [
-      "Redux",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "A Predictable State Container for JS Apps"
-    ],
-    ["Risk based testing", "Technieken", "Adopt", "TRUE"],
-    [
-      "Rollup.js",
-      "Tooling en testing",
-      "Adopt",
-      "TRUE",
-      "Module bundler for JavaScript"
-    ],
-    [
-      "RX.JS",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "JS Functional Event Library"
-    ],
-    ["SAML", "Technieken", "Adopt", "TRUE"],
-    [
-      "Sass",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "CSS pre-processor with syntax advancements"
-    ],
-    ["Scrum", "Technieken", "Adopt", "TRUE"],
-    ["Secure Development", "Technieken", "Adopt", "TRUE"],
-    [
-      "Selenium",
-      "Tooling en testing",
-      "Hold",
-      "TRUE",
-      "Browser automation tooling"
-    ],
-    [
-      "Serverless",
-      "Platforms, infrastructure & Data",
-      "Assess",
-      "TRUE",
-      "Framework to develop, test and deploy Serverless functions to AWS, GC and Azure"
-    ],
-    ["Shopware", "Frameworks, CMS & Programmeertalen", "Assess", "TRUE"],
-    ["SimpleSAML", "Frameworks, CMS & Programmeertalen", "Adopt", "TRUE"],
-    ["Sitecore", "Frameworks, CMS & Programmeertalen", "Hold", "TRUE"],
-    [
-      "SonarQube",
-      "Tooling en testing",
-      "Trial",
-      "TRUE",
-      "Code Quality and Security tooling"
-    ],
-    [
-      "Sonata CMS",
-      "Frameworks, CMS & Programmeertalen",
-      "Hold",
-      "TRUE",
-      "Symfony based CMS"
-    ],
-    [
-      "Stencil",
-      "Frameworks, CMS & Programmeertalen",
-      "Trial",
-      "TRUE",
-      "Stencil is a toolchain for building reusable, scalable Design Systems"
-    ],
-    [
-      "Storybook",
-      "Tooling en testing",
-      "Trial",
-      "TRUE",
-      "Storybook is an open source tool for developing UI components in isolation for React, Vue, and Angular"
-    ],
-    [
-      "Svelte",
-      "Frameworks, CMS & Programmeertalen",
-      "Assess",
-      "TRUE",
-      "JS Frontend Framework"
-    ],
-    ["SVN", "Platforms, infrastructure & Data", "Hold", "TRUE"],
-    [
-      "Sylius",
-      "Frameworks, CMS & Programmeertalen",
-      "Trial",
-      "TRUE",
-      "Symfony based e-commerce framework"
-    ],
-    [
-      "Symfony framework + components",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE"
-    ],
-    [
-      "Tailwind.css",
-      "Frameworks, CMS & Programmeertalen",
-      "Trial",
-      "TRUE",
-      "Utility-first CSS framework"
-    ],
-    [
-      "Teamcity",
-      "Platforms, infrastructure & Data",
-      "Assess",
-      "TRUE",
-      "CI/ CD Server"
-    ],
-    [
-      "TestCafe",
-      "Tooling en testing",
-      "Assess",
-      "TRUE",
-      "A node.js tool to automate end-to-end web testing"
-    ],
-    [
-      "Three.js",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "JS 3D Library"
-    ],
-    [
-      "Typescript",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "Superset of JS"
-    ],
-    ["Umbraco", "Frameworks, CMS & Programmeertalen", "Adopt", "TRUE"],
-    [
-      "Umbraco Heartcore",
-      "Frameworks, CMS & Programmeertalen",
-      "Trial",
-      "TRUE"
-    ],
-    [
-      "Umbraco uCommerce",
-      "Frameworks, CMS & Programmeertalen",
-      "Trial",
-      "TRUE"
-    ],
-    ["Vagrant", "Tooling en testing", "Adopt", "TRUE"],
-    ["Varnish", "Platforms, infrastructure & Data", "Adopt", "TRUE", "Caching"],
-    ["Visual Studio", "Tooling en testing", "Adopt", "TRUE"],
-    ["VMware", "Platforms, infrastructure & Data", "Adopt", "TRUE"],
-    [
-      "Vue.JS",
-      "Frameworks, CMS & Programmeertalen",
-      "Adopt",
-      "TRUE",
-      "JS Frontend Framework"
-    ],
-    ["Vuestorefront", "Frameworks, CMS & Programmeertalen", "Trial", "TRUE"],
-    ["WCAG 2.1", "Technieken", "Adopt", "TRUE"],
-    ["Web assembly", "Frameworks, CMS & Programmeertalen", "Assess", "TRUE"],
-    [
-      "Web components",
-      "Technieken",
-      "Adopt",
-      "TRUE",
-      "A suite of different technologies allowing you to create reusable custom elements for the web"
-    ],
-    [
-      "Webdriver",
-      "Tooling en testing",
-      "Assess",
-      "TRUE",
-      "WebDriver is a remote control interface that enables introspection and control of user agents"
-    ],
-    ["WebPack", "Tooling en testing", "Adopt", "TRUE", "Module Bundler"],
-    ["WordPress", "Frameworks, CMS & Programmeertalen", "Adopt", "TRUE"],
-    ["Yarn", "Tooling en testing", "Adopt", "TRUE", "Package manager"],
-    [
-      "Yarn workspaces",
-      "Technieken",
-      "Assess",
-      "TRUE",
-      "Private space for bundles packages "
-    ],
-    ["Yii PHP Framework", "Frameworks, CMS & Programmeertalen", "Hold", "TRUE"],
-    ["Zabbix", "Tooling en testing", "Adopt", "TRUE", "Monitoring"],
-    ["Ansible", "Tooling en testing", "Adopt", "TRUE"]
-  ]
+  values: [["name", "quadrant", "ring", "isNew", "description"], ...data]
 };
