@@ -12,6 +12,17 @@
          "inRadar": false
       },
       {
+         "name": "AngularJS (Angular 1)",
+         "quadrant": "Frameworks, CMS & Programmeertalen",
+         "ring": "Hold",
+         "label": "AngularJS (Angular 1)",
+         "description": "",
+         "active": true,
+         "link": "",
+         "moved": 0,
+         "inRadar": true
+      },
+      {
          "name": "A-Frame",
          "quadrant": "Frameworks, CMS & Programmeertalen",
          "ring": "Assess",
@@ -49,17 +60,6 @@
          "quadrant": "Frameworks, CMS & Programmeertalen",
          "ring": "Assess",
          "label": "Angular 2+",
-         "description": "",
-         "active": true,
-         "link": "",
-         "moved": 0,
-         "inRadar": true
-      },
-      {
-         "name": "AngularJS (Angular 1)",
-         "quadrant": "Frameworks, CMS & Programmeertalen",
-         "ring": "Hold",
-         "label": "AngularJS (Angular 1)",
          "description": "",
          "active": true,
          "link": "",

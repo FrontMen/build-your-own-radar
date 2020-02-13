@@ -11,6 +11,17 @@ const data = [
     inRadar: false
   },
   {
+    name: "ASP.NET MVC",
+    quadrant: "Frameworks, CMS & Programmeertalen",
+    ring: "Adopt",
+    label: "ASP.NET MVC",
+    description: "",
+    active: true,
+    link: "",
+    moved: 0,
+    inRadar: true
+  },
+  {
     name: "Alpine",
     quadrant: "Platforms, infrastructure & Data",
     ring: "Adopt",
@@ -129,17 +140,6 @@ const data = [
     ring: "Adopt",
     label: "Arc42 ",
     description: "Open Source Software Architectuur model",
-    active: true,
-    link: "",
-    moved: 0,
-    inRadar: true
-  },
-  {
-    name: "ASP.NET MVC",
-    quadrant: "Frameworks, CMS & Programmeertalen",
-    ring: "Adopt",
-    label: "ASP.NET MVC",
-    description: "",
     active: true,
     link: "",
     moved: 0,
