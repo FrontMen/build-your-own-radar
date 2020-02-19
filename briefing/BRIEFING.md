@@ -3,14 +3,15 @@ A briefing for creating the Intracto TechRadar. An SPA derived from an existing 
 
 ## Rationale
 
-Create a techradar webapp, much like the [https://www.thoughtworks.com/radar/techniques?blipid=1041](thoughtworks radar), with some UX/design changes to comply with Intracto styleguide and technical changes to suit our needs. We will deploy this SPA on the intracto site as part of our ongoing cooperation.
+Create a techradar webapp, much like the [thoughtworks radar](https://www.thoughtworks.com/radar/techniques?blipid=1041), with some UX/design changes to comply with Intracto styleguide and technical changes to suit our needs. We will deploy this SPA on the intracto site as part of our ongoing cooperation.
 
 Our techradar data is stored and modified in the folowing spreadsheet: https://docs.google.com/spreadsheets/d/1V2DJEiF7vmx-zhh4_kyUmDsUVF7zt40SSkkKDRoJXug/
+
 It's our database for now.
 The code in this fork supplies a fully functional techradar. It loads the data from `src/util/data/sheet.js`.
-This json file represents [https://docs.google.com/spreadsheets/d/1V2DJEiF7vmx-zhh4_kyUmDsUVF7zt40SSkkKDRoJXug/edit](the google spreadsheet).
+This json file represents [the google spreadsheet](https://docs.google.com/spreadsheets/d/1V2DJEiF7vmx-zhh4_kyUmDsUVF7zt40SSkkKDRoJXug/edit).
 
-Use the provided briefing.pdf (in the briefing folder) as reference and go through the notes carefully. Everything represented in this PDF should also be represented in [https://trello.com/b/LOCO82lQ/intracto-techradar](the trello) as task. We don't have dedicated documentation on the Intracto styleguide, so please use their [https://www.intracto.com/nl-nl](homepage) as reference. And check for colors/fonts/logo's in the provided briefing folder. 
+Use the provided briefing.pdf (in the briefing folder) as reference and go through the notes carefully. Everything represented in this PDF should also be represented in [the trello](https://trello.com/b/LOCO82lQ/intracto-techradar) as task. We don't have dedicated documentation on the Intracto styleguide, so please use [their homepage](https://www.intracto.com/nl-nl) as reference. And check for colors/fonts/logo's in the provided `/briefing` folder. 
 
 ### Technical specs
 
