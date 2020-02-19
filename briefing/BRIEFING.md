@@ -11,7 +11,30 @@ It's our database for now.
 The code in this fork supplies a fully functional techradar. It loads the data from `src/util/data/sheet.js`.
 This json file represents [the google spreadsheet](https://docs.google.com/spreadsheets/d/1V2DJEiF7vmx-zhh4_kyUmDsUVF7zt40SSkkKDRoJXug/edit).
 
-Use the provided briefing.pdf (in the briefing folder) as reference and go through the notes carefully. Everything represented in this PDF should also be represented in [the trello](https://trello.com/b/LOCO82lQ/intracto-techradar) as task. We don't have dedicated documentation on the Intracto styleguide, so please use [their homepage](https://www.intracto.com/nl-nl) as reference. And check for colors/fonts/logo's in the provided `/briefing` folder. 
+Use the provided briefing.pdf (in the briefing folder) as reference and go through the notes carefully. Everything represented in this PDF should also be represented in [the trello](https://trello.com/b/LOCO82lQ/intracto-techradar) as task. We don't have dedicated documentation on the Intracto styleguide, so please use [their homepage](https://www.intracto.com/nl-nl) as reference. And check for colors/fonts/logo's in the provided `/briefing` folder.
+
+Color Schema:
+--blue:#526de4;
+--indigo:#532778;
+--purple:#7843ab;
+--pink:#f8bfd1;
+--red:#ff5100;
+--orange:#fd7e14;
+--yellow:#fcea0b;
+--green:#31bd70;
+--teal:#20c997;
+--cyan:#17a2b8;
+--white:#fff;
+--gray:#6c757d;
+--gray-dark:#343a40;
+--primary:#526de4;
+--secondary:#767676;
+--success:#31bd70;
+--info:#17a2b8;
+--warning:#fcea0b;
+--danger:#ff5100;
+--light:#f8f9fa;
+--dark:#37383d; 
 
 ### Technical specs
 
