@@ -1,11 +1,11 @@
 
-A briefing for creating the Intracto TechRadar. An SPA derived from an existing TechRadar project build in vanilla js, jQuery and D3.
+A briefing for development and deployment the Intracto TechRadar webapp. A SPA derived from an existing TechRadar project build in vanilla js, jQuery and D3.
 
 ## Rationale
 
 Create a techradar webapp, much like the [thoughtworks radar](https://www.thoughtworks.com/radar/techniques?blipid=1041), with some UX/design changes to comply with Intracto styleguide and technical changes to suit our needs. We will deploy this SPA on the intracto site as part of our ongoing cooperation.
 
-Our techradar data is stored and modified in the folowing spreadsheet: https://docs.google.com/spreadsheets/d/1V2DJEiF7vmx-zhh4_kyUmDsUVF7zt40SSkkKDRoJXug/
+Our techradar data is stored and modified in the following spreadsheet: https://docs.google.com/spreadsheets/d/1V2DJEiF7vmx-zhh4_kyUmDsUVF7zt40SSkkKDRoJXug/
 
 It's our database for now.
 The code in this fork supplies a fully functional techradar. It loads the data from `src/util/data/sheet.js`.
