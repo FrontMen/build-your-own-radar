@@ -39,7 +39,6 @@
   "devDependencies": {
     "@bahmutov/add-typescript-to-cypress": "^2.1.2",
     "cypress": "^4.0.2",
-    "ts-jest": "^25.2.1",
-    "webpack": "^4.41.6"
+    "ts-jest": "^25.2.1"
   }
 }
