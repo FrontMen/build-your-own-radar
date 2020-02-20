@@ -10,8 +10,12 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@types/react-router": "^5.1.4",
+    "@types/react-router-dom": "^5.1.3",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "typescript": "~3.7.2"
   },
@@ -38,8 +42,14 @@
   },
   "devDependencies": {
     "@bahmutov/add-typescript-to-cypress": "^2.1.2",
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
     "cypress": "^4.0.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest": "^25.1.0",
     "prettier": "^1.19.1",
+    "react-test-renderer": "^16.12.0",
     "ts-jest": "^25.2.1"
   }
 }
