@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
-import { App } from '../App';
+import { App } from '../index';
 import { Router } from '../../../Router';
 
 describe('App', () => {
