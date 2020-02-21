@@ -1,6 +1,6 @@
 import React from 'react';
 import Details from '../Details';
-import { renderWithRouter } from '../../..//utils/tests';
+import { renderWithRouter } from '../../../../test/helpers';
 
 const TEST_ID = 'testId';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Home } from '../index';
-import { renderWithRouter } from '../../../utils/tests';
+import { renderWithRouter } from '../../../../test/helpers';
 
 describe('Home', () => {
   const { getByTestId } = renderWithRouter(<Home />);

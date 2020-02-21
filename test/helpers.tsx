@@ -9,14 +9,14 @@ interface Params {
   history?: History;
 }
 
-export function renderWithRouter(
+export const renderWithRouter = (
   ui: React.FunctionComponentElement<any>,
   {
     route = '/',
     path = '/',
     history = createMemoryHistory({ initialEntries: [route] }),
   }: Params = {},
-) {
+) => {
   const Wrapper = ({ children }: any) => (
     <Router history={history}>
       <Route path={path}> {children} </Route>
@@ -26,4 +26,4 @@ export function renderWithRouter(
     ...render(ui, { wrapper: Wrapper }),
     history,
   };
-}
+};
