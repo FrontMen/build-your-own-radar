@@ -1,9 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import { Home } from '../index';
+import { renderWithRouter } from '../../../../test/helpers';
 
 describe('Home', () => {
-  const { getByTestId } = render(<Home />);
+  const { getByTestId } = renderWithRouter(<Home />);
 
   it('should render correctly', () => {
     const container = getByTestId('home');
