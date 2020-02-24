@@ -5,10 +5,10 @@ import { MainContent, Header, Footer } from '../shared/PageSlots';
 
 export const Home: React.FC = () => (
   <PageGrid>
-    <Header ms={2}>
+    <Header ms={2} data-testid="home-title">
       <p>HOME PAGE</p>
     </Header>
-    <MainContent data-testid="home">
+    <MainContent>
       <p>This is for testing purposes, will be replaced with actual content</p>
       <Link to="/details/someId">link to technology details with someId</Link>
     </MainContent>

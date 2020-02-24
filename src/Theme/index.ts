@@ -10,11 +10,13 @@ export const baseTheme = {
   ModularScale: {
     base: 1,
     ratio: 1.5,
-    lineHeight: 1.65,
+    // TODO: this could be based on the Modular scale at a later point possibly
+    lineHeight: [1.65, 1.15],
   },
 
-  space: [0, 4, 8, 16, 32, 64, 128, 256],
 
+  space: [0, 4, 8, 16, 32, 64, 128, 256],
+  pageWidth: '60em',
   fonts: {
     primary: 'Montserrat, san-serif',
     body: 'Roboto, san-serif',
