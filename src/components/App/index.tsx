@@ -1,8 +1,14 @@
 import React from 'react';
 import { Router } from '../../Router';
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle } from '../../Theme/GlobalStyles';
+import { lightTheme } from '../../Theme';
 
 export const App: React.FC = () => (
-  <div className="App">
-    <Router data-testid="router" />
-  </div>
+  <ThemeProvider theme={lightTheme}>
+    <div className="App">
+      <GlobalStyle />
+      <Router data-testid="router" />
+    </div>
+  </ThemeProvider>
 );
