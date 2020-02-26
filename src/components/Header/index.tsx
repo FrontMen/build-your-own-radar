@@ -3,14 +3,14 @@ import { IoIosSearch } from 'react-icons/io';
 import styled from 'styled-components/macro';
 import { useMediaQuery } from 'react-responsive';
 import { MediaQueries } from '../../Theme/Helpers';
-import { Type } from '../../Theme/Typography';
+import { Typography } from '../../Theme/Typography';
 import { HeaderSlot } from '../shared/PageSlots';
 import { Logo } from './Logo';
 
 const PageTitle = styled.h1`
   margin: 0;
   font-size: ${props => props.theme.fontSize[1]}em;
-  ${Type.header}
+  ${Typography.header}
 
   @media ${MediaQueries.phablet} {
     font-size: ${props => props.theme.fontSize[2]}em;

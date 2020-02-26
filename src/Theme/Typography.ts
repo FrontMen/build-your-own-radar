@@ -1,6 +1,6 @@
 import { css } from 'styled-components/macro';
 
-export const Type = {
+export const Typography = {
   body: css`
     font-family: ${props => props.theme.fonts.primary};
     font-size: ${props => props.theme.fontSize[0]}em;
