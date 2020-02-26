@@ -1,12 +1,12 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components/macro';
 import { LightThemeType } from '.';
 
 export const GlobalStyle = createGlobalStyle<{ theme: LightThemeType }>`
     body {
         font-size: 16px;
-        font-family: ${({ theme }) => theme.fonts.body};
-        line-height: ${({ theme }) => theme.ModularScale.lineHeight};
-        color: ${({ theme }) => theme.colors.body};
-        background-color: ${({ theme }) => theme.colors.background};
+        font-family: ${props => props.theme.fonts.body};
+        line-height: ${props => props.theme.lineHeight};
+        color: ${props => props.theme.colors.body};
+        background-color: ${props => props.theme.colors.background};
     }
 `;
