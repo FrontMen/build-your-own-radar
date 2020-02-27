@@ -3,14 +3,14 @@ import { IoIosSearch } from 'react-icons/io';
 import styled from 'styled-components/macro';
 import { useMediaQuery } from 'react-responsive';
 import { MediaQueries } from '../../Theme/Helpers';
-import { Type } from '../../Theme/Typography';
+import { Typography } from '../../Theme/Typography';
 import { HeaderSlot } from '../shared/PageSlots';
 import { Logo } from './Logo';
 
 const PageTitle = styled.h1`
   margin: 0;
   font-size: ${props => props.theme.fontSize[1]}em;
-  ${Type.header}
+  ${Typography.header}
 
   @media ${MediaQueries.phablet} {
     font-size: ${props => props.theme.fontSize[2]}em;
@@ -30,7 +30,7 @@ export const Header = () => {
   const isNotMobile = useMediaQuery({ query: MediaQueries.phablet });
 
   return (
-    <HeaderSlot data-testid="home-title">
+    <HeaderSlot>
       {/* TODO: Decide what to call this page ånd how to show FM logo/branding */}
       <PageTitle>FM Tech Radar</PageTitle>
       {/* TODO: this can switch between an expanded and collapsed logo dependant on the screen size? */}

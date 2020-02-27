@@ -1,16 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PageGrid } from '../shared/PageGrid';
-import { MainContentSlot, FooterSlot } from '../shared/PageSlots';
-import { Header } from '../Header';
+import { MainContentSlot } from '../shared/PageSlots';
 
 export const Home: React.FC = () => (
-  <PageGrid>
-    <Header />
-    <MainContentSlot>
-      <p>This is for testing purposes, will be replaced with actual content</p>
-      <Link to="/details/someId">link to technology details with someId</Link>
-    </MainContentSlot>
-    <FooterSlot>® Frontmen 2020</FooterSlot>
-  </PageGrid>
+  <MainContentSlot data-testid="home-title">
+    <p>Welcome to the FM Tech Radar! This is for testing purposes, will be replaced with actual content</p>
+    <Link to="/details/someId">link to technology details with someId</Link>
+  </MainContentSlot>
 );

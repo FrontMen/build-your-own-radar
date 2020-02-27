@@ -7,6 +7,6 @@ describe('Home', () => {
 
   it('should render correctly', () => {
     const container = getByTestId('home-title');
-    expect(container).toHaveTextContent('FM Tech Radar');
+    expect(container).toHaveTextContent('Welcome to the FM Tech Radar!');
   });
 });
