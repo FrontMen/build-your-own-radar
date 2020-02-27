@@ -6,6 +6,7 @@ import { useLocation } from 'react-router';
 
 import { MainContentSlot } from '../shared/PageSlots';
 import { TechLists } from './TechLists';
+import { useMediaQuery } from 'react-responsive';
 
 const Title = styled.h2`
 ${Typography.header}
@@ -13,8 +14,11 @@ font-size: ${props => props.theme.fontSize[1]}em;
 text-transform: capitalize;
 
 
+
 @media ${MediaQueries.phablet}{
     font-size: ${props => props.theme.fontSize[2]}em;
+    
+    margin-top: 0;
 }
 `;
 
@@ -26,7 +30,7 @@ const RadarPlaceholder = styled.div<CornerTypes>`
   background-color: ${props => props.theme.pallet.blue};
   ${props => `border-${props.corner}-radius`}: 100%;
   align-self: ${props =>
-    props.corner == 'top-left' || props.corner === 'bottom-left'
+    props.corner === 'top-left' || props.corner === 'bottom-left'
       ? 'flex-end'
       : 'flex-start'};
   width: 400px;
@@ -38,28 +42,54 @@ const RadarPlaceholder = styled.div<CornerTypes>`
     display: block;
     padding-bottom: 100%;
   }
+
+  @media ${MediaQueries.phablet} {
+    align-self: flex-start;
+  }
 `;
 
-const TitleSection = styled.div`
+const MobileTitleSection = styled.div`
   display: flex;
   flex-direction: column-reverse;
   align-content: space-between;
 
-  @media ${MediaQueries.desktop} {
+  @media ${MediaQueries.phablet} {
     flex-direction: row;
+    align-content: unset;
   }
+`;
+
+const LeftColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  max-width: 400px;
+`;
+
+const PhabletContainer = styled(MainContentSlot)`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const Quadrant = () => {
   let location = useLocation();
   let title = location.pathname.substring(1);
-  console.log(location);
-  return (
+  const isNotMobile = useMediaQuery({ query: MediaQueries.phablet });
+
+  return isNotMobile ? (
+    <PhabletContainer>
+      <LeftColumn>
+        <Title>{title}</Title>
+        <TechLists />
+      </LeftColumn>
+      <RadarPlaceholder corner={'top-left'} />
+    </PhabletContainer>
+  ) : (
     <MainContentSlot>
-      <TitleSection>
+      <MobileTitleSection>
         <Title>{title}</Title>
         <RadarPlaceholder corner={'top-left'} />
-      </TitleSection>
+      </MobileTitleSection>
       <TechLists />
     </MainContentSlot>
   );

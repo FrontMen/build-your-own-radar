@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PageGrid } from '../shared/PageGrid';
-import { MainContentSlot, FooterSlot } from '../shared/PageSlots';
-import { Header } from '../Header';
+import { MainContentSlot } from '../shared/PageSlots';
 
 export const Home: React.FC = () => (
   <MainContentSlot>
