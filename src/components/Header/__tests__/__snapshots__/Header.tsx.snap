@@ -4,7 +4,6 @@ exports[`Header matches the snapshot 1`] = `
 <div>
   <div
     class="PageSlots__HeaderSlot-sc-1quj5xc-1 hkvQSP"
-    data-testid="home-title"
   >
     <h1
       class="Header__PageTitle-sc-11a7r60-0 gOOoJb"
@@ -47,7 +46,6 @@ exports[`Header matches the snapshot 2`] = `
 <div>
   <div
     class="PageSlots__HeaderSlot-sc-1quj5xc-1 hkvQSP"
-    data-testid="home-title"
   >
     <h1
       class="Header__PageTitle-sc-11a7r60-0 gOOoJb"

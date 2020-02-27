@@ -30,7 +30,7 @@ export const Header = () => {
   const isNotMobile = useMediaQuery({ query: MediaQueries.phablet });
 
   return (
-    <HeaderSlot data-testid="home-title">
+    <HeaderSlot>
       {/* TODO: Decide what to call this page ånd how to show FM logo/branding */}
       <PageTitle>FM Tech Radar</PageTitle>
       {/* TODO: this can switch between an expanded and collapsed logo dependant on the screen size? */}
