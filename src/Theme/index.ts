@@ -54,6 +54,3 @@ export const lightTheme = {
     blocks: baseTheme.pallet.light,
   },
 };
-
-
-export const foo = 'bar';
