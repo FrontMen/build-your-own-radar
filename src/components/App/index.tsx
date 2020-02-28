@@ -1,8 +1,8 @@
 import React from 'react';
-import { Router } from '../../Router';
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyle } from '../../Theme/GlobalStyles';
-import { lightTheme } from '../../Theme';
+import { Router } from 'src/Router';
+import { ThemeProvider } from 'styled-components/macro';
+import { GlobalStyle } from 'src/Theme/GlobalStyles';
+import { lightTheme } from 'src/Theme';
 
 export const App: React.FC = () => (
   <ThemeProvider theme={lightTheme}>
