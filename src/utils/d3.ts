@@ -101,8 +101,8 @@ const viewbox = (quadrant: number) =>
   [
     Math.max(0, quadrants[quadrant].factor_x * 400) - 420,
     Math.max(0, quadrants[quadrant].factor_y * 400) - 420,
-    440,
-    440,
+    420,
+    420,
   ].join(' ');
 
 const showBubble = (technology: Technology) => {
@@ -225,26 +225,26 @@ export const radar_visualization = (
   filter.append('feComposite').attr('in', 'SourceGraphic');
 
   // draw rings
-  for (let i = 0; i < rings.length; i++) {
+  for (let i = 3; i >= 0; i--) {
     grid
       .append('circle')
       .attr('cx', 0)
       .attr('cy', 0)
       .attr('r', rings[i].radius)
-      .style('fill', 'none')
-      .style('stroke', config.colors.grid)
+      .style('fill', config.rings[i].backgroundColor)
+      // .style('stroke', config.colors.grid)
       .style('stroke-width', 1);
-    grid
-      .append('text')
-      .text(config.rings[i].name)
-      .attr('y', -rings[i].radius + 62)
-      .attr('text-anchor', 'middle')
-      .style('fill', '#e5e5e5')
-      .style('font-family', 'Arial, Helvetica')
-      .style('font-size', 42)
-      .style('font-weight', 'bold')
-      .style('pointer-events', 'none')
-      .style('user-select', 'none');
+    // grid
+    //   .append('text')
+    //   .text(config.rings[i].name)
+    //   .attr('y', -rings[i].radius + 62)
+    //   .attr('text-anchor', 'middle')
+    //   .style('fill', '#e5e5e5')
+    //   .style('font-family', 'Arial, Helvetica')
+    //   .style('font-size', 42)
+    //   .style('font-weight', 'bold')
+    //   .style('pointer-events', 'none')
+    //   .style('user-select', 'none');
   }
 
   // layer for entries

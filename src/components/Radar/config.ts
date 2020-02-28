@@ -3,7 +3,7 @@ export const config = {
   width: 1450,
   height: 1000,
   colors: {
-    background: '#fff',
+    background: 'none',
     grid: '#bbb',
     inactive: '#ddd',
   },
@@ -14,10 +14,10 @@ export const config = {
     { name: 'Data Management' },
   ],
   rings: [
-    { name: 'ADOPT', color: '#93c47d' },
-    { name: 'TRIAL', color: '#93d2c2' },
-    { name: 'ASSESS', color: '#fbdb84' },
-    { name: 'HOLD', color: '#efafa9' },
+    { name: 'ADOPT', color: '#17a2b8', backgroundColor: '#BFC0BF'},
+    { name: 'TRIAL', color: '#17a2b8', backgroundColor: '#CBCCCB' },
+    { name: 'ASSESS', color: '#17a2b8', backgroundColor: '#D7D8D6'},
+    { name: 'HOLD', color: '#17a2b8', backgroundColor: '#E4E5E4' },
   ],
   // zoomed_quadrant: 1,
 };

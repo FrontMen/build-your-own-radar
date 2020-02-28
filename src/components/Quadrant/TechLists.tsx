@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import { Typography } from 'src/Theme/Typography';
 import { MediaQueries } from 'src/Theme/Helpers';
@@ -21,20 +21,40 @@ ${Typography.header}
 }
 `;
 
-const List = styled.div`
+const List = styled.ul`
+  padding-left: 0;
   display: flex;
   flex-direction: column;
 `;
 
-export const TechLists = () => {
+interface TechnologiesListProps {
+  technologies: Technology[];
+  highlighted: string | null;
+  setHighlighted: (a: string | null) => void;
+}
+
+export const TechLists: React.FC<TechnologiesListProps> = ({
+  technologies,
+  highlighted,
+  setHighlighted,
+}) => {
+  const [active, setActive] = useState<null | string>(null);
+
   return (
     <Section>
       {Object.keys(QuadrantMockData).map((key, i) => (
         <React.Fragment key={i}>
           <Title>{key}</Title>
           <List>
-            {QuadrantMockData[key].map((item: { [K: string]: string }, i) => (
-              <TechItem key={i} item={item} />
+            {technologies.map(technology => (
+              <TechItem
+                technology={technology}
+                key={technology.label}
+                active={active}
+                setActive={setActive}
+                highlighted={highlighted}
+                setHighlighted={setHighlighted}
+              />
             ))}
           </List>
         </React.Fragment>
