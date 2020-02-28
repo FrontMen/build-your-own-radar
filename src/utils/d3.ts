@@ -12,12 +12,7 @@ const rings = [
   { radius: 310 },
   { radius: 400 },
 ];
-const legend_offset = [
-  { x: 450, y: 90 },
-  { x: -675, y: 90 },
-  { x: -675, y: -310 },
-  { x: 450, y: -310 },
-];
+
 let seed = 42;
 const NUMBER_OF_RINGS = 4;
 
@@ -110,23 +105,6 @@ const viewbox = (quadrant: number) =>
     440,
   ].join(' ');
 
-const legend_transform = (
-  quadrant: number,
-  ring: number,
-  segmented: Segmented,
-  index: number | null = null,
-) => {
-  const dx = ring < 2 ? 0 : 120;
-  let dy = index == null ? -16 : index * 12;
-  if (ring % 2 === 1) {
-    dy = dy + 36 + segmented[quadrant][ring - 1].length * 12;
-  }
-  return translate(
-    legend_offset[quadrant].x + dx,
-    legend_offset[quadrant].y + dy,
-  );
-};
-
 const showBubble = (technology: Technology) => {
   const tooltip = d3
     .select<SVGTextElement, SVGTextElement>('#bubble text')
@@ -158,36 +136,15 @@ const hideBubble = () => {
     .style('opacity', 0);
 };
 
-const highlightLegendItem = ({ id }: Technology) => {
-  const legendItem = document.getElementById('legendItem' + id);
-  if (legendItem) {
-    legendItem.setAttribute('filter', 'url(#solid)');
-    legendItem.setAttribute('fill', 'white');
-  }
-};
-
-const unhighlightLegendItem = ({ id }: Technology) => {
-  const legendItem = document.getElementById('legendItem' + id);
-  if (legendItem) {
-    legendItem.removeAttribute('filter');
-    legendItem.removeAttribute('fill');
-  }
-};
-
-const mouseOverListner = (technology: Technology) => {
-  showBubble(technology);
-  highlightLegendItem(technology);
-};
-
-const mouseOutListner = (technology: Technology) => {
-  hideBubble();
-  unhighlightLegendItem(technology);
-};
-
 const sortTechnologyByLabel = (a: Technology, b: Technology) =>
   a.label.localeCompare(b.label);
 
-export const radar_visualization = (data: Technology[], config: any) => {
+export const radar_visualization = (
+  data: Technology[],
+  config: any,
+  setHighlighted: (a: string | null) => void,
+  { width, height }: { width: number; height: number },
+) => {
   // partition entries according to segments
   const segmented: Segmented = new Array(4);
   for (let quadrant = 0; quadrant < 4; quadrant++) {
@@ -221,14 +178,17 @@ export const radar_visualization = (data: Technology[], config: any) => {
   const svg = d3
     .select('#' + config.svg_id)
     .style('background-color', config.colors.background)
-    .attr('width', config.width)
-    .attr('height', config.height);
+    .attr('width', width || config.width)
+    .attr('height', height || config.height);
 
   const radar = svg.append('g');
   if ('zoomed_quadrant' in config) {
     svg.attr('viewBox', viewbox(config.zoomed_quadrant));
   } else {
-    radar.attr('transform', translate(config.width / 2, config.height / 2));
+    // radar.attr('transform', translate(config.width / 2, config.height / 2));
+    radar.attr('transform', translate(400, 400));
+    svg.attr('viewBox', viewbox(0));
+
   }
 
   const grid = radar.append('g');
@@ -287,44 +247,6 @@ export const radar_visualization = (data: Technology[], config: any) => {
       .style('user-select', 'none');
   }
 
-  // legend
-  const legend = radar.append('g');
-  for (let quadrant = 0; quadrant < 4; quadrant++) {
-    legend
-      .append('text')
-      .attr(
-        'transform',
-        translate(legend_offset[quadrant].x, legend_offset[quadrant].y - 45),
-      )
-      .text(config.quadrants[quadrant].name)
-      .style('font-family', 'Arial, Helvetica')
-      .style('font-size', '18');
-    for (let ring = 0; ring < 4; ring++) {
-      legend
-        .append('text')
-        .attr('transform', legend_transform(quadrant, ring, segmented))
-        .text(config.rings[ring].name)
-        .style('font-family', 'Arial, Helvetica')
-        .style('font-size', '12')
-        .style('font-weight', 'bold');
-      legend
-        .selectAll('.legend' + quadrant + ring)
-        .data(segmented[quadrant][ring])
-        .enter()
-        .append('text')
-        .attr('transform', (d, i) =>
-          legend_transform(quadrant, ring, segmented, i),
-        )
-        .attr('class', 'legend' + quadrant + ring)
-        .attr('id', ({ id }) => `legendItem${id}`)
-        .text(({ id, label }) => `${id}. ${label}`)
-        .style('font-family', 'Arial, Helvetica')
-        .style('font-size', '11')
-        .on('mouseover', mouseOverListner)
-        .on('mouseout', mouseOutListner);
-    }
-  }
-
   // layer for entries
   const rink = radar.append('g').attr('id', 'rink');
 
@@ -352,6 +274,16 @@ export const radar_visualization = (data: Technology[], config: any) => {
     .attr('d', 'M 0,0 10,0 5,8 z')
     .style('fill', '#333');
 
+  const mouseOverListner = (technology: Technology) => {
+    showBubble(technology);
+    setHighlighted(technology.label);
+  };
+
+  const mouseOutListner = () => {
+    hideBubble();
+    setHighlighted(null);
+  };
+
   // draw blips on radar
   const blips = rink
     .selectAll('.blip')
@@ -359,9 +291,6 @@ export const radar_visualization = (data: Technology[], config: any) => {
     .enter()
     .append('g')
     .attr('class', 'blip')
-    .attr('transform', (d, i) =>
-      legend_transform(d.quadrant, d.ring, segmented, i),
-    )
     .on('mouseover', mouseOverListner)
     .on('mouseout', mouseOutListner);
 
@@ -426,4 +355,6 @@ export const radar_visualization = (data: Technology[], config: any) => {
         .strength(0.85),
     )
     .on('tick', ticked);
+
+  return showBubble;
 };

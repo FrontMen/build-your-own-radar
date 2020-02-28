@@ -19,5 +19,5 @@ export const config = {
     { name: 'ASSESS', color: '#fbdb84' },
     { name: 'HOLD', color: '#efafa9' },
   ],
-  // zoomed_quadrant: 0,
+  // zoomed_quadrant: 1,
 };

@@ -14,7 +14,7 @@ interface Segment {
   random: () => Point;
 }
 
-interface Technology {
+interface Technology extends Partial<Point> {
   quadrant: number;
   ring: number;
   label: string;
@@ -22,10 +22,16 @@ interface Technology {
   link: string;
   moved: number;
   segment?: Segment;
-  x?: number;
-  y?: number;
   color?: string;
   id?: string;
+  history?: string;
 }
 
 type Segmented = Array<Array<Technology[]>>
+
+interface ListChildComponentPropsWithData<T> {
+  index: number;
+  style: CSSProperties;
+  data: T;
+  isScrolling?: boolean;
+}
