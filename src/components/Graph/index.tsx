@@ -35,14 +35,14 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   }, [technologies, quadrant, setHighlighted]);
 
   useEffect(() => {
-    /* TODO: this can be refactored when we switch to a proper data source doing 
-       a lookup seems inefficient as we already know which item is being 
+    /* TODO: this can be refactored when we switch to a proper data source doing
+       a lookup seems inefficient as we already know which item is being
        highlighted. */
     const technology = technologies?.find(t => t.label === highlighted);
     if (technology) {
       d3Obj.current?.(technologies?.find(t => t.label === highlighted));
     }
-  }, [highlighted]);
+  }, [highlighted, technologies]);
 
   return <svg ref={d3Container} />;
 };

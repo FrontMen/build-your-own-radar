@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import styled from 'styled-components/macro';
 import { Typography } from 'src/Theme/Typography';
 import { MediaQueries } from 'src/Theme/Helpers';
@@ -8,7 +8,6 @@ import { MainContentSlot } from '../shared/PageSlots';
 import { TechLists } from './TechLists';
 import { useMediaQuery } from 'react-responsive';
 import { useAppState } from 'src/hooks/useAppState';
-import { radar_visualization } from 'src/utils/d3';
 import { d3Config } from 'src/utils/d3-config';
 import { Graph } from '../Graph';
 
