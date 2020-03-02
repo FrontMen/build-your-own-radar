@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { LightThemeType } from '../../Theme';
+import { LightThemeType } from 'src/Theme';
 
 export const MainContentSlot = styled.div`
   grid-area: main;

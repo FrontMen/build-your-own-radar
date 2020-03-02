@@ -1,7 +1,7 @@
 import React from 'react';
 import { Context as ResponsiveContext } from 'react-responsive';
 import { Header } from '..';
-import { withAllProviders } from '../../../../test/helpers';
+import { withAllProviders } from 'test/helpers';
 
 describe('Header', () => {
     /* test to check that the mobile and larger snapshot don't change unintentionally */

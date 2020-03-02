@@ -3,7 +3,7 @@ import { Router, Route } from 'react-router-dom';
 import { createMemoryHistory, History } from 'history';
 import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components/macro';
-import { lightTheme } from '../src/Theme';
+import { lightTheme } from 'src/Theme';
 
 interface Params {
   route?: string;
