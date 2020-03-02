@@ -105,7 +105,7 @@ const viewbox = (quadrant: number) =>
     420,
   ].join(' ');
 
-const showBubble = (technology: Technology) => {
+export const showBubble = (technology: Technology) => {
   const tooltip = d3
     .select<SVGTextElement, SVGTextElement>('#bubble text')
     .text(technology.label)
@@ -361,6 +361,4 @@ export const radar_visualization = (
         .strength(0.85),
     )
     .on('tick', ticked);
-
-  return showBubble;
 };

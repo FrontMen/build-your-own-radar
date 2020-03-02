@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { radar_visualization } from 'src/utils/d3';
+import { radar_visualization, showBubble } from 'src/utils/d3';
 import { d3Config } from 'src/utils/d3-config';
 
 interface TechnologiesListProps {
@@ -16,11 +16,10 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   setHighlighted,
 }) => {
   const d3Container = useRef<SVGSVGElement>(null);
-  const d3Obj = useRef<any>();
 
   useEffect(() => {
     if (technologies.length && d3Container.current) {
-      d3Obj.current = radar_visualization(
+      radar_visualization(
         d3Container.current,
         technologies,
         d3Config,
@@ -40,7 +39,7 @@ export const Graph: React.FC<TechnologiesListProps> = ({
        highlighted. */
     const technology = technologies?.find(t => t.label === highlighted);
     if (technology) {
-      d3Obj.current?.(technologies?.find(t => t.label === highlighted));
+      showBubble(technology);
     }
   }, [highlighted, technologies]);
 
