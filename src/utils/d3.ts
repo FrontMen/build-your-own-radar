@@ -139,12 +139,27 @@ const hideBubble = () => {
 const sortTechnologyByLabel = (a: Technology, b: Technology) =>
   a.label.localeCompare(b.label);
 
+export interface RadarVisualizationParams {
+  width: number;
+  height: number;
+  quadrant?: number;
+}
+
 export const radar_visualization = (
   data: Technology[],
   config: any,
   setHighlighted: (a: string | null) => void,
-  { width, height }: { width: number; height: number },
+  { width, height, quadrant: quadrantProp }: RadarVisualizationParams,
 ) => {
+
+  const svg = d3
+    .select('#' + config.svg_id)
+    .style('background-color', config.colors.background)
+    .attr('width', width || config.width)
+    .attr('height', height || config.height);
+
+  svg.html('');
+
   // partition entries according to segments
   const segmented: Segmented = new Array(4);
   for (let quadrant = 0; quadrant < 4; quadrant++) {
@@ -175,20 +190,11 @@ export const radar_visualization = (
     }
   }
 
-  const svg = d3
-    .select('#' + config.svg_id)
-    .style('background-color', config.colors.background)
-    .attr('width', width || config.width)
-    .attr('height', height || config.height);
-
   const radar = svg.append('g');
-  if ('zoomed_quadrant' in config) {
-    svg.attr('viewBox', viewbox(config.zoomed_quadrant));
+  if (quadrantProp !== undefined) {
+    svg.attr('viewBox', viewbox(quadrantProp));
   } else {
-    // radar.attr('transform', translate(config.width / 2, config.height / 2));
-    radar.attr('transform', translate(400, 400));
-    svg.attr('viewBox', viewbox(0));
-
+    radar.attr('transform', translate(width / 2, height / 2));
   }
 
   const grid = radar.append('g');
@@ -234,7 +240,7 @@ export const radar_visualization = (
       .style('fill', config.rings[i].backgroundColor)
       // .style('stroke', config.colors.grid)
       .style('stroke-width', 1);
-    // grid
+    //ring names displaying
     //   .append('text')
     //   .text(config.rings[i].name)
     //   .attr('y', -rings[i].radius + 62)

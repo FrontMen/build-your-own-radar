@@ -1,7 +1,5 @@
-export const config = {
+export const d3Config = {
   svg_id: 'radar',
-  width: 1450,
-  height: 1000,
   colors: {
     background: 'none',
     grid: '#bbb',
@@ -19,5 +17,4 @@ export const config = {
     { name: 'ASSESS', color: '#17a2b8', backgroundColor: '#D7D8D6'},
     { name: 'HOLD', color: '#17a2b8', backgroundColor: '#E4E5E4' },
   ],
-  // zoomed_quadrant: 1,
 };

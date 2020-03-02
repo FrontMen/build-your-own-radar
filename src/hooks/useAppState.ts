@@ -2,7 +2,7 @@ import { useEffect, useReducer } from 'react';
 import { mockData } from '../mock';
 
 export interface AppState {
-  technologies: Technology[] | null;
+  technologies: Technology[];
   selected: Technology | null;
 }
 
@@ -32,7 +32,7 @@ type Actions = {
   [K in keyof typeof actionCreators]: ReturnType<typeof actionCreators[K]>;
 }[keyof typeof actionCreators];
 
-const initialState: AppState = { technologies: null, selected: null };
+const initialState: AppState = { technologies: [], selected: null };
 
 const reducer = (state: AppState, action: Actions): AppState => {
   switch (action.type) {
