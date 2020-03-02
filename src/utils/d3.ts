@@ -146,14 +146,14 @@ export interface RadarVisualizationParams {
 }
 
 export const radar_visualization = (
+  container: any,
   data: Technology[],
   config: any,
   setHighlighted: (a: string | null) => void,
   { width, height, quadrant: quadrantProp }: RadarVisualizationParams,
 ) => {
-
   const svg = d3
-    .select('#' + config.svg_id)
+    .select(container)
     .style('background-color', config.colors.background)
     .attr('width', width || config.width)
     .attr('height', height || config.height);

@@ -10,6 +10,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useAppState } from 'src/hooks/useAppState';
 import { radar_visualization } from 'src/utils/d3';
 import { d3Config } from 'src/utils/d3-config';
+import { Graph } from '../Graph';
 
 const Title = styled.h2`
   font-size: ${props => props.theme.fontSize[1]}em;
@@ -83,29 +84,6 @@ export const Quadrant = () => {
   } = useAppState();
   const [highlighted, setHighlighted] = useState<null | string>(null);
 
-  const hack = useRef<any>();
-  useEffect(() => {
-    if (technologies.length) {
-      hack.current = radar_visualization(
-        technologies,
-        d3Config,
-        setHighlighted,
-        {
-          width: 460,
-          height: 460,
-          quadrant,
-        },
-      );
-    }
-  }, [technologies, quadrant]);
-
-  useEffect(() => {
-    const technology = technologies?.find(t => t.label === highlighted);
-    if (technology) {
-      hack.current?.(technologies?.find(t => t.label === highlighted));
-    }
-  }, [highlighted]);
-
   const data = useMemo(
     () => technologies.filter(technology => technology.quadrant === quadrant),
     [quadrant, technologies],
@@ -126,14 +104,23 @@ export const Quadrant = () => {
           }))}
         />
       </LeftColumn>
-      <svg id={'radar'} />
-      {/*<RadarPlaceholder corner={'top-left'} />*/}
+      <Graph
+        highlighted={highlighted}
+        quadrant={quadrant}
+        setHighlighted={setHighlighted}
+        technologies={data}
+      />
     </PhabletContainer>
   ) : (
     <MainContentSlot>
       <MobileTitleSection>
         <Title>{quadrantParam}</Title>
-        <svg id={'radar'} />
+        <Graph
+          highlighted={highlighted}
+          quadrant={quadrant}
+          setHighlighted={setHighlighted}
+          technologies={data}
+        />
       </MobileTitleSection>
       <TechLists
         quadrant={quadrant}
