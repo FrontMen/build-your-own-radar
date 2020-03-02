@@ -64,7 +64,7 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
           [key: string]: Technology[];
         },
       ),
-    [quadrant, technologies],
+    [technologies],
   );
 
   return (

@@ -307,7 +307,6 @@ export const radar_visualization = (
 
     // blip link
     if (technology.active && technology.hasOwnProperty('link')) {
-      // blip = blip.append('a').attr('xlink:href', technology.link); ??? why assignment
       blip.append('a').attr('xlink:href', technology.link);
     }
 
