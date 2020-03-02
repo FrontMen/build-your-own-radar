@@ -63,7 +63,9 @@ export class TechItem extends React.Component<TechnologyProps> {
 
   handleMouseOver = () =>
     this.props.setHighlighted(this.props.technology.label);
+
   handleMouseOut = () => this.props.setHighlighted(null);
+
   handleClick = () => {
     const {
       setActive,

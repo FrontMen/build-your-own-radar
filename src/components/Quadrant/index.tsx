@@ -23,33 +23,6 @@ const Title = styled.h2`
   ${Typography.header}
 `;
 
-//TODO: cleanup after finishing styling for radar container
-
-// type CornerTypes = {
-//   corner: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
-// };
-// const RadarPlaceholder = styled.div<CornerTypes>`
-//   background-color: ${props => props.theme.pallet.blue};
-//   ${props => `border-${props.corner}-radius`}: 100%;
-//   align-self: ${props =>
-//     props.corner === 'top-left' || props.corner === 'bottom-left'
-//       ? 'flex-end'
-//       : 'flex-start'};
-//   width: 400px;
-//   display: block;
-//   max-width: 400px;
-//
-//   :after {
-//     content: '';
-//     display: block;
-//     padding-bottom: 100%;
-//   }
-//
-//   @media ${MediaQueries.phablet} {
-//     align-self: flex-start;
-//   }
-// `;
-
 const MobileTitleSection = styled.div`
   display: flex;
   flex-direction: column-reverse;
