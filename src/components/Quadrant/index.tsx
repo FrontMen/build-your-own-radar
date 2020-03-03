@@ -68,7 +68,7 @@ export const Quadrant = () => {
           setHighlighted={setHighlighted}
           technologies={data.map((t, i) => ({
             ...t,
-            history:
+            details:
               'lkdjfgkjdfgl dflkjg ldfkjg'.repeat(i + 1),
           }))}
         />
@@ -97,7 +97,7 @@ export const Quadrant = () => {
         setHighlighted={setHighlighted}
         technologies={data.map(t => ({
           ...t,
-          history:
+          details:
             'lkdjfgkjdfgl dflkjg ldfkjg ldfjg kldfjg kldfjg kldjfglkjdfgl kdfjglkjdflkgjdflkjg lkdfjglkdjfgljdflkgj dfkjglkdjfk',
         }))}
       />

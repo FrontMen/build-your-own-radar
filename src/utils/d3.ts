@@ -111,7 +111,7 @@ export const showBubble = (technology: Technology) => {
     .text(technology.label)
     .node();
   if (tooltip) {
-    const bbox = tooltip.getBBox();
+    const bbox = tooltip.getBBox?.() || { width: 0, height: 0 }; // default value for testing env
     d3.select('#bubble')
       .attr(
         'transform',
@@ -154,10 +154,10 @@ export const radar_visualization = (
 ) => {
   const svg = d3
     .select(container)
-    .style('background-color', config.colors.background)
-    // removed to make the chart responsive
-    // .attr('width', width || config.width)
-    // .attr('height', height || config.height);
+    .style('background-color', config.colors.background);
+  // removed to make the chart responsive
+  // .attr('width', width || config.width)
+  // .attr('height', height || config.height);
 
   svg.html('');
 
@@ -305,6 +305,8 @@ export const radar_visualization = (
   blips.each(function(technology) {
     //
     let blip = d3.select(this);
+
+    blip.attr('data-testid', technology.label);
 
     // blip link
     if (technology.active && technology.hasOwnProperty('link')) {

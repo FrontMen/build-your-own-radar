@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TechItem it should matches the snapshot with default values 1`] = `
+.c0 {
+  list-style: none;
+  width: 100%;
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.c2 {
+  max-height: 0px;
+  -webkit-transition: max-height 0.2s ease-in-out;
+  transition: max-height 0.2s ease-in-out;
+  overflow: hidden;
+}
+
+.c1 {
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  cursor: pointer;
+  padding: 0px 4px;
+  border: 1px solid white;
+}
+
+@media (min-width:481px) {
+  .c0 {
+    min-width: 9em;
+    width: 50%;
+  }
+}
+
+<div>
+  <li
+    class="c0"
+  >
+    <div
+      class="c1"
+      data-testid="label"
+    >
+      AWS EMR
+    </div>
+    <div
+      class="c2"
+      data-testid="details"
+    />
+  </li>
+</div>
+`;
