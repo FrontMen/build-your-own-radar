@@ -6,9 +6,9 @@ import { TechItem } from './TechItem';
 import { d3Config } from 'src/utils/d3-config';
 
 const Section = styled.div`
-  display: flex;
-  flex-direction: column;
   width: 100%;
+  column-width: auto;
+  column-count: 2;
 `;
 
 const Title = styled.h3`
@@ -27,11 +27,7 @@ const List = styled.ul`
   margin: 0;
   margin-bottom: ${props => props.theme.space[4]}px;
   width: 100%;
-  column-width: auto;
-  column-count: 1;
-  @media ${MediaQueries.phablet} {
-    column-count: 2;
-  }
+  break-inside: avoid;
 `;
 
 interface TechnologiesListProps {
