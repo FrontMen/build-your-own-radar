@@ -12,14 +12,14 @@ const Section = styled.div`
 `;
 
 const Title = styled.h3`
-${Typography.header}
-font-size: ${props => props.theme.fontSize[0]};
-margin: 0;
-margin-bottom: ${props => props.theme.space[2]}px;
+  ${Typography.header};
+  font-size: ${props => props.theme.fontSize[0]};
+  margin: 0;
+  margin-bottom: ${props => props.theme.space[2]}px;
 
-@media ${MediaQueries.phablet} {
+  @media ${MediaQueries.phablet} {
     font-size: ${props => props.theme.fontSize[1]};
-}
+  }
 `;
 
 const List = styled.ul`
@@ -30,7 +30,7 @@ const List = styled.ul`
   break-inside: avoid;
 `;
 
-interface TechnologiesListProps {
+export interface TechnologiesListProps {
   technologies: Technology[];
   highlighted: string | null;
   setHighlighted: (a: string | null) => void;
@@ -41,7 +41,6 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
   technologies,
   highlighted,
   setHighlighted,
-  quadrant,
 }) => {
   const [expanded, setExpanded] = useState<null | string>(null);
 

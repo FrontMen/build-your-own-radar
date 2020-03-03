@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TechLists it should matches the snapshot with default values 1`] = `
+.c3 {
+  list-style: none;
+  width: 100%;
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.c5 {
+  max-height: 0px;
+  -webkit-transition: max-height 0.2s ease-in-out;
+  transition: max-height 0.2s ease-in-out;
+  overflow: hidden;
+}
+
+.c4 {
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  cursor: pointer;
+  padding: 0px 4px;
+  border: 1px solid white;
+}
+
+.c0 {
+  width: 100%;
+  -webkit-column-width: auto;
+  column-width: auto;
+  -webkit-column-count: 2;
+  column-count: 2;
+}
+
+.c1 {
+  font-family: Montserrat,san-serif;
+  font-weight: 600;
+  line-height: 1.15;
+  font-size: 1;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.c2 {
+  padding-left: 0;
+  margin: 0;
+  margin-bottom: 32px;
+  width: 100%;
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
+}
+
+@media (min-width:481px) {
+  .c3 {
+    min-width: 9em;
+    width: 50%;
+  }
+}
+
+@media (min-width:481px) {
+  .c1 {
+    font-size: 1.5;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <h3
+      class="c1"
+    >
+      ADOPT
+    </h3>
+    <ul
+      class="c2"
+    >
+      <li
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          AWS EMR
+        </div>
+        <div
+          class="c5"
+        />
+      </li>
+      <li
+        class="c3"
+      >
+        <div
+          class="c4"
+        >
+          Spark
+        </div>
+        <div
+          class="c5"
+        />
+      </li>
+    </ul>
+  </div>
+</div>
+`;

@@ -12,9 +12,9 @@ export const d3Config = {
     { name: 'Data Management' },
   ],
   rings: [
-    { name: 'ADOPT', color: '#17a2b8', backgroundColor: '#BFC0BF'},
-    { name: 'TRIAL', color: '#17a2b8', backgroundColor: '#CBCCCB' },
-    { name: 'ASSESS', color: '#17a2b8', backgroundColor: '#D7D8D6'},
-    { name: 'HOLD', color: '#17a2b8', backgroundColor: '#E4E5E4' },
+    { name: 'ADOPT', color: '#17a2b8', backgroundColor: '#BFC0BF'}  as const,
+    { name: 'TRIAL', color: '#17a2b8', backgroundColor: '#CBCCCB' } as const,
+    { name: 'ASSESS', color: '#17a2b8', backgroundColor: '#D7D8D6'} as const,
+    { name: 'HOLD', color: '#17a2b8', backgroundColor: '#E4E5E4' } as const,
   ],
 };
