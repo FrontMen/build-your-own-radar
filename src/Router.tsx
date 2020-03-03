@@ -4,8 +4,8 @@ import { Home } from './components/Home';
 import { Details } from './components/Details';
 import { Quadrant } from './components/Quadrant';
 import { PageGrid } from './components/shared/PageGrid';
-import { FooterSlot } from './components/shared/PageSlots';
 import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 
 export const Router: React.FC = () => (
   <BrowserRouter>
@@ -22,7 +22,7 @@ export const Router: React.FC = () => (
           <Quadrant />
         </Route>
       </Switch>
-      <FooterSlot>® Frontmen 2020</FooterSlot>
+      <Footer />
     </PageGrid>
   </BrowserRouter>
 );

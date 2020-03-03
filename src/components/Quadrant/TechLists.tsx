@@ -6,21 +6,16 @@ import { TechItem } from './TechItem';
 import { d3Config } from 'src/utils/d3-config';
 
 const Section = styled.div`
-  display: flex;
-  flex-direction: column;
   width: 100%;
-
-  @media ${MediaQueries.phablet} {
-    width: 20em;
-    height: 75vh;
-    overflow: auto;
-  }
+  column-width: auto;
+  column-count: 2;
 `;
 
 const Title = styled.h3`
-padding: ${props => `${props.theme.space[3]}px ${props.theme.space[2]}px`};
-font-size: ${props => props.theme.fontSize[0]};
 ${Typography.header}
+font-size: ${props => props.theme.fontSize[0]};
+margin: 0;
+margin-bottom: ${props => props.theme.space[2]}px;
 
 @media ${MediaQueries.phablet} {
     font-size: ${props => props.theme.fontSize[1]};
@@ -29,8 +24,10 @@ ${Typography.header}
 
 const List = styled.ul`
   padding-left: 0;
-  display: flex;
-  flex-direction: column;
+  margin: 0;
+  margin-bottom: ${props => props.theme.space[4]}px;
+  width: 100%;
+  break-inside: avoid;
 `;
 
 interface TechnologiesListProps {
@@ -64,7 +61,7 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
           [key: string]: Technology[];
         },
       ),
-    [quadrant, technologies],
+    [technologies],
   );
 
   return (

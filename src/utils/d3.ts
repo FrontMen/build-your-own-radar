@@ -155,8 +155,9 @@ export const radar_visualization = (
   const svg = d3
     .select(container)
     .style('background-color', config.colors.background)
-    .attr('width', width || config.width)
-    .attr('height', height || config.height);
+    // removed to make the chart responsive
+    // .attr('width', width || config.width)
+    // .attr('height', height || config.height);
 
   svg.html('');
 
