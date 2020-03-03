@@ -1,9 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Typography } from 'src/Theme/Typography';
+import { MediaQueries } from 'src/Theme/Helpers';
 
 const ListItem = styled.li`
   list-style: none;
+  width: 100%;
+  break-inside: avoid;
+
+  @media ${MediaQueries.phablet} {
+    min-width: 9em;
+    width: 50%;
+  }
 `;
 
 const History = styled.div<{ isOpened: boolean }>`
@@ -15,9 +23,10 @@ const History = styled.div<{ isOpened: boolean }>`
 const Label = styled.div<{ highlighted: boolean }>`
   ${Typography.body};
   cursor: pointer;
-  padding: ${props => `${props.theme.space[3]}px ${props.theme.space[2]}px`};
+  padding: ${props => `${props.theme.space[0]}px ${props.theme.space[1]}px`};
   border: 1px solid white;
-  font-weight: ${props => (props.highlighted ? 600 : 400)};
+  color: ${props => props.highlighted && props.theme.pallet.blue};
+  font-weight: ${props => props.highlighted && 600};
 `;
 
 interface TechnologyProps {

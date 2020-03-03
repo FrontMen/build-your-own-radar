@@ -2,7 +2,7 @@ import WebFont from 'webfontloader';
 
 WebFont.load({
   google: {
-    families: ['Montserrat', 'Roboto'],
+    families: ['Montserrat:600:700', 'Roboto:400'],
   },
 });
 
@@ -50,7 +50,7 @@ export const lightTheme = {
   ...baseTheme,
   colors: {
     body: baseTheme.pallet.dark,
-    background: baseTheme.pallet.white,
-    blocks: baseTheme.pallet.light,
+    background: baseTheme.pallet.light,
+    blocks: baseTheme.pallet.white,
   },
 };

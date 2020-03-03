@@ -16,7 +16,7 @@ const Title = styled.h2`
   text-transform: capitalize;
 
   @media ${MediaQueries.phablet} {
-    font-size: ${props => props.theme.fontSize[2]}em;
+    font-size: ${props => props.theme.fontSize[1]}em;
 
     margin-top: 0;
   }
@@ -25,20 +25,17 @@ const Title = styled.h2`
 
 const MobileTitleSection = styled.div`
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   align-content: space-between;
-
-  @media ${MediaQueries.phablet} {
-    flex-direction: row;
-    align-content: unset;
-  }
 `;
 
 const LeftColumn = styled.div`
   display: flex;
   flex-direction: column;
-  width: 40%;
   max-width: 400px;
+  @media ${MediaQueries.phablet} {
+    margin-right: ${props => props.theme.space[3]}px;
+  }
 `;
 
 const PhabletContainer = styled(MainContentSlot)`
@@ -47,7 +44,7 @@ const PhabletContainer = styled(MainContentSlot)`
 `;
 
 export const Quadrant = () => {
-  const isNotMobile = useMediaQuery({ query: MediaQueries.phablet });
+  const isNotMobile = useMediaQuery({ query: MediaQueries.tablet });
   const { quadrant: quadrantParam } = useParams();
 
   const quadrant = d3Config.quadrants.findIndex(q => q.name === quadrantParam);
@@ -86,19 +83,19 @@ export const Quadrant = () => {
   ) : (
     <MainContentSlot>
       <MobileTitleSection>
-        <Title>{quadrantParam}</Title>
         <Graph
           highlighted={highlighted}
           quadrant={quadrant}
           setHighlighted={setHighlighted}
           technologies={data}
         />
+        <Title>{quadrantParam}</Title>
       </MobileTitleSection>
       <TechLists
         quadrant={quadrant}
         highlighted={highlighted}
         setHighlighted={setHighlighted}
-        technologies={technologies.map(t => ({
+        technologies={data.map(t => ({
           ...t,
           history:
             'lkdjfgkjdfgl dflkjg ldfkjg ldfjg kldfjg kldfjg kldjfglkjdfgl kdfjglkjdflkgjdflkjg lkdfjglkdjfgljdflkgj dfkjglkdjfk',

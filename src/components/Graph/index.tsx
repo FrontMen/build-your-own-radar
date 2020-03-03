@@ -1,7 +1,19 @@
 import React, { useEffect, useRef } from 'react';
 import { radar_visualization, showBubble } from 'src/utils/d3';
 import { d3Config } from 'src/utils/d3-config';
+import styled from 'styled-components';
+import { MediaQueries } from 'src/Theme/Helpers';
 
+const GraphContainer = styled.div`
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  pointer-events: none;
+
+  @media ${MediaQueries.phablet} {
+    pointer-events: all;
+  }
+`;
 interface TechnologiesListProps {
   technologies: Technology[];
   highlighted: string | null;
@@ -34,14 +46,15 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   }, [technologies, quadrant, setHighlighted]);
 
   useEffect(() => {
-    /* TODO: this can be refactored when we switch to a proper data source doing
-       a lookup seems inefficient as we already know which item is being
-       highlighted. */
     const technology = technologies?.find(t => t.label === highlighted);
     if (technology) {
       showBubble(technology);
     }
   }, [highlighted, technologies]);
 
-  return <svg ref={d3Container} />;
+  return (
+    <GraphContainer>
+      <svg ref={d3Container} />
+    </GraphContainer>
+  );
 };
