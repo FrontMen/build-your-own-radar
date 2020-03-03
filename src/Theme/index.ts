@@ -2,7 +2,7 @@ import WebFont from 'webfontloader';
 
 WebFont.load({
   google: {
-    families: ['Montserrat:600:700', 'Roboto:400'],
+    families: ['Montserrat:600,700', 'Roboto:400'],
   },
 });
 
