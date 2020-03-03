@@ -14,9 +14,9 @@ const ListItem = styled.li`
   }
 `;
 
-const History = styled.div<{ isOpened: boolean }>`
-  height: ${props => (props.isOpened ? '50px' : '0px')};
-  transition: height 0.2s ease-in-out;
+const History = styled.div<{ isOpened: boolean }>`  
+  max-height: ${props => (props.isOpened ? '75vh' : '0px')};
+  transition: max-height 0.2s ease-in-out;
   overflow: hidden;
 `;
 

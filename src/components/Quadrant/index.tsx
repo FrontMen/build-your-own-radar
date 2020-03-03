@@ -66,10 +66,10 @@ export const Quadrant = () => {
           quadrant={quadrant}
           highlighted={highlighted}
           setHighlighted={setHighlighted}
-          technologies={data.map(t => ({
+          technologies={data.map((t, i) => ({
             ...t,
             history:
-              'lkdjfgkjdfgl dflkjg ldfkjg ldfjg kldfjg kldfjg kldjfglkjdfgl kdfjglkjdflkgjdflkjg lkdfjglkdjfgljdflkgj dfkjglkdjfk',
+              'lkdjfgkjdfgl dflkjg ldfkjg'.repeat(i + 1),
           }))}
         />
       </LeftColumn>
