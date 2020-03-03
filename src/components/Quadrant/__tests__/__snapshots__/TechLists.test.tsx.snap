@@ -81,11 +81,13 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
       >
         <div
           class="c4"
+          data-testid="label"
         >
           AWS EMR
         </div>
         <div
           class="c5"
+          data-testid="details"
         />
       </li>
       <li
@@ -93,11 +95,13 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
       >
         <div
           class="c4"
+          data-testid="label"
         >
           Spark
         </div>
         <div
           class="c5"
+          data-testid="details"
         />
       </li>
     </ul>

@@ -14,13 +14,13 @@ const ListItem = styled.li`
   }
 `;
 
-export const Details = styled.div<{ isOpened: boolean }>`
+const Details = styled.div<{ isOpened: boolean }>`
   max-height: ${props => (props.isOpened ? '75vh' : '0px')};
   transition: max-height 0.2s ease-in-out;
   overflow: hidden;
 `;
 
-export const Label = styled.div<{ highlighted: boolean }>`
+const Label = styled.div<{ highlighted: boolean }>`
   ${Typography.body};
   cursor: pointer;
   padding: ${props => `${props.theme.space[0]}px ${props.theme.space[1]}px`};
@@ -93,6 +93,7 @@ export class TechItem extends React.Component<TechnologyProps> {
     return (
       <ListItem>
         <Label
+          data-testid="label"
           onMouseOver={this.handleMouseOver}
           onMouseOut={this.handleMouseOut}
           onClick={this.handleClick}
@@ -100,7 +101,9 @@ export class TechItem extends React.Component<TechnologyProps> {
         >
           {label}
         </Label>
-        <Details isOpened={active === label}>{details}</Details>
+        <Details data-testid="details" isOpened={active === label}>
+          {details}
+        </Details>
       </ListItem>
     );
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { lightTheme } from 'src/Theme';
 
-import { TechItem, TechnologyProps, Label, Details } from '../TechItem';
+import { TechItem, TechnologyProps } from '../TechItem';
 import { mockData } from 'test/mockData';
 import { withThemeProviders } from 'test/helpers';
 
@@ -14,6 +14,14 @@ const defaultProps: TechnologyProps = {
   active: null,
   setActive: jest.fn(),
   setHighlighted: jest.fn(),
+};
+
+const LabelSelector = {
+  'data-testid': 'label'
+};
+
+const DetailsSelector = {
+  'data-testid': 'details'
 };
 
 describe('TechItem', () => {
@@ -32,14 +40,15 @@ describe('TechItem', () => {
       }
     );
 
-    let label = wrapper.find(Label);
+
+    let label = wrapper.find(LabelSelector);
     expect(label).toHaveStyleRule('font-weight', '400');
 
     wrapper.setProps({
       highlighted: mockData[0].label,
     });
 
-    label = wrapper.find(Label);
+    label = wrapper.find(LabelSelector);
     expect(label).toHaveStyleRule('font-weight', '600');
   });
 
@@ -53,14 +62,14 @@ describe('TechItem', () => {
       }
     );
 
-    let details = wrapper.find(Details);
+    let details = wrapper.find(DetailsSelector);
     expect(details).toHaveStyleRule('max-height', '0px');
 
     wrapper.setProps({
       active: mockData[0].label,
     });
 
-    details = wrapper.find(Details);
+    details = wrapper.find(DetailsSelector);
     expect(details).toHaveStyleRule('max-height', '75vh');
   });
 
@@ -74,10 +83,10 @@ describe('TechItem', () => {
       }
     );
 
-    wrapper.find(Label).simulate('mouseOver');
+    wrapper.find(LabelSelector).at(0).simulate('mouseOver');
     expect(defaultProps.setHighlighted).toHaveBeenCalledWith(mockData[0].label);
 
-    wrapper.find(Label).simulate('mouseOut');
+    wrapper.find(LabelSelector).at(0).simulate('mouseOut');
     expect(defaultProps.setHighlighted).toHaveBeenCalledWith(null);
   });
 
@@ -91,7 +100,7 @@ describe('TechItem', () => {
       }
     );
 
-    wrapper.find(Label).simulate('click');
+    wrapper.find(LabelSelector).at(0).simulate('click');
     expect(defaultProps.setActive).toHaveBeenCalledWith(mockData[0].label);
   });
 
