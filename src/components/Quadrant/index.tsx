@@ -1,27 +1,16 @@
 import React, { useMemo, useState } from 'react';
 import styled from 'styled-components/macro';
-import { Typography } from 'src/Theme/Typography';
+
 import { MediaQueries } from 'src/Theme/Helpers';
 import { useParams } from 'react-router';
 
-import { MainContentSlot } from '../shared/PageSlots';
+import { MainContentSlot } from 'src/components/shared/PageSlots';
 import { TechLists } from './TechLists';
 import { useMediaQuery } from 'react-responsive';
 import { useAppState } from 'src/hooks/useAppState';
 import { d3Config } from 'src/utils/d3-config';
-import { Graph } from '../Graph';
-
-const Title = styled.h2`
-  font-size: ${props => props.theme.fontSize[1]}em;
-  text-transform: capitalize;
-
-  @media ${MediaQueries.phablet} {
-    font-size: ${props => props.theme.fontSize[1]}em;
-
-    margin-top: 0;
-  }
-  ${Typography.header}
-`;
+import { Graph } from 'src/components/Graph';
+import { ContentTitle } from 'src/components/shared/ContentTitle';
 
 const MobileTitleSection = styled.div`
   display: flex;
@@ -32,7 +21,7 @@ const MobileTitleSection = styled.div`
 const LeftColumn = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  max-width: 600px;
   @media ${MediaQueries.phablet} {
     margin-right: ${props => props.theme.space[3]}px;
   }
@@ -61,7 +50,7 @@ export const Quadrant = () => {
   return isNotMobile ? (
     <PhabletContainer>
       <LeftColumn>
-        <Title>{quadrantParam}</Title>
+        <ContentTitle>{quadrantParam}</ContentTitle>
         <TechLists
           quadrant={quadrant}
           highlighted={highlighted}
@@ -89,7 +78,7 @@ export const Quadrant = () => {
           setHighlighted={setHighlighted}
           technologies={data}
         />
-        <Title>{quadrantParam}</Title>
+        <ContentTitle>{quadrantParam}</ContentTitle>
       </MobileTitleSection>
       <TechLists
         quadrant={quadrant}

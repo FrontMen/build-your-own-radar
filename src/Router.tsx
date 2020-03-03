@@ -15,14 +15,14 @@ export const Router: React.FC = () => (
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/:quadrant/:id">
+        <Route path="/:quadrant/:technology">
           <Details />
         </Route>
         <Route path="/:quadrant">
           <Quadrant />
         </Route>
       </Switch>
-      <Footer />
+      <Footer/>
     </PageGrid>
   </BrowserRouter>
 );

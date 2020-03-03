@@ -7,8 +7,15 @@ import { d3Config } from 'src/utils/d3-config';
 
 const Section = styled.div`
   width: 100%;
-  column-width: auto;
-  column-count: 2;
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Ring = styled.div`
+  margin-bottom: ${props => props.theme.space[4]}px;
+  width: 50%;
+  min-width: 12rem;
+  break-inside: avoid;
 `;
 
 const Title = styled.h3`
@@ -25,9 +32,6 @@ const Title = styled.h3`
 const List = styled.ul`
   padding-left: 0;
   margin: 0;
-  margin-bottom: ${props => props.theme.space[4]}px;
-  width: 100%;
-  break-inside: avoid;
 `;
 
 export interface TechnologiesListProps {
@@ -41,6 +45,7 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
   technologies,
   highlighted,
   setHighlighted,
+  quadrant,
 }) => {
   const [expanded, setExpanded] = useState<null | string>(null);
 
@@ -66,7 +71,7 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
   return (
     <Section>
       {Object.entries(data).map(([ring, technologiesInRing]) => (
-        <React.Fragment key={ring}>
+        <Ring key={ring}>
           <Title>{ring}</Title>
           <List>
             {technologiesInRing.map(technology => (
@@ -77,10 +82,11 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
                 setActive={setExpanded}
                 highlighted={highlighted}
                 setHighlighted={setHighlighted}
+                quadrant={quadrant}
               />
             ))}
           </List>
-        </React.Fragment>
+        </Ring>
       ))}
     </Section>
   );

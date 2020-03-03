@@ -6,7 +6,7 @@ import { MediaQueries } from 'src/Theme/Helpers';
 
 const GraphContainer = styled.div`
   width: 100%;
-  max-width: 500px;
+  max-width: 440px;
   height: 100%;
   pointer-events: none;
 
