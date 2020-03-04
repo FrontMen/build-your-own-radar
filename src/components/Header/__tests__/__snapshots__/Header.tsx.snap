@@ -147,27 +147,27 @@ exports[`Header matches the snapshot 1`] = `
     >
       <a
         class="c4"
-        href="/languages & frameworks"
+        href="/Frameworks, CMS & Programmeertalen"
       >
-        languages & frameworks
+        Frameworks, CMS & Programmeertalen
       </a>
       <a
         class="c4"
-        href="/tools"
+        href="/Tooling en testing"
       >
-        tools
+        Tooling en testing
       </a>
       <a
         class="c4"
-        href="/platforms"
+        href="/Platforms, infrastructure & Data"
       >
-        platforms
+        Platforms, infrastructure & Data
       </a>
       <a
         class="c4"
-        href="/techniques"
+        href="/Technieken"
       >
-        techniques
+        Technieken
       </a>
     </div>
     <button
@@ -339,27 +339,27 @@ exports[`Header matches the snapshot 2`] = `
     >
       <a
         class="c4"
-        href="/languages & frameworks"
+        href="/Frameworks, CMS & Programmeertalen"
       >
-        languages & frameworks
+        Frameworks, CMS & Programmeertalen
       </a>
       <a
         class="c4"
-        href="/tools"
+        href="/Tooling en testing"
       >
-        tools
+        Tooling en testing
       </a>
       <a
         class="c4"
-        href="/platforms"
+        href="/Platforms, infrastructure & Data"
       >
-        platforms
+        Platforms, infrastructure & Data
       </a>
       <a
         class="c4"
-        href="/techniques"
+        href="/Technieken"
       >
-        techniques
+        Technieken
       </a>
     </div>
     <button
