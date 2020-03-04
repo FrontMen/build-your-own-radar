@@ -15,19 +15,24 @@ interface Segment {
 }
 
 interface Technology extends Partial<Point> {
-  quadrant: number;
-  ring: number;
-  label: string;
+  name: string;
+  ring: 'adopt' | 'trail' | 'assess' | 'hold';
+  quadrant: string;
+  isNew: boolean;
+  description: string;
+
+  /*
   active: boolean;
-  link: string;
+  link: string; 
+  */
+  description: string;
   moved: number;
   segment?: Segment;
   color?: string;
   id?: string;
-  details?: string;
 }
 
-type Segmented = Array<Array<Technology[]>>
+type Segmented = Array<Array<Technology[]>>;
 
 interface ListChildComponentPropsWithData<T> {
   index: number;

@@ -46,7 +46,7 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   }, [technologies, quadrant, setHighlighted]);
 
   useEffect(() => {
-    const technology = technologies?.find(t => t.label === highlighted);
+    const technology = technologies?.find(t => t.name === highlighted);
     if (technology) {
       showBubble(technology);
     }

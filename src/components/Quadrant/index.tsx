@@ -32,19 +32,29 @@ const PhabletContainer = styled(MainContentSlot)`
   justify-content: space-between;
 `;
 
+type QuadParamType = {
+  readonly quadrant: string;
+  // readonly quadrant: string;
+};
+
 export const Quadrant = () => {
   const isNotMobile = useMediaQuery({ query: MediaQueries.tablet });
-  const { quadrant: quadrantParam } = useParams();
+  const { quadrant: quadrantParam } = useParams<QuadParamType>();
 
-  const quadrant = d3Config.quadrants.findIndex(q => q.name === quadrantParam);
+  // const quadrant: number =
+  //   d3Config.quadrants[quadrantParam as keyof typeof d3Config.quadrants].num;
+  const quadrant: number = d3Config.quadrants.findIndex(
+    (item: { name: string }) => item.name === quadrantParam,
+  );
   const {
     state: { technologies },
   } = useAppState();
   const [highlighted, setHighlighted] = useState<null | string>(null);
 
   const data = useMemo(
-    () => technologies.filter(technology => technology.quadrant === quadrant),
-    [quadrant, technologies],
+    () =>
+      technologies.filter(technology => technology.quadrant === quadrantParam),
+    [quadrantParam, technologies],
   );
 
   return isNotMobile ? (
@@ -52,14 +62,10 @@ export const Quadrant = () => {
       <LeftColumn>
         <ContentTitle>{quadrantParam}</ContentTitle>
         <TechLists
-          quadrant={quadrant}
+          quadrant={quadrantParam}
           highlighted={highlighted}
           setHighlighted={setHighlighted}
-          technologies={data.map((t, i) => ({
-            ...t,
-            details:
-              'lkdjfgkjdfgl dflkjg ldfkjg'.repeat(i + 1),
-          }))}
+          technologies={data}
         />
       </LeftColumn>
       <Graph
@@ -81,14 +87,10 @@ export const Quadrant = () => {
         <ContentTitle>{quadrantParam}</ContentTitle>
       </MobileTitleSection>
       <TechLists
-        quadrant={quadrant}
+        quadrant={quadrantParam}
         highlighted={highlighted}
         setHighlighted={setHighlighted}
-        technologies={data.map(t => ({
-          ...t,
-          details:
-            'lkdjfgkjdfgl dflkjg ldfkjg ldfjg kldfjg kldfjg kldjfglkjdfgl kdfjglkjdflkgjdflkjg lkdfjglkdjfgljdflkgj dfkjglkdjfk',
-        }))}
+        technologies={data}
       />
     </MainContentSlot>
   );

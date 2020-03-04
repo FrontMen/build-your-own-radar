@@ -1,5 +1,8 @@
 import { useEffect, useReducer } from 'react';
-import { mockData } from '../mock';
+
+import rawData from 'src/data/27-02-2020.json';
+import { DataMapper, IncomingDataSchema } from 'src/utils/dataLoader';
+const parsedData = DataMapper(rawData as IncomingDataSchema);
 
 export interface AppState {
   technologies: Technology[];
@@ -55,7 +58,7 @@ export const useAppState = () => {
 
   // loading technologies from mock now
   useEffect(() => {
-    dispatch(setTechnologies(mockData));
+    dispatch(setTechnologies(parsedData));
   }, []);
 
   return {

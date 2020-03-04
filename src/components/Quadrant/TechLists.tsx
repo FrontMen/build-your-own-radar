@@ -38,7 +38,7 @@ export interface TechnologiesListProps {
   technologies: Technology[];
   highlighted: string | null;
   setHighlighted: (a: string | null) => void;
-  quadrant: number;
+  quadrant: string;
 }
 
 export const TechLists: React.FC<TechnologiesListProps> = ({
@@ -53,7 +53,7 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
     () =>
       technologies.reduce(
         (acc, tech) => {
-          const ringName = d3Config.rings[tech.ring].name;
+          const ringName = tech.ring;
           if (acc[ringName]) {
             acc[ringName].push(tech);
           } else {
@@ -77,7 +77,7 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
             {technologiesInRing.map(technology => (
               <TechItem
                 technology={technology}
-                key={technology.label}
+                key={technology.name}
                 active={expanded}
                 setActive={setExpanded}
                 highlighted={highlighted}

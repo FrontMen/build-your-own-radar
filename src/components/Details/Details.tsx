@@ -11,20 +11,21 @@ export interface DetailsParams {
 }
 
 const DetailsComponent: React.FC = () => {
-  const { technology } = useParams<DetailsParams>();
+  const { technology: technologyParam } = useParams<DetailsParams>();
   const {
     state: { technologies },
   } = useAppState();
 
-  const details = technologies.find(
-    (item: Technology) => item.label.toLowerCase() === technology,
+  const technology = technologies.find(
+    (item: Technology) => item.name.toLowerCase() === technologyParam,
   );
 
-  console.log(details);
   return (
     <Slot>
-      <ContentTitle data-testid="details">{technology}</ContentTitle>
-      {details && details.label}
+      <ContentTitle data-testid="details">{technologyParam}</ContentTitle>
+      {technology && (
+        <div dangerouslySetInnerHTML={{ __html: technology.description }} />
+      )}
     </Slot>
   );
 };

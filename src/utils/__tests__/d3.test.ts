@@ -19,7 +19,7 @@ describe('d3', () => {
       quadrant: 0,
     });
 
-    const g = getByTestId(svg, mockData[0].label);
+    const g = getByTestId(svg, mockData[0].name);
 
     fireEvent(
       g,
@@ -28,7 +28,7 @@ describe('d3', () => {
         cancelable: true,
       }),
     );
-    expect(setHighlighted).toHaveBeenCalledWith(mockData[0].label);
+    expect(setHighlighted).toHaveBeenCalledWith(mockData[0].name);
 
     fireEvent(
       g,

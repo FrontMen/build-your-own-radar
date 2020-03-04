@@ -51,7 +51,7 @@ export interface TechnologyProps {
   highlighted: string | null;
   setActive: (a: string | null) => void;
   setHighlighted: (a: string | null) => void;
-  quadrant: number;
+  quadrant: string;
 }
 
 // use Component here to do smart memo which is much more tricky to achieve with hooks
@@ -60,26 +60,26 @@ export class TechItem extends React.Component<TechnologyProps> {
     const {
       highlighted: prevHighlighted,
       active: prevActive,
-      technology: { label: prevLabel },
+      technology: { name: prevName },
     } = this.props;
 
     const {
       highlighted: nextHighlighted,
       active: nextActive,
-      technology: { label: nextLabel },
+      technology: { name: nextName },
     } = nextProps;
 
     // updating if highlighted property changed
     if (
-      (prevHighlighted === prevLabel && nextHighlighted !== nextLabel) ||
-      (prevHighlighted !== prevLabel && nextHighlighted === nextLabel)
+      (prevHighlighted === prevName && nextHighlighted !== nextName) ||
+      (prevHighlighted !== prevName && nextHighlighted === nextName)
     ) {
       return true;
     }
     // updating if active property changed
     if (
-      (prevActive === prevLabel && nextActive !== nextLabel) ||
-      (prevActive !== prevLabel && nextActive === nextLabel)
+      (prevActive === prevName && nextActive !== nextName) ||
+      (prevActive !== prevName && nextActive === nextName)
     ) {
       return true;
     }
@@ -87,31 +87,28 @@ export class TechItem extends React.Component<TechnologyProps> {
     return false;
   }
 
-  handleMouseOver = () =>
-    this.props.setHighlighted(this.props.technology.label);
+  handleMouseOver = () => this.props.setHighlighted(this.props.technology.name);
 
   handleMouseOut = () => this.props.setHighlighted(null);
 
   handleClick = () => {
     const {
       setActive,
-      technology: { label },
+      technology: { name },
       active,
     } = this.props;
-    setActive(label === active ? null : label);
+    setActive(name === active ? null : name);
   };
 
   render() {
     const {
       active,
       highlighted,
-      technology: { label, details },
+      technology: { name, description },
     } = this.props;
 
-    const quadrantSlug = d3Config.quadrants[
-      this.props.quadrant
-    ].name.toLowerCase();
-    const technologySlug = label.toLowerCase();
+    const quadrantSlug = this.props.quadrant.toLowerCase();
+    const technologySlug = name.toLowerCase();
     return (
       <ListItem>
         <Label
@@ -119,14 +116,14 @@ export class TechItem extends React.Component<TechnologyProps> {
           onMouseOver={this.handleMouseOver}
           onMouseOut={this.handleMouseOut}
           onClick={this.handleClick}
-          highlighted={highlighted === label}
+          highlighted={highlighted === name}
         >
-          {label}
+          {name}
         </Label>
 
-        <Details data-testid="details" isOpened={active === label}>
+        <Details data-testid="details" isOpened={active === name}>
           <Content>
-            <span>{details}</span>
+            <span dangerouslySetInnerHTML={{ __html: description }} />
             <DetailsLink to={`/${quadrantSlug}/${technologySlug}`}>
               Details >
             </DetailsLink>

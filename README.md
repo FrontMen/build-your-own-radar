@@ -1,3 +1,12 @@
+# Data source:
+currently the data for the site is converted from csv to json using this command.
+
+
+```npx csvtojson origional-data/<name-of-data-file>.csv > src/data/<name-of-data-file>.json```
+
+
+# Project details:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
