@@ -23,12 +23,12 @@ const DetailsSelector = {
 };
 
 describe('TechItem', () => {
-  test('it should matches the snapshot with default values', () => {
+  it('it should matches the snapshot with default values', () => {
     const { container } = withAllProviders(<TechItem {...defaultProps} />);
     expect(container).toMatchSnapshot();
   });
 
-  test('it should highlight label when highlighted property matches current item', () => {
+  it('it should highlight label when highlighted property matches current item', () => {
     const wrapper = mount(<TechItem {...defaultProps} />, {
       wrappingComponent: AllProvidersWrapper,
     });
@@ -44,7 +44,7 @@ describe('TechItem', () => {
     expect(label).toHaveStyleRule('font-weight', '600');
   });
 
-  test('it should expand details when active prop matches item label', () => {
+  it('it should expand details when active prop matches item label', () => {
     const wrapper = mount(<TechItem {...defaultProps} />, {
       wrappingComponent: AllProvidersWrapper,
     });

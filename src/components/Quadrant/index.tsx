@@ -34,15 +34,12 @@ const PhabletContainer = styled(MainContentSlot)`
 
 type QuadParamType = {
   readonly quadrant: string;
-  // readonly quadrant: string;
 };
 
 export const Quadrant = () => {
   const isNotMobile = useMediaQuery({ query: MediaQueries.tablet });
   const { quadrant: quadrantParam } = useParams<QuadParamType>();
 
-  // const quadrant: number =
-  //   d3Config.quadrants[quadrantParam as keyof typeof d3Config.quadrants].num;
   const quadrant: number = d3Config.quadrants.findIndex(
     (item: { name: string }) => item.name === quadrantParam,
   );

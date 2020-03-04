@@ -14,9 +14,11 @@ interface Segment {
   random: () => Point;
 }
 
+type RingNamesType = 'adopt' | 'trail' | 'assess' | 'hold';
+
 interface Technology extends Partial<Point> {
   name: string;
-  ring: 'adopt' | 'trail' | 'assess' | 'hold';
+  ring: RingNamesType;
   quadrant: string;
   isNew: boolean;
   description: string;

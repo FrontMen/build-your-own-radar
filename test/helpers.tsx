@@ -66,8 +66,9 @@ export const withAllProviders = (
 // #endregion react-testing-library
 
 // #region Enzyme
+const history = createMemoryHistory({ initialEntries: ['/'] });
+
 export const AllProvidersWrapper = ({ children }: { children: ReactNode }) => {
-  const history = createMemoryHistory({ initialEntries: ['/'] });
   return (
     <ThemeProvider theme={lightTheme}>
       <Router history={history}>
