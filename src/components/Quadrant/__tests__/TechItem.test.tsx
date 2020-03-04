@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import { TechItem, TechnologyProps } from '../TechItem';
 import { mockData } from 'test/mockData';
 import { withAllProviders, AllProvidersWrapper } from 'test/helpers';
+import { createMemoryHistory } from 'history';
 
 const defaultProps: TechnologyProps = {
   highlighted: null,
@@ -22,6 +23,10 @@ const DetailsSelector = {
   'data-testid': 'details',
 };
 
+
+// used for tests which updates state, to not reinstantiate history obj
+const history = createMemoryHistory({ initialEntries: ['/'] });
+
 describe('TechItem', () => {
   it('it should matches the snapshot with default values', () => {
     const { container } = withAllProviders(<TechItem {...defaultProps} />);
@@ -31,6 +36,7 @@ describe('TechItem', () => {
   it('it should highlight label when highlighted property matches current item', () => {
     const wrapper = mount(<TechItem {...defaultProps} />, {
       wrappingComponent: AllProvidersWrapper,
+      wrappingComponentProps: { history },
     });
 
     let label = wrapper.find(LabelSelector);
@@ -47,6 +53,7 @@ describe('TechItem', () => {
   it('it should expand details when active prop matches item label', () => {
     const wrapper = mount(<TechItem {...defaultProps} />, {
       wrappingComponent: AllProvidersWrapper,
+      wrappingComponentProps: { history },
     });
 
     let details = wrapper.find(DetailsSelector);

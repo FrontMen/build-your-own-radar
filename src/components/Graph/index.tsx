@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { radar_visualization, showBubble } from 'src/utils/d3';
+import { radar_visualization, showBubble, hideBubble } from 'src/utils/d3';
 import { d3Config } from 'src/utils/d3-config';
 import styled from 'styled-components';
 import { MediaQueries } from 'src/Theme/Helpers';
@@ -49,6 +49,8 @@ export const Graph: React.FC<TechnologiesListProps> = ({
     const technology = technologies?.find(t => t.name === highlighted);
     if (technology) {
       showBubble(technology);
+    } else {
+      hideBubble();
     }
   }, [highlighted, technologies]);
 
