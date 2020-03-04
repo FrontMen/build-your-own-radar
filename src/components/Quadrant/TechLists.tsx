@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Typography } from 'src/Theme/Typography';
 import { MediaQueries } from 'src/Theme/Helpers';
 import { TechItem } from './TechItem';
-import { d3Config } from 'src/utils/d3-config';
 
 const Section = styled.div`
   width: 100%;

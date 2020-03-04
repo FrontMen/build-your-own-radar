@@ -25,11 +25,14 @@ export const mockData: Technology[] = [
   },
   {
     name: 'Electron',
-    ring: 'assess',
-    quadrant: 'platforms',
+    ring: 'Assess',
+    quadrant: 'Tooling en testing',
     isNew: false,
-    moved: 0,
     description:
       'This is the description. You can use basic html such as the <strong>strong tag to emphasise keywords and phrases</strong> and insert <a href="https://www.thoughtworks.com">anchor links to documentation and referance material</a>.',
+    moved: 0,
+    ITR_BE: true,
+    ITR_NL: true,
+    FM: true,
   },
 ];

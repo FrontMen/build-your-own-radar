@@ -7,46 +7,6 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   padding: 16px;
 }
 
-.c8 {
-  list-style: none;
-  width: 100%;
-  -webkit-break-inside: avoid;
-  break-inside: avoid;
-  overflow: hidden;
-}
-
-.c10 {
-  max-height: 0px;
-  -webkit-transition: max-height 0.2s ease-in-out;
-  transition: max-height 0.2s ease-in-out;
-  overflow: hidden;
-}
-
-.c11 {
-  padding: 8px 0px;
-  overflow: hidden;
-}
-
-.c9 {
-  font-family: Roboto,san-serif;
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 1.65;
-  cursor: pointer;
-  padding: 0px 4px;
-  border: 1px solid white;
-}
-
-.c12 {
-  display: inline-block;
-  font-weight: 400;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  margin-top: 8px;
-  width: 100%;
-  color: #526de4;
-}
-
 .c4 {
   width: 100%;
   display: -webkit-box;
@@ -56,28 +16,6 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-}
-
-.c5 {
-  margin-bottom: 32px;
-  width: 50%;
-  min-width: 12rem;
-  -webkit-break-inside: avoid;
-  break-inside: avoid;
-}
-
-.c6 {
-  font-family: Montserrat,san-serif;
-  font-weight: 600;
-  line-height: 1.15;
-  font-size: 1;
-  margin: 0;
-  margin-bottom: 8px;
-}
-
-.c7 {
-  padding-left: 0;
-  margin: 0;
 }
 
 .c2 {
@@ -115,18 +53,6 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 }
 
 @media (min-width:481px) {
-  .c8 {
-    min-width: 9em;
-  }
-}
-
-@media (min-width:481px) {
-  .c6 {
-    font-size: 1.5;
-  }
-}
-
-@media (min-width:481px) {
   .c2 {
     pointer-events: all;
   }
@@ -149,124 +75,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
       <div
         class="c2"
       >
-        <svg
-          viewBox="-420 -20 420 420"
-        >
-          <g>
-            <g>
-              <line
-                style="stroke: #bbb; stroke-width: 1;"
-                x1="0"
-                x2="0"
-                y1="-400"
-                y2="400"
-              />
-              <line
-                style="stroke: #bbb; stroke-width: 1;"
-                x1="-400"
-                x2="400"
-                y1="0"
-                y2="0"
-              />
-              <defs>
-                <filter
-                  height="1"
-                  id="solid"
-                  width="1"
-                  x="0"
-                  y="0"
-                >
-                  <feflood
-                    flood-color="rgb(0, 0, 0, 0.8)"
-                  />
-                  <fecomposite
-                    in="SourceGraphic"
-                  />
-                </filter>
-              </defs>
-              <circle
-                cx="0"
-                cy="0"
-                r="400"
-                style="fill: #E4E5E4; stroke-width: 1;"
-              />
-              <circle
-                cx="0"
-                cy="0"
-                r="310"
-                style="fill: #D7D8D6; stroke-width: 1;"
-              />
-              <circle
-                cx="0"
-                cy="0"
-                r="220"
-                style="fill: #CBCCCB; stroke-width: 1;"
-              />
-              <circle
-                cx="0"
-                cy="0"
-                r="130"
-                style="fill: #BFC0BF; stroke-width: 1;"
-              />
-            </g>
-            <g
-              id="rink"
-            >
-              <g
-                class="blip"
-                data-testid="Babel"
-              >
-                <circle
-                  fill="#17a2b8"
-                  r="9"
-                />
-                <text
-                  style="fill: #fff; font-family: Arial, Helvetica; font-size: 9; pointer-events: none; user-select: none;"
-                  text-anchor="middle"
-                  y="3"
-                >
-                  1
-                </text>
-              </g>
-              <g
-                class="blip"
-                data-testid="Spark"
-              >
-                <circle
-                  fill="#17a2b8"
-                  r="9"
-                />
-                <text
-                  style="fill: #fff; font-family: Arial, Helvetica; font-size: 9; pointer-events: none; user-select: none;"
-                  text-anchor="middle"
-                  y="3"
-                >
-                  2
-                </text>
-              </g>
-            </g>
-            <g
-              id="bubble"
-              style="opacity: 0; pointer-events: none; user-select: none;"
-              transform="translate(0,0)"
-              x="0"
-              y="0"
-            >
-              <rect
-                rx="4"
-                ry="4"
-                style="fill: #333;"
-              />
-              <text
-                style="font-family: sans-serif; font-size: 10px; fill: #fff;"
-              />
-              <path
-                d="M 0,0 10,0 5,8 z"
-                style="fill: #333;"
-              />
-            </g>
-          </g>
-        </svg>
+        <svg />
       </div>
       <h2
         class="c3"
@@ -276,85 +85,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
     </div>
     <div
       class="c4"
-    >
-      <div
-        class="c5"
-      >
-        <h3
-          class="c6"
-        >
-          adopt
-        </h3>
-        <ul
-          class="c7"
-        >
-          <li
-            class="c8"
-          >
-            <div
-              class="c9"
-              data-testid="label"
-            >
-              Babel
-            </div>
-            <div
-              class="c10"
-              data-testid="details"
-            >
-              <div
-                class="c11"
-              >
-                <span>
-                  This is the description. You can use basic html such as the 
-                  <strong>
-                    strong tag to emphasise keywords and phrases
-                  </strong>
-                   and insert
-                </span>
-                <a
-                  class="c12"
-                  href="/tools/babel"
-                >
-                  Details &gt;
-                </a>
-              </div>
-            </div>
-          </li>
-          <li
-            class="c8"
-          >
-            <div
-              class="c9"
-              data-testid="label"
-            >
-              Spark
-            </div>
-            <div
-              class="c10"
-              data-testid="details"
-            >
-              <div
-                class="c11"
-              >
-                <span>
-                  This is the description. You can use basic html such as the 
-                  <strong>
-                    strong tag to emphasise keywords and phrases
-                  </strong>
-                   and insert
-                </span>
-                <a
-                  class="c12"
-                  href="/tools/spark"
-                >
-                  Details &gt;
-                </a>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
+    />
   </div>
 </div>
 `;
@@ -366,46 +97,6 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   padding: 16px;
 }
 
-.c8 {
-  list-style: none;
-  width: 100%;
-  -webkit-break-inside: avoid;
-  break-inside: avoid;
-  overflow: hidden;
-}
-
-.c10 {
-  max-height: 0px;
-  -webkit-transition: max-height 0.2s ease-in-out;
-  transition: max-height 0.2s ease-in-out;
-  overflow: hidden;
-}
-
-.c11 {
-  padding: 8px 0px;
-  overflow: hidden;
-}
-
-.c9 {
-  font-family: Roboto,san-serif;
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 1.65;
-  cursor: pointer;
-  padding: 0px 4px;
-  border: 1px solid white;
-}
-
-.c12 {
-  display: inline-block;
-  font-weight: 400;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  margin-top: 8px;
-  width: 100%;
-  color: #526de4;
-}
-
 .c4 {
   width: 100%;
   display: -webkit-box;
@@ -415,28 +106,6 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-}
-
-.c5 {
-  margin-bottom: 32px;
-  width: 50%;
-  min-width: 12rem;
-  -webkit-break-inside: avoid;
-  break-inside: avoid;
-}
-
-.c6 {
-  font-family: Montserrat,san-serif;
-  font-weight: 600;
-  line-height: 1.15;
-  font-size: 1;
-  margin: 0;
-  margin-bottom: 8px;
-}
-
-.c7 {
-  padding-left: 0;
-  margin: 0;
 }
 
 .c2 {
@@ -474,18 +143,6 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 }
 
 @media (min-width:481px) {
-  .c8 {
-    min-width: 9em;
-  }
-}
-
-@media (min-width:481px) {
-  .c6 {
-    font-size: 1.5;
-  }
-}
-
-@media (min-width:481px) {
   .c2 {
     pointer-events: all;
   }
@@ -508,124 +165,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
       <div
         class="c2"
       >
-        <svg
-          viewBox="-420 -20 420 420"
-        >
-          <g>
-            <g>
-              <line
-                style="stroke: #bbb; stroke-width: 1;"
-                x1="0"
-                x2="0"
-                y1="-400"
-                y2="400"
-              />
-              <line
-                style="stroke: #bbb; stroke-width: 1;"
-                x1="-400"
-                x2="400"
-                y1="0"
-                y2="0"
-              />
-              <defs>
-                <filter
-                  height="1"
-                  id="solid"
-                  width="1"
-                  x="0"
-                  y="0"
-                >
-                  <feflood
-                    flood-color="rgb(0, 0, 0, 0.8)"
-                  />
-                  <fecomposite
-                    in="SourceGraphic"
-                  />
-                </filter>
-              </defs>
-              <circle
-                cx="0"
-                cy="0"
-                r="400"
-                style="fill: #E4E5E4; stroke-width: 1;"
-              />
-              <circle
-                cx="0"
-                cy="0"
-                r="310"
-                style="fill: #D7D8D6; stroke-width: 1;"
-              />
-              <circle
-                cx="0"
-                cy="0"
-                r="220"
-                style="fill: #CBCCCB; stroke-width: 1;"
-              />
-              <circle
-                cx="0"
-                cy="0"
-                r="130"
-                style="fill: #BFC0BF; stroke-width: 1;"
-              />
-            </g>
-            <g
-              id="rink"
-            >
-              <g
-                class="blip"
-                data-testid="Babel"
-              >
-                <circle
-                  fill="#17a2b8"
-                  r="9"
-                />
-                <text
-                  style="fill: #fff; font-family: Arial, Helvetica; font-size: 9; pointer-events: none; user-select: none;"
-                  text-anchor="middle"
-                  y="3"
-                >
-                  1
-                </text>
-              </g>
-              <g
-                class="blip"
-                data-testid="Spark"
-              >
-                <circle
-                  fill="#17a2b8"
-                  r="9"
-                />
-                <text
-                  style="fill: #fff; font-family: Arial, Helvetica; font-size: 9; pointer-events: none; user-select: none;"
-                  text-anchor="middle"
-                  y="3"
-                >
-                  2
-                </text>
-              </g>
-            </g>
-            <g
-              id="bubble"
-              style="opacity: 0; pointer-events: none; user-select: none;"
-              transform="translate(0,0)"
-              x="0"
-              y="0"
-            >
-              <rect
-                rx="4"
-                ry="4"
-                style="fill: #333;"
-              />
-              <text
-                style="font-family: sans-serif; font-size: 10px; fill: #fff;"
-              />
-              <path
-                d="M 0,0 10,0 5,8 z"
-                style="fill: #333;"
-              />
-            </g>
-          </g>
-        </svg>
+        <svg />
       </div>
       <h2
         class="c3"
@@ -635,85 +175,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
     </div>
     <div
       class="c4"
-    >
-      <div
-        class="c5"
-      >
-        <h3
-          class="c6"
-        >
-          adopt
-        </h3>
-        <ul
-          class="c7"
-        >
-          <li
-            class="c8"
-          >
-            <div
-              class="c9"
-              data-testid="label"
-            >
-              Babel
-            </div>
-            <div
-              class="c10"
-              data-testid="details"
-            >
-              <div
-                class="c11"
-              >
-                <span>
-                  This is the description. You can use basic html such as the 
-                  <strong>
-                    strong tag to emphasise keywords and phrases
-                  </strong>
-                   and insert
-                </span>
-                <a
-                  class="c12"
-                  href="/tools/babel"
-                >
-                  Details &gt;
-                </a>
-              </div>
-            </div>
-          </li>
-          <li
-            class="c8"
-          >
-            <div
-              class="c9"
-              data-testid="label"
-            >
-              Spark
-            </div>
-            <div
-              class="c10"
-              data-testid="details"
-            >
-              <div
-                class="c11"
-              >
-                <span>
-                  This is the description. You can use basic html such as the 
-                  <strong>
-                    strong tag to emphasise keywords and phrases
-                  </strong>
-                   and insert
-                </span>
-                <a
-                  class="c12"
-                  href="/tools/spark"
-                >
-                  Details &gt;
-                </a>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
+    />
   </div>
 </div>
 `;
