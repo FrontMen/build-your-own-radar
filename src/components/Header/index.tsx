@@ -81,7 +81,7 @@ export const Header = () => {
       </StyleLessLink>
       <Links>
         {d3Config.quadrants.map(({ name }) => (
-          <QuadLink to={name} key={name}>
+          <QuadLink to={`/${name}`} key={name}>
             {name}
           </QuadLink>
         ))}

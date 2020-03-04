@@ -2,21 +2,28 @@ import React from 'react';
 import styled from 'styled-components';
 import { Typography } from 'src/Theme/Typography';
 import { MediaQueries } from 'src/Theme/Helpers';
+import { Link } from 'react-router-dom';
+import { d3Config } from 'src/utils/d3-config';
 
 const ListItem = styled.li`
   list-style: none;
   width: 100%;
   break-inside: avoid;
+  overflow: hidden;
 
   @media ${MediaQueries.phablet} {
     min-width: 9em;
-    width: 50%;
   }
 `;
 
 const Details = styled.div<{ isOpened: boolean }>`
   max-height: ${props => (props.isOpened ? '75vh' : '0px')};
+
   transition: max-height 0.2s ease-in-out;
+  overflow: hidden;
+`;
+const Content = styled.div`
+  padding: ${props => `${props.theme.space[2]}px ${props.theme.space[0]}px`};
   overflow: hidden;
 `;
 
@@ -29,12 +36,22 @@ const Label = styled.div<{ highlighted: boolean }>`
   font-weight: ${props => props.highlighted && 600};
 `;
 
+const DetailsLink = styled(Link)`
+  display: inline-block;
+  font-weight: 400;
+  text-decoration: none;
+  margin-top: ${props => props.theme.space[2]}px;
+  width: 100%;
+  color: ${props => props.theme.pallet.blue};
+`;
+
 export interface TechnologyProps {
   technology: Technology;
   active: string | null;
   highlighted: string | null;
   setActive: (a: string | null) => void;
   setHighlighted: (a: string | null) => void;
+  quadrant: string;
 }
 
 // use Component here to do smart memo which is much more tricky to achieve with hooks
@@ -43,26 +60,26 @@ export class TechItem extends React.Component<TechnologyProps> {
     const {
       highlighted: prevHighlighted,
       active: prevActive,
-      technology: { label: prevLabel },
+      technology: { name: prevName },
     } = this.props;
 
     const {
       highlighted: nextHighlighted,
       active: nextActive,
-      technology: { label: nextLabel },
+      technology: { name: nextName },
     } = nextProps;
 
     // updating if highlighted property changed
     if (
-      (prevHighlighted === prevLabel && nextHighlighted !== nextLabel) ||
-      (prevHighlighted !== prevLabel && nextHighlighted === nextLabel)
+      (prevHighlighted === prevName && nextHighlighted !== nextName) ||
+      (prevHighlighted !== prevName && nextHighlighted === nextName)
     ) {
       return true;
     }
     // updating if active property changed
     if (
-      (prevActive === prevLabel && nextActive !== nextLabel) ||
-      (prevActive !== prevLabel && nextActive === nextLabel)
+      (prevActive === prevName && nextActive !== nextName) ||
+      (prevActive !== prevName && nextActive === nextName)
     ) {
       return true;
     }
@@ -70,26 +87,28 @@ export class TechItem extends React.Component<TechnologyProps> {
     return false;
   }
 
-  handleMouseOver = () =>
-    this.props.setHighlighted(this.props.technology.label);
+  handleMouseOver = () => this.props.setHighlighted(this.props.technology.name);
 
   handleMouseOut = () => this.props.setHighlighted(null);
 
   handleClick = () => {
     const {
       setActive,
-      technology: { label },
+      technology: { name },
       active,
     } = this.props;
-    setActive(label === active ? null : label);
+    setActive(name === active ? null : name);
   };
 
   render() {
     const {
       active,
       highlighted,
-      technology: { label, details },
+      technology: { name, description },
     } = this.props;
+
+    const quadrantSlug = this.props.quadrant.toLowerCase();
+    const technologySlug = name.toLowerCase();
     return (
       <ListItem>
         <Label
@@ -97,12 +116,18 @@ export class TechItem extends React.Component<TechnologyProps> {
           onMouseOver={this.handleMouseOver}
           onMouseOut={this.handleMouseOut}
           onClick={this.handleClick}
-          highlighted={highlighted === label}
+          highlighted={highlighted === name}
         >
-          {label}
+          {name}
         </Label>
-        <Details data-testid="details" isOpened={active === label}>
-          {details}
+
+        <Details data-testid="details" isOpened={active === name}>
+          <Content>
+            <span dangerouslySetInnerHTML={{ __html: description }} />
+            <DetailsLink to={`/${quadrantSlug}/${technologySlug}`}>
+              Details >
+            </DetailsLink>
+          </Content>
         </Details>
       </ListItem>
     );

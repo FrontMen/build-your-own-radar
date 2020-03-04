@@ -1,27 +1,16 @@
 import React, { useMemo, useState } from 'react';
 import styled from 'styled-components/macro';
-import { Typography } from 'src/Theme/Typography';
+
 import { MediaQueries } from 'src/Theme/Helpers';
 import { useParams } from 'react-router';
 
-import { MainContentSlot } from '../shared/PageSlots';
+import { MainContentSlot } from 'src/components/shared/PageSlots';
 import { TechLists } from './TechLists';
 import { useMediaQuery } from 'react-responsive';
 import { useAppState } from 'src/hooks/useAppState';
 import { d3Config } from 'src/utils/d3-config';
-import { Graph } from '../Graph';
-
-const Title = styled.h2`
-  font-size: ${props => props.theme.fontSize[1]}em;
-  text-transform: capitalize;
-
-  @media ${MediaQueries.phablet} {
-    font-size: ${props => props.theme.fontSize[1]}em;
-
-    margin-top: 0;
-  }
-  ${Typography.header}
-`;
+import { Graph } from 'src/components/Graph';
+import { ContentTitle } from 'src/components/shared/ContentTitle';
 
 const MobileTitleSection = styled.div`
   display: flex;
@@ -32,7 +21,7 @@ const MobileTitleSection = styled.div`
 const LeftColumn = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 400px;
+  max-width: 600px;
   @media ${MediaQueries.phablet} {
     margin-right: ${props => props.theme.space[3]}px;
   }
@@ -43,34 +32,37 @@ const PhabletContainer = styled(MainContentSlot)`
   justify-content: space-between;
 `;
 
+type QuadParamType = {
+  readonly quadrant: string;
+};
+
 export const Quadrant = () => {
   const isNotMobile = useMediaQuery({ query: MediaQueries.tablet });
-  const { quadrant: quadrantParam } = useParams();
+  const { quadrant: quadrantParam } = useParams<QuadParamType>();
 
-  const quadrant = d3Config.quadrants.findIndex(q => q.name === quadrantParam);
+  const quadrant: number = d3Config.quadrants.findIndex(
+    (item: { name: string }) => item.name === quadrantParam,
+  );
   const {
     state: { technologies },
   } = useAppState();
   const [highlighted, setHighlighted] = useState<null | string>(null);
 
   const data = useMemo(
-    () => technologies.filter(technology => technology.quadrant === quadrant),
-    [quadrant, technologies],
+    () =>
+      technologies.filter(technology => technology.quadrant === quadrantParam),
+    [quadrantParam, technologies],
   );
 
   return isNotMobile ? (
     <PhabletContainer>
       <LeftColumn>
-        <Title>{quadrantParam}</Title>
+        <ContentTitle>{quadrantParam}</ContentTitle>
         <TechLists
-          quadrant={quadrant}
+          quadrant={quadrantParam}
           highlighted={highlighted}
           setHighlighted={setHighlighted}
-          technologies={data.map((t, i) => ({
-            ...t,
-            details:
-              'lkdjfgkjdfgl dflkjg ldfkjg'.repeat(i + 1),
-          }))}
+          technologies={data}
         />
       </LeftColumn>
       <Graph
@@ -89,17 +81,13 @@ export const Quadrant = () => {
           setHighlighted={setHighlighted}
           technologies={data}
         />
-        <Title>{quadrantParam}</Title>
+        <ContentTitle>{quadrantParam}</ContentTitle>
       </MobileTitleSection>
       <TechLists
-        quadrant={quadrant}
+        quadrant={quadrantParam}
         highlighted={highlighted}
         setHighlighted={setHighlighted}
-        technologies={data.map(t => ({
-          ...t,
-          details:
-            'lkdjfgkjdfgl dflkjg ldfkjg ldfjg kldfjg kldfjg kldjfglkjdfgl kdfjglkjdflkgjdflkjg lkdfjglkdjfgljdflkgj dfkjglkdjfk',
-        }))}
+        technologies={data}
       />
     </MainContentSlot>
   );

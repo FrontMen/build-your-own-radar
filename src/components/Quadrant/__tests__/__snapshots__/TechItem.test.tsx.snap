@@ -6,12 +6,18 @@ exports[`TechItem it should matches the snapshot with default values 1`] = `
   width: 100%;
   -webkit-break-inside: avoid;
   break-inside: avoid;
+  overflow: hidden;
 }
 
 .c2 {
   max-height: 0px;
   -webkit-transition: max-height 0.2s ease-in-out;
   transition: max-height 0.2s ease-in-out;
+  overflow: hidden;
+}
+
+.c3 {
+  padding: 8px 0px;
   overflow: hidden;
 }
 
@@ -25,10 +31,19 @@ exports[`TechItem it should matches the snapshot with default values 1`] = `
   border: 1px solid white;
 }
 
+.c4 {
+  display: inline-block;
+  font-weight: 400;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin-top: 8px;
+  width: 100%;
+  color: #526de4;
+}
+
 @media (min-width:481px) {
   .c0 {
     min-width: 9em;
-    width: 50%;
   }
 }
 
@@ -40,12 +55,30 @@ exports[`TechItem it should matches the snapshot with default values 1`] = `
       class="c1"
       data-testid="label"
     >
-      AWS EMR
+      Babel
     </div>
     <div
       class="c2"
       data-testid="details"
-    />
+    >
+      <div
+        class="c3"
+      >
+        <span>
+          This is the description. You can use basic html such as the 
+          <strong>
+            strong tag to emphasise keywords and phrases
+          </strong>
+           and insert
+        </span>
+        <a
+          class="c4"
+          href="/tools/babel"
+        >
+          Details &gt;
+        </a>
+      </div>
+    </div>
   </li>
 </div>
 `;

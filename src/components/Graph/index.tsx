@@ -6,7 +6,7 @@ import { MediaQueries } from 'src/Theme/Helpers';
 
 const GraphContainer = styled.div`
   width: 100%;
-  max-width: 500px;
+  max-width: 440px;
   height: 100%;
   pointer-events: none;
 
@@ -46,7 +46,7 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   }, [technologies, quadrant, setHighlighted]);
 
   useEffect(() => {
-    const technology = technologies?.find(t => t.label === highlighted);
+    const technology = technologies?.find(t => t.name === highlighted);
     if (technology) {
       showBubble(technology);
     }

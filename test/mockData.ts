@@ -1,20 +1,20 @@
 export const mockData: Technology[] = [
   {
-    quadrant: 3,
-    ring: 0,
-    label: 'AWS EMR',
-    active: false,
-    link: '../data_processing/aws_emr.html',
+    name: 'Babel',
+    ring: 'adopt',
+    quadrant: 'tools',
+    isNew: true,
+    description:
+      'This is the description. You can use basic html such as the <strong>strong tag to emphasise keywords and phrases</strong> and insert',
     moved: 0,
-    id: 'AWS'
   },
   {
-    quadrant: 3,
-    ring: 0,
-    label: 'Spark',
-    active: false,
-    link: '../data_processing/spark.html',
+    name: 'Spark',
+    ring: 'adopt',
+    quadrant: 'tools',
+    isNew: true,
+    description:
+      'This is the description. You can use basic html such as the <strong>strong tag to emphasise keywords and phrases</strong> and insert',
     moved: 0,
-    id: 'Spark'
   },
 ];

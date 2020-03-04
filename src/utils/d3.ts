@@ -108,7 +108,7 @@ const viewbox = (quadrant: number) =>
 export const showBubble = (technology: Technology) => {
   const tooltip = d3
     .select<SVGTextElement, SVGTextElement>('#bubble text')
-    .text(technology.label)
+    .text(technology.name)
     .node();
   if (tooltip) {
     const bbox = tooltip.getBBox?.() || { width: 0, height: 0 }; // default value for testing env
@@ -136,8 +136,8 @@ const hideBubble = () => {
     .style('opacity', 0);
 };
 
-const sortTechnologyByLabel = (a: Technology, b: Technology) =>
-  a.label.localeCompare(b.label);
+const sortTechnologyByName = (a: Technology, b: Technology) =>
+  a.name.localeCompare(b.name);
 
 export interface RadarVisualizationParams {
   width: number;
@@ -172,12 +172,20 @@ export const radar_visualization = (
 
   // position each entry randomly in its segment
   data.forEach(technology => {
-    technology.segment = segment(technology.quadrant, technology.ring);
+    const quadNum: number = config.quadrants.findIndex(
+      (item: { name: string }) => item.name === technology.quadrant,
+    );
+
+    const ringNum: number = config.rings.findIndex(
+      (item: { name: string }) => item.name === technology.ring,
+    );
+
+    technology.segment = segment(quadNum, ringNum);
     const { x, y } = technology.segment.random();
     technology.x = x;
     technology.y = y;
-    technology.color = config.rings[technology.ring].color;
-    segmented[technology.quadrant][technology.ring].push(technology);
+    technology.color = config.rings[ringNum].color;
+    segmented[quadNum][ringNum].push(technology);
   });
 
   // assign unique sequential id to each entry
@@ -187,7 +195,7 @@ export const radar_visualization = (
   for (let quadrant of [2, 3, 1, 0]) {
     for (let ring = 0; ring < NUMBER_OF_RINGS; ring++) {
       const entries = segmented[quadrant][ring];
-      entries.sort(sortTechnologyByLabel).forEach(setId);
+      entries.sort(sortTechnologyByName).forEach(setId);
     }
   }
 
@@ -283,7 +291,7 @@ export const radar_visualization = (
 
   const mouseOverListner = (technology: Technology) => {
     showBubble(technology);
-    setHighlighted(technology.label);
+    setHighlighted(technology.name);
   };
 
   const mouseOutListner = () => {
@@ -306,12 +314,12 @@ export const radar_visualization = (
     //
     let blip = d3.select(this);
 
-    blip.attr('data-testid', technology.label);
+    blip.attr('data-testid', technology.name);
 
     // blip link
-    if (technology.active && technology.hasOwnProperty('link')) {
-      blip.append('a').attr('xlink:href', technology.link);
-    }
+    // if (technology.active && technology.hasOwnProperty('link')) {
+    //   blip.append('a').attr('xlink:href', technology.link);
+    // }
 
     // blip shape
     if (technology.moved > 0) {
