@@ -59,6 +59,7 @@ export const Quadrant = () => {
       <LeftColumn>
         <ContentTitle>{quadrantParam}</ContentTitle>
         <TechLists
+          data-testid="tech-lists"
           quadrant={quadrantParam}
           highlighted={highlighted}
           setHighlighted={setHighlighted}
@@ -66,6 +67,7 @@ export const Quadrant = () => {
         />
       </LeftColumn>
       <Graph
+        data-testid="graph"
         highlighted={highlighted}
         quadrant={quadrant}
         setHighlighted={setHighlighted}
@@ -76,6 +78,7 @@ export const Quadrant = () => {
     <MainContentSlot>
       <MobileTitleSection>
         <Graph
+          data-testid="graph"
           highlighted={highlighted}
           quadrant={quadrant}
           setHighlighted={setHighlighted}
@@ -84,6 +87,7 @@ export const Quadrant = () => {
         <ContentTitle>{quadrantParam}</ContentTitle>
       </MobileTitleSection>
       <TechLists
+        data-testid="tech-lists"
         quadrant={quadrantParam}
         highlighted={highlighted}
         setHighlighted={setHighlighted}
