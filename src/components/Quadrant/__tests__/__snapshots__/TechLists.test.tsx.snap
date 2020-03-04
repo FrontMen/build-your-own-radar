@@ -167,6 +167,57 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
         </li>
       </ul>
     </div>
+    <div
+      class="c1"
+    >
+      <h3
+        class="c2"
+      >
+        assess
+      </h3>
+      <ul
+        class="c3"
+      >
+        <li
+          class="c4"
+        >
+          <div
+            class="c5"
+            data-testid="label"
+          >
+            Electron
+          </div>
+          <div
+            class="c6"
+            data-testid="details"
+          >
+            <div
+              class="c7"
+            >
+              <span>
+                This is the description. You can use basic html such as the 
+                <strong>
+                  strong tag to emphasise keywords and phrases
+                </strong>
+                 and insert 
+                <a
+                  href="https://www.thoughtworks.com"
+                >
+                  anchor links to documentation and referance material
+                </a>
+                .
+              </span>
+              <a
+                class="c8"
+                href="/tools/electron"
+              >
+                Details &gt;
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 `;
