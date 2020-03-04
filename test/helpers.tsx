@@ -70,14 +70,16 @@ export const AllProvidersWrapper = ({
   children,
   path = '/',
   route = '/',
+  history = createMemoryHistory({ initialEntries: [route] }),
 }: {
   children: ReactNode;
   path: string;
   route: string;
+  history: History;
 }) => {
   return (
     <ThemeProvider theme={lightTheme}>
-      <Router history={createMemoryHistory({ initialEntries: [route] })}>
+      <Router history={history}>
         <Route path={path}>{children}</Route>
       </Router>
     </ThemeProvider>
