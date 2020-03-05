@@ -208,23 +208,23 @@ export const radar_visualization = (
 
   const grid = radar.append('g');
 
-  // draw grid lines
-  grid
-    .append('line')
-    .attr('x1', 0)
-    .attr('y1', -400)
-    .attr('x2', 0)
-    .attr('y2', 400)
-    .style('stroke', config.colors.grid)
-    .style('stroke-width', 1);
-  grid
-    .append('line')
-    .attr('x1', -400)
-    .attr('y1', 0)
-    .attr('x2', 400)
-    .attr('y2', 0)
-    .style('stroke', config.colors.grid)
-    .style('stroke-width', 1);
+  // // draw grid lines
+  // grid
+  //   .append('line')
+  //   .attr('x1', 0)
+  //   .attr('y1', -400)
+  //   .attr('x2', 0)
+  //   .attr('y2', 400)
+  //   .style('stroke', config.colors.grid)
+  //   .style('stroke-width', 1);
+  // grid
+  //   .append('line')
+  //   .attr('x1', -400)
+  //   .attr('y1', 0)
+  //   .attr('x2', 400)
+  //   .attr('y2', 0)
+  //   .style('stroke', config.colors.grid)
+  //   .style('stroke-width', 1);
 
   // background color. Usage `.attr("filter", "url(#solid)")`
   // SOURCE: https://stackoverflow.com/a/31013492/2609980
@@ -245,10 +245,11 @@ export const radar_visualization = (
       .append('circle')
       .attr('cx', 0)
       .attr('cy', 0)
-      .attr('r', rings[i].radius)
+      .attr('r', 0)
       .style('fill', config.rings[i].backgroundColor)
       // .style('stroke', config.colors.grid)
-      .style('stroke-width', 1);
+      // .style('stroke-width', 1);
+
     //ring names displaying
     //   .append('text')
     //   .text(config.rings[i].name)
@@ -261,6 +262,13 @@ export const radar_visualization = (
     //   .style('pointer-events', 'none')
     //   .style('user-select', 'none');
   }
+
+  // animate rings
+  d3.selectAll("circle")
+    .transition()
+    .duration(400)
+    .delay(function(d, i) { return i*40; })// <-- delay as a function of i
+    .attr("r", function(d, i) { return rings[3-i].radius });    
 
   // layer for entries
   const rink = radar.append('g').attr('id', 'rink');
@@ -298,6 +306,13 @@ export const radar_visualization = (
     hideBubble();
     setHighlighted(null);
   };
+
+  d3.selectAll('.blip')
+    .transition()
+    .duration(400)
+    .delay(function(d, i) { return i*40; })// <-- delay as a function of i
+    // .style("background-color", function(d, i) { return "green" });  
+    .style('fill', function(d, i) { return "green" });
 
   // draw blips on radar
   const blips = rink
