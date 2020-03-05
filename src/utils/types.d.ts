@@ -27,7 +27,7 @@ interface Technology extends Partial<Point> {
   FM: boolean;
   /*
   active: boolean;
-  link: string; 
+  link: string;
   */
   description: string;
   moved: number;
@@ -44,3 +44,7 @@ interface ListChildComponentPropsWithData<T> {
   data: T;
   isScrolling?: boolean;
 }
+
+type QuadParamType = {
+  readonly quadrant: string;
+};
