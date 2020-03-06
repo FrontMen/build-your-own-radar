@@ -8,7 +8,7 @@ import { mount } from 'enzyme';
 
 const routeProps = {
   path: '/:quadrant',
-  route: '/tools',
+  route: '/Technieken',
 };
 
 describe('Quadrant', () => {
@@ -46,6 +46,6 @@ describe('Quadrant', () => {
       })
       .at(0);
 
-    expect(techLists.prop('technologies')).toEqual(mockData.filter(t => t.quadrant === 'tools'));
+    expect(techLists.prop('technologies')).toEqual(mockData.filter(t => t.quadrant === 'Technieken'));
   });
 });

@@ -7,18 +7,28 @@ import { MediaQueries } from 'src/Theme/Helpers';
 const GraphContainer = styled.div`
   width: 100%;
   max-width: 440px;
-  height: 100%;
+  min-width: 280px;
+  height: auto;
   pointer-events: none;
+  margin: auto;
 
   @media ${MediaQueries.phablet} {
     pointer-events: all;
+
   }
+  @media ${MediaQueries.desktop} {
+    margin: 0;
+    margin-left: auto;
+  }
+
+
 `;
 interface TechnologiesListProps {
   technologies: Technology[];
   highlighted: string | null;
   setHighlighted: (a: string | null) => void;
   quadrant: number;
+  className?: string | undefined;
 }
 
 export const Graph: React.FC<TechnologiesListProps> = ({
@@ -26,11 +36,12 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   quadrant,
   technologies,
   setHighlighted,
+  className: StylesFromParent,
 }) => {
   const d3Container = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    if (technologies.length && d3Container.current) {
+    if (d3Container.current) {
       radar_visualization(
         d3Container.current,
         technologies,
@@ -55,7 +66,7 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   }, [highlighted, technologies]);
 
   return (
-    <GraphContainer>
+    <GraphContainer className={StylesFromParent}>
       <svg ref={d3Container} />
     </GraphContainer>
   );

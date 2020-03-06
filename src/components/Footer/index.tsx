@@ -2,6 +2,7 @@ import React from 'react';
 import { FooterSlot } from '../shared/PageSlots';
 import { Logo } from '../Header/Logo';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Slot = styled(FooterSlot)`
   display: flex;
@@ -12,8 +13,16 @@ const Slot = styled(FooterSlot)`
 export const Footer = () => {
   return (
     <Slot>
-      <i>® Frontmen 2020 </i>
-      <Logo />
+      <div>
+        <Link to={'/'}>Home</Link>
+      </div>
+
+      <i>
+        {'A collaboration between '}
+        <a href={'https://www.frontmen.nl/'}>Frontmen</a>
+        {' and '}
+        <a href={'https://www.intracto.com/'}>Intracto</a>.
+      </i>
     </Slot>
   );
 };

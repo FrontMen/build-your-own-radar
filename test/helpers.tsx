@@ -4,6 +4,7 @@ import { createMemoryHistory, History } from 'history';
 import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components/macro';
 import { lightTheme } from 'src/Theme';
+import { FilterByCompanyContextProvider } from 'src/ContextProviders/FilterByCompanyContextProvider';
 
 interface Params {
   route?: string;
@@ -53,9 +54,11 @@ export const withAllProviders = (
 ) => {
   const Wrapper = ({ children }: { children: ReactNode }) => (
     <ThemeProvider theme={theme}>
-      <Router history={history}>
-        <Route path={path}>{children}</Route>
-      </Router>
+      <FilterByCompanyContextProvider>
+        <Router history={history}>
+          <Route path={path}>{children}</Route>
+        </Router>
+      </FilterByCompanyContextProvider>
     </ThemeProvider>
   );
   return render(ui, {
@@ -79,14 +82,16 @@ export const AllProvidersWrapper = ({
 }) => {
   return (
     <ThemeProvider theme={lightTheme}>
-      <Router history={history}>
-        <Route path={path}>{children}</Route>
-      </Router>
+      <FilterByCompanyContextProvider>
+        <Router history={history}>
+          <Route path={path}>{children}</Route>
+        </Router>
+      </FilterByCompanyContextProvider>
     </ThemeProvider>
   );
 };
 
 export const getSelector = (id: string) => ({
-  'data-testid': id
+  'data-testid': id,
 });
 // #endregion Enzyme
