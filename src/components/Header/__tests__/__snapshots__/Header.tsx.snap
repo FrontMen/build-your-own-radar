@@ -34,7 +34,7 @@ exports[`Header matches the snapshot 1`] = `
 
 .c2 {
   font-family: Montserrat,san-serif;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.15;
   font-size: 1.5em;
   margin: 0;
@@ -81,7 +81,7 @@ exports[`Header matches the snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   font-family: Montserrat,san-serif;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.15;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -226,7 +226,7 @@ exports[`Header matches the snapshot 2`] = `
 
 .c2 {
   font-family: Montserrat,san-serif;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.15;
   font-size: 1.5em;
   margin: 0;
@@ -273,7 +273,7 @@ exports[`Header matches the snapshot 2`] = `
   -ms-flex-align: center;
   align-items: center;
   font-family: Montserrat,san-serif;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.15;
   -webkit-text-decoration: none;
   text-decoration: none;

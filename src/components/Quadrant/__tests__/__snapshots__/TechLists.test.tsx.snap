@@ -62,7 +62,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
 
 .c2 {
   font-family: Montserrat,san-serif;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.15;
   font-size: 1;
   margin: 0;
