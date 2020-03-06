@@ -14,7 +14,6 @@ const COMPANY_NAMES: {
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  /* width: 200px; */
   margin: ${props => props.theme.space[2]}px 0;
 `;
 

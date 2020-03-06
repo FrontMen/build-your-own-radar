@@ -27,14 +27,12 @@ const Content = styled.div`
 const Article = styled.div`
   display: flex;
   flex-direction: column;
-  align-content: space-between;
   max-width: 480px;
   @media ${MediaQueries.phablet} {
     margin-right: ${props => props.theme.space[3]}px;
   }
 
   @media ${MediaQueries.tablet} {
-    justify-content: space-between;
   }
 `;
 
@@ -42,7 +40,6 @@ const GraphLayout = styled(Graph)`
   order: 0;
   color: red;
 `;
-
 
 export const Quadrant = () => {
   const { quadrant: quadrantParam } = useParams<QuadParamType>();
@@ -65,20 +62,27 @@ export const Quadrant = () => {
         ),
     [quadrantParam, technologies, selectedCompanies],
   );
-
+  
   return (
     <Slot>
       <SubNav setHighlighted={setHighlighted} />
       <Content>
         <Article>
           <ContentTitle>{quadrantParam}</ContentTitle>
-          <TechLists
-            data-testid="tech-lists"
-            quadrant={quadrantParam}
-            highlighted={highlighted}
-            setHighlighted={setHighlighted}
-            technologies={data}
-          />
+          {data.length ? (
+            <TechLists
+              data-testid="tech-lists"
+              quadrant={quadrantParam}
+              highlighted={highlighted}
+              setHighlighted={setHighlighted}
+              technologies={data}
+            />
+          ) : (
+            <p>
+              You have no datasets selected. The graph is sad{' '}
+              <span role={'img'}>😢</span>
+            </p>
+          )}
         </Article>
         <GraphLayout
           data-testid="graph"

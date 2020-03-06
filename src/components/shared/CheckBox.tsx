@@ -8,7 +8,6 @@ const CheckBoxContainer = styled.span<Pick<CheckBoxProps, 'checked'>>`
   border: 2px solid ${props => props.theme.pallet.primary};
   background-color: ${props =>
     props.theme.pallet[props.checked ? 'primary' : 'white']};
-  /* border-radius: 4px; */
   padding: 2px;
   display: inline-flex;
   justify-content: center;
@@ -28,7 +27,6 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   margin: ${props => props.theme.space[2]}px;
-  /* width: 100%; */
   align-items: center;
 `;
 

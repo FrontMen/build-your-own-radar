@@ -27,8 +27,6 @@ const Links = styled.div`
   }
 `;
 
-type LinkProps = { quadName: string };
-
 const QuadLink = styled(Link)`
   display: flex;
   flex: 1 1 100%;
@@ -52,12 +50,11 @@ const QuadLink = styled(Link)`
   background-color: ${props => props.theme.pallet.secondary};
 
   @media ${MediaQueries.phablet} {
-    max-width: 50%
+    max-width: 50%;
   }
-  @media ${MediaQueries.tablet} {
-    
-    max-width: 25%
 
+  @media ${MediaQueries.tablet} {
+    max-width: 25%;
     margin-bottom: ${props => props.theme.space[0]}px;
   }
 `;

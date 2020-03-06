@@ -4,7 +4,6 @@ exports[`CheckBox should matches the snapshot when checked 1`] = `
 .c2 {
   border: 2px solid #526de4;
   background-color: #526de4;
-  border-radius: 4px;
   padding: 2px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -33,6 +32,7 @@ exports[`CheckBox should matches the snapshot when checked 1`] = `
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
+  margin-right: 16px;
 }
 
 .c0 {
@@ -44,8 +44,7 @@ exports[`CheckBox should matches the snapshot when checked 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  margin: 4px 0;
-  width: 100%;
+  margin: 8px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -89,7 +88,6 @@ exports[`CheckBox should matches the snapshot when unchecked 1`] = `
 .c2 {
   border: 2px solid #526de4;
   background-color: #fff;
-  border-radius: 4px;
   padding: 2px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -118,6 +116,7 @@ exports[`CheckBox should matches the snapshot when unchecked 1`] = `
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
+  margin-right: 16px;
 }
 
 .c0 {
@@ -129,8 +128,7 @@ exports[`CheckBox should matches the snapshot when unchecked 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  margin: 4px 0;
-  width: 100%;
+  margin: 8px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;

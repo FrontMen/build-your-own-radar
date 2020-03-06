@@ -22,7 +22,6 @@ export const MainContentSlot = styled.div`
   grid-area: main;
   background-color: ${({ theme }: { theme: LightThemeType }) =>
     theme.colors.blocks};
-    /* min-height: calc(100vh-) */
   padding: ${({ theme }) => theme.space[3]}px;
 
   @media ${MediaQueries.phablet} {

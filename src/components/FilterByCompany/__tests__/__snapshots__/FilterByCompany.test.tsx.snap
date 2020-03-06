@@ -4,7 +4,6 @@ exports[`FilterByCompany should matches the snapshot 1`] = `
 .c3 {
   border: 2px solid #526de4;
   background-color: #526de4;
-  border-radius: 4px;
   padding: 2px;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -33,6 +32,7 @@ exports[`FilterByCompany should matches the snapshot 1`] = `
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
+  margin-right: 16px;
 }
 
 .c1 {
@@ -44,8 +44,7 @@ exports[`FilterByCompany should matches the snapshot 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  margin: 4px 0;
-  width: 100%;
+  margin: 8px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -53,7 +52,13 @@ exports[`FilterByCompany should matches the snapshot 1`] = `
 }
 
 .c0 {
-  width: 200px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   margin: 8px 0;
 }
 
@@ -67,7 +72,7 @@ exports[`FilterByCompany should matches the snapshot 1`] = `
       <label
         class="c2"
       >
-        Intracto Belgium
+        Intracto BE
       </label>
       <span
         class="c3"
@@ -96,7 +101,7 @@ exports[`FilterByCompany should matches the snapshot 1`] = `
       <label
         class="c2"
       >
-        Intracto Netherlands
+        Intracto NL
       </label>
       <span
         class="c3"

@@ -34,7 +34,7 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   const d3Container = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    if (technologies.length && d3Container.current) {
+    if (d3Container.current) {
       radar_visualization(
         d3Container.current,
         technologies,

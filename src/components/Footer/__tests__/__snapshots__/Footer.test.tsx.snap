@@ -32,6 +32,13 @@ exports[`Footer should matches the snapshot 1`] = `
   <div
     class="PageSlots__FooterSlot-sc-1quj5xc-2 c0"
   >
+    <div>
+      <a
+        href="/"
+      >
+        Home
+      </a>
+    </div>
     <i>
       A collaboration between 
       <a
