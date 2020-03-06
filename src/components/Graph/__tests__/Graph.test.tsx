@@ -11,6 +11,7 @@ const defaultProps = {
   technologies: mockData,
   highlighted: null,
   setHighlighted: jest.fn(),
+  setSelected: jest.fn(),
   quadrant: 0,
 };
 
@@ -75,7 +76,7 @@ describe('Graph', () => {
       quadrant: 1,
     });
 
-    const [c, t, config, setHighlighted, { quadrant }] = radar_visualization.mock.calls[0];
+    const [c, t, config, setHighlighted, setSelected, { quadrant }] = radar_visualization.mock.calls[0];
     expect(config).toBe(d3Config);
     expect(setHighlighted).toBe(defaultProps.setHighlighted);
     expect(quadrant).toBe(1);
