@@ -19,8 +19,10 @@ export const DataMapper = (data: IncomingDataSchema): Technology[] => {
       ...item,
       moved: 0,
       isNew: item.isNew === 'TRUE',
-      ITR_BE: ITR_BE === 'X',
-      ITR_NL: ITR_NL === 'X',
-      FM: FM === 'X',
+      companies: [
+        ITR_BE === 'X' ? 'ITR_BE' : false,
+        ITR_NL === 'X' ? 'ITR_NL' : false,
+        FM === 'X' ? 'FM' : false,
+      ].filter(Boolean) as CompanyTypes[],
     }));
 };
