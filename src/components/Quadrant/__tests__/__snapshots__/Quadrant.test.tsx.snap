@@ -17,7 +17,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 }
 
 .c26 {
-  padding: 8px 0px;
+  padding: 8px 8px 16px 0px;
   overflow: hidden;
 }
 
@@ -27,8 +27,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   font-weight: 400;
   line-height: 1.65;
   cursor: pointer;
-  padding: 0px 4px;
-  border: 1px solid white;
+  padding: 2px;
 }
 
 .c27 {
@@ -80,7 +79,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   min-width: 280px;
   height: auto;
   pointer-events: none;
-  margin-left: auto;
+  margin: auto;
 }
 
 .c18 {
@@ -354,6 +353,13 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 @media (min-width:481px) {
   .c28 {
     pointer-events: all;
+  }
+}
+
+@media (min-width:1024px) {
+  .c28 {
+    margin: 0;
+    margin-left: auto;
   }
 }
 
@@ -738,7 +744,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                 data-testid="Babel"
               >
                 <circle
-                  fill="#17a2b8"
+                  fill="#7843ab"
                   r="9"
                 />
                 <text
@@ -754,7 +760,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                 data-testid="Spark"
               >
                 <circle
-                  fill="#17a2b8"
+                  fill="#7843ab"
                   r="9"
                 />
                 <text
@@ -811,7 +817,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 }
 
 .c26 {
-  padding: 8px 0px;
+  padding: 8px 8px 16px 0px;
   overflow: hidden;
 }
 
@@ -821,8 +827,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   font-weight: 400;
   line-height: 1.65;
   cursor: pointer;
-  padding: 0px 4px;
-  border: 1px solid white;
+  padding: 2px;
 }
 
 .c27 {
@@ -874,7 +879,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   min-width: 280px;
   height: auto;
   pointer-events: none;
-  margin-left: auto;
+  margin: auto;
 }
 
 .c18 {
@@ -1148,6 +1153,13 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 @media (min-width:481px) {
   .c28 {
     pointer-events: all;
+  }
+}
+
+@media (min-width:1024px) {
+  .c28 {
+    margin: 0;
+    margin-left: auto;
   }
 }
 
@@ -1532,7 +1544,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                 data-testid="Babel"
               >
                 <circle
-                  fill="#17a2b8"
+                  fill="#7843ab"
                   r="9"
                 />
                 <text
@@ -1548,7 +1560,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                 data-testid="Spark"
               >
                 <circle
-                  fill="#17a2b8"
+                  fill="#7843ab"
                   r="9"
                 />
                 <text

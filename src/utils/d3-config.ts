@@ -6,10 +6,10 @@ export const d3Config = {
     inactive: '#ddd',
   },
   quadrants: [
-    { name: 'Frameworks, CMS & Programmeertalen' },
-    { name: 'Tooling en testing' },
-    { name: 'Platforms, infrastructure & Data' },
-    { name: 'Technieken' },
+    { name: 'Frameworks, CMS & Programmeertalen', color: '#31bd70' },
+    { name: 'Tooling en testing', color: '#526de4' },
+    { name: 'Platforms, infrastructure & Data', color: '#fd7e14' },
+    { name: 'Technieken', color: '#7843ab' },
   ],
   rings: [
     { name: 'Adopt', color: '#17a2b8', backgroundColor: '#BFC0BF' } as const,
