@@ -307,20 +307,15 @@ export const radar_visualization = (
     setHighlighted(null);
   };
 
-  d3.selectAll('.blip')
-    .transition()
-    .duration(400)
-    .delay(function(d, i) { return i*40; })// <-- delay as a function of i
-    // .style("background-color", function(d, i) { return "green" });  
-    .style('fill', function(d, i) { return "green" });
-
+  const setBlips = () => {
+  
   // draw blips on radar
   const blips = rink
     .selectAll('.blip')
     .data(data)
     .enter()
     .append('g')
-    .attr('class', 'blip')
+    .attr('class', 'bloop')
     .on('mouseover', mouseOverListner)
     .on('mouseout', mouseOutListner);
 
@@ -386,4 +381,8 @@ export const radar_visualization = (
         .strength(0.85),
     )
     .on('tick', ticked);
+  }
+  setTimeout(() => {
+    setBlips();
+  }, 400)
 };
