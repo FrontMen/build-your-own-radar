@@ -85,4 +85,8 @@ export const AllProvidersWrapper = ({
     </ThemeProvider>
   );
 };
+
+export const getSelector = (id: string) => ({
+  'data-testid': id
+});
 // #endregion Enzyme

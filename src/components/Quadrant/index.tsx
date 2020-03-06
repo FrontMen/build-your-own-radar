@@ -32,10 +32,6 @@ const PhabletContainer = styled(MainContentSlot)`
   justify-content: space-between;
 `;
 
-type QuadParamType = {
-  readonly quadrant: string;
-};
-
 export const Quadrant = () => {
   const isNotMobile = useMediaQuery({ query: MediaQueries.tablet });
   const { quadrant: quadrantParam } = useParams<QuadParamType>();

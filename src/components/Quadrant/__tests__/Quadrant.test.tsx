@@ -3,18 +3,8 @@ import { Context as ResponsiveContext } from 'react-responsive';
 import { Quadrant } from '..';
 import { AllProvidersWrapper, withAllProviders } from 'test/helpers';
 import { MediaQueries } from 'src/Theme/Helpers';
-import { useAppState } from 'src/hooks/useAppState';
 import { mockData } from 'test/mockData';
 import { mount } from 'enzyme';
-
-jest.mock('src/hooks/useAppState');
-
-(useAppState as jest.MockedFunction<typeof useAppState>).mockReturnValue({
-  state: {
-    technologies: mockData,
-    selected: null,
-  },
-});
 
 const routeProps = {
   path: '/:quadrant',
