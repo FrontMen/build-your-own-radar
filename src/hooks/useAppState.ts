@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from 'react';
 
-import rawData from 'src/data/27-02-2020.json';
+import rawData from 'src/data/01-2020.json';
 import { DataMapper, IncomingDataSchema } from 'src/utils/dataLoader';
 const parsedData = DataMapper(rawData as IncomingDataSchema);
 

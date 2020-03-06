@@ -1,0 +1,219 @@
+name,quadrant,ring,isNew,description,ITR BE,ITR NL,FM,In radar?
+.NET Core,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,,X,X,,N
+A-Frame,"Frameworks, CMS & Programmeertalen",Assess,TRUE,A web framework for building virtual reality experiences,?,,X,Y
+Alpine,"Platforms, infrastructure & Data",Adopt,TRUE,,,X,,Y
+AMQP,Technieken,Trial,TRUE,"Advanced Messaging Queueing Protocol (Apache Kafka, RabbitMQ, AWS SQS)",,,X,Y
+Angular 2+,"Frameworks, CMS & Programmeertalen",Assess,TRUE,,X,,X,Y
+AngularJS (Angular 1),"Frameworks, CMS & Programmeertalen",Hold,TRUE,,,,X,Y
+Apache,"Platforms, infrastructure & Data",Adopt,TRUE,In NL voorkeur Nginx,X,X,,Y
+Apache Kafka,"Platforms, infrastructure & Data",Trial,TRUE,Messaging Queue,,,X,Y
+Apache SOLR,"Platforms, infrastructure & Data",Adopt,TRUE,,X,X,,Y
+API Platform (symfony),"Frameworks, CMS & Programmeertalen",Adopt,TRUE,,X,,,N
+AppCenter,Tooling en testing,Trial,TRUE,"Microsoft - Platform to build, test, release, and monitor apps for every platform",,,X,Y
+Arc42 ,Technieken,Adopt,TRUE,Open Source Software Architectuur model,,X,,Y
+ASP.NET MVC,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,,X,X,,Y
+Aurelia,"Frameworks, CMS & Programmeertalen",Trial,TRUE,"JS Framework for browser, mobile and desktop applications",,,X,Y
+Automated security testing,Technieken,Assess,TRUE,,,X,X,N
+Automated Testing,Technieken,Adopt,TRUE,,X,X,X,Y
+AWS API Gateway,"Platforms, infrastructure & Data",Trial,TRUE,,,,X,Y
+AWS CloudFront,"Platforms, infrastructure & Data",Adopt,TRUE,,X,,X,Y
+AWS EC2,"Platforms, infrastructure & Data",Adopt,TRUE,VM instances,X,,X,Y
+AWS Elastic Transcoder,"Platforms, infrastructure & Data",Trial,TRUE,,X,,,Y
+AWS Lambda,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,Serverless functions,,,X,Y
+AWS S3,"Platforms, infrastructure & Data",Adopt,TRUE,,X,,X,Y
+Azure,"Platforms, infrastructure & Data",Trial,TRUE,,X,,X,Y
+Azure DevOps,"Platforms, infrastructure & Data",Trial,TRUE,CI/ CD ,,,X,N
+Backbone.JS,"Frameworks, CMS & Programmeertalen",Hold,TRUE,JS Framework for browser applications,X,,X,Y
+BackstopJS,Tooling en testing,Adopt,TRUE,Visual regression testing,,X,,Y
+Bamboo,"Platforms, infrastructure & Data",Adopt,TRUE,,X,X,X,Y
+Behat,Tooling en testing,Hold,TRUE,,X,X,,Y
+"BEM, Atomic etc",Technieken,Adopt,TRUE,"CSS structure WoW (Blocks, Elements and Modifiers)",X,X,X,Y
+Bitbucket,Tooling en testing,Adopt,TRUE,Git Repo with CI/ CD options,,,X,N
+Bitrise,"Platforms, infrastructure & Data",Assess,TRUE,CI/ CD for Mobile Apps (builds -> release),,,X,Y
+Blackfire,"Platforms, infrastructure & Data",Adopt,TRUE,,X,X,,Y
+Bootstrap 4+,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,CSS Framework,X,,X,Y
+Bower,Tooling en testing,Hold,TRUE,Package manager,,,X,Y
+Buildozer,Tooling en testing,Trial,TRUE,,X,,,Y
+Burpsuite,Tooling en testing,Trial,TRUE,Security scanning,X,X,X,Y
+C#,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,,X,X,,N
+Certified ethical hacking CEH,Technieken,Trial,TRUE,,X,X,,N
+Certmanager,"Platforms, infrastructure & Data",Trial,TRUE,Certificate Manager for e.g. managing TLS Certs on Kubernetes,,,X,Y
+CircleCi,"Platforms, infrastructure & Data",Assess,TRUE,CloudNative CI/ CD,,,X,Y
+CodeIgniter,"Frameworks, CMS & Programmeertalen",Hold,TRUE,,X,X,,Y
+Component based development,Technieken,Adopt,TRUE,,X,X,X,Y
+Composer,Tooling en testing,Adopt,TRUE,PHP Package management,X,X,,N
+Configuratie/secret management,Technieken,Adopt,TRUE,in repository,X,X,X,N
+Confluence,Tooling en testing,Adopt,TRUE,Team Collaboration & Wiki,,X,X,N
+Continous Deployment,Technieken,Adopt,TRUE,,X,X,X,Y
+Continous Integration,Technieken,Adopt,TRUE,,X,X,X,Y
+Cordova,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,Hybrid Mobile App Framework,,,X,Y
+CraftCMS,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,,X,,,Y
+Cucumber,Tooling en testing,Assess,TRUE,,,X,X,Y
+Cypress.io,Tooling en testing,Adopt,TRUE,Browser testing,X,X,X,Y
+Debian Linux,"Platforms, infrastructure & Data",Adopt,TRUE,,X,X,X,Y
+Drupal Decoupled,Technieken,Trial,TRUE,Headless,X,X,,N
+Dependabot,Tooling en testing,Trial,TRUE,,X,X,,Y
+Design Systems,Technieken,Trial,TRUE,,X,X,,Y
+DevOps,Technieken,Adopt,TRUE,"Methodiek, pipelines, automatisering",,X,,N
+DialogFlow,"Platforms, infrastructure & Data",Trial,TRUE,Chatbot,,,X,Y
+Docker,"Platforms, infrastructure & Data",Adopt,TRUE,Containerisation,X,X,X,Y
+Domain Driven Design,Technieken,Trial,TRUE,...,X,,X,Y
+Drupal,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,,X,X,,Y
+Drupal Commerce,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,,,X,,Y
+Drupal Test Traits,Tooling en testing,Adopt,TRUE,,,,,Y
+Elasticsearch,"Platforms, infrastructure & Data",Assess,TRUE,,X,X,,Y
+Electron,"Frameworks, CMS & Programmeertalen",Trial,TRUE,Desktop applications build with JS,X,,X,Y
+ELK Stack,Technieken,Trial,TRUE,"Logging, Monitoring & Dashboarding (Technical)",X,,X,N
+Ember.js,"Frameworks, CMS & Programmeertalen",Hold,TRUE,JS Framework for Frontend Applications,,,X,Y
+Emotion.css,"Frameworks, CMS & Programmeertalen",Assess,TRUE,JS Driven CSS Framework,,,X,N
+Episerver,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,,X,X,,Y
+ESLint,Tooling en testing,Adopt,TRUE,Linter,X,X,X,Y
+Express/ Fastify/ Koa,"Platforms, infrastructure & Data",Adopt,TRUE,NodeJS based Webserver,,,X,Y
+Fastlane,Tooling en testing,Assess,TRUE,CI/ CD for Mobile Apps (builds -> release),,,,Y
+eXtreme Programming,Technieken,Adopt,TRUE,methodiek om samen te werken,,X,,N
+Firebase,"Platforms, infrastructure & Data",Assess,TRUE,Google - Platform for building Frontend & Mobile Apps (incl. backend/ digital services),,,X,Y
+Flutter / Dart,"Frameworks, CMS & Programmeertalen",Assess,TRUE,Cross Native Mobile App Framework,X,,X,Y
+Gatsby,"Frameworks, CMS & Programmeertalen",Trial,TRUE,React based Frontend & CMS Framework supported by GraphQL,X,X,X,Y
+Google Cloud Platform - Cloud Functions,"Frameworks, CMS & Programmeertalen",Assess,TRUE,,,,X,Y
+Google Cloud Platform - GKE,"Platforms, infrastructure & Data",Trial,TRUE,Google Kubernetes Engine,,X,X,Y
+Gitflow,Technieken,Adopt,TRUE,,X,X,X,Y
+Github,Tooling en testing,Adopt,TRUE,Git Repo with CI/ CD options,X,X,X,N
+Gitlab,Tooling en testing,Adopt,TRUE,Git Repo with CI/ CD options,X,X,X,N
+Gitlab CI,Tooling en testing,Trial,TRUE,,X,X,,N
+Gophish,Tooling en testing,Assess,TRUE,Phishing attack software,,X,,Y
+Grafana,Tooling en testing,Assess,TRUE,Dashboarding Tool for e.g. Databases,,,X,Y
+GraphQL (Apollo),"Frameworks, CMS & Programmeertalen",Adopt,TRUE,RESTfull API alternative,,,X,Y
+Greensock,"Frameworks, CMS & Programmeertalen",Trial,TRUE,,X,,,Y
+GrumPHP,Tooling en testing,Adopt,TRUE,,X,,,Y
+Grunt,Tooling en testing,Hold,TRUE,,X,X,X,Y
+Gulp,Tooling en testing,Hold,TRUE,,X,X,,Y
+Hubspot (CMS),"Frameworks, CMS & Programmeertalen",Adopt,TRUE,,X,,,N
+IAM,Technieken,Adopt,TRUE,,,X,,Y
+IBM Watson,"Platforms, infrastructure & Data",Assess,TRUE,"AI Driven Platform with prebuild services (e.g. TTS, NLP etc.)",,,X,Y
+IIS,"Platforms, infrastructure & Data",Adopt,TRUE,,X,X,,Y
+Infrastructure as code,"Platforms, infrastructure & Data",Trial,TRUE,,,X,,Y
+Ionic Framework,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,"Hybrid Framework for Mobile (cordova), Frontend (incl. PWA) and Desktop (electron) for multiple Frameworks",,,X,Y
+ISO 25001,Technieken,Trial,TRUE,,,X,,Y
+ISO 27001,Technieken,Adopt,TRUE,,,X,,Y
+Jasmine,Tooling en testing,Adopt,TRUE,JS BDD Testing,,,X,Y
+JavaScript,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,,X,X,X,N
+Jenkins,Tooling en testing,Hold,TRUE,CI/ CD Tooling,,X,,Y
+Jest,Tooling en testing,Adopt,TRUE,JS Testing Framework,X,,X,Y
+JIRA,Tooling en testing,Adopt,TRUE,,X,X,X,N
+jMeter,Tooling en testing,Adopt,TRUE,User scenarios frontend testing,,X,,Y
+jQuery,"Frameworks, CMS & Programmeertalen",Hold,TRUE,JS Framework for DOM manipulation,X,X,X,Y
+Jumpcloud,Tooling en testing,Adopt,TRUE,,,,,Y
+JWT,Technieken,Adopt,TRUE,JSON Web Tokens,,,X,Y
+Kanban,Technieken,Adopt,TRUE,,X,,,N
+Karma,Tooling en testing,Adopt,TRUE,JS Testing Framework,,,X,Y
+Katalon,Tooling en testing,Trial,TRUE,Interface testing,,X,,Y
+Kubernetes,Tooling en testing,Trial,TRUE,"Container orchistration engine (native, GKE and AWS EKS)",X,X,X,Y
+Lando,"Platforms, infrastructure & Data",Trial,TRUE,,,X,,Y
+Laravel,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,,,X,,Y
+Lerna,Tooling en testing,Trial,TRUE,A tool for managing JavaScript projects with multiple packages,,,X,Y
+Less,"Frameworks, CMS & Programmeertalen",Hold,TRUE,CSS Pre-processor,X,,,N
+Lit Element,"Frameworks, CMS & Programmeertalen",Assess,TRUE,"A simple base class for creating fast, lightweight web components",,,X,Y
+Lit-html,"Frameworks, CMS & Programmeertalen",Assess,TRUE,"An efficient, expressive, extensible HTML templating library for JavaScript",,,X,Y
+Locust (Performance test),Tooling en testing,Assess,TRUE,Lightweight performance testing tool,,,X,Y
+Magento,"Frameworks, CMS & Programmeertalen",Hold,TRUE,,X,X,,Y
+Marionette JS,"Frameworks, CMS & Programmeertalen",Hold,TRUE,,X,,X,Y
+Matomo,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,Opensource google analytics alternatief (voorheen piwik),,X,,N
+Memcache,"Platforms, infrastructure & Data",Adopt,TRUE,,X,X,,Y
+Metabase,Tooling en testing,Trial,TRUE,reporting tool,,X,,Y
+Metasploit,Tooling en testing,Trial,TRUE,,,X,,Y
+Micro Frontend Architecture,Technieken,Assess,TRUE,,X,,X,Y
+Microservices Architecture,Technieken,Adopt,TRUE,Backend services,,,X,Y
+Mocha (+ chai),Tooling en testing,Adopt,TRUE,JS Testing Framework,,,X,Y
+Mod Security,"Platforms, infrastructure & Data",Adopt,TRUE,Web Application Firewall,,X,,N
+Momentjs,"Frameworks, CMS & Programmeertalen",adopt,TRUE,JS Date Library,,,X,N
+MongoDB,"Platforms, infrastructure & Data",Adopt,TRUE,NoSQL DB / Document Store,X,X,X,Y
+MySQL,"Platforms, infrastructure & Data",Adopt,TRUE,Relational Database (SQL),,,X,Y
+MySQL (MariaDB),"Platforms, infrastructure & Data",Adopt,TRUE,Relational Database (SQL),,X,,N
+MySQL (Percona),"Platforms, infrastructure & Data",Adopt,TRUE,Relational Database (SQL),X,,,N
+Native Script,"Frameworks, CMS & Programmeertalen",Assess,TRUE,Native iOS and Android Apps with JavaScript (Angular & Vue),,,X,Y
+Neo4j,"Platforms, infrastructure & Data",Hold,TRUE,,X,,X,Y
+Nestjs,"Frameworks, CMS & Programmeertalen",Assess,TRUE,"A progressive Node.js framework for building efficient, reliable and scalable server-side applications",,,X,Y
+Netlify,"Platforms, infrastructure & Data",Trial,TRUE,,X,X,X,Y
+Next.js,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,Server Side Rendering (SSR) Framework for React,,,X,Y
+Nginx,"Platforms, infrastructure & Data",Adopt,TRUE,,X,X,,Y
+No code - Low code,Technieken,Assess,TRUE,,X,X,,Y
+Node.js,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,Javascript Runtime Framework based on Chromium webengine,X,,X,Y
+Norea 2.0 nomenkader,Technieken,Adopt,TRUE,,,X,,N
+NPM,Tooling en testing,Adopt,TRUE,NodeJS Package Manager,,X,X,Y
+Nuxt.js,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,Server Side Rendering (SSR) Framework for Vue,X,X,X,Y
+NX (nrwl),Tooling en testing,Trial,TRUE,Develop multiple full-stack applications holistically and share code between them all in the same workspace,,,X,Y
+OAuth2,Technieken,Adopt,TRUE,OAuth2 is an open standard for access delegation,X,,X,N
+OpenAPI / Swagger,Tooling en testing,Adopt,TRUE,,,X,X,Y
+OpenCart,"Frameworks, CMS & Programmeertalen",Hold,TRUE,,,X,,Y
+OpenID Connect,Technieken,Adopt,TRUE,OIDC is an identity layer on top of OAuth2,,,X,N
+OpenStack,"Platforms, infrastructure & Data",Assess,TRUE,,X,X,,Y
+OpenVAS,Tooling en testing,Assess,TRUE,,,X,,Y
+Owasp ZAP,Tooling en testing,Adopt,TRUE,Security scanning,,X,,Y
+Parcel,Tooling en testing,Assess,TRUE,Zero configuration web application bundler,,,X,Y
+PatternLab,"Frameworks, CMS & Programmeertalen",Hold,TRUE,,X,X,,Y
+PHP,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,,X,X,,N
+PhpCS,Tooling en testing,Adopt,TRUE,,X,X,,Y
+PHPStorm,Tooling en testing,Adopt,TRUE,,X,X,,N
+PHPUnit,Tooling en testing,Adopt,TRUE,,X,X,,Y
+PM2,Tooling en testing,Adopt,TRUE,,X,,X,Y
+Polymer,"Frameworks, CMS & Programmeertalen",Hold,TRUE,"Libraries, tools, and standards for Frontends based on web components",,,X,Y
+PostCSS,Technieken,Trial,TRUE,A tool for transforming CSS with JavaScript,X,X,X,Y
+PostgreSQL,"Platforms, infrastructure & Data",Adopt,TRUE,,X,,,Y
+Prettier,Tooling en testing,Adopt,TRUE,Code formatter,X,,X,Y
+Progressive Web Apps (PWA),Technieken,Adopt,TRUE,Already part of most Frontend Frameworks by default,X,,X,Y
+Drupal Progressively decoupled,Technieken,Adopt,TRUE,drupal componenten in vue,,X,,N
+Prometheus,Tooling en testing,Assess,TRUE,Metrics & Insight for e.g. Kubernetes,,,X,Y
+Protractor,Tooling en testing,Adopt,TRUE,Angular(JS) Testing Framework,,,X,Y
+Puppeteer,Tooling en testing,Assess,TRUE,,X,,X,Y
+Python,"Frameworks, CMS & Programmeertalen",Trial,TRUE,,X,,X,Y
+RabbitMQ,"Platforms, infrastructure & Data",Adopt,TRUE,Message Queue based on AMQP,X,,,Y
+React,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,Frontend Library,,,X,Y
+React Native,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,A Framework for building Mobile Apps with React,,,X,Y
+React-hooks,Technieken,Trial,TRUE,Hook functionality for React,,,X,Y
+Redis,"Platforms, infrastructure & Data",Adopt,TRUE,Key Value Store,X,X,X,Y
+Redux,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,A Predictable State Container for JS Apps,,,X,Y
+Risk based testing,Technieken,Adopt,TRUE,,,X,,Y
+Rollup.js,Tooling en testing,Adopt,TRUE,Module bundler for JavaScript,,,X,Y
+RX.JS,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,JS Functional Event Library,,,X,Y
+SAML,Technieken,Adopt,TRUE,,,X,,N
+Sass,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,CSS pre-processor with syntax advancements,X,X,X,N
+Scrum,Technieken,Adopt,TRUE,,X,X,X,N
+Secure Development,Technieken,Adopt,TRUE,,,X,,Y
+Selenium,Tooling en testing,Hold,TRUE,Browser automation tooling,X,X,X,Y
+Serverless,"Platforms, infrastructure & Data",Assess,TRUE,"Framework to develop, test and deploy Serverless functions to AWS, GC and Azure",X,X,X,Y
+Shopware,"Frameworks, CMS & Programmeertalen",Assess,TRUE,,X,,,Y
+SimpleSAML,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,,,X,,N
+Sitecore,"Frameworks, CMS & Programmeertalen",Hold,TRUE,,X,,,Y
+SonarQube,Tooling en testing,Trial,TRUE,Code Quality and Security tooling,,X,,Y
+Sonata CMS,"Frameworks, CMS & Programmeertalen",Hold,TRUE,Symfony based CMS,X,,,N
+Stencil,"Frameworks, CMS & Programmeertalen",Trial,TRUE,"Stencil is a toolchain for building reusable, scalable Design Systems",,,X,Y
+Storybook,Tooling en testing,Trial,TRUE,"Storybook is an open source tool for developing UI components in isolation for React, Vue, and Angular",,X,X,Y
+Svelte,"Frameworks, CMS & Programmeertalen",Assess,TRUE,JS Frontend Framework,,,X,Y
+SVN,"Platforms, infrastructure & Data",Hold,TRUE,,,X,,Y
+Sylius,"Frameworks, CMS & Programmeertalen",Trial,TRUE,Symfony based e-commerce framework,X,,,Y
+Symfony,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,,X,,,Y
+Tailwind.css,"Frameworks, CMS & Programmeertalen",Trial,TRUE,Utility-first CSS framework,,,X,Y
+Teamcity,"Platforms, infrastructure & Data",Assess,TRUE,CI/ CD Server,,,X,Y
+TestCafe,Tooling en testing,Assess,TRUE,A node.js tool to automate end-to-end web testing,,,X,Y
+Three.js,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,JS 3D Library,X,,,Y
+Typescript,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,Superset of JS,X,X,X,Y
+Umbraco,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,,X,X,,Y
+Umbraco Heartcore,"Frameworks, CMS & Programmeertalen",Trial,TRUE,,,X,,N
+Umbraco uCommerce,"Frameworks, CMS & Programmeertalen",Trial,TRUE,,,X,,Y
+Vagrant,Tooling en testing,Adopt,TRUE,,X,,,N
+Varnish,"Platforms, infrastructure & Data",Adopt,TRUE,Caching,X,X,,Y
+Visual Studio,Tooling en testing,Adopt,TRUE,,X,X,,N
+VMware,"Platforms, infrastructure & Data",Adopt,TRUE,,X,,,Y
+Vue.JS,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,JS Frontend Framework,X,X,X,Y
+Vuestorefront,"Frameworks, CMS & Programmeertalen",Trial,TRUE,,X,,,Y
+WCAG 2.1,Technieken,Adopt,TRUE,,X,X,X,Y
+Web assembly,"Frameworks, CMS & Programmeertalen",Assess,TRUE,,X,,X,N
+Web components,Technieken,Adopt,TRUE,A suite of different technologies allowing you to create reusable custom elements for the web,,,X,Y
+Webdriver,Tooling en testing,Assess,TRUE,WebDriver is a remote control interface that enables introspection and control of user agents,,,X,Y
+WebPack,Tooling en testing,Adopt,TRUE,Module Bundler,X,,X,Y
+WordPress,"Frameworks, CMS & Programmeertalen",Adopt,TRUE,,X,X,,Y
+Yarn,Tooling en testing,Adopt,TRUE,Package manager,X,X,X,Y
+Yarn workspaces,Technieken,Assess,TRUE,Private space for bundles packages ,,,X,N
+Yii PHP Framework,"Frameworks, CMS & Programmeertalen",Hold,TRUE,,,X,,Y
+Zabbix,Tooling en testing,Adopt,TRUE,Monitoring,X,X,,N
+Ansible,Tooling en testing,Adopt,TRUE,,X,X,,N

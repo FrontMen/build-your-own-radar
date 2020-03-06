@@ -9,7 +9,7 @@ export const Typography = {
   `,
   header: css`
     font-family: ${props => props.theme.fonts.primary};
-    font-weight: 600;
+    font-weight: 700;
     line-height: ${props => props.theme.lineHeight[1]};
   `,
 };

@@ -32,17 +32,10 @@ const PhabletContainer = styled(MainContentSlot)`
   justify-content: space-between;
 `;
 
-type QuadParamType = {
-  readonly quadrant: string;
-  // readonly quadrant: string;
-};
-
 export const Quadrant = () => {
   const isNotMobile = useMediaQuery({ query: MediaQueries.tablet });
   const { quadrant: quadrantParam } = useParams<QuadParamType>();
 
-  // const quadrant: number =
-  //   d3Config.quadrants[quadrantParam as keyof typeof d3Config.quadrants].num;
   const quadrant: number = d3Config.quadrants.findIndex(
     (item: { name: string }) => item.name === quadrantParam,
   );
@@ -62,6 +55,7 @@ export const Quadrant = () => {
       <LeftColumn>
         <ContentTitle>{quadrantParam}</ContentTitle>
         <TechLists
+          data-testid="tech-lists"
           quadrant={quadrantParam}
           highlighted={highlighted}
           setHighlighted={setHighlighted}
@@ -69,6 +63,7 @@ export const Quadrant = () => {
         />
       </LeftColumn>
       <Graph
+        data-testid="graph"
         highlighted={highlighted}
         quadrant={quadrant}
         setHighlighted={setHighlighted}
@@ -79,6 +74,7 @@ export const Quadrant = () => {
     <MainContentSlot>
       <MobileTitleSection>
         <Graph
+          data-testid="graph"
           highlighted={highlighted}
           quadrant={quadrant}
           setHighlighted={setHighlighted}
@@ -87,6 +83,7 @@ export const Quadrant = () => {
         <ContentTitle>{quadrantParam}</ContentTitle>
       </MobileTitleSection>
       <TechLists
+        data-testid="tech-lists"
         quadrant={quadrantParam}
         highlighted={highlighted}
         setHighlighted={setHighlighted}

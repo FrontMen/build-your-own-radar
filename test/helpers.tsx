@@ -11,6 +11,7 @@ interface Params {
   history?: History;
 }
 
+// #region react-testing-library
 export const renderWithRouter = (
   ui: React.ReactElement,
   {
@@ -62,3 +63,30 @@ export const withAllProviders = (
     ...options,
   });
 };
+// #endregion react-testing-library
+
+// #region Enzyme
+export const AllProvidersWrapper = ({
+  children,
+  path = '/',
+  route = '/',
+  history = createMemoryHistory({ initialEntries: [route] }),
+}: {
+  children: ReactNode;
+  path: string;
+  route: string;
+  history: History;
+}) => {
+  return (
+    <ThemeProvider theme={lightTheme}>
+      <Router history={history}>
+        <Route path={path}>{children}</Route>
+      </Router>
+    </ThemeProvider>
+  );
+};
+
+export const getSelector = (id: string) => ({
+  'data-testid': id
+});
+// #endregion Enzyme

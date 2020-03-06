@@ -130,7 +130,7 @@ export const showBubble = (technology: Technology) => {
   }
 };
 
-const hideBubble = () => {
+export const hideBubble = () => {
   d3.select('#bubble')
     .attr('transform', translate(0, 0))
     .style('opacity', 0);

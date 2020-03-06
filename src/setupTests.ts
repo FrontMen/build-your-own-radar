@@ -6,4 +6,6 @@ import '@testing-library/jest-dom/extend-expect';
 import { configure } from 'enzyme';
 import 'jest-styled-components';
 import Adapter from 'enzyme-adapter-react-16';
+import 'test/mock';
+
 configure({ adapter: new Adapter() });

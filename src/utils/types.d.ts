@@ -14,16 +14,20 @@ interface Segment {
   random: () => Point;
 }
 
+type RingNamesType = 'Adopt' | 'Trail' | 'Assess' | 'Hold';
+
 interface Technology extends Partial<Point> {
   name: string;
-  ring: 'adopt' | 'trail' | 'assess' | 'hold';
+  ring: RingNamesType;
   quadrant: string;
   isNew: boolean;
   description: string;
-
+  ITR_BE: boolean;
+  ITR_NL: boolean;
+  FM: boolean;
   /*
   active: boolean;
-  link: string; 
+  link: string;
   */
   description: string;
   moved: number;
@@ -40,3 +44,7 @@ interface ListChildComponentPropsWithData<T> {
   data: T;
   isScrolling?: boolean;
 }
+
+type QuadParamType = {
+  readonly quadrant: string;
+};

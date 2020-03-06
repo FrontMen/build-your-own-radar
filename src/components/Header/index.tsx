@@ -21,7 +21,7 @@ const StyleLessLink = styled(Link)`
 `;
 
 const PageTitle = styled.h1`
-  ${Typography.header}
+  ${Typography.header};
   font-size: ${props => props.theme.fontSize[1]}em;
   margin: 0;
   text-decoration: none;
@@ -60,7 +60,7 @@ const QuadLink = styled(Link)`
   display: flex;
   justify-items: center;
   align-items: center;
-  ${Typography.header}
+  ${Typography.header};
   text-decoration: none;
   font-size: ${props => props.theme.fontSize[0]}em;
   color: inherit;
