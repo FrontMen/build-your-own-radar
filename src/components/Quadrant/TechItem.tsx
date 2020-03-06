@@ -22,15 +22,16 @@ const Details = styled.div<{ isOpened: boolean }>`
   overflow: hidden;
 `;
 const Content = styled.div`
-  padding: ${props => `${props.theme.space[2]}px ${props.theme.space[0]}px`};
+  padding: ${props =>
+    `${props.theme.space[2]}px ${props.theme.space[2]}px ${props.theme.space[3]}px ${props.theme.space[0]}px`};
   overflow: hidden;
+
 `;
 
 const Label = styled.div<{ highlighted: boolean }>`
   ${Typography.body};
   cursor: pointer;
-  padding: ${props => `${props.theme.space[0]}px ${props.theme.space[1]}px`};
-  border: 1px solid white;
+  padding: ${props => props.theme.space[1]/2}px;
   color: ${props => props.highlighted && props.theme.pallet.blue};
   font-weight: ${props => props.highlighted && 600};
 `;
