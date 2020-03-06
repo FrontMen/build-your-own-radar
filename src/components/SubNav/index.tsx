@@ -88,16 +88,18 @@ export const SubNav = ({ setHighlighted }: PropTypes) => {
       <FilterByCompany />
       <Search setHighlighted={setHighlighted} />
       <Links>
-        {d3Config.quadrants.map(({ name }: { name: string }) => (
-          <ColoredLinks
-            selected={quadrantPram === name}
-            quadName={name}
-            to={`/${name}`}
-            key={name}
-          >
-            {name}
-          </ColoredLinks>
-        ))}
+        {d3Config.quadrants.map(({ name }: { name: string }) => {
+          return (
+            <ColoredLinks
+              selected={quadrantPram === name}
+              quadName={name}
+              to={`/${name}`}
+              key={name}
+            >
+              {name}
+            </ColoredLinks>
+          );
+        })}
       </Links>
     </Container>
   );

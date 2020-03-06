@@ -9,8 +9,8 @@ import { createMemoryHistory } from 'history';
 const defaultProps: TechnologyProps = {
   highlighted: null,
   technology: mockData[0],
-  active: null,
-  setActive: jest.fn(),
+  selected: null,
+  setSelected: jest.fn(),
   setHighlighted: jest.fn(),
   quadrant: 'tools',
 };
@@ -22,7 +22,6 @@ const LabelSelector = {
 const DetailsSelector = {
   'data-testid': 'details',
 };
-
 
 // used for tests which updates state, to not reinstantiate history obj
 const history = createMemoryHistory({ initialEntries: ['/'] });
@@ -50,8 +49,8 @@ describe('TechItem', () => {
     expect(label).toHaveStyleRule('font-weight', '600');
   });
 
-  it('it should expand details when active prop matches item label', () => {
-    const wrapper = mount(<TechItem {...defaultProps} />, {
+  it('it should expand details when selected prop matches item label', () => {
+    const wrapper = mount<TechnologyProps>(<TechItem {...defaultProps} />, {
       wrappingComponent: AllProvidersWrapper,
       wrappingComponentProps: { history },
     });
@@ -60,7 +59,7 @@ describe('TechItem', () => {
     expect(details).toHaveStyleRule('max-height', '0px');
 
     wrapper.setProps({
-      active: mockData[0].name,
+      selected: mockData[0].name,
     });
 
     details = wrapper.find(DetailsSelector);
@@ -94,6 +93,6 @@ describe('TechItem', () => {
       .find(LabelSelector)
       .at(0)
       .simulate('click');
-    expect(defaultProps.setActive).toHaveBeenCalledWith(mockData[0].name);
+    expect(defaultProps.setSelected).toHaveBeenCalledWith(mockData[0].name);
   });
 });

@@ -742,6 +742,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
               <g
                 class="blip"
                 data-testid="Babel"
+                style="cursor: pointer;"
               >
                 <circle
                   fill="#7843ab"
@@ -758,6 +759,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
               <g
                 class="blip"
                 data-testid="Spark"
+                style="cursor: pointer;"
               >
                 <circle
                   fill="#7843ab"
@@ -1542,6 +1544,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
               <g
                 class="blip"
                 data-testid="Babel"
+                style="cursor: pointer;"
               >
                 <circle
                   fill="#7843ab"
@@ -1558,6 +1561,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
               <g
                 class="blip"
                 data-testid="Spark"
+                style="cursor: pointer;"
               >
                 <circle
                   fill="#7843ab"
