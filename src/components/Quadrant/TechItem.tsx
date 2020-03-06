@@ -101,7 +101,7 @@ export class TechItem extends React.Component<TechnologyProps> {
 
   render() {
     const {
-      selected: active,
+      selected,
       highlighted,
       technology: { name, description },
     } = this.props;
@@ -120,7 +120,7 @@ export class TechItem extends React.Component<TechnologyProps> {
           {name}
         </Label>
 
-        <Details data-testid="details" isOpened={active === name}>
+        <Details data-testid="details" isOpened={selected === name}>
           <Content>
             <span dangerouslySetInnerHTML={{ __html: description }} />
             <DetailsLink to={`/${quadrantSlug}/${technologySlug}`}>

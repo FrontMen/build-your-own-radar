@@ -82,15 +82,13 @@ export interface Params {
 
 export const SubNav = ({ setHighlighted }: PropTypes) => {
   const { quadrant: quadrantPram } = useParams<Params>();
-  console.log(quadrantPram);
+
   return (
     <Container>
       <FilterByCompany />
       <Search setHighlighted={setHighlighted} />
       <Links>
         {d3Config.quadrants.map(({ name }: { name: string }) => {
-          
-          console.log({name})
           return (
             <ColoredLinks
               selected={quadrantPram === name}
