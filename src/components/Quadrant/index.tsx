@@ -1,4 +1,4 @@
-import React, {useContext, useMemo, useState} from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import styled from 'styled-components/macro';
 import { MediaQueries } from 'src/Theme/Helpers';
 import { useParams } from 'react-router';
@@ -10,7 +10,7 @@ import { useAppState } from 'src/hooks/useAppState';
 import { d3Config } from 'src/utils/d3-config';
 import { Graph } from 'src/components/Graph';
 import { ContentTitle } from 'src/components/shared/ContentTitle';
-import { CompanyTypes, filterByCompanyContext } from 'src/ContextProviders/FilterByCompanyContextProvider';
+import { filterByCompanyContext } from 'src/ContextProviders/FilterByCompanyContextProvider';
 
 const MobileTitleSection = styled.div`
   display: flex;
@@ -32,13 +32,6 @@ const PhabletContainer = styled(MainContentSlot)`
   justify-content: space-between;
 `;
 
-const extractCompanies = (technology: Technology): CompanyTypes[] => {
-  const res: CompanyTypes[] = [];
-  technology.FM && res.push('FM');
-  technology.ITR_NL && res.push('ITR_NL');
-  technology.ITR_BE && res.push('ITR_BE');
-  return res;
-};
 
 export const Quadrant = () => {
   const isNotMobile = useMediaQuery({ query: MediaQueries.tablet });
@@ -57,10 +50,8 @@ export const Quadrant = () => {
     () =>
       technologies
         .filter(technology => technology.quadrant === quadrantParam)
-        .filter(technology =>
-          extractCompanies(technology).some(
-            companyType => selectedCompanies[companyType],
-          ),
+        .filter(({ companies }) =>
+          companies.some(companyType => selectedCompanies[companyType]),
         ),
     [quadrantParam, technologies, selectedCompanies],
   );

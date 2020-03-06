@@ -1,10 +1,7 @@
 import React, { useContext } from 'react';
 import { CheckBox } from 'src/components/shared/CheckBox';
 import styled from 'styled-components';
-import {
-  CompanyTypes,
-  filterByCompanyContext,
-} from 'src/ContextProviders/FilterByCompanyContextProvider';
+import { filterByCompanyContext } from 'src/ContextProviders/FilterByCompanyContextProvider';
 
 const COMPANY_NAMES: {
   [K in CompanyTypes]: string;

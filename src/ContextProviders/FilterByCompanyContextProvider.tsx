@@ -6,8 +6,6 @@ export interface FilterByCompanyState {
   FM: boolean;
 }
 
-export type CompanyTypes = keyof FilterByCompanyState;
-
 const initialState: FilterByCompanyState = {
   ITR_BE: true,
   ITR_NL: true,

@@ -15,6 +15,7 @@ interface Segment {
 }
 
 type RingNamesType = 'Adopt' | 'Trail' | 'Assess' | 'Hold';
+type CompanyTypes = 'ITR_BE' | 'ITR_NL' | 'FM';
 
 interface Technology extends Partial<Point> {
   name: string;
@@ -22,9 +23,7 @@ interface Technology extends Partial<Point> {
   quadrant: string;
   isNew: boolean;
   description: string;
-  ITR_BE: boolean;
-  ITR_NL: boolean;
-  FM: boolean;
+  companies: CompanyTypes[];
   /*
   active: boolean;
   link: string;
