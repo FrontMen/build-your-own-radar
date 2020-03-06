@@ -27,6 +27,7 @@ interface TechnologiesListProps {
   technologies: Technology[];
   highlighted: string | null;
   setHighlighted: (a: string | null) => void;
+  setSelected: (a: string | null) => void;
   quadrant: number;
   className?: string | undefined;
 }
@@ -36,6 +37,7 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   quadrant,
   technologies,
   setHighlighted,
+  setSelected,
   className: StylesFromParent,
 }) => {
   const d3Container = useRef<SVGSVGElement>(null);
@@ -47,6 +49,7 @@ export const Graph: React.FC<TechnologiesListProps> = ({
         technologies,
         d3Config,
         setHighlighted,
+        setSelected,
         {
           width: 460,
           height: 460,

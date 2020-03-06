@@ -101,8 +101,8 @@ const viewbox = (quadrant: number) =>
   [
     Math.max(0, quadrants[quadrant].factor_x * 400) - 420,
     Math.max(0, quadrants[quadrant].factor_y * 400) - 420,
-    420,
-    420,
+    435,
+    435,
   ].join(' ');
 
 export const showBubble = (technology: Technology) => {
@@ -139,10 +139,36 @@ export const hideBubble = () => {
 const sortTechnologyByName = (a: Technology, b: Technology) =>
   a.name.localeCompare(b.name);
 
+const getQuadrantMultiplier = (quadrant: number) => {
+  switch (quadrant) {
+    case 0:
+    case 3:
+      return [1, -1];
+    case 1:
+    case 2:
+      return [-1, 1];
+    default:
+      throw new Error('incorrect quadrant, it should be in range from 0 to 3');
+  }
+};
+
+const getCoverLinePosition = (quadrant: number) => {
+  switch (quadrant) {
+    case 0:
+    case 1:
+      return [-400, -10, 400, -10];
+    case 2:
+    case 3:
+      return [-400, 5, 400, 5];
+    default:
+      throw new Error('incorrect quadrant, it should be in range from 0 to 3');
+  }
+};
+
 export interface RadarVisualizationParams {
   width: number;
   height: number;
-  quadrant?: number;
+  quadrant: number;
 }
 
 export const radar_visualization = (
@@ -150,6 +176,7 @@ export const radar_visualization = (
   data: Technology[],
   config: any,
   setHighlighted: (a: string | null) => void,
+  setSelected: (a: string | null) => void,
   { width, height, quadrant: quadrantProp }: RadarVisualizationParams,
 ) => {
   const svg = d3
@@ -251,6 +278,38 @@ export const radar_visualization = (
       .style('stroke-width', 1);
   }
 
+  //cover line for text
+  const coverLinePosition = getCoverLinePosition(quadrantProp);
+  grid
+    .append('line')
+    .attr('x1', coverLinePosition[0])
+    .attr('y1', coverLinePosition[1])
+    .attr('x2', coverLinePosition[2])
+    .attr('y2', coverLinePosition[3])
+    .style('stroke', '#fff')
+    .style('stroke-width', 20)
+    .style('opacity', 0.3);
+
+  const quadrantMultiplier = getQuadrantMultiplier(quadrantProp);
+  //ring names displaying
+  for (let i = 3; i >= 0; i--) {
+    grid
+      .append('text')
+      .text(config.rings[i].name)
+      .attr(
+        'x',
+        quadrantMultiplier[0] * rings[i].radius + 62 * quadrantMultiplier[1],
+      )
+      .attr('text-anchor', 'middle')
+      .style('fill', '#000')
+      .style('transform', `translateY(${quadrantProp > 1 ? 10 : -5}px)`)
+      .style('font-family', 'Arial, Helvetica')
+      .style('font-size', 12)
+      .style('font-weight', 'bold')
+      .style('pointer-events', 'none')
+      .style('user-select', 'none');
+  }
+
   // animate rings
   d3.selectAll("circle")
     .transition()
@@ -285,12 +344,16 @@ export const radar_visualization = (
     .attr('d', 'M 0,0 10,0 5,8 z')
     .style('fill', '#333');
 
-  const mouseOverListner = (technology: Technology) => {
+  const mouseOverListener = (technology: Technology) => {
     showBubble(technology);
     setHighlighted(technology.name);
   };
 
-  const mouseOutListner = () => {
+  const onClick = (technology: Technology) => {
+    setSelected(technology.name);
+  };
+
+  const mouseOutListener = () => {
     hideBubble();
     setHighlighted(null);
   };
@@ -314,6 +377,7 @@ export const radar_visualization = (
     let blip = d3.select(this);
 
     blip.attr('data-testid', technology.name);
+    blip.style('cursor', 'pointer')
 
     // blip link
     // if (technology.active && technology.hasOwnProperty('link')) {

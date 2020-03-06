@@ -677,7 +677,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
         class="c28 c29"
       >
         <svg
-          viewBox="-20 -420 420 420"
+          viewBox="-20 -420 435 435"
         >
           <g>
             <g>
@@ -735,6 +735,41 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                 r="130"
                 style="fill: #BFC0BF; stroke-width: 1;"
               />
+              <line
+                style="stroke: #fff; stroke-width: 20; opacity: 0.3;"
+                x1="-400"
+                x2="400"
+                y1="5"
+                y2="5"
+              />
+              <text
+                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                text-anchor="middle"
+                x="338"
+              >
+                Hold
+              </text>
+              <text
+                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                text-anchor="middle"
+                x="248"
+              >
+                Assess
+              </text>
+              <text
+                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                text-anchor="middle"
+                x="158"
+              >
+                Trial
+              </text>
+              <text
+                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                text-anchor="middle"
+                x="68"
+              >
+                Adopt
+              </text>
             </g>
             <g
               id="rink"
@@ -742,6 +777,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
               <g
                 class="blip"
                 data-testid="Babel"
+                style="cursor: pointer;"
               >
                 <circle
                   fill="#7843ab"
@@ -758,6 +794,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
               <g
                 class="blip"
                 data-testid="Spark"
+                style="cursor: pointer;"
               >
                 <circle
                   fill="#7843ab"
@@ -1477,7 +1514,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
         class="c28 c29"
       >
         <svg
-          viewBox="-20 -420 420 420"
+          viewBox="-20 -420 435 435"
         >
           <g>
             <g>
@@ -1535,6 +1572,41 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                 r="130"
                 style="fill: #BFC0BF; stroke-width: 1;"
               />
+              <line
+                style="stroke: #fff; stroke-width: 20; opacity: 0.3;"
+                x1="-400"
+                x2="400"
+                y1="5"
+                y2="5"
+              />
+              <text
+                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                text-anchor="middle"
+                x="338"
+              >
+                Hold
+              </text>
+              <text
+                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                text-anchor="middle"
+                x="248"
+              >
+                Assess
+              </text>
+              <text
+                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                text-anchor="middle"
+                x="158"
+              >
+                Trial
+              </text>
+              <text
+                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                text-anchor="middle"
+                x="68"
+              >
+                Adopt
+              </text>
             </g>
             <g
               id="rink"
@@ -1542,6 +1614,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
               <g
                 class="blip"
                 data-testid="Babel"
+                style="cursor: pointer;"
               >
                 <circle
                   fill="#7843ab"
@@ -1558,6 +1631,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
               <g
                 class="blip"
                 data-testid="Spark"
+                style="cursor: pointer;"
               >
                 <circle
                   fill="#7843ab"
