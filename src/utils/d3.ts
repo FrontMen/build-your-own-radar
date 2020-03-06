@@ -248,19 +248,7 @@ export const radar_visualization = (
       .attr('r', 0)
       .style('fill', config.rings[i].backgroundColor)
       // .style('stroke', config.colors.grid)
-      // .style('stroke-width', 1);
-
-    //ring names displaying
-    //   .append('text')
-    //   .text(config.rings[i].name)
-    //   .attr('y', -rings[i].radius + 62)
-    //   .attr('text-anchor', 'middle')
-    //   .style('fill', '#e5e5e5')
-    //   .style('font-family', 'Arial, Helvetica')
-    //   .style('font-size', 42)
-    //   .style('font-weight', 'bold')
-    //   .style('pointer-events', 'none')
-    //   .style('user-select', 'none');
+      .style('stroke-width', 1);
   }
 
   // animate rings
@@ -315,9 +303,10 @@ export const radar_visualization = (
     .data(data)
     .enter()
     .append('g')
-    .attr('class', 'bloop')
-    .on('mouseover', mouseOverListner)
-    .on('mouseout', mouseOutListner);
+    .attr('class', 'blip')
+    .on('mouseover', mouseOverListener)
+    .on('mouseout', mouseOutListener)
+    .on('click', onClick);
 
   // configure each blip
   blips.each(function(technology) {
