@@ -46,7 +46,9 @@ export const CheckBox: React.FC<CheckBoxProps> = ({
       <Label>{label}</Label>
       <CheckBoxContainer
         data-testid="checkbox"
-        checked={checked} onClick={onClick}>
+        checked={checked}
+        onClick={onClick}
+      >
         {checked && <FaCheck color={lightTheme.pallet.white} />}
       </CheckBoxContainer>
     </Container>

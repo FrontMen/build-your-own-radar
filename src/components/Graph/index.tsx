@@ -10,11 +10,18 @@ const GraphContainer = styled.div`
   min-width: 280px;
   height: auto;
   pointer-events: none;
-  margin-left: auto;
+  margin: auto;
 
   @media ${MediaQueries.phablet} {
     pointer-events: all;
+
   }
+  @media ${MediaQueries.desktop} {
+    margin: 0;
+    margin-left: auto;
+  }
+
+
 `;
 interface TechnologiesListProps {
   technologies: Technology[];

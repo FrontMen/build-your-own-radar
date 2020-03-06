@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import {  CheckBox } from 'src/components/shared/CheckBox';
+import { CheckBox } from 'src/components/shared/CheckBox';
 import styled from 'styled-components';
 import { filterByCompanyContext } from 'src/ContextProviders/FilterByCompanyContextProvider';
 
