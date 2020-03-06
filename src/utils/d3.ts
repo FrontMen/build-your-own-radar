@@ -150,6 +150,7 @@ export const radar_visualization = (
   data: Technology[],
   config: any,
   setHighlighted: (a: string | null) => void,
+  setSelected: (a: string | null) => void,
   { width, height, quadrant: quadrantProp }: RadarVisualizationParams,
 ) => {
   const svg = d3
@@ -289,12 +290,16 @@ export const radar_visualization = (
     .attr('d', 'M 0,0 10,0 5,8 z')
     .style('fill', '#333');
 
-  const mouseOverListner = (technology: Technology) => {
+  const mouseOverListener = (technology: Technology) => {
     showBubble(technology);
     setHighlighted(technology.name);
   };
 
-  const mouseOutListner = () => {
+  const onClick = (technology: Technology) => {
+    setSelected(technology.name);
+  };
+
+  const mouseOutListener = () => {
     hideBubble();
     setHighlighted(null);
   };
@@ -306,8 +311,9 @@ export const radar_visualization = (
     .enter()
     .append('g')
     .attr('class', 'blip')
-    .on('mouseover', mouseOverListner)
-    .on('mouseout', mouseOutListner);
+    .on('mouseover', mouseOverListener)
+    .on('mouseout', mouseOutListener)
+    .on('click', onClick);
 
   // configure each blip
   blips.each(function(technology) {
@@ -315,6 +321,7 @@ export const radar_visualization = (
     let blip = d3.select(this);
 
     blip.attr('data-testid', technology.name);
+    blip.style('cursor', 'pointer')
 
     // blip link
     // if (technology.active && technology.hasOwnProperty('link')) {

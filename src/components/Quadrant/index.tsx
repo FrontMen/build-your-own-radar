@@ -52,6 +52,7 @@ export const Quadrant = () => {
   } = useAppState();
   const { state: selectedCompanies } = useContext(filterByCompanyContext);
   const [highlighted, setHighlighted] = useState<null | string>(null);
+  const [selected, setSelected] = useState<null | string>(null);
 
   const data = useMemo(
     () =>
@@ -62,7 +63,7 @@ export const Quadrant = () => {
         ),
     [quadrantParam, technologies, selectedCompanies],
   );
-  
+
   return (
     <Slot>
       <SubNav setHighlighted={setHighlighted} />
@@ -73,6 +74,8 @@ export const Quadrant = () => {
             <TechLists
               data-testid="tech-lists"
               quadrant={quadrantParam}
+              selected={selected}
+              setSelected={setSelected}
               highlighted={highlighted}
               setHighlighted={setHighlighted}
               technologies={data}
@@ -89,6 +92,7 @@ export const Quadrant = () => {
           highlighted={highlighted}
           quadrant={quadrant}
           setHighlighted={setHighlighted}
+          setSelected={setSelected}
           technologies={data}
         />
       </Content>

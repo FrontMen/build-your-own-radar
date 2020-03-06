@@ -25,13 +25,12 @@ const Content = styled.div`
   padding: ${props =>
     `${props.theme.space[2]}px ${props.theme.space[2]}px ${props.theme.space[3]}px ${props.theme.space[0]}px`};
   overflow: hidden;
-
 `;
 
 const Label = styled.div<{ highlighted: boolean }>`
   ${Typography.body};
   cursor: pointer;
-  padding: ${props => props.theme.space[1]/2}px;
+  padding: ${props => props.theme.space[1] / 2}px;
   color: ${props => props.highlighted && props.theme.pallet.blue};
   font-weight: ${props => props.highlighted && 600};
 `;
@@ -47,10 +46,10 @@ const DetailsLink = styled(Link)`
 
 export interface TechnologyProps {
   technology: Technology;
-  active: string | null;
   highlighted: string | null;
-  setActive: (a: string | null) => void;
   setHighlighted: (a: string | null) => void;
+  selected: string | null;
+  setSelected: (a: string | null) => void;
   quadrant: string;
 }
 
@@ -59,13 +58,13 @@ export class TechItem extends React.Component<TechnologyProps> {
   shouldComponentUpdate(nextProps: TechnologyProps) {
     const {
       highlighted: prevHighlighted,
-      active: prevActive,
+      selected: prevActive,
       technology: { name: prevName },
     } = this.props;
 
     const {
       highlighted: nextHighlighted,
-      active: nextActive,
+      selected: nextActive,
       technology: { name: nextName },
     } = nextProps;
 
@@ -76,7 +75,7 @@ export class TechItem extends React.Component<TechnologyProps> {
     ) {
       return true;
     }
-    // updating if active property changed
+    // updating if selected property changed
     if (
       (prevActive === prevName && nextActive !== nextName) ||
       (prevActive !== prevName && nextActive === nextName)
@@ -93,16 +92,16 @@ export class TechItem extends React.Component<TechnologyProps> {
 
   handleClick = () => {
     const {
-      setActive,
+      setSelected,
       technology: { name },
-      active,
+      selected,
     } = this.props;
-    setActive(name === active ? null : name);
+    setSelected(name === selected ? null : name);
   };
 
   render() {
     const {
-      active,
+      selected: active,
       highlighted,
       technology: { name, description },
     } = this.props;

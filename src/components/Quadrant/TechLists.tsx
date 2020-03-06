@@ -37,6 +37,8 @@ export interface TechnologiesListProps {
   technologies: Technology[];
   highlighted: string | null;
   setHighlighted: (a: string | null) => void;
+  selected: string | null;
+  setSelected: (a: string | null) => void;
   quadrant: string;
 }
 
@@ -44,10 +46,10 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
   technologies,
   highlighted,
   setHighlighted,
+  selected,
+  setSelected,
   quadrant,
 }) => {
-  const [expanded, setExpanded] = useState<null | string>(null);
-
   const data = useMemo(
     () =>
       technologies.reduce(
@@ -77,8 +79,8 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
               <TechItem
                 technology={technology}
                 key={technology.name}
-                active={expanded}
-                setActive={setExpanded}
+                selected={selected}
+                setSelected={setSelected}
                 highlighted={highlighted}
                 setHighlighted={setHighlighted}
                 quadrant={quadrant}
