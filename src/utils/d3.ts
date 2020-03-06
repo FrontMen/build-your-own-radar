@@ -235,24 +235,6 @@ export const radar_visualization = (
 
   const grid = radar.append('g');
 
-  // // draw grid lines
-  // grid
-  //   .append('line')
-  //   .attr('x1', 0)
-  //   .attr('y1', -400)
-  //   .attr('x2', 0)
-  //   .attr('y2', 400)
-  //   .style('stroke', config.colors.grid)
-  //   .style('stroke-width', 1);
-  // grid
-  //   .append('line')
-  //   .attr('x1', -400)
-  //   .attr('y1', 0)
-  //   .attr('x2', 400)
-  //   .attr('y2', 0)
-  //   .style('stroke', config.colors.grid)
-  //   .style('stroke-width', 1);
-
   // background color. Usage `.attr("filter", "url(#solid)")`
   // SOURCE: https://stackoverflow.com/a/31013492/2609980
   const defs = grid.append('defs');
@@ -270,6 +252,7 @@ export const radar_visualization = (
   for (let i = 3; i >= 0; i--) {
     grid
       .append('circle')
+      .attr('class', 'ring')
       .attr('cx', 0)
       .attr('cy', 0)
       .attr('r', 0)
@@ -311,7 +294,7 @@ export const radar_visualization = (
   }
 
   // animate rings
-  d3.selectAll("circle")
+  d3.selectAll('.ring')
     .transition()
     .duration(400)
     .delay(function(d, i) { return i*40; })// <-- delay as a function of i
@@ -359,83 +342,82 @@ export const radar_visualization = (
   };
 
   const setBlips = () => {
-  
-  // draw blips on radar
-  const blips = rink
-    .selectAll('.blip')
-    .data(data)
-    .enter()
-    .append('g')
-    .attr('class', 'blip')
-    .on('mouseover', mouseOverListener)
-    .on('mouseout', mouseOutListener)
-    .on('click', onClick);
+    // draw blips on radar
+    const blips = rink
+      .selectAll('.blip')
+      .data(data)
+      .enter()
+      .append('g')
+      .attr('class', 'blip')
+      .on('mouseover', mouseOverListener)
+      .on('mouseout', mouseOutListener)
+      .on('click', onClick);
 
-  // configure each blip
-  blips.each(function(technology) {
-    //
-    let blip = d3.select(this);
+    // configure each blip
+    blips.each(function(technology) {
+      //
+      let blip = d3.select(this);
 
-    blip.attr('data-testid', technology.name);
-    blip.style('cursor', 'pointer')
+      blip.attr('data-testid', technology.name);
+      blip.style('cursor', 'pointer');
 
-    // blip link
-    // if (technology.active && technology.hasOwnProperty('link')) {
-    //   blip.append('a').attr('xlink:href', technology.link);
-    // }
+      // blip link
+      // if (technology.active && technology.hasOwnProperty('link')) {
+      //   blip.append('a').attr('xlink:href', technology.link);
+      // }
 
-    // blip shape
-    if (technology.moved > 0) {
+      // blip shape
+      if (technology.moved > 0) {
+        blip
+          .append('path')
+          .attr('d', 'M -11,5 11,5 0,-13 z') // triangle pointing up
+          .style('fill', technology.color!);
+      } else if (technology.moved < 0) {
+        blip
+          .append('path')
+          .attr('d', 'M -11,-5 11,-5 0,13 z') // triangle pointing down
+          .style('fill', technology.color!);
+      } else {
+        blip
+          .append('circle')
+          .attr('r', 9)
+          .attr('fill', technology.color!);
+      }
+
+      // blip text
+      const blip_text = technology.id!.toString();
       blip
-        .append('path')
-        .attr('d', 'M -11,5 11,5 0,-13 z') // triangle pointing up
-        .style('fill', technology.color!);
-    } else if (technology.moved < 0) {
-      blip
-        .append('path')
-        .attr('d', 'M -11,-5 11,-5 0,13 z') // triangle pointing down
-        .style('fill', technology.color!);
-    } else {
-      blip
-        .append('circle')
-        .attr('r', 9)
-        .attr('fill', technology.color!);
-    }
+        .append('text')
+        .text(blip_text)
+        .attr('y', 3)
+        .attr('text-anchor', 'middle')
+        .style('fill', '#fff')
+        .style('font-family', 'Arial, Helvetica')
+        .style('font-size', () => (blip_text.length > 2 ? '8' : '9'))
+        .style('pointer-events', 'none')
+        .style('user-select', 'none');
+    });
 
-    // blip text
-    const blip_text = technology.id!.toString();
-    blip
-      .append('text')
-      .text(blip_text)
-      .attr('y', 3)
-      .attr('text-anchor', 'middle')
-      .style('fill', '#fff')
-      .style('font-family', 'Arial, Helvetica')
-      .style('font-size', () => (blip_text.length > 2 ? '8' : '9'))
-      .style('pointer-events', 'none')
-      .style('user-select', 'none');
-  });
+    // make sure that blips stay inside their segment
+    const ticked = () =>
+      blips.attr('transform', d =>
+        translate(d.segment!.clipx(d as Point), d.segment!.clipy(d as Point)),
+      );
 
-  // make sure that blips stay inside their segment
-  const ticked = () =>
-    blips.attr('transform', d =>
-      translate(d.segment!.clipx(d as Point), d.segment!.clipy(d as Point)),
-    );
-
-  // distribute blips, while avoiding collisions
-  d3.forceSimulation()
-    .nodes(data)
-    .velocityDecay(0.19) // magic number (found by experimentation)
-    .force(
-      'collision',
-      d3
-        .forceCollide()
-        .radius(12)
-        .strength(0.85),
-    )
-    .on('tick', ticked);
-  }
+    // distribute blips, while avoiding collisions
+    d3.forceSimulation()
+      .nodes(data)
+      .velocityDecay(0.19) // magic number (found by experimentation)
+      .force(
+        'collision',
+        d3
+          .forceCollide()
+          .radius(12)
+          .strength(0.85),
+      )
+      .on('tick', ticked);
+  };
   setTimeout(() => {
     setBlips();
-  }, 400)
+  }, 400);
 };

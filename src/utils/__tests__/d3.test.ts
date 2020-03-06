@@ -5,18 +5,27 @@ import { mockData } from 'test/mockData';
 import { fireEvent, getByTestId } from '@testing-library/dom';
 
 const setHighlighted = jest.fn();
+const setSelected = jest.fn();
 
 describe('d3', () => {
-  it('should call setHighlighted callback on mouse over and mouseout', () => {
+  beforeEach(() => {
+    document.body.innerHTML = '';
+  });
+
+  it('should call setHighlighted callback on mouse over and mouseout', async () => {
     // construct svg and append it to js-dom
     const svg = document.createElement('svg');
     svg.setAttribute('id', 'radar');
     document.body.append(svg);
 
-    radar_visualization(svg, mockData, d3Config, setHighlighted, {
+    radar_visualization(svg, mockData, d3Config, setHighlighted, setSelected, {
       width: 100,
       height: 100,
       quadrant: 0,
+    });
+
+    await new Promise(resolve => {
+      setTimeout(resolve, 400);
     });
 
     const g = getByTestId(svg, mockData[0].name);
@@ -38,5 +47,33 @@ describe('d3', () => {
       }),
     );
     expect(setHighlighted).toHaveBeenCalledWith(null);
+  });
+
+  it('should call setSelected callback on click', async () => {
+    // construct svg and append it to js-dom
+    const svg = document.createElement('svg');
+    svg.setAttribute('id', 'radar');
+    document.body.append(svg);
+
+    radar_visualization(svg, mockData, d3Config, setHighlighted, setSelected, {
+      width: 100,
+      height: 100,
+      quadrant: 0,
+    });
+
+    await new Promise(resolve => {
+      setTimeout(resolve, 400);
+    });
+
+    const g = getByTestId(svg, mockData[0].name);
+
+    fireEvent(
+      g,
+      new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true,
+      }),
+    );
+    expect(setSelected).toHaveBeenCalledWith(mockData[0].name);
   });
 });

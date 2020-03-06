@@ -681,20 +681,6 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
         >
           <g>
             <g>
-              <line
-                style="stroke: #bbb; stroke-width: 1;"
-                x1="0"
-                x2="0"
-                y1="-400"
-                y2="400"
-              />
-              <line
-                style="stroke: #bbb; stroke-width: 1;"
-                x1="-400"
-                x2="400"
-                y1="0"
-                y2="0"
-              />
               <defs>
                 <filter
                   height="1"
@@ -712,27 +698,31 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                 </filter>
               </defs>
               <circle
+                class="ring"
                 cx="0"
                 cy="0"
-                r="400"
+                r="0"
                 style="fill: #E4E5E4; stroke-width: 1;"
               />
               <circle
+                class="ring"
                 cx="0"
                 cy="0"
-                r="310"
+                r="0"
                 style="fill: #D7D8D6; stroke-width: 1;"
               />
               <circle
+                class="ring"
                 cx="0"
                 cy="0"
-                r="220"
+                r="0"
                 style="fill: #CBCCCB; stroke-width: 1;"
               />
               <circle
+                class="ring"
                 cx="0"
                 cy="0"
-                r="130"
+                r="0"
                 style="fill: #BFC0BF; stroke-width: 1;"
               />
               <line
@@ -773,42 +763,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
             </g>
             <g
               id="rink"
-            >
-              <g
-                class="blip"
-                data-testid="Babel"
-                style="cursor: pointer;"
-              >
-                <circle
-                  fill="#7843ab"
-                  r="9"
-                />
-                <text
-                  style="fill: #fff; font-family: Arial, Helvetica; font-size: 9; pointer-events: none; user-select: none;"
-                  text-anchor="middle"
-                  y="3"
-                >
-                  1
-                </text>
-              </g>
-              <g
-                class="blip"
-                data-testid="Spark"
-                style="cursor: pointer;"
-              >
-                <circle
-                  fill="#7843ab"
-                  r="9"
-                />
-                <text
-                  style="fill: #fff; font-family: Arial, Helvetica; font-size: 9; pointer-events: none; user-select: none;"
-                  text-anchor="middle"
-                  y="3"
-                >
-                  2
-                </text>
-              </g>
-            </g>
+            />
             <g
               id="bubble"
               style="opacity: 0; pointer-events: none; user-select: none;"
@@ -1518,20 +1473,6 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
         >
           <g>
             <g>
-              <line
-                style="stroke: #bbb; stroke-width: 1;"
-                x1="0"
-                x2="0"
-                y1="-400"
-                y2="400"
-              />
-              <line
-                style="stroke: #bbb; stroke-width: 1;"
-                x1="-400"
-                x2="400"
-                y1="0"
-                y2="0"
-              />
               <defs>
                 <filter
                   height="1"
@@ -1549,27 +1490,31 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                 </filter>
               </defs>
               <circle
+                class="ring"
                 cx="0"
                 cy="0"
-                r="400"
+                r="0"
                 style="fill: #E4E5E4; stroke-width: 1;"
               />
               <circle
+                class="ring"
                 cx="0"
                 cy="0"
-                r="310"
+                r="0"
                 style="fill: #D7D8D6; stroke-width: 1;"
               />
               <circle
+                class="ring"
                 cx="0"
                 cy="0"
-                r="220"
+                r="0"
                 style="fill: #CBCCCB; stroke-width: 1;"
               />
               <circle
+                class="ring"
                 cx="0"
                 cy="0"
-                r="130"
+                r="0"
                 style="fill: #BFC0BF; stroke-width: 1;"
               />
               <line
@@ -1610,42 +1555,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
             </g>
             <g
               id="rink"
-            >
-              <g
-                class="blip"
-                data-testid="Babel"
-                style="cursor: pointer;"
-              >
-                <circle
-                  fill="#7843ab"
-                  r="9"
-                />
-                <text
-                  style="fill: #fff; font-family: Arial, Helvetica; font-size: 9; pointer-events: none; user-select: none;"
-                  text-anchor="middle"
-                  y="3"
-                >
-                  1
-                </text>
-              </g>
-              <g
-                class="blip"
-                data-testid="Spark"
-                style="cursor: pointer;"
-              >
-                <circle
-                  fill="#7843ab"
-                  r="9"
-                />
-                <text
-                  style="fill: #fff; font-family: Arial, Helvetica; font-size: 9; pointer-events: none; user-select: none;"
-                  text-anchor="middle"
-                  y="3"
-                >
-                  2
-                </text>
-              </g>
-            </g>
+            />
             <g
               id="bubble"
               style="opacity: 0; pointer-events: none; user-select: none;"

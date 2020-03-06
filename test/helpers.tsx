@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Router, Route } from 'react-router-dom';
+import { Route, MemoryRouter, Router } from 'react-router-dom';
 import { createMemoryHistory, History } from 'history';
 import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components/macro';
@@ -55,9 +55,10 @@ export const withAllProviders = (
   const Wrapper = ({ children }: { children: ReactNode }) => (
     <ThemeProvider theme={theme}>
       <FilterByCompanyContextProvider>
-        <Router history={history}>
+        <MemoryRouter initialEntries={[route]}>
+          {/* <Route path={route}>{children}</Route> */}
           <Route path={path}>{children}</Route>
-        </Router>
+        </MemoryRouter>
       </FilterByCompanyContextProvider>
     </ThemeProvider>
   );
