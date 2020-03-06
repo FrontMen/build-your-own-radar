@@ -5,24 +5,38 @@ import { IoIosSearch } from 'react-icons/io';
 
 import { useAppState } from 'src/hooks/useAppState';
 import { Typography } from 'src/Theme/Typography';
+import { MediaQueries } from 'src/Theme/Helpers';
 
 const Container = styled.div`
   display: flex;
+  flex-grow: 1;
+  min-width: 18em;
+  position: relative;
   padding: ${props => props.theme.space[2]}px;
+
+  @media ${MediaQueries.tablet} {
+    margin-left: 2em;
+  }
 `;
 
 const SearchIcon = styled(IoIosSearch)`
-  height: 3em;
   flex: 0 0 3em;
+  height: 3em;
+  width: 3em;
 `;
 
 const Input = styled.input`
   border: none;
-  border-bottom: 1px solid ${props => props.theme.pallet.primary};
+  border-bottom: 2px solid;
+  border-color: ${props => props.theme.pallet.secondary};
   flex: 1;
   ${Typography.body};
   padding-top: 15px;
   outline: none;
+
+  &:focus {
+    border-color: ${props => props.theme.pallet.primary};
+  }
 `;
 
 const DropDownContainer = styled.div`
@@ -41,7 +55,6 @@ const InputContainer = styled.div`
   flex-direction: column;
   flex: 1;
   position: relative;
-  padding-left: 10px;
 `;
 
 const RingName = styled.div`
@@ -62,6 +75,12 @@ const Technology = styled(Link)`
   text-decoration: none;
   display: block;
   color: ${props => props.theme.colors.body};
+
+  &:hover,
+  &:focus {
+    color: ${props => props.theme.pallet.white};
+    background-color: ${props => props.theme.pallet.primary};
+  }
 `;
 
 export interface SearchProps {
@@ -99,40 +118,41 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
 
   return (
     <Container>
-      <SearchIcon data-testid="search-icon" />
       <InputContainer>
         <Input
           data-testid="search-input"
           value={value}
           onChange={e => setValue(e.target.value)}
+          placeholder={'Looking for a technology?'}
         />
-        {!!Object.keys(data).length && (
-          <DropDownContainer data-testid="search-content">
-            {Object.entries(data).map(([ringName, techArray]) => (
-              <React.Fragment key={ringName}>
-                <RingName data-testid="search-ringName">{ringName}</RingName>
-                <div>
-                  {techArray.map(technology => (
-                    <Technology
-                      data-testid="search-technology"
-                      key={technology.name}
-                      to={`/${technology.quadrant}`}
-                      onClick={() => {
-                        if (technology.quadrant !== quadrant) {
-                          setValue('');
-                        }
-                        setHighlighted(technology.name);
-                      }}
-                    >
-                      {technology.name}
-                    </Technology>
-                  ))}
-                </div>
-              </React.Fragment>
-            ))}
-          </DropDownContainer>
-        )}
       </InputContainer>
+      <SearchIcon data-testid="search-icon" />
+      {!!Object.keys(data).length && (
+        <DropDownContainer data-testid="search-content">
+          {Object.entries(data).map(([ringName, techArray]) => (
+            <React.Fragment key={ringName}>
+              <RingName data-testid="search-ringName">{ringName}</RingName>
+              <div>
+                {techArray.map(technology => (
+                  <Technology
+                    data-testid="search-technology"
+                    key={technology.name}
+                    to={`/${technology.quadrant}`}
+                    onClick={() => {
+                      if (technology.quadrant !== quadrant) {
+                        setValue('');
+                      }
+                      setHighlighted(technology.name);
+                    }}
+                  >
+                    {technology.name}
+                  </Technology>
+                ))}
+              </div>
+            </React.Fragment>
+          ))}
+        </DropDownContainer>
+      )}
     </Container>
   );
 };
