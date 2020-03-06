@@ -184,7 +184,7 @@ export const radar_visualization = (
     const { x, y } = technology.segment.random();
     technology.x = x;
     technology.y = y;
-    technology.color = config.rings[ringNum].color;
+    technology.color = config.quadrants[quadNum].color;
     segmented[quadNum][ringNum].push(technology);
   });
 
