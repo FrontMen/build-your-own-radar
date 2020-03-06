@@ -8,7 +8,6 @@ const CheckBoxContainer = styled.span<Pick<CheckBoxProps, 'checked'>>`
   border: 2px solid ${props => props.theme.pallet.primary};
   background-color: ${props =>
     props.theme.pallet[props.checked ? 'primary' : 'white']};
-  border-radius: 4px;
   padding: 2px;
   display: inline-flex;
   justify-content: center;
@@ -22,12 +21,12 @@ const CheckBoxContainer = styled.span<Pick<CheckBoxProps, 'checked'>>`
 
 const Label = styled.label`
   ${Typography.body};
+  margin-right: ${props => props.theme.space[3]}px;
 `;
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: ${props => props.theme.space[1]}px 0;
-  width: 100%;
+  margin: ${props => props.theme.space[2]}px;
   align-items: center;
 `;
 
@@ -47,7 +46,9 @@ export const CheckBox: React.FC<CheckBoxProps> = ({
       <Label>{label}</Label>
       <CheckBoxContainer
         data-testid="checkbox"
-        checked={checked} onClick={onClick}>
+        checked={checked}
+        onClick={onClick}
+      >
         {checked && <FaCheck color={lightTheme.pallet.white} />}
       </CheckBoxContainer>
     </Container>

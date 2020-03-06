@@ -4,8 +4,10 @@ exports[`Graph should matches the snapshot 1`] = `
 .c0 {
   width: 100%;
   max-width: 440px;
-  height: 100%;
+  min-width: 280px;
+  height: auto;
   pointer-events: none;
+  margin-left: auto;
 }
 
 @media (min-width:481px) {

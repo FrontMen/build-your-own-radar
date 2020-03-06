@@ -6,13 +6,14 @@ import { filterByCompanyContext } from 'src/ContextProviders/FilterByCompanyCont
 const COMPANY_NAMES: {
   [K in CompanyTypes]: string;
 } = {
-  ITR_BE: 'Intracto Belgium',
-  ITR_NL: 'Intracto Netherlands',
+  ITR_BE: 'Intracto BE',
+  ITR_NL: 'Intracto NL',
   FM: 'Frontmen',
 };
 
 const Container = styled.div`
-  width: 200px;
+  display: flex;
+  flex-wrap: wrap;
   margin: ${props => props.theme.space[2]}px 0;
 `;
 
