@@ -19,6 +19,12 @@ const GraphContainer = styled.div`
   @media ${MediaQueries.desktop} {
     margin: 0;
     margin-left: auto;
+
+    .sticky {
+      position: -webkit-sticky; /* Safari */
+      position: sticky;
+      top: 0;
+    }
   }
 
 
@@ -70,7 +76,7 @@ export const Graph: React.FC<TechnologiesListProps> = ({
 
   return (
     <GraphContainer className={StylesFromParent}>
-      <svg ref={d3Container} />
+      <div className="sticky"><svg ref={d3Container} /></div>
     </GraphContainer>
   );
 };
