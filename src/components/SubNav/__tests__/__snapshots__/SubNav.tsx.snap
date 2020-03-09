@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SubNav component should match snapshot 1`] = `
-.c5 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15,15 +15,15 @@ exports[`SubNav component should match snapshot 1`] = `
   padding: 8px;
 }
 
-.c8 {
-  -webkit-flex: 0 0 3em;
-  -ms-flex: 0 0 3em;
-  flex: 0 0 3em;
-  height: 3em;
-  width: 3em;
+.c14 {
+  -webkit-flex: 0 0 2em;
+  -ms-flex: 0 0 2em;
+  flex: 0 0 2em;
+  height: 2em;
+  width: 2em;
 }
 
-.c7 {
+.c13 {
   border: none;
   border-bottom: 2px solid;
   border-color: #767676;
@@ -34,15 +34,14 @@ exports[`SubNav component should match snapshot 1`] = `
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
-  padding-top: 15px;
   outline: none;
 }
 
-.c7:focus {
+.c13:focus {
   border-color: #526de4;
 }
 
-.c6 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -56,7 +55,7 @@ exports[`SubNav component should match snapshot 1`] = `
   position: relative;
 }
 
-.c4 {
+.c10 {
   border: 2px solid #526de4;
   background-color: #526de4;
   padding: 2px;
@@ -74,15 +73,15 @@ exports[`SubNav component should match snapshot 1`] = `
   align-items: center;
   cursor: pointer;
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   font-family: Roboto,san-serif;
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
 }
 
-.c3 {
+.c9 {
   font-family: Roboto,san-serif;
   font-size: 1em;
   font-weight: 400;
@@ -90,7 +89,7 @@ exports[`SubNav component should match snapshot 1`] = `
   margin-right: 16px;
 }
 
-.c2 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -106,7 +105,7 @@ exports[`SubNav component should match snapshot 1`] = `
   align-items: center;
 }
 
-.c1 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -131,7 +130,7 @@ exports[`SubNav component should match snapshot 1`] = `
   flex-wrap: wrap;
 }
 
-.c9 {
+.c1 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -144,7 +143,7 @@ exports[`SubNav component should match snapshot 1`] = `
   flex-wrap: wrap;
 }
 
-.c10 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -171,8 +170,7 @@ exports[`SubNav component should match snapshot 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: inherit;
-  height: 3em;
-  padding: 8px 16px;
+  padding: 16px;
   margin-bottom: 8px;
   color: #fff;
   -webkit-transition: opacity 100ms ease-in;
@@ -180,24 +178,24 @@ exports[`SubNav component should match snapshot 1`] = `
   background-color: #767676;
 }
 
-.c11:hover {
+.c3:hover {
   background-color: #31bd70;
 }
 
-.c12:hover {
-  background-color: #526de4;
+.c4:hover {
+  background-color: #17a2b8;
 }
 
-.c13:hover {
+.c5:hover {
   background-color: #fd7e14;
 }
 
-.c14:hover {
+.c6:hover {
   background-color: #7843ab;
 }
 
 @media (min-width:768px) {
-  .c5 {
+  .c11 {
     margin-left: 2em;
   }
 }
@@ -213,7 +211,7 @@ exports[`SubNav component should match snapshot 1`] = `
 }
 
 @media (min-width:768px) {
-  .c9 {
+  .c1 {
     -webkit-flex-wrap: unset;
     -ms-flex-wrap: unset;
     flex-wrap: unset;
@@ -221,13 +219,13 @@ exports[`SubNav component should match snapshot 1`] = `
 }
 
 @media (min-width:481px) {
-  .c10 {
+  .c2 {
     max-width: 50%;
   }
 }
 
 @media (min-width:768px) {
-  .c10 {
+  .c2 {
     max-width: 25%;
     margin-bottom: 0px;
   }
@@ -240,16 +238,44 @@ exports[`SubNav component should match snapshot 1`] = `
     <div
       class="c1"
     >
+      <a
+        class="c2 c3"
+        href="/Frameworks, CMS & Programmeertalen"
+      >
+        Frameworks, CMS & Programmeertalen
+      </a>
+      <a
+        class="c2 c4"
+        href="/Tooling en testing"
+      >
+        Tooling en testing
+      </a>
+      <a
+        class="c2 c5"
+        href="/Platforms, infrastructure & Data"
+      >
+        Platforms, infrastructure & Data
+      </a>
+      <a
+        class="c2 c6"
+        href="/Technieken"
+      >
+        Technieken
+      </a>
+    </div>
+    <div
+      class="c7"
+    >
       <div
-        class="c2"
+        class="c8"
       >
         <label
-          class="c3"
+          class="c9"
         >
           Intracto BE
         </label>
         <span
-          class="c4"
+          class="c10"
           data-testid="checkbox"
         >
           <svg
@@ -270,15 +296,15 @@ exports[`SubNav component should match snapshot 1`] = `
         </span>
       </div>
       <div
-        class="c2"
+        class="c8"
       >
         <label
-          class="c3"
+          class="c9"
         >
           Intracto NL
         </label>
         <span
-          class="c4"
+          class="c10"
           data-testid="checkbox"
         >
           <svg
@@ -299,15 +325,15 @@ exports[`SubNav component should match snapshot 1`] = `
         </span>
       </div>
       <div
-        class="c2"
+        class="c8"
       >
         <label
-          class="c3"
+          class="c9"
         >
           Frontmen
         </label>
         <span
-          class="c4"
+          class="c10"
           data-testid="checkbox"
         >
           <svg
@@ -329,20 +355,20 @@ exports[`SubNav component should match snapshot 1`] = `
       </div>
     </div>
     <div
-      class="c5"
+      class="c11"
     >
       <div
-        class="c6"
+        class="c12"
       >
         <input
-          class="c7"
+          class="c13"
           data-testid="search-input"
           placeholder="Looking for a technology?"
           value=""
         />
       </div>
       <svg
-        class="c8"
+        class="c14"
         data-testid="search-icon"
         fill="currentColor"
         height="1em"
@@ -356,34 +382,6 @@ exports[`SubNav component should match snapshot 1`] = `
           d="M443.5 420.2L336.7 312.4c20.9-26.2 33.5-59.4 33.5-95.5 0-84.5-68.5-153-153.1-153S64 132.5 64 217s68.5 153 153.1 153c36.6 0 70.1-12.8 96.5-34.2l106.1 107.1c3.2 3.4 7.6 5.1 11.9 5.1 4.1 0 8.2-1.5 11.3-4.5 6.6-6.3 6.8-16.7.6-23.3zm-226.4-83.1c-32.1 0-62.3-12.5-85-35.2-22.7-22.7-35.2-52.9-35.2-84.9 0-32.1 12.5-62.3 35.2-84.9 22.7-22.7 52.9-35.2 85-35.2s62.3 12.5 85 35.2c22.7 22.7 35.2 52.9 35.2 84.9 0 32.1-12.5 62.3-35.2 84.9-22.7 22.7-52.9 35.2-85 35.2z"
         />
       </svg>
-    </div>
-    <div
-      class="c9"
-    >
-      <a
-        class="c10 c11"
-        href="/Frameworks, CMS & Programmeertalen"
-      >
-        Frameworks, CMS & Programmeertalen
-      </a>
-      <a
-        class="c10 c12"
-        href="/Tooling en testing"
-      >
-        Tooling en testing
-      </a>
-      <a
-        class="c10 c13"
-        href="/Platforms, infrastructure & Data"
-      >
-        Platforms, infrastructure & Data
-      </a>
-      <a
-        class="c10 c14"
-        href="/Technieken"
-      >
-        Technieken
-      </a>
     </div>
   </div>
 </div>

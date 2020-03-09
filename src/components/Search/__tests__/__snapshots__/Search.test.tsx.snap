@@ -16,11 +16,11 @@ exports[`Search render search icon and input field 1`] = `
 }
 
 .c3 {
-  -webkit-flex: 0 0 3em;
-  -ms-flex: 0 0 3em;
-  flex: 0 0 3em;
-  height: 3em;
-  width: 3em;
+  -webkit-flex: 0 0 2em;
+  -ms-flex: 0 0 2em;
+  flex: 0 0 2em;
+  height: 2em;
+  width: 2em;
 }
 
 .c2 {
@@ -34,7 +34,6 @@ exports[`Search render search icon and input field 1`] = `
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
-  padding-top: 15px;
   outline: none;
 }
 
