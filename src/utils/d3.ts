@@ -117,12 +117,12 @@ export const showBubble = (technology: Technology) => {
         'transform',
         translate(technology.x! - bbox.width / 2, technology.y! - 16),
       )
-      .style('opacity', 0.8);
+      .style('opacity', 1);
     d3.select('#bubble rect')
       .attr('x', -5)
-      .attr('y', -bbox.height)
+      .attr('y', -bbox.height + 1)
       .attr('width', bbox.width + 10)
-      .attr('height', bbox.height + 4);
+      .attr('height', bbox.height + 6);
     d3.select('#bubble path').attr(
       'transform',
       translate(bbox.width / 2 - 5, 3),
@@ -287,7 +287,7 @@ export const radar_visualization = (
       .style('fill', '#000')
       .style('transform', `translateY(${quadrantProp > 1 ? 10 : -5}px)`)
       .style('font-family', 'Arial, Helvetica')
-      .style('font-size', 12)
+      .style('font-size', '12px')
       .style('font-weight', 'bold')
       .style('pointer-events', 'none')
       .style('user-select', 'none');
@@ -320,7 +320,7 @@ export const radar_visualization = (
   bubble
     .append('text')
     .style('font-family', 'sans-serif')
-    .style('font-size', '10px')
+    .style('font-size', '14px')
     .style('fill', '#fff');
   bubble
     .append('path')
@@ -393,7 +393,7 @@ export const radar_visualization = (
         .attr('text-anchor', 'middle')
         .style('fill', '#fff')
         .style('font-family', 'Arial, Helvetica')
-        .style('font-size', () => (blip_text.length > 2 ? '8' : '9'))
+        .style('font-size', () => (blip_text.length > 2 ? '8px' : '9px'))
         .style('pointer-events', 'none')
         .style('user-select', 'none');
     });

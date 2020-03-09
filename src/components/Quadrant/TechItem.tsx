@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Typography } from 'src/Theme/Typography';
 import { MediaQueries } from 'src/Theme/Helpers';
 import { Link } from 'react-router-dom';
+import { IoIosArrowRoundForward } from 'react-icons/io';
 
 const ListItem = styled.li`
   list-style: none;
@@ -17,13 +18,12 @@ const ListItem = styled.li`
 
 const Details = styled.div<{ isOpened: boolean }>`
   max-height: ${props => (props.isOpened ? '75vh' : '0px')};
-
   transition: max-height 0.2s ease-in-out;
   overflow: hidden;
+  background-color: ${props => props.theme.pallet.light};
 `;
 const Content = styled.div`
-  padding: ${props =>
-    `${props.theme.space[2]}px ${props.theme.space[2]}px ${props.theme.space[3]}px ${props.theme.space[0]}px`};
+  padding: ${props => `${props.theme.space[2]}px`};
   overflow: hidden;
 `;
 
@@ -31,7 +31,8 @@ const Label = styled.div<{ highlighted: boolean }>`
   ${Typography.body};
   cursor: pointer;
   padding: ${props => props.theme.space[1] / 2}px;
-  color: ${props => props.highlighted && props.theme.pallet.blue};
+  color: ${props => props.highlighted && props.theme.pallet.white};
+  background-color: ${props => props.highlighted && props.theme.pallet.blue};
   font-weight: ${props => props.highlighted && 600};
 `;
 
@@ -42,6 +43,18 @@ const DetailsLink = styled(Link)`
   margin-top: ${props => props.theme.space[2]}px;
   width: 100%;
   color: ${props => props.theme.pallet.blue};
+`;
+
+const MoreLink = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: .9em;
+`;
+
+const ArrowRightIcon = styled(IoIosArrowRoundForward)`
+  height: 1.7em;
+  width: 1.7em;
 `;
 
 export interface TechnologyProps {
@@ -124,7 +137,7 @@ export class TechItem extends React.Component<TechnologyProps> {
           <Content>
             <span dangerouslySetInnerHTML={{ __html: description }} />
             <DetailsLink to={`/${quadrantSlug}/${technologySlug}`}>
-              Details >
+              <MoreLink>More <ArrowRightIcon data-testid="arrow-right-icon" /></MoreLink>
             </DetailsLink>
           </Content>
         </Details>

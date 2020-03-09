@@ -20,9 +20,9 @@ const Container = styled.div`
 `;
 
 const SearchIcon = styled(IoIosSearch)`
-  flex: 0 0 3em;
-  height: 3em;
-  width: 3em;
+  flex: 0 0 2em;
+  height: 2em;
+  width: 2em;
 `;
 
 const Input = styled.input`
@@ -31,7 +31,6 @@ const Input = styled.input`
   border-color: ${props => props.theme.pallet.secondary};
   flex: 1;
   ${Typography.body};
-  padding-top: 15px;
   outline: none;
 
   &:focus {
