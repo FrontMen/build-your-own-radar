@@ -1,0 +1,1585 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
+.c23 {
+  list-style: none;
+  width: 100%;
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
+  overflow: hidden;
+}
+
+.c25 {
+  max-height: 0px;
+  -webkit-transition: max-height 0.2s ease-in-out;
+  transition: max-height 0.2s ease-in-out;
+  overflow: hidden;
+}
+
+.c26 {
+  padding: 8px 8px 16px 0px;
+  overflow: hidden;
+}
+
+.c24 {
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.c27 {
+  display: inline-block;
+  font-weight: 400;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin-top: 8px;
+  width: 100%;
+  color: #526de4;
+}
+
+.c19 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c20 {
+  margin-bottom: 32px;
+  width: 50%;
+  min-width: 12rem;
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.c21 {
+  font-family: Montserrat,san-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  font-size: 1;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.c22 {
+  padding-left: 0;
+  margin: 0;
+}
+
+.c28 {
+  width: 100%;
+  max-width: 440px;
+  min-width: 280px;
+  height: auto;
+  pointer-events: none;
+  margin: auto;
+}
+
+.c18 {
+  font-family: Montserrat,san-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  font-size: 1.5em;
+  text-transform: capitalize;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  min-width: 18em;
+  position: relative;
+  padding: 8px;
+}
+
+.c9 {
+  -webkit-flex: 0 0 3em;
+  -ms-flex: 0 0 3em;
+  flex: 0 0 3em;
+  height: 3em;
+  width: 3em;
+}
+
+.c8 {
+  border: none;
+  border-bottom: 2px solid;
+  border-color: #767676;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  padding-top: 15px;
+  outline: none;
+}
+
+.c8:focus {
+  border-color: #526de4;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  position: relative;
+}
+
+.c5 {
+  border: 2px solid #526de4;
+  background-color: #526de4;
+  padding: 2px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.c4 {
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  margin-right: 16px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 8px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 8px 0;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1.25;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  height: 3em;
+  padding: 8px 16px;
+  margin-bottom: 8px;
+  color: #fff;
+  -webkit-transition: opacity 100ms ease-in;
+  transition: opacity 100ms ease-in;
+  background-color: #767676;
+}
+
+.c12:hover {
+  background-color: #31bd70;
+}
+
+.c13:hover {
+  background-color: #526de4;
+}
+
+.c14:hover {
+  background-color: #fd7e14;
+}
+
+.c15 {
+  background-color: #7843ab;
+}
+
+.c15:hover {
+  background-color: #7843ab;
+}
+
+.c0 {
+  grid-area: main;
+  background-color: #fff;
+  padding: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap-reverse;
+  -ms-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.c17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-width: 480px;
+}
+
+.c29 {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  color: red;
+}
+
+@media (min-width:481px) {
+  .c23 {
+    min-width: 9em;
+  }
+}
+
+@media (min-width:481px) {
+  .c21 {
+    font-size: 1.5;
+  }
+}
+
+@media (min-width:481px) {
+  .c28 {
+    pointer-events: all;
+  }
+}
+
+@media (min-width:1024px) {
+  .c28 {
+    margin: 0;
+    margin-left: auto;
+  }
+}
+
+@media (min-width:481px) {
+  .c18 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width:768px) {
+  .c6 {
+    margin-left: 2em;
+  }
+}
+
+@media (min-width:481px) {
+  .c1 {
+    margin-bottom: 32px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width:768px) {
+  .c10 {
+    -webkit-flex-wrap: unset;
+    -ms-flex-wrap: unset;
+    flex-wrap: unset;
+  }
+}
+
+@media (min-width:481px) {
+  .c11 {
+    max-width: 50%;
+  }
+}
+
+@media (min-width:768px) {
+  .c11 {
+    max-width: 25%;
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width:481px) {
+  .c0 {
+    padding: 32px;
+  }
+}
+
+@media (min-width:481px) {
+  .c17 {
+    margin-right: 16px;
+  }
+}
+
+@media (min-width:768px) {
+
+}
+
+<div>
+  <div
+    class="PageSlots__MainContentSlot-sc-1quj5xc-1 c0"
+  >
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <label
+            class="c4"
+          >
+            Intracto BE
+          </label>
+          <span
+            class="c5"
+            data-testid="checkbox"
+          >
+            <svg
+              color="#fff"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              style="color: rgb(255, 255, 255);"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="c3"
+        >
+          <label
+            class="c4"
+          >
+            Intracto NL
+          </label>
+          <span
+            class="c5"
+            data-testid="checkbox"
+          >
+            <svg
+              color="#fff"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              style="color: rgb(255, 255, 255);"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="c3"
+        >
+          <label
+            class="c4"
+          >
+            Frontmen
+          </label>
+          <span
+            class="c5"
+            data-testid="checkbox"
+          >
+            <svg
+              color="#fff"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              style="color: rgb(255, 255, 255);"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        class="c6"
+      >
+        <div
+          class="c7"
+        >
+          <input
+            class="c8"
+            data-testid="search-input"
+            placeholder="Looking for a technology?"
+            value=""
+          />
+        </div>
+        <svg
+          class="c9"
+          data-testid="search-icon"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M443.5 420.2L336.7 312.4c20.9-26.2 33.5-59.4 33.5-95.5 0-84.5-68.5-153-153.1-153S64 132.5 64 217s68.5 153 153.1 153c36.6 0 70.1-12.8 96.5-34.2l106.1 107.1c3.2 3.4 7.6 5.1 11.9 5.1 4.1 0 8.2-1.5 11.3-4.5 6.6-6.3 6.8-16.7.6-23.3zm-226.4-83.1c-32.1 0-62.3-12.5-85-35.2-22.7-22.7-35.2-52.9-35.2-84.9 0-32.1 12.5-62.3 35.2-84.9 22.7-22.7 52.9-35.2 85-35.2s62.3 12.5 85 35.2c22.7 22.7 35.2 52.9 35.2 84.9 0 32.1-12.5 62.3-35.2 84.9-22.7 22.7-52.9 35.2-85 35.2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="c10"
+      >
+        <a
+          class="c11 c12"
+          href="/Frameworks, CMS & Programmeertalen"
+        >
+          Frameworks, CMS & Programmeertalen
+        </a>
+        <a
+          class="c11 c13"
+          href="/Tooling en testing"
+        >
+          Tooling en testing
+        </a>
+        <a
+          class="c11 c14"
+          href="/Platforms, infrastructure & Data"
+        >
+          Platforms, infrastructure & Data
+        </a>
+        <a
+          class="c11 c15"
+          href="/Technieken"
+        >
+          Technieken
+        </a>
+      </div>
+    </div>
+    <div
+      class="c16"
+    >
+      <div
+        class="c17"
+      >
+        <h2
+          class="c18"
+        >
+          Technieken
+        </h2>
+        <div
+          class="c19"
+        >
+          <div
+            class="c20"
+          >
+            <h3
+              class="c21"
+            >
+              Adopt
+            </h3>
+            <ul
+              class="c22"
+            >
+              <li
+                class="c23"
+              >
+                <div
+                  class="c24"
+                  data-testid="label"
+                >
+                  Babel
+                </div>
+                <div
+                  class="c25"
+                  data-testid="details"
+                >
+                  <div
+                    class="c26"
+                  >
+                    <span>
+                      This is the description. You can use basic html such as the 
+                      <strong>
+                        strong tag to emphasise keywords and phrases
+                      </strong>
+                       and insert
+                    </span>
+                    <a
+                      class="c27"
+                      href="/technieken/babel"
+                    >
+                      Details &gt;
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li
+                class="c23"
+              >
+                <div
+                  class="c24"
+                  data-testid="label"
+                >
+                  Spark
+                </div>
+                <div
+                  class="c25"
+                  data-testid="details"
+                >
+                  <div
+                    class="c26"
+                  >
+                    <span>
+                      This is the description. You can use basic html such as the 
+                      <strong>
+                        strong tag to emphasise keywords and phrases
+                      </strong>
+                       and insert
+                    </span>
+                    <a
+                      class="c27"
+                      href="/technieken/spark"
+                    >
+                      Details &gt;
+                    </a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c28 c29"
+      >
+        <svg
+          viewBox="-20 -420 435 435"
+        >
+          <g>
+            <g>
+              <defs>
+                <filter
+                  height="1"
+                  id="solid"
+                  width="1"
+                  x="0"
+                  y="0"
+                >
+                  <feflood
+                    flood-color="rgb(0, 0, 0, 0.8)"
+                  />
+                  <fecomposite
+                    in="SourceGraphic"
+                  />
+                </filter>
+              </defs>
+              <circle
+                class="ring"
+                cx="0"
+                cy="0"
+                r="0"
+                style="fill: #E4E5E4; stroke-width: 1;"
+              />
+              <circle
+                class="ring"
+                cx="0"
+                cy="0"
+                r="0"
+                style="fill: #D7D8D6; stroke-width: 1;"
+              />
+              <circle
+                class="ring"
+                cx="0"
+                cy="0"
+                r="0"
+                style="fill: #CBCCCB; stroke-width: 1;"
+              />
+              <circle
+                class="ring"
+                cx="0"
+                cy="0"
+                r="0"
+                style="fill: #BFC0BF; stroke-width: 1;"
+              />
+              <line
+                style="stroke: #fff; stroke-width: 20; opacity: 0.3;"
+                x1="-400"
+                x2="400"
+                y1="5"
+                y2="5"
+              />
+              <text
+                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                text-anchor="middle"
+                x="338"
+              >
+                Hold
+              </text>
+              <text
+                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                text-anchor="middle"
+                x="248"
+              >
+                Assess
+              </text>
+              <text
+                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                text-anchor="middle"
+                x="158"
+              >
+                Trial
+              </text>
+              <text
+                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                text-anchor="middle"
+                x="68"
+              >
+                Adopt
+              </text>
+            </g>
+            <g
+              id="rink"
+            />
+            <g
+              id="bubble"
+              style="opacity: 0; pointer-events: none; user-select: none;"
+              transform="translate(0,0)"
+              x="0"
+              y="0"
+            >
+              <rect
+                rx="4"
+                ry="4"
+                style="fill: #333;"
+              />
+              <text
+                style="font-family: sans-serif; font-size: 10px; fill: #fff;"
+              />
+              <path
+                d="M 0,0 10,0 5,8 z"
+                style="fill: #333;"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
+.c23 {
+  list-style: none;
+  width: 100%;
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
+  overflow: hidden;
+}
+
+.c25 {
+  max-height: 0px;
+  -webkit-transition: max-height 0.2s ease-in-out;
+  transition: max-height 0.2s ease-in-out;
+  overflow: hidden;
+}
+
+.c26 {
+  padding: 8px 8px 16px 0px;
+  overflow: hidden;
+}
+
+.c24 {
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.c27 {
+  display: inline-block;
+  font-weight: 400;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  margin-top: 8px;
+  width: 100%;
+  color: #526de4;
+}
+
+.c19 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c20 {
+  margin-bottom: 32px;
+  width: 50%;
+  min-width: 12rem;
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.c21 {
+  font-family: Montserrat,san-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  font-size: 1;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.c22 {
+  padding-left: 0;
+  margin: 0;
+}
+
+.c28 {
+  width: 100%;
+  max-width: 440px;
+  min-width: 280px;
+  height: auto;
+  pointer-events: none;
+  margin: auto;
+}
+
+.c18 {
+  font-family: Montserrat,san-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  font-size: 1.5em;
+  text-transform: capitalize;
+}
+
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  min-width: 18em;
+  position: relative;
+  padding: 8px;
+}
+
+.c9 {
+  -webkit-flex: 0 0 3em;
+  -ms-flex: 0 0 3em;
+  flex: 0 0 3em;
+  height: 3em;
+  width: 3em;
+}
+
+.c8 {
+  border: none;
+  border-bottom: 2px solid;
+  border-color: #767676;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  padding-top: 15px;
+  outline: none;
+}
+
+.c8:focus {
+  border-color: #526de4;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  position: relative;
+}
+
+.c5 {
+  border: 2px solid #526de4;
+  background-color: #526de4;
+  padding: 2px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.c4 {
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  margin-right: 16px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 8px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: 8px 0;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 1.25;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  height: 3em;
+  padding: 8px 16px;
+  margin-bottom: 8px;
+  color: #fff;
+  -webkit-transition: opacity 100ms ease-in;
+  transition: opacity 100ms ease-in;
+  background-color: #767676;
+}
+
+.c12:hover {
+  background-color: #31bd70;
+}
+
+.c13:hover {
+  background-color: #526de4;
+}
+
+.c14:hover {
+  background-color: #fd7e14;
+}
+
+.c15 {
+  background-color: #7843ab;
+}
+
+.c15:hover {
+  background-color: #7843ab;
+}
+
+.c0 {
+  grid-area: main;
+  background-color: #fff;
+  padding: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c16 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap-reverse;
+  -ms-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.c17 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-width: 480px;
+}
+
+.c29 {
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+  color: red;
+}
+
+@media (min-width:481px) {
+  .c23 {
+    min-width: 9em;
+  }
+}
+
+@media (min-width:481px) {
+  .c21 {
+    font-size: 1.5;
+  }
+}
+
+@media (min-width:481px) {
+  .c28 {
+    pointer-events: all;
+  }
+}
+
+@media (min-width:1024px) {
+  .c28 {
+    margin: 0;
+    margin-left: auto;
+  }
+}
+
+@media (min-width:481px) {
+  .c18 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width:768px) {
+  .c6 {
+    margin-left: 2em;
+  }
+}
+
+@media (min-width:481px) {
+  .c1 {
+    margin-bottom: 32px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width:768px) {
+  .c10 {
+    -webkit-flex-wrap: unset;
+    -ms-flex-wrap: unset;
+    flex-wrap: unset;
+  }
+}
+
+@media (min-width:481px) {
+  .c11 {
+    max-width: 50%;
+  }
+}
+
+@media (min-width:768px) {
+  .c11 {
+    max-width: 25%;
+    margin-bottom: 0px;
+  }
+}
+
+@media (min-width:481px) {
+  .c0 {
+    padding: 32px;
+  }
+}
+
+@media (min-width:481px) {
+  .c17 {
+    margin-right: 16px;
+  }
+}
+
+@media (min-width:768px) {
+
+}
+
+<div>
+  <div
+    class="PageSlots__MainContentSlot-sc-1quj5xc-1 c0"
+  >
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class="c3"
+        >
+          <label
+            class="c4"
+          >
+            Intracto BE
+          </label>
+          <span
+            class="c5"
+            data-testid="checkbox"
+          >
+            <svg
+              color="#fff"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              style="color: rgb(255, 255, 255);"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="c3"
+        >
+          <label
+            class="c4"
+          >
+            Intracto NL
+          </label>
+          <span
+            class="c5"
+            data-testid="checkbox"
+          >
+            <svg
+              color="#fff"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              style="color: rgb(255, 255, 255);"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="c3"
+        >
+          <label
+            class="c4"
+          >
+            Frontmen
+          </label>
+          <span
+            class="c5"
+            data-testid="checkbox"
+          >
+            <svg
+              color="#fff"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              style="color: rgb(255, 255, 255);"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        class="c6"
+      >
+        <div
+          class="c7"
+        >
+          <input
+            class="c8"
+            data-testid="search-input"
+            placeholder="Looking for a technology?"
+            value=""
+          />
+        </div>
+        <svg
+          class="c9"
+          data-testid="search-icon"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M443.5 420.2L336.7 312.4c20.9-26.2 33.5-59.4 33.5-95.5 0-84.5-68.5-153-153.1-153S64 132.5 64 217s68.5 153 153.1 153c36.6 0 70.1-12.8 96.5-34.2l106.1 107.1c3.2 3.4 7.6 5.1 11.9 5.1 4.1 0 8.2-1.5 11.3-4.5 6.6-6.3 6.8-16.7.6-23.3zm-226.4-83.1c-32.1 0-62.3-12.5-85-35.2-22.7-22.7-35.2-52.9-35.2-84.9 0-32.1 12.5-62.3 35.2-84.9 22.7-22.7 52.9-35.2 85-35.2s62.3 12.5 85 35.2c22.7 22.7 35.2 52.9 35.2 84.9 0 32.1-12.5 62.3-35.2 84.9-22.7 22.7-52.9 35.2-85 35.2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="c10"
+      >
+        <a
+          class="c11 c12"
+          href="/Frameworks, CMS & Programmeertalen"
+        >
+          Frameworks, CMS & Programmeertalen
+        </a>
+        <a
+          class="c11 c13"
+          href="/Tooling en testing"
+        >
+          Tooling en testing
+        </a>
+        <a
+          class="c11 c14"
+          href="/Platforms, infrastructure & Data"
+        >
+          Platforms, infrastructure & Data
+        </a>
+        <a
+          class="c11 c15"
+          href="/Technieken"
+        >
+          Technieken
+        </a>
+      </div>
+    </div>
+    <div
+      class="c16"
+    >
+      <div
+        class="c17"
+      >
+        <h2
+          class="c18"
+        >
+          Technieken
+        </h2>
+        <div
+          class="c19"
+        >
+          <div
+            class="c20"
+          >
+            <h3
+              class="c21"
+            >
+              Adopt
+            </h3>
+            <ul
+              class="c22"
+            >
+              <li
+                class="c23"
+              >
+                <div
+                  class="c24"
+                  data-testid="label"
+                >
+                  Babel
+                </div>
+                <div
+                  class="c25"
+                  data-testid="details"
+                >
+                  <div
+                    class="c26"
+                  >
+                    <span>
+                      This is the description. You can use basic html such as the 
+                      <strong>
+                        strong tag to emphasise keywords and phrases
+                      </strong>
+                       and insert
+                    </span>
+                    <a
+                      class="c27"
+                      href="/technieken/babel"
+                    >
+                      Details &gt;
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li
+                class="c23"
+              >
+                <div
+                  class="c24"
+                  data-testid="label"
+                >
+                  Spark
+                </div>
+                <div
+                  class="c25"
+                  data-testid="details"
+                >
+                  <div
+                    class="c26"
+                  >
+                    <span>
+                      This is the description. You can use basic html such as the 
+                      <strong>
+                        strong tag to emphasise keywords and phrases
+                      </strong>
+                       and insert
+                    </span>
+                    <a
+                      class="c27"
+                      href="/technieken/spark"
+                    >
+                      Details &gt;
+                    </a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div
+        class="c28 c29"
+      >
+        <svg
+          viewBox="-20 -420 435 435"
+        >
+          <g>
+            <g>
+              <defs>
+                <filter
+                  height="1"
+                  id="solid"
+                  width="1"
+                  x="0"
+                  y="0"
+                >
+                  <feflood
+                    flood-color="rgb(0, 0, 0, 0.8)"
+                  />
+                  <fecomposite
+                    in="SourceGraphic"
+                  />
+                </filter>
+              </defs>
+              <circle
+                class="ring"
+                cx="0"
+                cy="0"
+                r="0"
+                style="fill: #E4E5E4; stroke-width: 1;"
+              />
+              <circle
+                class="ring"
+                cx="0"
+                cy="0"
+                r="0"
+                style="fill: #D7D8D6; stroke-width: 1;"
+              />
+              <circle
+                class="ring"
+                cx="0"
+                cy="0"
+                r="0"
+                style="fill: #CBCCCB; stroke-width: 1;"
+              />
+              <circle
+                class="ring"
+                cx="0"
+                cy="0"
+                r="0"
+                style="fill: #BFC0BF; stroke-width: 1;"
+              />
+              <line
+                style="stroke: #fff; stroke-width: 20; opacity: 0.3;"
+                x1="-400"
+                x2="400"
+                y1="5"
+                y2="5"
+              />
+              <text
+                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                text-anchor="middle"
+                x="338"
+              >
+                Hold
+              </text>
+              <text
+                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                text-anchor="middle"
+                x="248"
+              >
+                Assess
+              </text>
+              <text
+                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                text-anchor="middle"
+                x="158"
+              >
+                Trial
+              </text>
+              <text
+                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                text-anchor="middle"
+                x="68"
+              >
+                Adopt
+              </text>
+            </g>
+            <g
+              id="rink"
+            />
+            <g
+              id="bubble"
+              style="opacity: 0; pointer-events: none; user-select: none;"
+              transform="translate(0,0)"
+              x="0"
+              y="0"
+            >
+              <rect
+                rx="4"
+                ry="4"
+                style="fill: #333;"
+              />
+              <text
+                style="font-family: sans-serif; font-size: 10px; fill: #fff;"
+              />
+              <path
+                d="M 0,0 10,0 5,8 z"
+                style="fill: #333;"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;

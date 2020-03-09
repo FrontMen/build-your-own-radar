@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should matches the snapshot 1`] = `
+.c0 {
+  grid-area: footer;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  background-color: #fff;
+  padding: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@media (min-width:481px) {
+  .c0 {
+    padding: 32px;
+  }
+}
+
+<div>
+  <div
+    class="PageSlots__FooterSlot-sc-1quj5xc-2 c0"
+  >
+    <div>
+      <a
+        href="/"
+      >
+        Home
+      </a>
+    </div>
+    <i>
+      A collaboration between 
+      <a
+        href="https://www.frontmen.nl/"
+      >
+        Frontmen
+      </a>
+       and 
+      <a
+        href="https://www.intracto.com/"
+      >
+        Intracto
+      </a>
+      .
+    </i>
+  </div>
+</div>
+`;
