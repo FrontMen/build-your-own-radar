@@ -21,7 +21,6 @@ const GraphContainer = styled.div`
     margin-left: auto;
 
     .sticky {
-      position: -webkit-sticky; /* Safari */
       position: sticky;
       top: 0;
     }
