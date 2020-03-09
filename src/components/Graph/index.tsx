@@ -4,7 +4,7 @@ import { d3Config } from 'src/utils/d3-config';
 import styled from 'styled-components';
 import { MediaQueries } from 'src/Theme/Helpers';
 
-const GraphContainer = styled.div`
+const GraphWrapper = styled.div`
   width: 100%;
   max-width: 440px;
   min-width: 280px;
@@ -14,20 +14,20 @@ const GraphContainer = styled.div`
 
   @media ${MediaQueries.phablet} {
     pointer-events: all;
-
   }
   @media ${MediaQueries.desktop} {
     margin: 0;
     margin-left: auto;
-
-    .sticky {
-      position: sticky;
-      top: 0;
-    }
   }
-
-
 `;
+
+const GraphContainer = styled.div`
+  @media ${MediaQueries.desktop} {
+    position: sticky;
+    top: 0;
+  }
+`;
+
 interface TechnologiesListProps {
   technologies: Technology[];
   highlighted: string | null;
@@ -74,8 +74,10 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   }, [highlighted, technologies]);
 
   return (
-    <GraphContainer className={StylesFromParent}>
-      <div className="sticky"><svg ref={d3Container} /></div>
-    </GraphContainer>
+    <GraphWrapper className={StylesFromParent}>
+      <GraphContainer>
+        <svg ref={d3Container} />
+      </GraphContainer>
+    </GraphWrapper>
   );
 };
