@@ -19,7 +19,7 @@ const Quads = styled.div`
   grid-gap: ${props => props.theme.space[4]}px;
 
   @media ${MediaQueries.tablet} {
-    grid-template-columns: repeat(auto-fit, minmax(21em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
   }
 `;
 
