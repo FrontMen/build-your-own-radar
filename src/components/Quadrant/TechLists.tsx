@@ -11,10 +11,14 @@ const Section = styled.div`
 `;
 
 const Ring = styled.div`
-  margin-bottom: ${props => props.theme.space[4]}px;
-  width: 50%;
   min-width: 12rem;
+  padding-right: ${props => props.theme.space[3]}px;
+  margin-bottom: ${props => props.theme.space[4]}px;
   break-inside: avoid;
+
+  @media ${MediaQueries.phablet} {
+    width: 50%;
+  }
 `;
 
 const Title = styled.h3`

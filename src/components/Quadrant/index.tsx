@@ -27,18 +27,14 @@ const Content = styled.div`
 const Article = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 480px;
+  padding-right: ${props => props.theme.space[2]}px;
   @media ${MediaQueries.phablet} {
-    margin-right: ${props => props.theme.space[3]}px;
+    padding-right: ${props => props.theme.space[3]}px;
   }
 
-  @media ${MediaQueries.tablet} {
+  @media ${MediaQueries.desktop} {
+    max-width: 50%;
   }
-`;
-
-const GraphLayout = styled(Graph)`
-  order: 0;
-  color: red;
 `;
 
 export const Quadrant = () => {
@@ -87,7 +83,7 @@ export const Quadrant = () => {
             </p>
           )}
         </Article>
-        <GraphLayout
+        <Graph
           data-testid="graph"
           highlighted={highlighted}
           quadrant={quadrant}
