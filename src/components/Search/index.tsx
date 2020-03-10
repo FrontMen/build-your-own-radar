@@ -6,6 +6,7 @@ import { IoIosSearch } from 'react-icons/io';
 import { useAppState } from 'src/hooks/useAppState';
 import { Typography } from 'src/Theme/Typography';
 import { MediaQueries } from 'src/Theme/Helpers';
+import { d3Config } from 'src/utils/d3-config';
 
 const Container = styled.div`
   display: flex;
@@ -136,7 +137,7 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
                   <Technology
                     data-testid="search-technology"
                     key={technology.name}
-                    to={`/${technology.quadrant}`}
+                    to={`/${d3Config.quadrants[technology.quadrant].route}`}
                     onClick={() => {
                       if (technology.quadrant !== quadrant) {
                         setValue('');

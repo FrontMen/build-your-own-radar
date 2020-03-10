@@ -22,7 +22,7 @@ const Links = styled.div`
   display: flex;
   flex-basis: 100%;
   flex-wrap: wrap;
-  
+
   @media ${MediaQueries.tablet} {
     flex-wrap: unset;
   }
@@ -86,18 +86,20 @@ export const SubNav = ({ setHighlighted }: PropTypes) => {
   return (
     <Container>
       <Links>
-        {d3Config.quadrants.map(({ name }: { name: string }) => {
-          return (
-            <ColoredLinks
-              selected={quadrantPram === name}
-              quadName={name}
-              to={`/${name}`}
-              key={name}
-            >
-              {name}
-            </ColoredLinks>
-          );
-        })}
+        {d3Config.quadrants.map(
+          ({ name, route }: { name: string; route: string }) => {
+            return (
+              <ColoredLinks
+                selected={quadrantPram === route}
+                quadName={name}
+                to={`/${route}`}
+                key={name}
+              >
+                {name}
+              </ColoredLinks>
+            );
+          },
+        )}
       </Links>
       <FilterByCompany />
       <Search setHighlighted={setHighlighted} />

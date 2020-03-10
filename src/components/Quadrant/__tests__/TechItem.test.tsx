@@ -93,6 +93,6 @@ describe('TechItem', () => {
       .find(LabelSelector)
       .at(0)
       .simulate('click');
-    expect(defaultProps.setSelected).toHaveBeenCalledWith(mockData[0].name);
+    expect(defaultProps.setSelected).toHaveBeenCalledWith(`?tech=${mockData[0].name}`);
   });
 });

@@ -2,7 +2,7 @@ export const mockData: Technology[] = [
   {
     name: 'Babel',
     ring: 'Adopt',
-    quadrant: 'Technieken',
+    quadrant: 3,
     isNew: true,
     description:
       'This is the description. You can use basic html such as the <strong>strong tag to emphasise keywords and phrases</strong> and insert',
@@ -12,7 +12,7 @@ export const mockData: Technology[] = [
   {
     name: 'Spark',
     ring: 'Adopt',
-    quadrant: 'Technieken',
+    quadrant: 3,
     isNew: true,
     description:
       'This is the description. You can use basic html such as the <strong>strong tag to emphasise keywords and phrases</strong> and insert',
@@ -22,7 +22,7 @@ export const mockData: Technology[] = [
   {
     name: 'Electron',
     ring: 'Assess',
-    quadrant: 'Tooling en testing',
+    quadrant: 1,
     isNew: false,
     description:
       'This is the description. You can use basic html such as the <strong>strong tag to emphasise keywords and phrases</strong> and insert <a href="https://www.thoughtworks.com">anchor links to documentation and referance material</a>.',
