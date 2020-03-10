@@ -10,7 +10,7 @@ const GraphWrapper = styled.div`
   min-width: 280px;
   height: auto;
   pointer-events: none;
-  margin: auto;
+  margin: 0 auto;
 
   @media ${MediaQueries.phablet} {
     pointer-events: all;
@@ -18,6 +18,7 @@ const GraphWrapper = styled.div`
   @media ${MediaQueries.desktop} {
     margin: 0;
     margin-left: auto;
+    max-width: 50%;
   }
 `;
 
@@ -74,7 +75,7 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   }, [highlighted, technologies]);
 
   return (
-    <GraphWrapper className={StylesFromParent}>
+    <GraphWrapper >
       <GraphContainer>
         <svg ref={d3Container} />
       </GraphContainer>

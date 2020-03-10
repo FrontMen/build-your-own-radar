@@ -8,7 +8,7 @@ WebFont.load({
 
 export const baseTheme = {
   space: [0, 4, 8, 16, 32, 64, 128, 256],
-  pageWidth: '64em',
+  pageWidth: '80em',
   /* generated modular scale from https://www.modularscale.com/?1&em&1.5 */
   fontSize: [1, 1.5, 2.25, 3.375, 5.063, 7.594, 11.391, 17.086],
   lineHeight: [1.65, 1.15],
