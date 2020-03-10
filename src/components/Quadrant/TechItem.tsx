@@ -37,24 +37,20 @@ const Label = styled.div<{ highlighted: boolean }>`
 `;
 
 const DetailsLink = styled(Link)`
-  display: inline-block;
-  font-weight: 400;
-  text-decoration: none;
+  flex-direction: row;
+  align-items: center;
   margin-top: ${props => props.theme.space[2]}px;
   width: 100%;
   color: ${props => props.theme.pallet.blue};
-`;
-
-const MoreLink = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: .9em;
+  font-weight: 400;
+  font-size: 0.9em;
+  text-decoration: none;
 `;
 
 const ArrowRightIcon = styled(IoIosArrowRoundForward)`
-  height: 1.7em;
-  width: 1.7em;
+  height: 2em;
+  width: 2em;
 `;
 
 export interface TechnologyProps {
@@ -137,7 +133,8 @@ export class TechItem extends React.Component<TechnologyProps> {
           <Content>
             <span dangerouslySetInnerHTML={{ __html: description }} />
             <DetailsLink to={`/${quadrantSlug}/${technologySlug}`}>
-              <MoreLink>More <ArrowRightIcon data-testid="arrow-right-icon" /></MoreLink>
+              {'More '}
+              <ArrowRightIcon data-testid="arrow-right-icon" />
             </DetailsLink>
           </Content>
         </Details>
