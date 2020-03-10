@@ -38,6 +38,8 @@ export const List = styled.ul`
 export const Dot = styled.span`
   color: #1ebccd;
   padding-right: 4px;
+  font-size: 2em;
+  vertical-align: sub;
 `;
 
 export const Tooltip = styled.span`
@@ -63,7 +65,7 @@ export const Tooltip = styled.span`
   .tooltip-text {
     visibility: hidden;
     position: absolute;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     width: 270px;
     background: rgba(0,0,0,.8);
