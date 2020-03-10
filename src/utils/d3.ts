@@ -1,4 +1,6 @@
 import * as d3 from 'd3';
+import { History } from 'history';
+import { d3Config } from 'src/utils/d3-config';
 
 const quadrants = [
   { radial_min: 0, radial_max: 0.5, factor_x: 1, factor_y: 1 },
@@ -15,6 +17,7 @@ const rings = [
 
 let seed = 42;
 const NUMBER_OF_RINGS = 4;
+const AXIS_STROKE_WIDTH = 16;
 
 const random = () => {
   const x = Math.sin(seed++) * 10000;
@@ -66,8 +69,8 @@ const segment = (quadrant: number, ring: number) => {
     r: rings[ring].radius,
   };
   const cartesian_min = {
-    x: 15 * quadrants[quadrant].factor_x,
-    y: 15 * quadrants[quadrant].factor_y,
+    x: 20 * quadrants[quadrant].factor_x,
+    y: 25 * quadrants[quadrant].factor_y,
   };
   const cartesian_max = {
     x: rings[3].radius * quadrants[quadrant].factor_x,
@@ -97,12 +100,12 @@ const segment = (quadrant: number, ring: number) => {
 
 const translate = (x: number, y: number) => `translate(${x},${y})`;
 
-const viewbox = (quadrant: number) =>
+const viewbox = (quadrant: number, maxRadius: number) =>
   [
-    Math.max(0, quadrants[quadrant].factor_x * 400) - 420,
-    Math.max(0, quadrants[quadrant].factor_y * 400) - 420,
-    435,
-    435,
+    Math.max(0, quadrants[quadrant].factor_x * maxRadius) - maxRadius - AXIS_STROKE_WIDTH / 2,
+    Math.max(0, quadrants[quadrant].factor_y * maxRadius) - maxRadius - AXIS_STROKE_WIDTH / 2,
+    maxRadius + AXIS_STROKE_WIDTH,
+    maxRadius + AXIS_STROKE_WIDTH,
   ].join(' ');
 
 export const showBubble = (technology: Technology) => {
@@ -139,36 +142,50 @@ export const hideBubble = () => {
 const sortTechnologyByName = (a: Technology, b: Technology) =>
   a.name.localeCompare(b.name);
 
-const getQuadrantMultiplier = (quadrant: number) => {
-  switch (quadrant) {
-    case 0:
-    case 3:
-      return [1, -1];
-    case 1:
-    case 2:
-      return [-1, 1];
-    default:
-      throw new Error('incorrect quadrant, it should be in range from 0 to 3');
-  }
-};
+const getHoverPolygons = (maxRadius: number) => [
+  [
+    { x: 0, y: maxRadius - AXIS_STROKE_WIDTH / 2 },
+    { x: 0, y: 0 },
+    { x: maxRadius - AXIS_STROKE_WIDTH / 2, y: 0 },
+    { x: maxRadius - AXIS_STROKE_WIDTH / 2, y: maxRadius - AXIS_STROKE_WIDTH / 2 },
+  ],
+  [
+    { x: maxRadius + AXIS_STROKE_WIDTH / 2, y: maxRadius - AXIS_STROKE_WIDTH / 2 },
+    { x: maxRadius + AXIS_STROKE_WIDTH / 2, y: 0 },
+    { x: maxRadius * 2, y: 0 },
+    { x: maxRadius * 2, y: maxRadius - AXIS_STROKE_WIDTH / 2 },
+  ],
+  [
+    { x: maxRadius + AXIS_STROKE_WIDTH / 2, y: maxRadius * 2 },
+    { x: maxRadius + AXIS_STROKE_WIDTH / 2, y: maxRadius + AXIS_STROKE_WIDTH / 2 },
+    { x: maxRadius * 2, y: maxRadius + AXIS_STROKE_WIDTH / 2 },
+    { x: maxRadius * 2, y: maxRadius * 2 },
+  ],
+  [
+    { x: 0, y: maxRadius * 2 },
+    { x: 0, y: maxRadius + AXIS_STROKE_WIDTH / 2 },
+    { x: maxRadius - AXIS_STROKE_WIDTH / 2, y: maxRadius + AXIS_STROKE_WIDTH / 2 },
+    { x: maxRadius - AXIS_STROKE_WIDTH / 2, y: maxRadius * 2 },
+  ],
+];
 
-const getCoverLinePosition = (quadrant: number) => {
+const getQuadrantName = (quadrant: number) => {
   switch (quadrant) {
     case 0:
+      return d3Config.quadrants[2].name;
     case 1:
-      return [-400, -10, 400, -10];
+      return d3Config.quadrants[3].name;
     case 2:
+      return d3Config.quadrants[0].name;
     case 3:
-      return [-400, 5, 400, 5];
+      return d3Config.quadrants[1].name;
     default:
       throw new Error('incorrect quadrant, it should be in range from 0 to 3');
   }
 };
 
 export interface RadarVisualizationParams {
-  width: number;
-  height: number;
-  quadrant: number;
+  quadrant?: number;
 }
 
 export const radar_visualization = (
@@ -177,14 +194,13 @@ export const radar_visualization = (
   config: any,
   setHighlighted: (a: string | null) => void,
   setSelected: (a: string | null) => void,
-  { width, height, quadrant: quadrantProp }: RadarVisualizationParams,
+  { quadrant: quadrantProp }: RadarVisualizationParams,
+  history: History,
 ) => {
+  const maxRadius = rings[rings.length - 1].radius;
   const svg = d3
     .select(container)
     .style('background-color', config.colors.background);
-  // removed to make the chart responsive
-  // .attr('width', width || config.width)
-  // .attr('height', height || config.height);
 
   svg.html('');
 
@@ -228,9 +244,10 @@ export const radar_visualization = (
 
   const radar = svg.append('g');
   if (quadrantProp !== undefined) {
-    svg.attr('viewBox', viewbox(quadrantProp));
+    svg.attr('viewBox', viewbox(quadrantProp, maxRadius));
   } else {
-    radar.attr('transform', translate(width / 2, height / 2));
+    radar.attr('transform', translate(maxRadius, maxRadius));
+    svg.attr('width', maxRadius * 2).attr('height', maxRadius * 2);
   }
 
   const grid = radar.append('g');
@@ -261,31 +278,59 @@ export const radar_visualization = (
       .style('stroke-width', 1);
   }
 
-  //cover line for text
-  const coverLinePosition = getCoverLinePosition(quadrantProp);
+  //cover lines for ring names
   grid
     .append('line')
-    .attr('x1', coverLinePosition[0])
-    .attr('y1', coverLinePosition[1])
-    .attr('x2', coverLinePosition[2])
-    .attr('y2', coverLinePosition[3])
+    .attr('x1', -maxRadius)
+    .attr('y1', 0)
+    .attr('x2', maxRadius)
+    .attr('y2', 0)
     .style('stroke', '#fff')
-    .style('stroke-width', 20)
+    .style('stroke-width', AXIS_STROKE_WIDTH)
     .style('opacity', 0.3);
 
-  const quadrantMultiplier = getQuadrantMultiplier(quadrantProp);
+  grid
+    .append('line')
+    .attr('x1', 0)
+    .attr('y1', -maxRadius)
+    .attr('x2', 0)
+    .attr('y2', -AXIS_STROKE_WIDTH / 2)
+    .style('stroke', '#fff')
+    .style('stroke-width', AXIS_STROKE_WIDTH)
+    .style('opacity', 0.3);
+
+  grid
+    .append('line')
+    .attr('x1', 0)
+    .attr('y1', AXIS_STROKE_WIDTH / 2)
+    .attr('x2', 0)
+    .attr('y2', maxRadius)
+    .style('stroke', '#fff')
+    .style('stroke-width', AXIS_STROKE_WIDTH)
+    .style('opacity', 0.3);
+
   //ring names displaying
   for (let i = 3; i >= 0; i--) {
     grid
       .append('text')
       .text(config.rings[i].name)
-      .attr(
-        'x',
-        quadrantMultiplier[0] * rings[i].radius + 62 * quadrantMultiplier[1],
-      )
+      .attr('x', rings[i].radius - 62)
       .attr('text-anchor', 'middle')
       .style('fill', '#000')
-      .style('transform', `translateY(${quadrantProp > 1 ? 10 : -5}px)`)
+      .style('transform', 'translateY(4px)')
+      .style('font-family', 'Arial, Helvetica')
+      .style('font-size', 12)
+      .style('font-weight', 'bold')
+      .style('pointer-events', 'none')
+      .style('user-select', 'none');
+
+    grid
+      .append('text')
+      .text(config.rings[i].name)
+      .attr('x', -rings[i].radius + 62)
+      .attr('text-anchor', 'middle')
+      .style('fill', '#000')
+      .style('transform', 'translateY(4px)')
       .style('font-family', 'Arial, Helvetica')
       .style('font-size', '12px')
       .style('font-weight', 'bold')
@@ -293,12 +338,40 @@ export const radar_visualization = (
       .style('user-select', 'none');
   }
 
+  if (quadrantProp === undefined) {
+    // in full size draw boxes on top for hover effect
+    getHoverPolygons(maxRadius).forEach((p, i) => {
+      svg
+        .append('polygon')
+        .attr('data-testid', `quadrant-${i}`)
+        .attr('cursor', 'pointer')
+        .attr('class', 'quadrant-hover')
+        .attr('fill', '#fff')
+        .attr('opacity', 0)
+        .attr('points', p.map(({ x, y }) => `${x}, ${y}`).join(' '))
+        .on('mouseover', function() {
+          svg.selectAll('.quadrant-hover').attr('opacity', '0.3');
+          this.setAttribute('opacity', '0');
+        })
+        .on('mouseout', function() {
+          svg.selectAll('.quadrant-hover').attr('opacity', '0');
+        })
+        .on('click', function() {
+          history.push(getQuadrantName(i));
+        });
+    });
+  }
+
   // animate rings
   d3.selectAll('.ring')
     .transition()
     .duration(400)
-    .delay(function(d, i) { return i*40; })// <-- delay as a function of i
-    .attr("r", function(d, i) { return rings[3-i].radius });    
+    .delay(function(d, i) {
+      return i * 40;
+    }) // <-- delay as a function of i
+    .attr('r', function(d, i) {
+      return rings[3 - i].radius;
+    });
 
   // layer for entries
   const rink = radar.append('g').attr('id', 'rink');

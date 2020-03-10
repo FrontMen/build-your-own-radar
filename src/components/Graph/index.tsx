@@ -3,10 +3,11 @@ import { radar_visualization, showBubble, hideBubble } from 'src/utils/d3';
 import { d3Config } from 'src/utils/d3-config';
 import styled from 'styled-components';
 import { MediaQueries } from 'src/Theme/Helpers';
+import { useHistory } from 'react-router';
 
-const GraphWrapper = styled.div`
+const GraphWrapper = styled.div<{ fullSize: boolean | undefined }>`
   width: 100%;
-  max-width: 440px;
+  max-width: ${props => (props.fullSize ? 'none' : '440px')};
   min-width: 280px;
   height: auto;
   pointer-events: none;
@@ -16,13 +17,13 @@ const GraphWrapper = styled.div`
     pointer-events: all;
   }
   @media ${MediaQueries.desktop} {
-    margin: 0;
-    margin-left: auto;
-    max-width: 50%;
+    margin: 0 auto ${props => props.fullSize ? props.theme.space[5] + 'px' : 0};
+    ${props => !props.fullSize ? 'max-width: 50%;' : ''};
   }
 `;
 
 const GraphContainer = styled.div`
+  text-align: center;
   @media ${MediaQueries.desktop} {
     position: sticky;
     top: 0;
@@ -32,21 +33,24 @@ const GraphContainer = styled.div`
 interface TechnologiesListProps {
   technologies: Technology[];
   highlighted: string | null;
-  setHighlighted: (a: string | null) => void;
-  setSelected: (a: string | null) => void;
-  quadrant: number;
+  setHighlighted?: (a: string | null) => void;
+  setSelected?: (a: string | null) => void;
+  quadrant?: number;
   className?: string | undefined;
+  fullSize?: boolean;
 }
 
 export const Graph: React.FC<TechnologiesListProps> = ({
   highlighted,
   quadrant,
   technologies,
-  setHighlighted,
-  setSelected,
+  setHighlighted = () => {},
+  setSelected = () => {},
   className: StylesFromParent,
+  fullSize,
 }) => {
   const d3Container = useRef<SVGSVGElement>(null);
+  const history = useHistory();
 
   useEffect(() => {
     if (d3Container.current) {
@@ -57,13 +61,12 @@ export const Graph: React.FC<TechnologiesListProps> = ({
         setHighlighted,
         setSelected,
         {
-          width: 460,
-          height: 460,
           quadrant,
         },
+        history,
       );
     }
-  }, [technologies, quadrant, setHighlighted]);
+  }, [technologies, quadrant, setHighlighted, setSelected, history]);
 
   useEffect(() => {
     const technology = technologies?.find(t => t.name === highlighted);
@@ -75,7 +78,7 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   }, [highlighted, technologies]);
 
   return (
-    <GraphWrapper >
+    <GraphWrapper fullSize={fullSize}>
       <GraphContainer>
         <svg ref={d3Container} />
       </GraphContainer>

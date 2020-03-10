@@ -99,6 +99,10 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   margin: 0 auto;
 }
 
+.c30 {
+  text-align: center;
+}
+
 .c18 {
   font-family: Montserrat,san-serif;
   font-weight: 700;
@@ -372,8 +376,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 
 @media (min-width:1024px) {
   .c29 {
-    margin: 0;
-    margin-left: auto;
+    margin: 0 auto 0;
     max-width: 50%;
   }
 }
@@ -735,7 +738,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
           class="c30"
         >
           <svg
-            viewBox="-20 -420 435 435"
+            viewBox="-8 -408 416 416"
           >
             <g>
               <g>
@@ -784,37 +787,79 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                   style="fill: #BFC0BF; stroke-width: 1;"
                 />
                 <line
-                  style="stroke: #fff; stroke-width: 20; opacity: 0.3;"
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
                   x1="-400"
                   x2="400"
-                  y1="5"
-                  y2="5"
+                  y1="0"
+                  y2="0"
+                />
+                <line
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
+                  x1="0"
+                  x2="0"
+                  y1="-400"
+                  y2="-8"
+                />
+                <line
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
+                  x1="0"
+                  x2="0"
+                  y1="8"
+                  y2="400"
                 />
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="338"
                 >
                   Hold
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-338"
+                >
+                  Hold
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="248"
                 >
                   Assess
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-248"
+                >
+                  Assess
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="158"
                 >
                   Trial
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-158"
+                >
+                  Trial
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="68"
+                >
+                  Adopt
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-68"
                 >
                   Adopt
                 </text>
@@ -950,6 +995,10 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   margin: 0 auto;
 }
 
+.c30 {
+  text-align: center;
+}
+
 .c18 {
   font-family: Montserrat,san-serif;
   font-weight: 700;
@@ -1223,8 +1272,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 
 @media (min-width:1024px) {
   .c29 {
-    margin: 0;
-    margin-left: auto;
+    margin: 0 auto 0;
     max-width: 50%;
   }
 }
@@ -1586,7 +1634,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
           class="c30"
         >
           <svg
-            viewBox="-20 -420 435 435"
+            viewBox="-8 -408 416 416"
           >
             <g>
               <g>
@@ -1635,37 +1683,79 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                   style="fill: #BFC0BF; stroke-width: 1;"
                 />
                 <line
-                  style="stroke: #fff; stroke-width: 20; opacity: 0.3;"
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
                   x1="-400"
                   x2="400"
-                  y1="5"
-                  y2="5"
+                  y1="0"
+                  y2="0"
+                />
+                <line
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
+                  x1="0"
+                  x2="0"
+                  y1="-400"
+                  y2="-8"
+                />
+                <line
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
+                  x1="0"
+                  x2="0"
+                  y1="8"
+                  y2="400"
                 />
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="338"
                 >
                   Hold
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-338"
+                >
+                  Hold
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="248"
                 >
                   Assess
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-248"
+                >
+                  Assess
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="158"
                 >
                   Trial
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-158"
+                >
+                  Trial
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="68"
+                >
+                  Adopt
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-68"
                 >
                   Adopt
                 </text>

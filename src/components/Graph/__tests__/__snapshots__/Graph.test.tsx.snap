@@ -10,6 +10,10 @@ exports[`Graph should matches the snapshot 1`] = `
   margin: 0 auto;
 }
 
+.c1 {
+  text-align: center;
+}
+
 @media (min-width:481px) {
   .c0 {
     pointer-events: all;
@@ -18,8 +22,7 @@ exports[`Graph should matches the snapshot 1`] = `
 
 @media (min-width:1024px) {
   .c0 {
-    margin: 0;
-    margin-left: auto;
+    margin: 0 auto 0;
     max-width: 50%;
   }
 }

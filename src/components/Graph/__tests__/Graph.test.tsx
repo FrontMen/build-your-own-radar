@@ -21,6 +21,10 @@ jest.mock('src/utils/d3', () => ({
   hideBubble: jest.fn(),
 }));
 
+jest.mock('react-router', () => ({
+  useHistory: jest.fn(),
+}));
+
 describe('Graph', () => {
   /* test to check that the mobile and larger snapshot don't change unintentionally */
   it('should matches the snapshot', () => {
