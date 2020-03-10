@@ -1,62 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
-.c23 {
-  list-style: none;
-  width: 100%;
-  -webkit-break-inside: avoid;
-  break-inside: avoid;
-  overflow: hidden;
-}
-
-.c25 {
-  max-height: 0px;
-  -webkit-transition: max-height 0.2s ease-in-out;
-  transition: max-height 0.2s ease-in-out;
-  overflow: hidden;
-  background-color: #f8f9fa;
-}
-
-.c26 {
-  padding: 8px;
-  overflow: hidden;
-}
-
-.c24 {
-  font-family: Roboto,san-serif;
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 1.65;
-  cursor: pointer;
-  padding: 2px;
-}
-
-.c27 {
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 8px;
-  width: 100%;
-  color: #526de4;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-weight: 400;
-  font-size: 0.9em;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c28 {
-  height: 2em;
-  width: 2em;
-}
-
 .c19 {
   width: 100%;
   display: -webkit-box;
@@ -85,12 +29,122 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   margin-bottom: 8px;
 }
 
-.c22 {
+.c24 {
   padding-left: 0;
   margin: 0;
 }
 
+.c22 {
+  color: #1ebccd;
+  padding-right: 4px;
+}
+
+.c23 {
+  background-color: #bfc0bf;
+  position: relative;
+  display: inline-block;
+  line-height: 22px;
+  width: 22px;
+  margin-left: 12px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.c23:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.c23 .tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  font-size: 12px;
+  font-weight: 700;
+  width: 270px;
+  background: rgba(0,0,0,.8);
+  color: #FFF;
+  border-radius: 6px;
+  padding: 10px 15px;
+  text-align: left;
+  z-index: 1;
+  bottom: 130%;
+  margin-left: -80px;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.c23 .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -64px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.c25 {
+  list-style: none;
+  width: 100%;
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
+  overflow: hidden;
+}
+
+.c27 {
+  max-height: 0px;
+  -webkit-transition: max-height 0.2s ease-in-out;
+  transition: max-height 0.2s ease-in-out;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+.c28 {
+  padding: 8px;
+  overflow: hidden;
+}
+
+.c26 {
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  cursor: pointer;
+  padding: 2px;
+}
+
 .c29 {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 8px;
+  width: 100%;
+  color: #526de4;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 400;
+  font-size: 0.9em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c30 {
+  height: 2em;
+  width: 2em;
+}
+
+.c31 {
   width: 100%;
   max-width: 440px;
   min-width: 280px;
@@ -347,12 +401,6 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 }
 
 @media (min-width:481px) {
-  .c23 {
-    min-width: 9em;
-  }
-}
-
-@media (min-width:481px) {
   .c20 {
     width: 50%;
   }
@@ -365,13 +413,19 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 }
 
 @media (min-width:481px) {
-  .c29 {
+  .c25 {
+    min-width: 9em;
+  }
+}
+
+@media (min-width:481px) {
+  .c31 {
     pointer-events: all;
   }
 }
 
 @media (min-width:1024px) {
-  .c29 {
+  .c31 {
     margin: 0;
     margin-left: auto;
     max-width: 50%;
@@ -379,7 +433,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 }
 
 @media (min-width:1024px) {
-  .c30 {
+  .c32 {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -625,26 +679,41 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
             <h3
               class="c21"
             >
+              <span
+                class="c22"
+              >
+                ●
+              </span>
               Adopt
-            </h3>
-            <ul
-              class="c22"
-            >
-              <li
+              <span
                 class="c23"
               >
+                ?
+                <span
+                  class="tooltip-text"
+                >
+                  We feel strongly that the industry should be adopting these items. We use them when appropriate on our projects.
+                </span>
+              </span>
+            </h3>
+            <ul
+              class="c24"
+            >
+              <li
+                class="c25"
+              >
                 <div
-                  class="c24"
+                  class="c26"
                   data-testid="label"
                 >
                   Babel
                 </div>
                 <div
-                  class="c25"
+                  class="c27"
                   data-testid="details"
                 >
                   <div
-                    class="c26"
+                    class="c28"
                   >
                     <span>
                       This is the description. You can use basic html such as the 
@@ -654,12 +723,12 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                        and insert
                     </span>
                     <a
-                      class="c27"
+                      class="c29"
                       href="/technieken/babel"
                     >
                       More 
                       <svg
-                        class="c28"
+                        class="c30"
                         data-testid="arrow-right-icon"
                         fill="currentColor"
                         height="1em"
@@ -678,20 +747,20 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                 </div>
               </li>
               <li
-                class="c23"
+                class="c25"
               >
                 <div
-                  class="c24"
+                  class="c26"
                   data-testid="label"
                 >
                   Spark
                 </div>
                 <div
-                  class="c25"
+                  class="c27"
                   data-testid="details"
                 >
                   <div
-                    class="c26"
+                    class="c28"
                   >
                     <span>
                       This is the description. You can use basic html such as the 
@@ -701,12 +770,12 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                        and insert
                     </span>
                     <a
-                      class="c27"
+                      class="c29"
                       href="/technieken/spark"
                     >
                       More 
                       <svg
-                        class="c28"
+                        class="c30"
                         data-testid="arrow-right-icon"
                         fill="currentColor"
                         height="1em"
@@ -729,10 +798,10 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
         </div>
       </div>
       <div
-        class="c29"
+        class="c31"
       >
         <div
-          class="c30"
+          class="c32"
         >
           <svg
             viewBox="-20 -420 435 435"
@@ -852,62 +921,6 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 `;
 
 exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
-.c23 {
-  list-style: none;
-  width: 100%;
-  -webkit-break-inside: avoid;
-  break-inside: avoid;
-  overflow: hidden;
-}
-
-.c25 {
-  max-height: 0px;
-  -webkit-transition: max-height 0.2s ease-in-out;
-  transition: max-height 0.2s ease-in-out;
-  overflow: hidden;
-  background-color: #f8f9fa;
-}
-
-.c26 {
-  padding: 8px;
-  overflow: hidden;
-}
-
-.c24 {
-  font-family: Roboto,san-serif;
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 1.65;
-  cursor: pointer;
-  padding: 2px;
-}
-
-.c27 {
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 8px;
-  width: 100%;
-  color: #526de4;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-weight: 400;
-  font-size: 0.9em;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c28 {
-  height: 2em;
-  width: 2em;
-}
-
 .c19 {
   width: 100%;
   display: -webkit-box;
@@ -936,12 +949,122 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   margin-bottom: 8px;
 }
 
-.c22 {
+.c24 {
   padding-left: 0;
   margin: 0;
 }
 
+.c22 {
+  color: #1ebccd;
+  padding-right: 4px;
+}
+
+.c23 {
+  background-color: #bfc0bf;
+  position: relative;
+  display: inline-block;
+  line-height: 22px;
+  width: 22px;
+  margin-left: 12px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.c23:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.c23 .tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  font-size: 12px;
+  font-weight: 700;
+  width: 270px;
+  background: rgba(0,0,0,.8);
+  color: #FFF;
+  border-radius: 6px;
+  padding: 10px 15px;
+  text-align: left;
+  z-index: 1;
+  bottom: 130%;
+  margin-left: -80px;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.c23 .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -64px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.c25 {
+  list-style: none;
+  width: 100%;
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
+  overflow: hidden;
+}
+
+.c27 {
+  max-height: 0px;
+  -webkit-transition: max-height 0.2s ease-in-out;
+  transition: max-height 0.2s ease-in-out;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+.c28 {
+  padding: 8px;
+  overflow: hidden;
+}
+
+.c26 {
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  cursor: pointer;
+  padding: 2px;
+}
+
 .c29 {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 8px;
+  width: 100%;
+  color: #526de4;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 400;
+  font-size: 0.9em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c30 {
+  height: 2em;
+  width: 2em;
+}
+
+.c31 {
   width: 100%;
   max-width: 440px;
   min-width: 280px;
@@ -1198,12 +1321,6 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 }
 
 @media (min-width:481px) {
-  .c23 {
-    min-width: 9em;
-  }
-}
-
-@media (min-width:481px) {
   .c20 {
     width: 50%;
   }
@@ -1216,13 +1333,19 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 }
 
 @media (min-width:481px) {
-  .c29 {
+  .c25 {
+    min-width: 9em;
+  }
+}
+
+@media (min-width:481px) {
+  .c31 {
     pointer-events: all;
   }
 }
 
 @media (min-width:1024px) {
-  .c29 {
+  .c31 {
     margin: 0;
     margin-left: auto;
     max-width: 50%;
@@ -1230,7 +1353,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 }
 
 @media (min-width:1024px) {
-  .c30 {
+  .c32 {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -1476,26 +1599,41 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
             <h3
               class="c21"
             >
+              <span
+                class="c22"
+              >
+                ●
+              </span>
               Adopt
-            </h3>
-            <ul
-              class="c22"
-            >
-              <li
+              <span
                 class="c23"
               >
+                ?
+                <span
+                  class="tooltip-text"
+                >
+                  We feel strongly that the industry should be adopting these items. We use them when appropriate on our projects.
+                </span>
+              </span>
+            </h3>
+            <ul
+              class="c24"
+            >
+              <li
+                class="c25"
+              >
                 <div
-                  class="c24"
+                  class="c26"
                   data-testid="label"
                 >
                   Babel
                 </div>
                 <div
-                  class="c25"
+                  class="c27"
                   data-testid="details"
                 >
                   <div
-                    class="c26"
+                    class="c28"
                   >
                     <span>
                       This is the description. You can use basic html such as the 
@@ -1505,12 +1643,12 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                        and insert
                     </span>
                     <a
-                      class="c27"
+                      class="c29"
                       href="/technieken/babel"
                     >
                       More 
                       <svg
-                        class="c28"
+                        class="c30"
                         data-testid="arrow-right-icon"
                         fill="currentColor"
                         height="1em"
@@ -1529,20 +1667,20 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                 </div>
               </li>
               <li
-                class="c23"
+                class="c25"
               >
                 <div
-                  class="c24"
+                  class="c26"
                   data-testid="label"
                 >
                   Spark
                 </div>
                 <div
-                  class="c25"
+                  class="c27"
                   data-testid="details"
                 >
                   <div
-                    class="c26"
+                    class="c28"
                   >
                     <span>
                       This is the description. You can use basic html such as the 
@@ -1552,12 +1690,12 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                        and insert
                     </span>
                     <a
-                      class="c27"
+                      class="c29"
                       href="/technieken/spark"
                     >
                       More 
                       <svg
-                        class="c28"
+                        class="c30"
                         data-testid="arrow-right-icon"
                         fill="currentColor"
                         height="1em"
@@ -1580,10 +1718,10 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
         </div>
       </div>
       <div
-        class="c29"
+        class="c31"
       >
         <div
-          class="c30"
+          class="c32"
         >
           <svg
             viewBox="-20 -420 435 435"
