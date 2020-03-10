@@ -53,7 +53,7 @@ export const lightTheme = {
     background: baseTheme.pallet.light,
     blocks: baseTheme.pallet.white,
     'Frameworks, CMS & Programmeertalen': baseTheme.pallet.green,
-    'Tooling en testing': baseTheme.pallet.blue,
+    'Tooling en testing': baseTheme.pallet.cyan,
     'Platforms, infrastructure & Data': baseTheme.pallet.orange,
     Technieken: baseTheme.pallet.purple,
   },

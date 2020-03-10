@@ -14,8 +14,8 @@ const CheckBoxContainer = styled.span<Pick<CheckBoxProps, 'checked'>>`
   align-items: center;
   cursor: pointer;
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   ${Typography.body};
 `;
 

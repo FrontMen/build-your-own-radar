@@ -19,8 +19,8 @@ exports[`CheckBox should matches the snapshot when checked 1`] = `
   align-items: center;
   cursor: pointer;
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   font-family: Roboto,san-serif;
   font-size: 1em;
   font-weight: 400;
@@ -103,8 +103,8 @@ exports[`CheckBox should matches the snapshot when unchecked 1`] = `
   align-items: center;
   cursor: pointer;
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   font-family: Roboto,san-serif;
   font-size: 1em;
   font-weight: 400;
