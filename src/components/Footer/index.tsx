@@ -1,6 +1,5 @@
 import React from 'react';
 import { FooterSlot } from '../shared/PageSlots';
-import { Logo } from '../Header/Logo';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 

@@ -6,11 +6,20 @@ import { MediaQueries } from 'src/Theme/Helpers';
 import { ContentTitle } from 'src/components/shared/ContentTitle';
 import { d3Config } from 'src/utils/d3-config';
 import { Typography } from 'src/Theme/Typography';
+import { Graph } from 'src/components/Graph';
+import { useAppState } from 'src/hooks/useAppState';
 
 const Intro = styled.div`
   margin: auto;
-  margin-bottom: ${props => props.theme.space[5]}px;
+  margin-bottom: ${props => props.theme.space[2]}px;
   max-width: 48em;
+
+  @media ${MediaQueries.phablet} {
+    margin-bottom: ${props => props.theme.space[3]}px;
+  }
+  @media ${MediaQueries.desktop} {
+    margin-bottom: ${props => props.theme.space[5]}px;
+  }
 `;
 
 const Quads = styled.div`
@@ -30,13 +39,13 @@ const Quadrant = styled.div`
   margin-bottom: ${props => props.theme.space[2]}px;
 
   @media ${MediaQueries.tablet} {
-    width: 100%%;
+    width: 100%;
     margin-bottom: ${props => props.theme.space[4]}px;
   }
 `;
 
 const Content = styled.p`
-  ${Typography.body}
+  ${Typography.body};
   margin: 0;
   margin-bottom: ${props => props.theme.space[3]}px;
 `;
@@ -50,7 +59,9 @@ const StyledLinks = styled(Link)`
 
 export const Home: React.FC = () => {
   const quads = d3Config.quadrants;
-
+  const {
+    state: { technologies },
+  } = useAppState();
   return (
     <MainContentSlot data-testid="home-title">
       <Intro>
@@ -61,6 +72,7 @@ export const Home: React.FC = () => {
           laboris ut ea aute.
         </Content>
       </Intro>
+      <Graph highlighted={null} technologies={technologies} fullSize />
       <Quads>
         {quads.map((quad, i) => (
           <Quadrant key={i}>

@@ -48,6 +48,7 @@ const DropDownContainer = styled.div`
   top: 60px;
   max-height: 500px;
   overflow: scroll;
+  z-index: 1;
 `;
 
 const InputContainer = styled.div`
@@ -91,7 +92,11 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
   const {
     state: { technologies },
   } = useAppState();
-  const { quadrant } = useParams<QuadParamType>();
+  const { quadrant: quadrantParam } = useParams<QuadParamType>();
+
+  const quadrantNum: number = d3Config.quadrants.findIndex(
+    (item: { route: string }) => item.route === quadrantParam,
+  );
   const [value, setValue] = useState<string>('');
   const data = useMemo(
     () =>
@@ -139,7 +144,7 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
                     key={technology.name}
                     to={`/${d3Config.quadrants[technology.quadrant].route}`}
                     onClick={() => {
-                      if (technology.quadrant !== quadrant) {
+                      if (technology.quadrant !== quadrantNum) {
                         setValue('');
                       }
                       setHighlighted(technology.name);

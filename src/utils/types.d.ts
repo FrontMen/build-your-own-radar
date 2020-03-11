@@ -20,7 +20,7 @@ type CompanyTypes = 'ITR_BE' | 'ITR_NL' | 'FM';
 interface Technology extends Partial<Point> {
   name: string;
   ring: RingNamesType;
-  quadrant: num;
+  quadrant: number;
   isNew: boolean;
   description: string;
   companies: CompanyTypes[];

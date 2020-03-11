@@ -1,4 +1,5 @@
 import { useLocation, useHistory } from 'react-router';
+import { useCallback } from 'react';
 
 // React Router does not have any opinions about
 // how you should parse URL query strings.
@@ -17,7 +18,10 @@ export const useQueryAsState = () => {
   const query = new URLSearchParams(useLocation().search);
   const selected = query.get('tech');
   const history = useHistory();
-  const setQueryState = (route: string) => route && history.push(route);
+  const setQueryState = useCallback(
+    (route: string) => route && history.push(route),
+    [history],
+  );
   return [selected, setQueryState] as [
     null | string,
     (route: string | null) => void,
