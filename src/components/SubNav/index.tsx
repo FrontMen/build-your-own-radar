@@ -66,8 +66,10 @@ const ColoredLinks = styled(({ selected, quadName, ...props }) => (
   background-color: ${props =>
     props.selected && props.theme.colors[props.quadName]};
 
-  &:hover {
-    background-color: ${props => props.theme.colors[props.quadName]};
+  @media(hover:hover) {
+    &:hover {
+      background-color: ${props => props.theme.colors[props.quadName]};
+    }
   }
 `;
 
