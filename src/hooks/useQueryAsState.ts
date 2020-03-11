@@ -14,7 +14,6 @@ import { useLocation, useHistory } from 'react-router';
 // A custom hook that builds on useLocation to parse
 // the query string for you.
 export const useQueryAsState = () => {
-  //   const [selected, setSelected] = useState<null | string>(null);
   const query = new URLSearchParams(useLocation().search);
   const selected = query.get('tech');
   const history = useHistory();

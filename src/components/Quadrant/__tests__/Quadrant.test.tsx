@@ -34,7 +34,7 @@ describe('Quadrant', () => {
     expect(container).toMatchSnapshot();
   });
 
-  fit('should pass down technologies filtered by quadrant', () => {
+  it('should pass down technologies filtered by quadrant', () => {
     const wrapper = mount(<Quadrant />, {
       wrappingComponent: AllProvidersWrapper,
       wrappingComponentProps: routeProps,

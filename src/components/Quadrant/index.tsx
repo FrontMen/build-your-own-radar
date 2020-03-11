@@ -11,7 +11,7 @@ import { Graph } from 'src/components/Graph';
 import { ContentTitle } from 'src/components/shared/ContentTitle';
 import { filterByCompanyContext } from 'src/ContextProviders/FilterByCompanyContextProvider';
 import { SubNav } from 'src/components/SubNav';
-import { useQueryAsState } from 'src/hooks/useQuery';
+import { useQueryAsState } from 'src/hooks/useQueryAsState';
 
 const Slot = styled(MainContentSlot)`
   display: flex;
