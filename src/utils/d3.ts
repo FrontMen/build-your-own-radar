@@ -1,5 +1,4 @@
 import * as d3 from 'd3';
-import { History } from 'history';
 import { d3Config } from 'src/utils/d3-config';
 
 const quadrants = [
@@ -102,8 +101,12 @@ const translate = (x: number, y: number) => `translate(${x},${y})`;
 
 const viewbox = (quadrant: number, maxRadius: number) =>
   [
-    Math.max(0, quadrants[quadrant].factor_x * maxRadius) - maxRadius - AXIS_STROKE_WIDTH / 2,
-    Math.max(0, quadrants[quadrant].factor_y * maxRadius) - maxRadius - AXIS_STROKE_WIDTH / 2,
+    Math.max(0, quadrants[quadrant].factor_x * maxRadius) -
+      maxRadius -
+      AXIS_STROKE_WIDTH / 2,
+    Math.max(0, quadrants[quadrant].factor_y * maxRadius) -
+      maxRadius -
+      AXIS_STROKE_WIDTH / 2,
     maxRadius + AXIS_STROKE_WIDTH,
     maxRadius + AXIS_STROKE_WIDTH,
   ].join(' ');
@@ -147,24 +150,36 @@ const getHoverPolygons = (maxRadius: number) => [
     { x: 0, y: maxRadius - AXIS_STROKE_WIDTH / 2 },
     { x: 0, y: 0 },
     { x: maxRadius - AXIS_STROKE_WIDTH / 2, y: 0 },
-    { x: maxRadius - AXIS_STROKE_WIDTH / 2, y: maxRadius - AXIS_STROKE_WIDTH / 2 },
+    {
+      x: maxRadius - AXIS_STROKE_WIDTH / 2,
+      y: maxRadius - AXIS_STROKE_WIDTH / 2,
+    },
   ],
   [
-    { x: maxRadius + AXIS_STROKE_WIDTH / 2, y: maxRadius - AXIS_STROKE_WIDTH / 2 },
+    {
+      x: maxRadius + AXIS_STROKE_WIDTH / 2,
+      y: maxRadius - AXIS_STROKE_WIDTH / 2,
+    },
     { x: maxRadius + AXIS_STROKE_WIDTH / 2, y: 0 },
     { x: maxRadius * 2, y: 0 },
     { x: maxRadius * 2, y: maxRadius - AXIS_STROKE_WIDTH / 2 },
   ],
   [
     { x: maxRadius + AXIS_STROKE_WIDTH / 2, y: maxRadius * 2 },
-    { x: maxRadius + AXIS_STROKE_WIDTH / 2, y: maxRadius + AXIS_STROKE_WIDTH / 2 },
+    {
+      x: maxRadius + AXIS_STROKE_WIDTH / 2,
+      y: maxRadius + AXIS_STROKE_WIDTH / 2,
+    },
     { x: maxRadius * 2, y: maxRadius + AXIS_STROKE_WIDTH / 2 },
     { x: maxRadius * 2, y: maxRadius * 2 },
   ],
   [
     { x: 0, y: maxRadius * 2 },
     { x: 0, y: maxRadius + AXIS_STROKE_WIDTH / 2 },
-    { x: maxRadius - AXIS_STROKE_WIDTH / 2, y: maxRadius + AXIS_STROKE_WIDTH / 2 },
+    {
+      x: maxRadius - AXIS_STROKE_WIDTH / 2,
+      y: maxRadius + AXIS_STROKE_WIDTH / 2,
+    },
     { x: maxRadius - AXIS_STROKE_WIDTH / 2, y: maxRadius * 2 },
   ],
 ];
@@ -195,9 +210,11 @@ export const radar_visualization = (
   setHighlighted: (a: string | null) => void,
   setSelected: (a: string | null) => void,
   { quadrant: quadrantProp }: RadarVisualizationParams,
-  history: History,
+  redirect: (path: string) => void,
 ) => {
   const maxRadius = rings[rings.length - 1].radius;
+  const isFullSize = quadrantProp === undefined;
+
   const svg = d3
     .select(container)
     .style('background-color', config.colors.background);
@@ -246,8 +263,8 @@ export const radar_visualization = (
   if (quadrantProp !== undefined) {
     svg.attr('viewBox', viewbox(quadrantProp, maxRadius));
   } else {
+    svg.attr('viewBox', `0 0 ${maxRadius * 2} ${maxRadius * 2}`);
     radar.attr('transform', translate(maxRadius, maxRadius));
-    svg.attr('width', maxRadius * 2).attr('height', maxRadius * 2);
   }
 
   const grid = radar.append('g');
@@ -310,35 +327,37 @@ export const radar_visualization = (
     .style('opacity', 0.3);
 
   //ring names displaying
-  for (let i = 3; i >= 0; i--) {
-    grid
-      .append('text')
-      .text(config.rings[i].name)
-      .attr('x', rings[i].radius - 62)
-      .attr('text-anchor', 'middle')
-      .style('fill', '#000')
-      .style('transform', 'translateY(4px)')
-      .style('font-family', 'Arial, Helvetica')
-      .style('font-size', 12)
-      .style('font-weight', 'bold')
-      .style('pointer-events', 'none')
-      .style('user-select', 'none');
+  if (!isFullSize) {
+    for (let i = 3; i >= 0; i--) {
+      grid
+        .append('text')
+        .text(config.rings[i].name)
+        .attr('x', rings[i].radius - 62)
+        .attr('text-anchor', 'middle')
+        .style('fill', '#000')
+        .style('transform', 'translateY(4px)')
+        .style('font-family', 'Arial, Helvetica')
+        .style('font-size', 12)
+        .style('font-weight', 'bold')
+        .style('pointer-events', 'none')
+        .style('user-select', 'none');
 
-    grid
-      .append('text')
-      .text(config.rings[i].name)
-      .attr('x', -rings[i].radius + 62)
-      .attr('text-anchor', 'middle')
-      .style('fill', '#000')
-      .style('transform', 'translateY(4px)')
-      .style('font-family', 'Arial, Helvetica')
-      .style('font-size', '12px')
-      .style('font-weight', 'bold')
-      .style('pointer-events', 'none')
-      .style('user-select', 'none');
+      grid
+        .append('text')
+        .text(config.rings[i].name)
+        .attr('x', -rings[i].radius + 62)
+        .attr('text-anchor', 'middle')
+        .style('fill', '#000')
+        .style('transform', 'translateY(4px)')
+        .style('font-family', 'Arial, Helvetica')
+        .style('font-size', '12px')
+        .style('font-weight', 'bold')
+        .style('pointer-events', 'none')
+        .style('user-select', 'none');
+    }
   }
 
-  if (quadrantProp === undefined) {
+  if (isFullSize) {
     // in full size draw boxes on top for hover effect
     getHoverPolygons(maxRadius).forEach((p, i) => {
       svg
@@ -357,7 +376,10 @@ export const radar_visualization = (
           svg.selectAll('.quadrant-hover').attr('opacity', '0');
         })
         .on('click', function() {
-          history.push(getQuadrantName(i));
+          redirect(getQuadrantName(i));
+        })
+        .on('touchstart', function() {
+          redirect(getQuadrantName(i));
         });
     });
   }
@@ -453,22 +475,24 @@ export const radar_visualization = (
       } else {
         blip
           .append('circle')
-          .attr('r', 9)
+          .attr('r', isFullSize ? 7 : 9)
           .attr('fill', technology.color!);
       }
 
-      // blip text
-      const blip_text = technology.id!.toString();
-      blip
-        .append('text')
-        .text(blip_text)
-        .attr('y', 3)
-        .attr('text-anchor', 'middle')
-        .style('fill', '#fff')
-        .style('font-family', 'Arial, Helvetica')
-        .style('font-size', () => (blip_text.length > 2 ? '8px' : '9px'))
-        .style('pointer-events', 'none')
-        .style('user-select', 'none');
+      if (!isFullSize) {
+        // blip text
+        const blip_text = technology.id!.toString();
+        blip
+          .append('text')
+          .text(blip_text)
+          .attr('y', 3)
+          .attr('text-anchor', 'middle')
+          .style('fill', '#fff')
+          .style('font-family', 'Arial, Helvetica')
+          .style('font-size', () => (blip_text.length > 2 ? '8px' : '9px'))
+          .style('pointer-events', 'none')
+          .style('user-select', 'none');
+      }
     });
 
     // make sure that blips stay inside their segment

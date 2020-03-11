@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { radar_visualization, showBubble, hideBubble } from 'src/utils/d3';
 import { d3Config } from 'src/utils/d3-config';
 import styled from 'styled-components';
@@ -7,18 +7,18 @@ import { useHistory } from 'react-router';
 
 const GraphWrapper = styled.div<{ fullSize: boolean | undefined }>`
   width: 100%;
-  max-width: ${props => (props.fullSize ? 'none' : '440px')};
+  max-width: ${props => (props.fullSize ? '800px' : '440px')};
   min-width: 280px;
   height: auto;
-  pointer-events: none;
-  margin: 0 auto;
+  margin: 0 auto ${props => props.theme.space[2]}px;
 
   @media ${MediaQueries.phablet} {
-    pointer-events: all;
+    max-width: 80%;
+    margin-bottom: ${props => props.theme.space[3]}px;
   }
   @media ${MediaQueries.desktop} {
-    margin: 0 auto ${props => props.fullSize ? props.theme.space[5] + 'px' : 0};
-    ${props => !props.fullSize ? 'max-width: 50%;' : ''};
+    max-width: 50%;
+    margin-bottom: ${props => props.theme.space[5]}px;
   }
 `;
 
@@ -52,6 +52,10 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   const d3Container = useRef<SVGSVGElement>(null);
   const history = useHistory();
 
+  const redirect = useCallback((path: string) => {
+    history.push(path)
+  }, [history]);
+
   useEffect(() => {
     if (d3Container.current) {
       radar_visualization(
@@ -63,10 +67,10 @@ export const Graph: React.FC<TechnologiesListProps> = ({
         {
           quadrant,
         },
-        history,
+        redirect,
       );
     }
-  }, [technologies, quadrant, setHighlighted, setSelected, history]);
+  }, [technologies, quadrant, setHighlighted, setSelected, redirect]);
 
   useEffect(() => {
     const technology = technologies?.find(t => t.name === highlighted);

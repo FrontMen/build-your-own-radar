@@ -1,16 +1,12 @@
 import { radar_visualization } from 'src/utils/d3';
 import { d3Config } from 'src/utils/d3-config';
 import { mockData } from 'test/mockData';
-import { History } from 'history';
 
 import { fireEvent, getByTestId } from '@testing-library/dom';
 
 const setHighlighted = jest.fn();
 const setSelected = jest.fn();
-
-const history = ({
-  push: jest.fn(),
-} as unknown) as History;
+const redirect = jest.fn();
 
 describe('d3', () => {
   beforeEach(() => {
@@ -32,7 +28,7 @@ describe('d3', () => {
       {
         quadrant: 0,
       },
-      history,
+      redirect,
     );
 
     await new Promise(resolve => {
@@ -75,7 +71,7 @@ describe('d3', () => {
       {
         quadrant: 0,
       },
-      history,
+      redirect,
     );
 
     await new Promise(resolve => {
@@ -107,7 +103,7 @@ describe('d3', () => {
       setHighlighted,
       setSelected,
       {},
-      history,
+      redirect,
     );
 
     await new Promise(resolve => {
@@ -124,6 +120,6 @@ describe('d3', () => {
       }),
     );
 
-    expect(history.push).toHaveBeenCalledWith(d3Config.quadrants[2].name);
+    expect(redirect).toHaveBeenCalledWith(d3Config.quadrants[2].name);
   });
 });

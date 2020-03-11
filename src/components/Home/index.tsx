@@ -11,8 +11,15 @@ import { useAppState } from 'src/hooks/useAppState';
 
 const Intro = styled.div`
   margin: auto;
-  margin-bottom: ${props => props.theme.space[5]}px;
+  margin-bottom: ${props => props.theme.space[2]}px;
   max-width: 48em;
+
+  @media ${MediaQueries.phablet} {
+    margin-bottom: ${props => props.theme.space[3]}px;
+  }
+  @media ${MediaQueries.desktop} {
+    margin-bottom: ${props => props.theme.space[5]}px;
+  }
 `;
 
 const Quads = styled.div`
@@ -65,11 +72,7 @@ export const Home: React.FC = () => {
           laboris ut ea aute.
         </Content>
       </Intro>
-      <Graph
-        highlighted={null}
-        technologies={technologies}
-        fullSize
-      />
+      <Graph highlighted={null} technologies={technologies} fullSize />
       <Quads>
         <Quadrant>
           <ContentTitle>{QuadNames[0]}</ContentTitle>
