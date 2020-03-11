@@ -11,8 +11,6 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 
 .c25 {
   max-height: 0px;
-  -webkit-transition: max-height 0.2s ease-in-out;
-  transition: max-height 0.2s ease-in-out;
   overflow: hidden;
   background-color: #f8f9fa;
 }
@@ -291,23 +289,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   background-color: #767676;
 }
 
-.c4:hover {
-  background-color: #31bd70;
-}
-
-.c5:hover {
-  background-color: #17a2b8;
-}
-
-.c6:hover {
-  background-color: #fd7e14;
-}
-
 .c7 {
-  background-color: #7843ab;
-}
-
-.c7:hover {
   background-color: #7843ab;
 }
 
@@ -435,6 +417,30 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   .c3 {
     max-width: 25%;
     margin-bottom: 0px;
+  }
+}
+
+@media (hover:hover) {
+  .c4:hover {
+    background-color: #31bd70;
+  }
+}
+
+@media (hover:hover) {
+  .c5:hover {
+    background-color: #17a2b8;
+  }
+}
+
+@media (hover:hover) {
+  .c6:hover {
+    background-color: #fd7e14;
+  }
+}
+
+@media (hover:hover) {
+  .c7:hover {
+    background-color: #7843ab;
   }
 }
 
@@ -911,8 +917,6 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 
 .c25 {
   max-height: 0px;
-  -webkit-transition: max-height 0.2s ease-in-out;
-  transition: max-height 0.2s ease-in-out;
   overflow: hidden;
   background-color: #f8f9fa;
 }
@@ -1191,23 +1195,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   background-color: #767676;
 }
 
-.c4:hover {
-  background-color: #31bd70;
-}
-
-.c5:hover {
-  background-color: #17a2b8;
-}
-
-.c6:hover {
-  background-color: #fd7e14;
-}
-
 .c7 {
-  background-color: #7843ab;
-}
-
-.c7:hover {
   background-color: #7843ab;
 }
 
@@ -1335,6 +1323,30 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   .c3 {
     max-width: 25%;
     margin-bottom: 0px;
+  }
+}
+
+@media (hover:hover) {
+  .c4:hover {
+    background-color: #31bd70;
+  }
+}
+
+@media (hover:hover) {
+  .c5:hover {
+    background-color: #17a2b8;
+  }
+}
+
+@media (hover:hover) {
+  .c6:hover {
+    background-color: #fd7e14;
+  }
+}
+
+@media (hover:hover) {
+  .c7:hover {
+    background-color: #7843ab;
   }
 }
 

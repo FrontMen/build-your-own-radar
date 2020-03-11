@@ -178,22 +178,6 @@ exports[`SubNav component should match snapshot 1`] = `
   background-color: #767676;
 }
 
-.c3:hover {
-  background-color: #31bd70;
-}
-
-.c4:hover {
-  background-color: #17a2b8;
-}
-
-.c5:hover {
-  background-color: #fd7e14;
-}
-
-.c6:hover {
-  background-color: #7843ab;
-}
-
 @media (min-width:768px) {
   .c11 {
     margin-left: 2em;
@@ -228,6 +212,30 @@ exports[`SubNav component should match snapshot 1`] = `
   .c2 {
     max-width: 25%;
     margin-bottom: 0px;
+  }
+}
+
+@media (hover:hover) {
+  .c3:hover {
+    background-color: #31bd70;
+  }
+}
+
+@media (hover:hover) {
+  .c4:hover {
+    background-color: #17a2b8;
+  }
+}
+
+@media (hover:hover) {
+  .c5:hover {
+    background-color: #fd7e14;
+  }
+}
+
+@media (hover:hover) {
+  .c6:hover {
+    background-color: #7843ab;
   }
 }
 
