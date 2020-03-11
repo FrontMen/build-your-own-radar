@@ -201,6 +201,7 @@ const getQuadrantName = (quadrant: number) => {
 
 export interface RadarVisualizationParams {
   quadrant?: number;
+  isNotMobile: boolean;
 }
 
 export const radar_visualization = (
@@ -209,7 +210,7 @@ export const radar_visualization = (
   config: any,
   setHighlighted: (a: string | null) => void,
   setSelected: (a: string | null) => void,
-  { quadrant: quadrantProp }: RadarVisualizationParams,
+  { quadrant: quadrantProp, isNotMobile }: RadarVisualizationParams,
   redirect: (path: string) => void,
 ) => {
   const maxRadius = rings[rings.length - 1].radius;
@@ -360,7 +361,7 @@ export const radar_visualization = (
   if (isFullSize) {
     // in full size draw boxes on top for hover effect
     getHoverPolygons(maxRadius).forEach((p, i) => {
-      svg
+      const polygons = svg
         .append('polygon')
         .attr('data-testid', `quadrant-${i}`)
         .attr('cursor', 'pointer')
@@ -368,19 +369,20 @@ export const radar_visualization = (
         .attr('fill', '#fff')
         .attr('opacity', 0)
         .attr('points', p.map(({ x, y }) => `${x}, ${y}`).join(' '))
-        .on('mouseover', function() {
-          svg.selectAll('.quadrant-hover').attr('opacity', '0.3');
-          this.setAttribute('opacity', '0');
-        })
-        .on('mouseout', function() {
-          svg.selectAll('.quadrant-hover').attr('opacity', '0');
-        })
         .on('click', function() {
           redirect(getQuadrantName(i));
-        })
-        .on('touchstart', function() {
-          redirect(getQuadrantName(i));
         });
+
+      if (isNotMobile) {
+        polygons
+          .on('mouseover', function() {
+            svg.selectAll('.quadrant-hover').attr('opacity', '0.3');
+            this.setAttribute('opacity', '0');
+          })
+          .on('mouseout', function() {
+            svg.selectAll('.quadrant-hover').attr('opacity', '0');
+          });
+      }
     });
   }
 

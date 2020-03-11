@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { radar_visualization, showBubble, hideBubble } from 'src/utils/d3';
 import { d3Config } from 'src/utils/d3-config';
 import styled from 'styled-components';
@@ -52,10 +53,14 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   const d3Container = useRef<SVGSVGElement>(null);
   const history = useHistory();
 
-  const redirect = useCallback((path: string) => {
-    history.push(path)
-  }, [history]);
+  const redirect = useCallback(
+    (path: string) => {
+      history.push(path);
+    },
+    [history],
+  );
 
+  const isNotMobile = useMediaQuery({ query: MediaQueries.phablet });
   useEffect(() => {
     if (d3Container.current) {
       radar_visualization(
@@ -66,11 +71,12 @@ export const Graph: React.FC<TechnologiesListProps> = ({
         setSelected,
         {
           quadrant,
+          isNotMobile,
         },
         redirect,
       );
     }
-  }, [technologies, quadrant, setHighlighted, setSelected, redirect]);
+  }, [technologies, quadrant, setHighlighted, setSelected, redirect, isNotMobile]);
 
   useEffect(() => {
     const technology = technologies?.find(t => t.name === highlighted);
