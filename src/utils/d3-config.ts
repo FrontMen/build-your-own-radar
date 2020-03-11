@@ -1,3 +1,5 @@
+import { baseTheme } from '../Theme/index';
+
 export const d3Config = {
   svg_id: 'radar',
   colors: {
@@ -6,10 +8,22 @@ export const d3Config = {
     inactive: '#ddd',
   },
   quadrants: [
-    { name: 'Frameworks, CMS & Programmeertalen', color: '#31bd70' },
-    { name: 'Tooling en testing', color: '#526de4' },
-    { name: 'Platforms, infrastructure & Data', color: '#fd7e14' },
-    { name: 'Technieken', color: '#7843ab' },
+    {
+      route: 'frameworks-and-lang',
+      name: 'Frameworks, CMS & Programmeertalen',
+      color: baseTheme.pallet.green,
+    },
+    {
+      route: 'tooling-and-testing',
+      name: 'Tooling en testing',
+      color: baseTheme.pallet.cyan,
+    },
+    {
+      route: 'platforms-infra-and-data',
+      name: 'Platforms, infrastructure & Data',
+      color: baseTheme.pallet.orange,
+    },
+    { route: 'technique', name: 'Technieken', color: baseTheme.pallet.purple },
   ],
   rings: [
     { name: 'Adopt', color: '#17a2b8', backgroundColor: '#BFC0BF' } as const,

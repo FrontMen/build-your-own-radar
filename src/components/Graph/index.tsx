@@ -4,37 +4,43 @@ import { d3Config } from 'src/utils/d3-config';
 import styled from 'styled-components';
 import { MediaQueries } from 'src/Theme/Helpers';
 
-const GraphContainer = styled.div`
+const GraphWrapper = styled.div`
   width: 100%;
   max-width: 440px;
   min-width: 280px;
   height: auto;
   pointer-events: none;
-  margin: auto;
+  margin: 0 auto;
 
   @media ${MediaQueries.phablet} {
     pointer-events: all;
-
   }
   @media ${MediaQueries.desktop} {
     margin: 0;
     margin-left: auto;
+    max-width: 50%;
   }
-
-
 `;
+
+const GraphContainer = styled.div`
+  @media ${MediaQueries.desktop} {
+    position: sticky;
+    top: 0;
+  }
+`;
+
 interface TechnologiesListProps {
   technologies: Technology[];
   highlighted: string | null;
   setHighlighted: (a: string | null) => void;
   setSelected: (a: string | null) => void;
-  quadrant: number;
+  quadrantNum: number;
   className?: string | undefined;
 }
 
 export const Graph: React.FC<TechnologiesListProps> = ({
   highlighted,
-  quadrant,
+  quadrantNum,
   technologies,
   setHighlighted,
   setSelected,
@@ -53,11 +59,11 @@ export const Graph: React.FC<TechnologiesListProps> = ({
         {
           width: 460,
           height: 460,
-          quadrant,
+          quadrantNum,
         },
       );
     }
-  }, [technologies, quadrant, setHighlighted]);
+  }, [technologies, quadrantNum, setHighlighted]);
 
   useEffect(() => {
     const technology = technologies?.find(t => t.name === highlighted);
@@ -69,8 +75,10 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   }, [highlighted, technologies]);
 
   return (
-    <GraphContainer className={StylesFromParent}>
-      <svg ref={d3Container} />
-    </GraphContainer>
+    <GraphWrapper>
+      <GraphContainer>
+        <svg ref={d3Container} />
+      </GraphContainer>
+    </GraphWrapper>
   );
 };

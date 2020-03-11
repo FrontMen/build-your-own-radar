@@ -14,10 +14,11 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   -webkit-transition: max-height 0.2s ease-in-out;
   transition: max-height 0.2s ease-in-out;
   overflow: hidden;
+  background-color: #f8f9fa;
 }
 
 .c26 {
-  padding: 8px 8px 16px 0px;
+  padding: 8px;
   overflow: hidden;
 }
 
@@ -26,18 +27,38 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
+  display: block;
   cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
   padding: 2px;
 }
 
 .c27 {
-  display: inline-block;
-  font-weight: 400;
-  -webkit-text-decoration: none;
-  text-decoration: none;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-top: 8px;
   width: 100%;
   color: #526de4;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 400;
+  font-size: 0.9em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c28 {
+  height: 2em;
+  width: 2em;
 }
 
 .c19 {
@@ -52,9 +73,9 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 }
 
 .c20 {
-  margin-bottom: 32px;
-  width: 50%;
   min-width: 12rem;
+  padding-right: 16px;
+  margin-bottom: 32px;
   -webkit-break-inside: avoid;
   break-inside: avoid;
 }
@@ -73,13 +94,13 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   margin: 0;
 }
 
-.c28 {
+.c29 {
   width: 100%;
   max-width: 440px;
   min-width: 280px;
   height: auto;
   pointer-events: none;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .c18 {
@@ -90,7 +111,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   text-transform: capitalize;
 }
 
-.c6 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -104,15 +125,15 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   padding: 8px;
 }
 
-.c9 {
-  -webkit-flex: 0 0 3em;
-  -ms-flex: 0 0 3em;
-  flex: 0 0 3em;
-  height: 3em;
-  width: 3em;
+.c15 {
+  -webkit-flex: 0 0 2em;
+  -ms-flex: 0 0 2em;
+  flex: 0 0 2em;
+  height: 2em;
+  width: 2em;
 }
 
-.c8 {
+.c14 {
   border: none;
   border-bottom: 2px solid;
   border-color: #767676;
@@ -123,15 +144,14 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
-  padding-top: 15px;
   outline: none;
 }
 
-.c8:focus {
+.c14:focus {
   border-color: #526de4;
 }
 
-.c7 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -145,7 +165,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   position: relative;
 }
 
-.c5 {
+.c11 {
   border: 2px solid #526de4;
   background-color: #526de4;
   padding: 2px;
@@ -163,15 +183,15 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   align-items: center;
   cursor: pointer;
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   font-family: Roboto,san-serif;
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
 }
 
-.c4 {
+.c10 {
   font-family: Roboto,san-serif;
   font-size: 1em;
   font-weight: 400;
@@ -179,7 +199,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   margin-right: 16px;
 }
 
-.c3 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -195,7 +215,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   align-items: center;
 }
 
-.c2 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -220,7 +240,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   flex-wrap: wrap;
 }
 
-.c10 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -233,7 +253,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   flex-wrap: wrap;
 }
 
-.c11 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -260,8 +280,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: inherit;
-  height: 3em;
-  padding: 8px 16px;
+  padding: 16px;
   margin-bottom: 8px;
   color: #fff;
   -webkit-transition: opacity 100ms ease-in;
@@ -269,23 +288,23 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   background-color: #767676;
 }
 
-.c12:hover {
+.c4:hover {
   background-color: #31bd70;
 }
 
-.c13:hover {
-  background-color: #526de4;
+.c5:hover {
+  background-color: #17a2b8;
 }
 
-.c14:hover {
+.c6:hover {
   background-color: #fd7e14;
 }
 
-.c15 {
+.c7 {
   background-color: #7843ab;
 }
 
-.c15:hover {
+.c7:hover {
   background-color: #7843ab;
 }
 
@@ -328,19 +347,18 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  max-width: 480px;
-}
-
-.c29 {
-  -webkit-order: 0;
-  -ms-flex-order: 0;
-  order: 0;
-  color: red;
+  padding-right: 8px;
 }
 
 @media (min-width:481px) {
   .c23 {
     min-width: 9em;
+  }
+}
+
+@media (min-width:481px) {
+  .c20 {
+    width: 50%;
   }
 }
 
@@ -351,15 +369,24 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 }
 
 @media (min-width:481px) {
-  .c28 {
+  .c29 {
     pointer-events: all;
   }
 }
 
 @media (min-width:1024px) {
-  .c28 {
+  .c29 {
     margin: 0;
     margin-left: auto;
+    max-width: 50%;
+  }
+}
+
+@media (min-width:1024px) {
+  .c30 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
   }
 }
 
@@ -372,7 +399,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 }
 
 @media (min-width:768px) {
-  .c6 {
+  .c12 {
     margin-left: 2em;
   }
 }
@@ -388,7 +415,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 }
 
 @media (min-width:768px) {
-  .c10 {
+  .c2 {
     -webkit-flex-wrap: unset;
     -ms-flex-wrap: unset;
     flex-wrap: unset;
@@ -396,13 +423,13 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 }
 
 @media (min-width:481px) {
-  .c11 {
+  .c3 {
     max-width: 50%;
   }
 }
 
 @media (min-width:768px) {
-  .c11 {
+  .c3 {
     max-width: 25%;
     margin-bottom: 0px;
   }
@@ -416,12 +443,14 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 
 @media (min-width:481px) {
   .c17 {
-    margin-right: 16px;
+    padding-right: 16px;
   }
 }
 
-@media (min-width:768px) {
-
+@media (min-width:1024px) {
+  .c17 {
+    max-width: 50%;
+  }
 }
 
 <div>
@@ -434,16 +463,44 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
       <div
         class="c2"
       >
+        <a
+          class="c3 c4"
+          href="/frameworks-and-lang"
+        >
+          Frameworks, CMS & Programmeertalen
+        </a>
+        <a
+          class="c3 c5"
+          href="/tooling-and-testing"
+        >
+          Tooling en testing
+        </a>
+        <a
+          class="c3 c6"
+          href="/platforms-infra-and-data"
+        >
+          Platforms, infrastructure & Data
+        </a>
+        <a
+          class="c3 c7"
+          href="/technique"
+        >
+          Technieken
+        </a>
+      </div>
+      <div
+        class="c8"
+      >
         <div
-          class="c3"
+          class="c9"
         >
           <label
-            class="c4"
+            class="c10"
           >
             Intracto BE
           </label>
           <span
-            class="c5"
+            class="c11"
             data-testid="checkbox"
           >
             <svg
@@ -464,15 +521,15 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
           </span>
         </div>
         <div
-          class="c3"
+          class="c9"
         >
           <label
-            class="c4"
+            class="c10"
           >
             Intracto NL
           </label>
           <span
-            class="c5"
+            class="c11"
             data-testid="checkbox"
           >
             <svg
@@ -493,15 +550,15 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
           </span>
         </div>
         <div
-          class="c3"
+          class="c9"
         >
           <label
-            class="c4"
+            class="c10"
           >
             Frontmen
           </label>
           <span
-            class="c5"
+            class="c11"
             data-testid="checkbox"
           >
             <svg
@@ -523,20 +580,20 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
         </div>
       </div>
       <div
-        class="c6"
+        class="c12"
       >
         <div
-          class="c7"
+          class="c13"
         >
           <input
-            class="c8"
+            class="c14"
             data-testid="search-input"
             placeholder="Looking for a technology?"
             value=""
           />
         </div>
         <svg
-          class="c9"
+          class="c15"
           data-testid="search-icon"
           fill="currentColor"
           height="1em"
@@ -550,34 +607,6 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
             d="M443.5 420.2L336.7 312.4c20.9-26.2 33.5-59.4 33.5-95.5 0-84.5-68.5-153-153.1-153S64 132.5 64 217s68.5 153 153.1 153c36.6 0 70.1-12.8 96.5-34.2l106.1 107.1c3.2 3.4 7.6 5.1 11.9 5.1 4.1 0 8.2-1.5 11.3-4.5 6.6-6.3 6.8-16.7.6-23.3zm-226.4-83.1c-32.1 0-62.3-12.5-85-35.2-22.7-22.7-35.2-52.9-35.2-84.9 0-32.1 12.5-62.3 35.2-84.9 22.7-22.7 52.9-35.2 85-35.2s62.3 12.5 85 35.2c22.7 22.7 35.2 52.9 35.2 84.9 0 32.1-12.5 62.3-35.2 84.9-22.7 22.7-52.9 35.2-85 35.2z"
           />
         </svg>
-      </div>
-      <div
-        class="c10"
-      >
-        <a
-          class="c11 c12"
-          href="/Frameworks, CMS & Programmeertalen"
-        >
-          Frameworks, CMS & Programmeertalen
-        </a>
-        <a
-          class="c11 c13"
-          href="/Tooling en testing"
-        >
-          Tooling en testing
-        </a>
-        <a
-          class="c11 c14"
-          href="/Platforms, infrastructure & Data"
-        >
-          Platforms, infrastructure & Data
-        </a>
-        <a
-          class="c11 c15"
-          href="/Technieken"
-        >
-          Technieken
-        </a>
       </div>
     </div>
     <div
@@ -630,9 +659,24 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                     </span>
                     <a
                       class="c27"
-                      href="/technieken/babel"
+                      href="/technique/babel"
                     >
-                      Details &gt;
+                      More 
+                      <svg
+                        class="c28"
+                        data-testid="arrow-right-icon"
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
+                        />
+                      </svg>
                     </a>
                   </div>
                 </div>
@@ -662,9 +706,24 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                     </span>
                     <a
                       class="c27"
-                      href="/technieken/spark"
+                      href="/technique/spark"
                     >
-                      Details &gt;
+                      More 
+                      <svg
+                        class="c28"
+                        data-testid="arrow-right-icon"
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
+                        />
+                      </svg>
                     </a>
                   </div>
                 </div>
@@ -674,118 +733,122 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
         </div>
       </div>
       <div
-        class="c28 c29"
+        class="c29"
       >
-        <svg
-          viewBox="-20 -420 435 435"
+        <div
+          class="c30"
         >
-          <g>
+          <svg
+            viewBox="-20 -420 435 435"
+          >
             <g>
-              <defs>
-                <filter
-                  height="1"
-                  id="solid"
-                  width="1"
-                  x="0"
-                  y="0"
+              <g>
+                <defs>
+                  <filter
+                    height="1"
+                    id="solid"
+                    width="1"
+                    x="0"
+                    y="0"
+                  >
+                    <feflood
+                      flood-color="rgb(0, 0, 0, 0.8)"
+                    />
+                    <fecomposite
+                      in="SourceGraphic"
+                    />
+                  </filter>
+                </defs>
+                <circle
+                  class="ring"
+                  cx="0"
+                  cy="0"
+                  r="0"
+                  style="fill: #E4E5E4; stroke-width: 1;"
+                />
+                <circle
+                  class="ring"
+                  cx="0"
+                  cy="0"
+                  r="0"
+                  style="fill: #D7D8D6; stroke-width: 1;"
+                />
+                <circle
+                  class="ring"
+                  cx="0"
+                  cy="0"
+                  r="0"
+                  style="fill: #CBCCCB; stroke-width: 1;"
+                />
+                <circle
+                  class="ring"
+                  cx="0"
+                  cy="0"
+                  r="0"
+                  style="fill: #BFC0BF; stroke-width: 1;"
+                />
+                <line
+                  style="stroke: #fff; stroke-width: 20; opacity: 0.3;"
+                  x1="-400"
+                  x2="400"
+                  y1="5"
+                  y2="5"
+                />
+                <text
+                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="338"
                 >
-                  <feflood
-                    flood-color="rgb(0, 0, 0, 0.8)"
-                  />
-                  <fecomposite
-                    in="SourceGraphic"
-                  />
-                </filter>
-              </defs>
-              <circle
-                class="ring"
-                cx="0"
-                cy="0"
-                r="0"
-                style="fill: #E4E5E4; stroke-width: 1;"
+                  Hold
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="248"
+                >
+                  Assess
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="158"
+                >
+                  Trial
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="68"
+                >
+                  Adopt
+                </text>
+              </g>
+              <g
+                id="rink"
               />
-              <circle
-                class="ring"
-                cx="0"
-                cy="0"
-                r="0"
-                style="fill: #D7D8D6; stroke-width: 1;"
-              />
-              <circle
-                class="ring"
-                cx="0"
-                cy="0"
-                r="0"
-                style="fill: #CBCCCB; stroke-width: 1;"
-              />
-              <circle
-                class="ring"
-                cx="0"
-                cy="0"
-                r="0"
-                style="fill: #BFC0BF; stroke-width: 1;"
-              />
-              <line
-                style="stroke: #fff; stroke-width: 20; opacity: 0.3;"
-                x1="-400"
-                x2="400"
-                y1="5"
-                y2="5"
-              />
-              <text
-                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
-                text-anchor="middle"
-                x="338"
+              <g
+                id="bubble"
+                style="opacity: 0; pointer-events: none; user-select: none;"
+                transform="translate(0,0)"
+                x="0"
+                y="0"
               >
-                Hold
-              </text>
-              <text
-                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
-                text-anchor="middle"
-                x="248"
-              >
-                Assess
-              </text>
-              <text
-                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
-                text-anchor="middle"
-                x="158"
-              >
-                Trial
-              </text>
-              <text
-                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
-                text-anchor="middle"
-                x="68"
-              >
-                Adopt
-              </text>
+                <rect
+                  rx="4"
+                  ry="4"
+                  style="fill: #333;"
+                />
+                <text
+                  style="font-family: sans-serif; font-size: 14px; fill: #fff;"
+                />
+                <path
+                  d="M 0,0 10,0 5,8 z"
+                  style="fill: #333;"
+                />
+              </g>
             </g>
-            <g
-              id="rink"
-            />
-            <g
-              id="bubble"
-              style="opacity: 0; pointer-events: none; user-select: none;"
-              transform="translate(0,0)"
-              x="0"
-              y="0"
-            >
-              <rect
-                rx="4"
-                ry="4"
-                style="fill: #333;"
-              />
-              <text
-                style="font-family: sans-serif; font-size: 10px; fill: #fff;"
-              />
-              <path
-                d="M 0,0 10,0 5,8 z"
-                style="fill: #333;"
-              />
-            </g>
-          </g>
-        </svg>
+          </svg>
+        </div>
       </div>
     </div>
   </div>
@@ -806,10 +869,11 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   -webkit-transition: max-height 0.2s ease-in-out;
   transition: max-height 0.2s ease-in-out;
   overflow: hidden;
+  background-color: #f8f9fa;
 }
 
 .c26 {
-  padding: 8px 8px 16px 0px;
+  padding: 8px;
   overflow: hidden;
 }
 
@@ -818,18 +882,38 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
+  display: block;
   cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
   padding: 2px;
 }
 
 .c27 {
-  display: inline-block;
-  font-weight: 400;
-  -webkit-text-decoration: none;
-  text-decoration: none;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-top: 8px;
   width: 100%;
   color: #526de4;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 400;
+  font-size: 0.9em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c28 {
+  height: 2em;
+  width: 2em;
 }
 
 .c19 {
@@ -844,9 +928,9 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 }
 
 .c20 {
-  margin-bottom: 32px;
-  width: 50%;
   min-width: 12rem;
+  padding-right: 16px;
+  margin-bottom: 32px;
   -webkit-break-inside: avoid;
   break-inside: avoid;
 }
@@ -865,13 +949,13 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   margin: 0;
 }
 
-.c28 {
+.c29 {
   width: 100%;
   max-width: 440px;
   min-width: 280px;
   height: auto;
   pointer-events: none;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .c18 {
@@ -882,7 +966,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   text-transform: capitalize;
 }
 
-.c6 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -896,15 +980,15 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   padding: 8px;
 }
 
-.c9 {
-  -webkit-flex: 0 0 3em;
-  -ms-flex: 0 0 3em;
-  flex: 0 0 3em;
-  height: 3em;
-  width: 3em;
+.c15 {
+  -webkit-flex: 0 0 2em;
+  -ms-flex: 0 0 2em;
+  flex: 0 0 2em;
+  height: 2em;
+  width: 2em;
 }
 
-.c8 {
+.c14 {
   border: none;
   border-bottom: 2px solid;
   border-color: #767676;
@@ -915,15 +999,14 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
-  padding-top: 15px;
   outline: none;
 }
 
-.c8:focus {
+.c14:focus {
   border-color: #526de4;
 }
 
-.c7 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -937,7 +1020,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   position: relative;
 }
 
-.c5 {
+.c11 {
   border: 2px solid #526de4;
   background-color: #526de4;
   padding: 2px;
@@ -955,15 +1038,15 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   align-items: center;
   cursor: pointer;
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   font-family: Roboto,san-serif;
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
 }
 
-.c4 {
+.c10 {
   font-family: Roboto,san-serif;
   font-size: 1em;
   font-weight: 400;
@@ -971,7 +1054,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   margin-right: 16px;
 }
 
-.c3 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -987,7 +1070,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   align-items: center;
 }
 
-.c2 {
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1012,7 +1095,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   flex-wrap: wrap;
 }
 
-.c10 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1025,7 +1108,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   flex-wrap: wrap;
 }
 
-.c11 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1052,8 +1135,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: inherit;
-  height: 3em;
-  padding: 8px 16px;
+  padding: 16px;
   margin-bottom: 8px;
   color: #fff;
   -webkit-transition: opacity 100ms ease-in;
@@ -1061,23 +1143,23 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   background-color: #767676;
 }
 
-.c12:hover {
+.c4:hover {
   background-color: #31bd70;
 }
 
-.c13:hover {
-  background-color: #526de4;
+.c5:hover {
+  background-color: #17a2b8;
 }
 
-.c14:hover {
+.c6:hover {
   background-color: #fd7e14;
 }
 
-.c15 {
+.c7 {
   background-color: #7843ab;
 }
 
-.c15:hover {
+.c7:hover {
   background-color: #7843ab;
 }
 
@@ -1120,19 +1202,18 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  max-width: 480px;
-}
-
-.c29 {
-  -webkit-order: 0;
-  -ms-flex-order: 0;
-  order: 0;
-  color: red;
+  padding-right: 8px;
 }
 
 @media (min-width:481px) {
   .c23 {
     min-width: 9em;
+  }
+}
+
+@media (min-width:481px) {
+  .c20 {
+    width: 50%;
   }
 }
 
@@ -1143,15 +1224,24 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 }
 
 @media (min-width:481px) {
-  .c28 {
+  .c29 {
     pointer-events: all;
   }
 }
 
 @media (min-width:1024px) {
-  .c28 {
+  .c29 {
     margin: 0;
     margin-left: auto;
+    max-width: 50%;
+  }
+}
+
+@media (min-width:1024px) {
+  .c30 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
   }
 }
 
@@ -1164,7 +1254,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 }
 
 @media (min-width:768px) {
-  .c6 {
+  .c12 {
     margin-left: 2em;
   }
 }
@@ -1180,7 +1270,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 }
 
 @media (min-width:768px) {
-  .c10 {
+  .c2 {
     -webkit-flex-wrap: unset;
     -ms-flex-wrap: unset;
     flex-wrap: unset;
@@ -1188,13 +1278,13 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 }
 
 @media (min-width:481px) {
-  .c11 {
+  .c3 {
     max-width: 50%;
   }
 }
 
 @media (min-width:768px) {
-  .c11 {
+  .c3 {
     max-width: 25%;
     margin-bottom: 0px;
   }
@@ -1208,12 +1298,14 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 
 @media (min-width:481px) {
   .c17 {
-    margin-right: 16px;
+    padding-right: 16px;
   }
 }
 
-@media (min-width:768px) {
-
+@media (min-width:1024px) {
+  .c17 {
+    max-width: 50%;
+  }
 }
 
 <div>
@@ -1226,16 +1318,44 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
       <div
         class="c2"
       >
+        <a
+          class="c3 c4"
+          href="/frameworks-and-lang"
+        >
+          Frameworks, CMS & Programmeertalen
+        </a>
+        <a
+          class="c3 c5"
+          href="/tooling-and-testing"
+        >
+          Tooling en testing
+        </a>
+        <a
+          class="c3 c6"
+          href="/platforms-infra-and-data"
+        >
+          Platforms, infrastructure & Data
+        </a>
+        <a
+          class="c3 c7"
+          href="/technique"
+        >
+          Technieken
+        </a>
+      </div>
+      <div
+        class="c8"
+      >
         <div
-          class="c3"
+          class="c9"
         >
           <label
-            class="c4"
+            class="c10"
           >
             Intracto BE
           </label>
           <span
-            class="c5"
+            class="c11"
             data-testid="checkbox"
           >
             <svg
@@ -1256,15 +1376,15 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
           </span>
         </div>
         <div
-          class="c3"
+          class="c9"
         >
           <label
-            class="c4"
+            class="c10"
           >
             Intracto NL
           </label>
           <span
-            class="c5"
+            class="c11"
             data-testid="checkbox"
           >
             <svg
@@ -1285,15 +1405,15 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
           </span>
         </div>
         <div
-          class="c3"
+          class="c9"
         >
           <label
-            class="c4"
+            class="c10"
           >
             Frontmen
           </label>
           <span
-            class="c5"
+            class="c11"
             data-testid="checkbox"
           >
             <svg
@@ -1315,20 +1435,20 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
         </div>
       </div>
       <div
-        class="c6"
+        class="c12"
       >
         <div
-          class="c7"
+          class="c13"
         >
           <input
-            class="c8"
+            class="c14"
             data-testid="search-input"
             placeholder="Looking for a technology?"
             value=""
           />
         </div>
         <svg
-          class="c9"
+          class="c15"
           data-testid="search-icon"
           fill="currentColor"
           height="1em"
@@ -1342,34 +1462,6 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
             d="M443.5 420.2L336.7 312.4c20.9-26.2 33.5-59.4 33.5-95.5 0-84.5-68.5-153-153.1-153S64 132.5 64 217s68.5 153 153.1 153c36.6 0 70.1-12.8 96.5-34.2l106.1 107.1c3.2 3.4 7.6 5.1 11.9 5.1 4.1 0 8.2-1.5 11.3-4.5 6.6-6.3 6.8-16.7.6-23.3zm-226.4-83.1c-32.1 0-62.3-12.5-85-35.2-22.7-22.7-35.2-52.9-35.2-84.9 0-32.1 12.5-62.3 35.2-84.9 22.7-22.7 52.9-35.2 85-35.2s62.3 12.5 85 35.2c22.7 22.7 35.2 52.9 35.2 84.9 0 32.1-12.5 62.3-35.2 84.9-22.7 22.7-52.9 35.2-85 35.2z"
           />
         </svg>
-      </div>
-      <div
-        class="c10"
-      >
-        <a
-          class="c11 c12"
-          href="/Frameworks, CMS & Programmeertalen"
-        >
-          Frameworks, CMS & Programmeertalen
-        </a>
-        <a
-          class="c11 c13"
-          href="/Tooling en testing"
-        >
-          Tooling en testing
-        </a>
-        <a
-          class="c11 c14"
-          href="/Platforms, infrastructure & Data"
-        >
-          Platforms, infrastructure & Data
-        </a>
-        <a
-          class="c11 c15"
-          href="/Technieken"
-        >
-          Technieken
-        </a>
       </div>
     </div>
     <div
@@ -1422,9 +1514,24 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                     </span>
                     <a
                       class="c27"
-                      href="/technieken/babel"
+                      href="/technique/babel"
                     >
-                      Details &gt;
+                      More 
+                      <svg
+                        class="c28"
+                        data-testid="arrow-right-icon"
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
+                        />
+                      </svg>
                     </a>
                   </div>
                 </div>
@@ -1454,9 +1561,24 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                     </span>
                     <a
                       class="c27"
-                      href="/technieken/spark"
+                      href="/technique/spark"
                     >
-                      Details &gt;
+                      More 
+                      <svg
+                        class="c28"
+                        data-testid="arrow-right-icon"
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
+                        />
+                      </svg>
                     </a>
                   </div>
                 </div>
@@ -1466,118 +1588,122 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
         </div>
       </div>
       <div
-        class="c28 c29"
+        class="c29"
       >
-        <svg
-          viewBox="-20 -420 435 435"
+        <div
+          class="c30"
         >
-          <g>
+          <svg
+            viewBox="-20 -420 435 435"
+          >
             <g>
-              <defs>
-                <filter
-                  height="1"
-                  id="solid"
-                  width="1"
-                  x="0"
-                  y="0"
+              <g>
+                <defs>
+                  <filter
+                    height="1"
+                    id="solid"
+                    width="1"
+                    x="0"
+                    y="0"
+                  >
+                    <feflood
+                      flood-color="rgb(0, 0, 0, 0.8)"
+                    />
+                    <fecomposite
+                      in="SourceGraphic"
+                    />
+                  </filter>
+                </defs>
+                <circle
+                  class="ring"
+                  cx="0"
+                  cy="0"
+                  r="0"
+                  style="fill: #E4E5E4; stroke-width: 1;"
+                />
+                <circle
+                  class="ring"
+                  cx="0"
+                  cy="0"
+                  r="0"
+                  style="fill: #D7D8D6; stroke-width: 1;"
+                />
+                <circle
+                  class="ring"
+                  cx="0"
+                  cy="0"
+                  r="0"
+                  style="fill: #CBCCCB; stroke-width: 1;"
+                />
+                <circle
+                  class="ring"
+                  cx="0"
+                  cy="0"
+                  r="0"
+                  style="fill: #BFC0BF; stroke-width: 1;"
+                />
+                <line
+                  style="stroke: #fff; stroke-width: 20; opacity: 0.3;"
+                  x1="-400"
+                  x2="400"
+                  y1="5"
+                  y2="5"
+                />
+                <text
+                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="338"
                 >
-                  <feflood
-                    flood-color="rgb(0, 0, 0, 0.8)"
-                  />
-                  <fecomposite
-                    in="SourceGraphic"
-                  />
-                </filter>
-              </defs>
-              <circle
-                class="ring"
-                cx="0"
-                cy="0"
-                r="0"
-                style="fill: #E4E5E4; stroke-width: 1;"
+                  Hold
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="248"
+                >
+                  Assess
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="158"
+                >
+                  Trial
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="68"
+                >
+                  Adopt
+                </text>
+              </g>
+              <g
+                id="rink"
               />
-              <circle
-                class="ring"
-                cx="0"
-                cy="0"
-                r="0"
-                style="fill: #D7D8D6; stroke-width: 1;"
-              />
-              <circle
-                class="ring"
-                cx="0"
-                cy="0"
-                r="0"
-                style="fill: #CBCCCB; stroke-width: 1;"
-              />
-              <circle
-                class="ring"
-                cx="0"
-                cy="0"
-                r="0"
-                style="fill: #BFC0BF; stroke-width: 1;"
-              />
-              <line
-                style="stroke: #fff; stroke-width: 20; opacity: 0.3;"
-                x1="-400"
-                x2="400"
-                y1="5"
-                y2="5"
-              />
-              <text
-                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
-                text-anchor="middle"
-                x="338"
+              <g
+                id="bubble"
+                style="opacity: 0; pointer-events: none; user-select: none;"
+                transform="translate(0,0)"
+                x="0"
+                y="0"
               >
-                Hold
-              </text>
-              <text
-                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
-                text-anchor="middle"
-                x="248"
-              >
-                Assess
-              </text>
-              <text
-                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
-                text-anchor="middle"
-                x="158"
-              >
-                Trial
-              </text>
-              <text
-                style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
-                text-anchor="middle"
-                x="68"
-              >
-                Adopt
-              </text>
+                <rect
+                  rx="4"
+                  ry="4"
+                  style="fill: #333;"
+                />
+                <text
+                  style="font-family: sans-serif; font-size: 14px; fill: #fff;"
+                />
+                <path
+                  d="M 0,0 10,0 5,8 z"
+                  style="fill: #333;"
+                />
+              </g>
             </g>
-            <g
-              id="rink"
-            />
-            <g
-              id="bubble"
-              style="opacity: 0; pointer-events: none; user-select: none;"
-              transform="translate(0,0)"
-              x="0"
-              y="0"
-            >
-              <rect
-                rx="4"
-                ry="4"
-                style="fill: #333;"
-              />
-              <text
-                style="font-family: sans-serif; font-size: 10px; fill: #fff;"
-              />
-              <path
-                d="M 0,0 10,0 5,8 z"
-                style="fill: #333;"
-              />
-            </g>
-          </g>
-        </svg>
+          </svg>
+        </div>
       </div>
     </div>
   </div>

@@ -21,7 +21,7 @@ describe('d3', () => {
     radar_visualization(svg, mockData, d3Config, setHighlighted, setSelected, {
       width: 100,
       height: 100,
-      quadrant: 0,
+      quadrantNum: 0,
     });
 
     await new Promise(resolve => {
@@ -58,7 +58,7 @@ describe('d3', () => {
     radar_visualization(svg, mockData, d3Config, setHighlighted, setSelected, {
       width: 100,
       height: 100,
-      quadrant: 0,
+      quadrantNum: 0,
     });
 
     await new Promise(resolve => {
@@ -74,6 +74,6 @@ describe('d3', () => {
         cancelable: true,
       }),
     );
-    expect(setSelected).toHaveBeenCalledWith(mockData[0].name);
+    expect(setSelected).toHaveBeenCalledWith(`?tech=${mockData[0].name}`);
   });
 });

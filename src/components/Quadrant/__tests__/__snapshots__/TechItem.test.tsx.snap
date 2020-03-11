@@ -14,10 +14,11 @@ exports[`TechItem it should matches the snapshot with default values 1`] = `
   -webkit-transition: max-height 0.2s ease-in-out;
   transition: max-height 0.2s ease-in-out;
   overflow: hidden;
+  background-color: #f8f9fa;
 }
 
 .c3 {
-  padding: 8px 8px 16px 0px;
+  padding: 8px;
   overflow: hidden;
 }
 
@@ -26,18 +27,38 @@ exports[`TechItem it should matches the snapshot with default values 1`] = `
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
+  display: block;
   cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
   padding: 2px;
 }
 
 .c4 {
-  display: inline-block;
-  font-weight: 400;
-  -webkit-text-decoration: none;
-  text-decoration: none;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-top: 8px;
   width: 100%;
   color: #526de4;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 400;
+  font-size: 0.9em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c5 {
+  height: 2em;
+  width: 2em;
 }
 
 @media (min-width:481px) {
@@ -74,7 +95,22 @@ exports[`TechItem it should matches the snapshot with default values 1`] = `
           class="c4"
           href="/tools/babel"
         >
-          Details &gt;
+          More 
+          <svg
+            class="c5"
+            data-testid="arrow-right-icon"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 512 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
+            />
+          </svg>
         </a>
       </div>
     </div>

@@ -6,6 +6,7 @@ import { IoIosSearch } from 'react-icons/io';
 import { useAppState } from 'src/hooks/useAppState';
 import { Typography } from 'src/Theme/Typography';
 import { MediaQueries } from 'src/Theme/Helpers';
+import { d3Config } from 'src/utils/d3-config';
 
 const Container = styled.div`
   display: flex;
@@ -20,9 +21,9 @@ const Container = styled.div`
 `;
 
 const SearchIcon = styled(IoIosSearch)`
-  flex: 0 0 3em;
-  height: 3em;
-  width: 3em;
+  flex: 0 0 2em;
+  height: 2em;
+  width: 2em;
 `;
 
 const Input = styled.input`
@@ -31,7 +32,6 @@ const Input = styled.input`
   border-color: ${props => props.theme.pallet.secondary};
   flex: 1;
   ${Typography.body};
-  padding-top: 15px;
   outline: none;
 
   &:focus {
@@ -137,7 +137,7 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
                   <Technology
                     data-testid="search-technology"
                     key={technology.name}
-                    to={`/${technology.quadrant}`}
+                    to={`/${d3Config.quadrants[technology.quadrant].route}`}
                     onClick={() => {
                       if (technology.quadrant !== quadrant) {
                         setValue('');

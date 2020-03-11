@@ -7,7 +7,7 @@ exports[`Graph should matches the snapshot 1`] = `
   min-width: 280px;
   height: auto;
   pointer-events: none;
-  margin: auto;
+  margin: 0 auto;
 }
 
 @media (min-width:481px) {
@@ -20,6 +20,15 @@ exports[`Graph should matches the snapshot 1`] = `
   .c0 {
     margin: 0;
     margin-left: auto;
+    max-width: 50%;
+  }
+}
+
+@media (min-width:1024px) {
+  .c1 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
   }
 }
 
@@ -27,7 +36,11 @@ exports[`Graph should matches the snapshot 1`] = `
   <div
     class="c0"
   >
-    <svg />
+    <div
+      class="c1"
+    >
+      <svg />
+    </div>
   </div>
 </div>
 `;

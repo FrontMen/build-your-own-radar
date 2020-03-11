@@ -19,8 +19,8 @@ exports[`FilterByCompany should matches the snapshot 1`] = `
   align-items: center;
   cursor: pointer;
   position: relative;
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   font-family: Roboto,san-serif;
   font-size: 1em;
   font-weight: 400;
