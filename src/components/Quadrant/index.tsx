@@ -11,6 +11,7 @@ import { Graph } from 'src/components/Graph';
 import { ContentTitle } from 'src/components/shared/ContentTitle';
 import { filterByCompanyContext } from 'src/ContextProviders/FilterByCompanyContextProvider';
 import { SubNav } from 'src/components/SubNav';
+import { useQueryAsState } from 'src/hooks/useQueryAsState';
 
 const Slot = styled(MainContentSlot)`
   display: flex;
@@ -40,24 +41,27 @@ const Article = styled.div`
 export const Quadrant = () => {
   const { quadrant: quadrantParam } = useParams<QuadParamType>();
 
-  const quadrant: number = d3Config.quadrants.findIndex(
-    (item: { name: string }) => item.name === quadrantParam,
+  const quadrantNum: number = d3Config.quadrants.findIndex(
+    (item: { route: string }) => item.route === quadrantParam,
   );
+
+  const quadrantName = d3Config.quadrants[quadrantNum].name;
+
   const {
     state: { technologies },
   } = useAppState();
   const { state: selectedCompanies } = useContext(filterByCompanyContext);
   const [highlighted, setHighlighted] = useState<null | string>(null);
-  const [selected, setSelected] = useState<null | string>(null);
+  const [selected, setSelected] = useQueryAsState();
 
   const data = useMemo(
     () =>
       technologies
-        .filter(technology => technology.quadrant === quadrantParam)
+        .filter(technology => technology.quadrant === quadrantNum)
         .filter(({ companies }) =>
           companies.some(companyType => selectedCompanies[companyType]),
         ),
-    [quadrantParam, technologies, selectedCompanies],
+    [quadrantNum, technologies, selectedCompanies],
   );
 
   return (
@@ -65,7 +69,7 @@ export const Quadrant = () => {
       <SubNav setHighlighted={setHighlighted} />
       <Content>
         <Article>
-          <ContentTitle>{quadrantParam}</ContentTitle>
+          <ContentTitle>{quadrantName}</ContentTitle>
           {data.length ? (
             <TechLists
               data-testid="tech-lists"
@@ -86,7 +90,7 @@ export const Quadrant = () => {
         <Graph
           data-testid="graph"
           highlighted={highlighted}
-          quadrant={quadrant}
+          quadrantNum={quadrantNum}
           setHighlighted={setHighlighted}
           setSelected={setSelected}
           technologies={data}

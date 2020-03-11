@@ -1,3 +1,5 @@
+import { d3Config } from 'src/utils/d3-config';
+
 export type IncomingDataSchema = [
   {
     name: string;
@@ -19,6 +21,9 @@ export const DataMapper = (data: IncomingDataSchema): Technology[] => {
       ...item,
       moved: 0,
       isNew: item.isNew === 'TRUE',
+      quadrant: d3Config.quadrants.findIndex(
+        quad => quad.name === item.quadrant,
+      ),
       companies: [
         ITR_BE === 'X' ? 'ITR_BE' : false,
         ITR_NL === 'X' ? 'ITR_NL' : false,

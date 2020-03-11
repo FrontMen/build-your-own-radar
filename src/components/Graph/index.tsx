@@ -34,13 +34,13 @@ interface TechnologiesListProps {
   highlighted: string | null;
   setHighlighted: (a: string | null) => void;
   setSelected: (a: string | null) => void;
-  quadrant: number;
+  quadrantNum: number;
   className?: string | undefined;
 }
 
 export const Graph: React.FC<TechnologiesListProps> = ({
   highlighted,
-  quadrant,
+  quadrantNum,
   technologies,
   setHighlighted,
   setSelected,
@@ -59,11 +59,11 @@ export const Graph: React.FC<TechnologiesListProps> = ({
         {
           width: 460,
           height: 460,
-          quadrant,
+          quadrantNum,
         },
       );
     }
-  }, [technologies, quadrant, setHighlighted]);
+  }, [technologies, quadrantNum, setHighlighted]);
 
   useEffect(() => {
     const technology = technologies?.find(t => t.name === highlighted);
@@ -75,7 +75,7 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   }, [highlighted, technologies]);
 
   return (
-    <GraphWrapper >
+    <GraphWrapper>
       <GraphContainer>
         <svg ref={d3Container} />
       </GraphContainer>

@@ -15,7 +15,7 @@ const Slot = styled(HeaderSlot)`
   }
 `;
 
-const StyleLessLink = styled(Link)`
+const StylelessLink = styled(Link)`
   text-decoration: none;
   color: inherit;
 `;
@@ -35,9 +35,9 @@ const PageTitle = styled.h1`
 export const Header = () => {
   return (
     <Slot>
-      <StyleLessLink to={'/'}>
+      <StylelessLink to={'/'}>
         <PageTitle>Tech Radar</PageTitle>
-      </StyleLessLink>
+      </StylelessLink>
       <Logo />
     </Slot>
   );

@@ -168,7 +168,7 @@ const getCoverLinePosition = (quadrant: number) => {
 export interface RadarVisualizationParams {
   width: number;
   height: number;
-  quadrant: number;
+  quadrantNum: number;
 }
 
 export const radar_visualization = (
@@ -177,7 +177,7 @@ export const radar_visualization = (
   config: any,
   setHighlighted: (a: string | null) => void,
   setSelected: (a: string | null) => void,
-  { width, height, quadrant: quadrantProp }: RadarVisualizationParams,
+  { width, height, quadrantNum: quadrantProp }: RadarVisualizationParams,
 ) => {
   const svg = d3
     .select(container)
@@ -199,9 +199,7 @@ export const radar_visualization = (
 
   // position each entry randomly in its segment
   data.forEach(technology => {
-    const quadNum: number = config.quadrants.findIndex(
-      (item: { name: string }) => item.name === technology.quadrant,
-    );
+    const quadNum: number = technology.quadrant;
 
     const ringNum: number = config.rings.findIndex(
       (item: { name: string }) => item.name === technology.ring,
@@ -297,8 +295,12 @@ export const radar_visualization = (
   d3.selectAll('.ring')
     .transition()
     .duration(400)
-    .delay(function(d, i) { return i*40; })// <-- delay as a function of i
-    .attr("r", function(d, i) { return rings[3-i].radius });    
+    .delay(function(d, i) {
+      return i * 40;
+    }) // <-- delay as a function of i
+    .attr('r', function(d, i) {
+      return rings[3 - i].radius;
+    });
 
   // layer for entries
   const rink = radar.append('g').attr('id', 'rink');
@@ -333,7 +335,7 @@ export const radar_visualization = (
   };
 
   const onClick = (technology: Technology) => {
-    setSelected(technology.name);
+    setSelected(`?tech=${technology.name}`);
   };
 
   const mouseOutListener = () => {
