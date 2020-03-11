@@ -76,7 +76,7 @@ export const Graph: React.FC<TechnologiesListProps> = ({
         redirect,
       );
     }
-  }, [technologies, quadrantNum, setHighlighted, redirect, isNotMobile]);
+  }, [technologies, quadrantNum, setHighlighted, setSelected, redirect, isNotMobile]);
 
   useEffect(() => {
     const technology = technologies?.find(t => t.name === highlighted);

@@ -122,6 +122,6 @@ describe('d3', () => {
       }),
     );
 
-    expect(redirect).toHaveBeenCalledWith(d3Config.quadrants[2].name);
+    expect(redirect).toHaveBeenCalledWith(d3Config.quadrants[2].route);
   });
 });

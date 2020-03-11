@@ -187,13 +187,13 @@ const getHoverPolygons = (maxRadius: number) => [
 const getQuadrantName = (quadrant: number) => {
   switch (quadrant) {
     case 0:
-      return d3Config.quadrants[2].name;
+      return d3Config.quadrants[2].route;
     case 1:
-      return d3Config.quadrants[3].name;
+      return d3Config.quadrants[3].route;
     case 2:
-      return d3Config.quadrants[0].name;
+      return d3Config.quadrants[0].route;
     case 3:
-      return d3Config.quadrants[1].name;
+      return d3Config.quadrants[1].route;
     default:
       throw new Error('incorrect quadrant, it should be in range from 0 to 3');
   }
