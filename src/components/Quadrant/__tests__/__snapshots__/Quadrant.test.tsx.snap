@@ -27,7 +27,11 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
+  display: block;
   cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
   padding: 2px;
 }
 
@@ -464,25 +468,25 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
       >
         <a
           class="c3 c4"
-          href="/Frameworks, CMS & Programmeertalen"
+          href="/frameworks-and-lang"
         >
           Frameworks, CMS & Programmeertalen
         </a>
         <a
           class="c3 c5"
-          href="/Tooling en testing"
+          href="/tooling-and-testing"
         >
           Tooling en testing
         </a>
         <a
           class="c3 c6"
-          href="/Platforms, infrastructure & Data"
+          href="/platforms-infra-and-data"
         >
           Platforms, infrastructure & Data
         </a>
         <a
           class="c3 c7"
-          href="/Technieken"
+          href="/technique"
         >
           Technieken
         </a>
@@ -658,7 +662,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                     </span>
                     <a
                       class="c27"
-                      href="/technieken/babel"
+                      href="/technique/babel"
                     >
                       More 
                       <svg
@@ -705,7 +709,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                     </span>
                     <a
                       class="c27"
-                      href="/technieken/spark"
+                      href="/technique/spark"
                     >
                       More 
                       <svg
@@ -923,7 +927,11 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
+  display: block;
   cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
   padding: 2px;
 }
 
@@ -1360,25 +1368,25 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
       >
         <a
           class="c3 c4"
-          href="/Frameworks, CMS & Programmeertalen"
+          href="/frameworks-and-lang"
         >
           Frameworks, CMS & Programmeertalen
         </a>
         <a
           class="c3 c5"
-          href="/Tooling en testing"
+          href="/tooling-and-testing"
         >
           Tooling en testing
         </a>
         <a
           class="c3 c6"
-          href="/Platforms, infrastructure & Data"
+          href="/platforms-infra-and-data"
         >
           Platforms, infrastructure & Data
         </a>
         <a
           class="c3 c7"
-          href="/Technieken"
+          href="/technique"
         >
           Technieken
         </a>
@@ -1554,7 +1562,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                     </span>
                     <a
                       class="c27"
-                      href="/technieken/babel"
+                      href="/technique/babel"
                     >
                       More 
                       <svg
@@ -1601,7 +1609,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                     </span>
                     <a
                       class="c27"
-                      href="/technieken/spark"
+                      href="/technique/spark"
                     >
                       More 
                       <svg

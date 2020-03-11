@@ -8,10 +8,22 @@ export const d3Config = {
     inactive: '#ddd',
   },
   quadrants: [
-    { name: 'Frameworks, CMS & Programmeertalen', color: baseTheme.pallet.green },
-    { name: 'Tooling en testing', color: baseTheme.pallet.cyan },
-    { name: 'Platforms, infrastructure & Data', color: baseTheme.pallet.orange },
-    { name: 'Technieken', color: baseTheme.pallet.purple },
+    {
+      route: 'frameworks-and-lang',
+      name: 'Frameworks, CMS & Programmeertalen',
+      color: baseTheme.pallet.green,
+    },
+    {
+      route: 'tooling-and-testing',
+      name: 'Tooling en testing',
+      color: baseTheme.pallet.cyan,
+    },
+    {
+      route: 'platforms-infra-and-data',
+      name: 'Platforms, infrastructure & Data',
+      color: baseTheme.pallet.orange,
+    },
+    { route: 'technique', name: 'Technieken', color: baseTheme.pallet.purple },
   ],
   rings: [
     { name: 'Adopt', color: '#17a2b8', backgroundColor: '#BFC0BF' } as const,

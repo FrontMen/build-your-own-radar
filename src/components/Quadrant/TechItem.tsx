@@ -29,7 +29,10 @@ const Content = styled.div`
 
 const Label = styled.div<{ highlighted: boolean }>`
   ${Typography.body};
+  display: block;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
   padding: ${props => props.theme.space[1] / 2}px;
   color: ${props => props.highlighted && props.theme.pallet.white};
   background-color: ${props => props.highlighted && props.theme.pallet.blue};
@@ -105,7 +108,7 @@ export class TechItem extends React.Component<TechnologyProps> {
       technology: { name },
       selected,
     } = this.props;
-    setSelected(name === selected ? null : name);
+    name !== selected && setSelected(`?tech=${name}`);
   };
 
   render() {
@@ -115,7 +118,7 @@ export class TechItem extends React.Component<TechnologyProps> {
       technology: { name, description },
     } = this.props;
 
-    const quadrantSlug = this.props.quadrant.toLowerCase();
+    const quadrantSlug = this.props.quadrant;
     const technologySlug = name.toLowerCase();
     return (
       <ListItem>

@@ -36,14 +36,14 @@ interface TechnologiesListProps {
   highlighted: string | null;
   setHighlighted?: (a: string | null) => void;
   setSelected?: (a: string | null) => void;
-  quadrant?: number;
+  quadrantNum?: number;
   className?: string | undefined;
   fullSize?: boolean;
 }
 
 export const Graph: React.FC<TechnologiesListProps> = ({
   highlighted,
-  quadrant,
+  quadrantNum,
   technologies,
   setHighlighted = () => {},
   setSelected = () => {},
@@ -70,13 +70,13 @@ export const Graph: React.FC<TechnologiesListProps> = ({
         setHighlighted,
         setSelected,
         {
-          quadrant,
+          quadrantNum,
           isNotMobile,
         },
         redirect,
       );
     }
-  }, [technologies, quadrant, setHighlighted, setSelected, redirect, isNotMobile]);
+  }, [technologies, quadrantNum, setHighlighted, redirect, isNotMobile]);
 
   useEffect(() => {
     const technology = technologies?.find(t => t.name === highlighted);

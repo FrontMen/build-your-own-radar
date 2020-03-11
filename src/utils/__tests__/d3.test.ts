@@ -26,7 +26,8 @@ describe('d3', () => {
       setHighlighted,
       setSelected,
       {
-        quadrant: 0,
+        isNotMobile: true,
+        quadrantNum: 0,
       },
       redirect,
     );
@@ -69,7 +70,8 @@ describe('d3', () => {
       setHighlighted,
       setSelected,
       {
-        quadrant: 0,
+        quadrantNum: 0,
+        isNotMobile: true,
       },
       redirect,
     );
@@ -87,7 +89,7 @@ describe('d3', () => {
         cancelable: true,
       }),
     );
-    expect(setSelected).toHaveBeenCalledWith(mockData[0].name);
+    expect(setSelected).toHaveBeenCalledWith(`?tech=${mockData[0].name}`);
   });
 
   it('should push correct path to history on quadrant click in fullSize mode', async () => {
@@ -102,7 +104,7 @@ describe('d3', () => {
       d3Config,
       setHighlighted,
       setSelected,
-      {},
+      { isNotMobile: true },
       redirect,
     );
 

@@ -22,7 +22,7 @@ export const Router: React.FC = () => (
           <Quadrant />
         </Route>
       </Switch>
-      <Footer/>
+      <Footer />
     </PageGrid>
   </BrowserRouter>
 );

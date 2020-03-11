@@ -240,25 +240,25 @@ exports[`SubNav component should match snapshot 1`] = `
     >
       <a
         class="c2 c3"
-        href="/Frameworks, CMS & Programmeertalen"
+        href="/frameworks-and-lang"
       >
         Frameworks, CMS & Programmeertalen
       </a>
       <a
         class="c2 c4"
-        href="/Tooling en testing"
+        href="/tooling-and-testing"
       >
         Tooling en testing
       </a>
       <a
         class="c2 c5"
-        href="/Platforms, infrastructure & Data"
+        href="/platforms-infra-and-data"
       >
         Platforms, infrastructure & Data
       </a>
       <a
         class="c2 c6"
-        href="/Technieken"
+        href="/technique"
       >
         Technieken
       </a>

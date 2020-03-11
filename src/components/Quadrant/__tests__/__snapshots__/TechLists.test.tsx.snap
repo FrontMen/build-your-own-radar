@@ -27,7 +27,11 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
+  display: block;
   cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
   padding: 2px;
 }
 
