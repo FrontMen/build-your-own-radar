@@ -5,6 +5,7 @@ import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components/macro';
 import { lightTheme } from 'src/Theme';
 import { FilterByCompanyContextProvider } from 'src/ContextProviders/FilterByCompanyContextProvider';
+import { GoogleSheetsContextProvider } from 'src/ContextProviders/GoogleSheetsContextProvider';
 
 interface Params {
   route?: string;
@@ -54,12 +55,14 @@ export const withAllProviders = (
 ) => {
   const Wrapper = ({ children }: { children: ReactNode }) => (
     <ThemeProvider theme={theme}>
-      <FilterByCompanyContextProvider>
-        <MemoryRouter initialEntries={[route]}>
-          {/* <Route path={route}>{children}</Route> */}
-          <Route path={path}>{children}</Route>
-        </MemoryRouter>
-      </FilterByCompanyContextProvider>
+      <GoogleSheetsContextProvider>
+        <FilterByCompanyContextProvider>
+          <MemoryRouter initialEntries={[route]}>
+            {/* <Route path={route}>{children}</Route> */}
+            <Route path={path}>{children}</Route>
+          </MemoryRouter>
+        </FilterByCompanyContextProvider>
+      </GoogleSheetsContextProvider>
     </ThemeProvider>
   );
   return render(ui, {

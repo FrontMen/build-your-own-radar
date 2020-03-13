@@ -24,10 +24,6 @@ interface Technology extends Partial<Point> {
   isNew: boolean;
   description: string;
   companies: CompanyTypes[];
-  /*
-  active: boolean;
-  link: string;
-  */
   description: string;
   moved: number;
   segment?: Segment;

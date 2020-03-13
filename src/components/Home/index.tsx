@@ -30,7 +30,7 @@ const Quadrant = styled.div`
   margin-bottom: ${props => props.theme.space[2]}px;
 
   @media ${MediaQueries.tablet} {
-    width: 100%%;
+    width: 100%;
     margin-bottom: ${props => props.theme.space[4]}px;
   }
 `;

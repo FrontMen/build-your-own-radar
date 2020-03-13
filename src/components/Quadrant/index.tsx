@@ -5,13 +5,14 @@ import { useParams } from 'react-router';
 
 import { MainContentSlot } from 'src/components/shared/PageSlots';
 import { TechLists } from './TechLists';
-import { useAppState } from 'src/hooks/useAppState';
+
 import { d3Config } from 'src/utils/d3-config';
 import { Graph } from 'src/components/Graph';
 import { ContentTitle } from 'src/components/shared/ContentTitle';
 import { filterByCompanyContext } from 'src/ContextProviders/FilterByCompanyContextProvider';
 import { SubNav } from 'src/components/SubNav';
 import { useQueryAsState } from 'src/hooks/useQueryAsState';
+import { GoogleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
 
 const Slot = styled(MainContentSlot)`
   display: flex;
@@ -47,9 +48,7 @@ export const Quadrant = () => {
 
   const quadrantName = d3Config.quadrants[quadrantNum].name;
 
-  const {
-    state: { technologies },
-  } = useAppState();
+  const { data: technologies } = useContext(GoogleSheetsContext);
   const { state: selectedCompanies } = useContext(filterByCompanyContext);
   const [highlighted, setHighlighted] = useState<null | string>(null);
   const [selected, setSelected] = useQueryAsState();

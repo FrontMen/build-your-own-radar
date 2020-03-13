@@ -1,11 +1,9 @@
-import { useAppState } from 'src/hooks/useAppState';
-import { mockData } from 'test/mockData';
+// // import { useAppState } from 'src/hooks/useAppState';
+// import { mockData } from 'test/mockData';
+// import { useContext } from 'react';
 
-jest.mock('src/hooks/useAppState');
+// jest.mock('src/hooks/useAppState');
 
-(useAppState as jest.MockedFunction<typeof useAppState>).mockReturnValue({
-  state: {
-    technologies: mockData,
-    selected: null,
-  },
-});
+// (useContext as jest.MockedFunction<typeof useContext>).mockReturnValue({
+//   data: mockData,
+// });
