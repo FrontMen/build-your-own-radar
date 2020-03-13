@@ -9,8 +9,10 @@ import { AllProvidersWrapper, withAllProviders } from 'test/helpers';
 const defaultProps: TechnologiesListProps = {
   highlighted: null,
   setHighlighted: jest.fn(),
+  setSelected: jest.fn(),
   technologies: mockData,
   quadrant: 'tools',
+  selected: null,
 };
 
 describe('TechLists', () => {

@@ -11,8 +11,6 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
 
 .c6 {
   max-height: 0px;
-  -webkit-transition: max-height 0.2s ease-in-out;
-  transition: max-height 0.2s ease-in-out;
   overflow: hidden;
   background-color: #f8f9fa;
 }

@@ -16,10 +16,6 @@ export interface DetailsParams {
   quadrant?: string;
 }
 
-type BackLinkProps = {
-  readonly quadName: string;
-};
-
 const BackLink = styled(({ quadName, ...props }) => <Link {...props} />)`
   display: inline-flex;
   align-items: center;
@@ -28,7 +24,6 @@ const BackLink = styled(({ quadName, ...props }) => <Link {...props} />)`
   ${Typography.body};
   color: ${props => props.theme.colors[props.quadName]};
   text-decoration: none;
-  /* background-color: ${props => props.theme.colors[props.quadName]}; */
 `;
 
 const ArrowLeftIcon = styled(IoIosArrowRoundBack)`

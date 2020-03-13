@@ -1,5 +1,4 @@
 import React from 'react';
-import { IoIosSearch } from 'react-icons/io';
 import styled from 'styled-components/macro';
 import { MediaQueries } from 'src/Theme/Helpers';
 import { Typography } from 'src/Theme/Typography';

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { MainContentSlot } from '../shared/PageSlots';
 import styled from 'styled-components';
@@ -6,11 +6,20 @@ import { MediaQueries } from 'src/Theme/Helpers';
 import { ContentTitle } from 'src/components/shared/ContentTitle';
 import { d3Config } from 'src/utils/d3-config';
 import { Typography } from 'src/Theme/Typography';
+import { Graph } from 'src/components/Graph';
+import { GoogleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
 
 const Intro = styled.div`
   margin: auto;
-  margin-bottom: ${props => props.theme.space[5]}px;
+  margin-bottom: ${props => props.theme.space[2]}px;
   max-width: 48em;
+
+  @media ${MediaQueries.phablet} {
+    margin-bottom: ${props => props.theme.space[3]}px;
+  }
+  @media ${MediaQueries.desktop} {
+    margin-bottom: ${props => props.theme.space[5]}px;
+  }
 `;
 
 const Quads = styled.div`
@@ -36,7 +45,7 @@ const Quadrant = styled.div`
 `;
 
 const Content = styled.p`
-  ${Typography.body}
+  ${Typography.body};
   margin: 0;
   margin-bottom: ${props => props.theme.space[3]}px;
 `;
@@ -50,7 +59,8 @@ const StyledLinks = styled(Link)`
 
 export const Home: React.FC = () => {
   const quads = d3Config.quadrants;
-
+  const { data: technologies } = useContext(GoogleSheetsContext);
+  
   return (
     <MainContentSlot data-testid="home-title">
       <Intro>
@@ -61,6 +71,7 @@ export const Home: React.FC = () => {
           laboris ut ea aute.
         </Content>
       </Intro>
+      <Graph highlighted={null} technologies={technologies} fullSize />
       <Quads>
         {quads.map((quad, i) => (
           <Quadrant key={i}>

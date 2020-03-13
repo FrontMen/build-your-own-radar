@@ -1,5 +1,5 @@
 // // import { useAppState } from 'src/hooks/useAppState';
-// import { mockData } from 'test/mockData';
+import { mockData } from 'test/mockData';
 // import { useContext } from 'react';
 
 // jest.mock('src/hooks/useAppState');
