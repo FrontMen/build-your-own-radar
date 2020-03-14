@@ -1,9 +1,8 @@
-// // import { useAppState } from 'src/hooks/useAppState';
-import { mockData } from 'test/mockData';
-// import { useContext } from 'react';
+import { getGoogleSheetsData } from 'src/utils/API';
+import { MockGoogleSheetsData } from 'test/mockData';
 
-// jest.mock('src/hooks/useAppState');
+jest.mock('src/utils/API');
 
-// (useContext as jest.MockedFunction<typeof useContext>).mockReturnValue({
-//   data: mockData,
-// });
+(getGoogleSheetsData as jest.MockedFunction<
+  typeof getGoogleSheetsData
+>).mockResolvedValue(MockGoogleSheetsData);

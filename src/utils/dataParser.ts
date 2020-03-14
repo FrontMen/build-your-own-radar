@@ -56,15 +56,20 @@ export function ParseGoogleSheetsApiResponse(
 }
 
 function flattenSheet(sheet: IncomingSheet) {
-  const dataRows = sheet.data[0].rowData;
-  const keys = getSheetTableHeaders(dataRows.shift()! as KeyRowValues);
-
+  const [keyRow, ...remainingDataRows] = sheet.data[0].rowData;
+  const keys = getSheetTableHeaders(keyRow);
   const [nameSpace, title] = sheet.properties.title.split(':');
+
   if (nameSpace === 'data') {
     const [year, monthIndex] = title.split('-');
     const date = new Date(parseInt(year), parseInt(monthIndex));
+
     if (date) {
-      return (dataRows as RowValues[]).map(row => flattenDataRows(row, keys));
+      return (remainingDataRows as RowValues[]).reduce((acc, row) => {
+        const tempRow = flattenDataRows(row, keys);
+        if (tempRow) acc.push(tempRow);
+        return acc;
+      }, [] as Technology[]);
     } else {
       // TODO: do something with other sheets like the config sheet.
     }
@@ -100,7 +105,8 @@ export const cleanRow = ({
   'ITR NL': ITR_NL,
   FM,
   ...item
-}: MappedDataRow): Technology => {
+}: MappedDataRow): Technology | undefined => {
+  if (item['In radar?'] === 'N') return;
   return {
     ...item,
     moved: 0,

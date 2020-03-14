@@ -86,11 +86,13 @@ export const AllProvidersWrapper = ({
 }) => {
   return (
     <ThemeProvider theme={lightTheme}>
-      <FilterByCompanyContextProvider>
-        <Router history={history}>
-          <Route path={path}>{children}</Route>
-        </Router>
-      </FilterByCompanyContextProvider>
+      <GoogleSheetsContextProvider>
+        <FilterByCompanyContextProvider>
+          <Router history={history}>
+            <Route path={path}>{children}</Route>
+          </Router>
+        </FilterByCompanyContextProvider>
+      </GoogleSheetsContextProvider>
     </ThemeProvider>
   );
 };
