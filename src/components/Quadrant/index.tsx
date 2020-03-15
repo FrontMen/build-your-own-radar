@@ -83,7 +83,7 @@ export const Quadrant = () => {
           ) : (
             <p>
               You have no datasets selected. The graph is sad{' '}
-              <span role={'img'}>😢</span>
+              <span role="img" aria-label="crying smile">😢</span>
             </p>
           )}
         </Article>

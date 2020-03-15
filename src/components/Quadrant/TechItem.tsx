@@ -18,7 +18,6 @@ const ListItem = styled.li`
 
 const Details = styled.div<{ isOpened: boolean }>`
   max-height: ${props => (props.isOpened ? '75vh' : '0px')};
-  transition: max-height 0.2s ease-in-out;
   overflow: hidden;
   background-color: ${props => props.theme.pallet.light};
 `;

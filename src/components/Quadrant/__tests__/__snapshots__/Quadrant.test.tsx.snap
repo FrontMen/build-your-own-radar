@@ -11,8 +11,6 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 
 .c25 {
   max-height: 0px;
-  -webkit-transition: max-height 0.2s ease-in-out;
-  transition: max-height 0.2s ease-in-out;
   overflow: hidden;
   background-color: #f8f9fa;
 }
@@ -99,8 +97,11 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   max-width: 440px;
   min-width: 280px;
   height: auto;
-  pointer-events: none;
-  margin: 0 auto;
+  margin: 0 auto 8px;
+}
+
+.c30 {
+  text-align: center;
 }
 
 .c18 {
@@ -288,23 +289,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   background-color: #767676;
 }
 
-.c4:hover {
-  background-color: #31bd70;
-}
-
-.c5:hover {
-  background-color: #17a2b8;
-}
-
-.c6:hover {
-  background-color: #fd7e14;
-}
-
 .c7 {
-  background-color: #7843ab;
-}
-
-.c7:hover {
   background-color: #7843ab;
 }
 
@@ -370,15 +355,15 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 
 @media (min-width:481px) {
   .c29 {
-    pointer-events: all;
+    max-width: 80%;
+    margin-bottom: 16px;
   }
 }
 
 @media (min-width:1024px) {
   .c29 {
-    margin: 0;
-    margin-left: auto;
     max-width: 50%;
+    margin-bottom: 64px;
   }
 }
 
@@ -432,6 +417,30 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   .c3 {
     max-width: 25%;
     margin-bottom: 0px;
+  }
+}
+
+@media (hover:hover) {
+  .c4:hover {
+    background-color: #31bd70;
+  }
+}
+
+@media (hover:hover) {
+  .c5:hover {
+    background-color: #17a2b8;
+  }
+}
+
+@media (hover:hover) {
+  .c6:hover {
+    background-color: #fd7e14;
+  }
+}
+
+@media (hover:hover) {
+  .c7:hover {
+    background-color: #7843ab;
   }
 }
 
@@ -739,7 +748,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
           class="c30"
         >
           <svg
-            viewBox="-20 -420 435 435"
+            viewBox="-8 -408 416 416"
           >
             <g>
               <g>
@@ -788,37 +797,79 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                   style="fill: #BFC0BF; stroke-width: 1;"
                 />
                 <line
-                  style="stroke: #fff; stroke-width: 20; opacity: 0.3;"
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
                   x1="-400"
                   x2="400"
-                  y1="5"
-                  y2="5"
+                  y1="0"
+                  y2="0"
+                />
+                <line
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
+                  x1="0"
+                  x2="0"
+                  y1="-400"
+                  y2="-8"
+                />
+                <line
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
+                  x1="0"
+                  x2="0"
+                  y1="8"
+                  y2="400"
                 />
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="338"
                 >
                   Hold
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-338"
+                >
+                  Hold
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="248"
                 >
                   Assess
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-248"
+                >
+                  Assess
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="158"
                 >
                   Trial
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-158"
+                >
+                  Trial
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="68"
+                >
+                  Adopt
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-68"
                 >
                   Adopt
                 </text>
@@ -866,8 +917,6 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 
 .c25 {
   max-height: 0px;
-  -webkit-transition: max-height 0.2s ease-in-out;
-  transition: max-height 0.2s ease-in-out;
   overflow: hidden;
   background-color: #f8f9fa;
 }
@@ -954,8 +1003,11 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   max-width: 440px;
   min-width: 280px;
   height: auto;
-  pointer-events: none;
-  margin: 0 auto;
+  margin: 0 auto 8px;
+}
+
+.c30 {
+  text-align: center;
 }
 
 .c18 {
@@ -1143,23 +1195,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   background-color: #767676;
 }
 
-.c4:hover {
-  background-color: #31bd70;
-}
-
-.c5:hover {
-  background-color: #17a2b8;
-}
-
-.c6:hover {
-  background-color: #fd7e14;
-}
-
 .c7 {
-  background-color: #7843ab;
-}
-
-.c7:hover {
   background-color: #7843ab;
 }
 
@@ -1225,15 +1261,15 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 
 @media (min-width:481px) {
   .c29 {
-    pointer-events: all;
+    max-width: 80%;
+    margin-bottom: 16px;
   }
 }
 
 @media (min-width:1024px) {
   .c29 {
-    margin: 0;
-    margin-left: auto;
     max-width: 50%;
+    margin-bottom: 64px;
   }
 }
 
@@ -1287,6 +1323,30 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   .c3 {
     max-width: 25%;
     margin-bottom: 0px;
+  }
+}
+
+@media (hover:hover) {
+  .c4:hover {
+    background-color: #31bd70;
+  }
+}
+
+@media (hover:hover) {
+  .c5:hover {
+    background-color: #17a2b8;
+  }
+}
+
+@media (hover:hover) {
+  .c6:hover {
+    background-color: #fd7e14;
+  }
+}
+
+@media (hover:hover) {
+  .c7:hover {
+    background-color: #7843ab;
   }
 }
 
@@ -1594,7 +1654,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
           class="c30"
         >
           <svg
-            viewBox="-20 -420 435 435"
+            viewBox="-8 -408 416 416"
           >
             <g>
               <g>
@@ -1643,37 +1703,79 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                   style="fill: #BFC0BF; stroke-width: 1;"
                 />
                 <line
-                  style="stroke: #fff; stroke-width: 20; opacity: 0.3;"
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
                   x1="-400"
                   x2="400"
-                  y1="5"
-                  y2="5"
+                  y1="0"
+                  y2="0"
+                />
+                <line
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
+                  x1="0"
+                  x2="0"
+                  y1="-400"
+                  y2="-8"
+                />
+                <line
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
+                  x1="0"
+                  x2="0"
+                  y1="8"
+                  y2="400"
                 />
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="338"
                 >
                   Hold
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-338"
+                >
+                  Hold
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="248"
                 >
                   Assess
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-248"
+                >
+                  Assess
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="158"
                 >
                   Trial
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-158"
+                >
+                  Trial
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="68"
+                >
+                  Adopt
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-68"
                 >
                   Adopt
                 </text>
