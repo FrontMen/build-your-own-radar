@@ -1,7 +1,7 @@
 import React, { useContext, useMemo, useState } from 'react';
 import styled from 'styled-components/macro';
 import { MediaQueries } from 'src/Theme/Helpers';
-import { useParams } from 'react-router';
+import { Redirect, useParams } from 'react-router';
 
 import { MainContentSlot } from 'src/components/shared/PageSlots';
 import { TechLists } from './TechLists';
@@ -45,7 +45,7 @@ export const Quadrant = () => {
     (item: { route: string }) => item.route === quadrantParam,
   );
 
-  const quadrantName = d3Config.quadrants[quadrantNum].name;
+  const quadrantName = d3Config.quadrants[quadrantNum]?.name;
 
   const {
     state: { technologies },
@@ -64,7 +64,7 @@ export const Quadrant = () => {
     [quadrantNum, technologies, selectedCompanies],
   );
 
-  return (
+  return quadrantName ? (
     <Slot>
       <SubNav setHighlighted={setHighlighted} />
       <Content>
@@ -97,5 +97,7 @@ export const Quadrant = () => {
         />
       </Content>
     </Slot>
+  ) : (
+    <Redirect to="not-found" />
   );
 };
