@@ -6,7 +6,7 @@ import { IoIosSearch } from 'react-icons/io';
 import { Typography } from 'src/Theme/Typography';
 import { MediaQueries } from 'src/Theme/Helpers';
 import { d3Config } from 'src/utils/d3-config';
-import { GoogleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
+import { googleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
 
 const Container = styled.div`
   display: flex;
@@ -89,8 +89,7 @@ export interface SearchProps {
 }
 
 export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
-  const { data: technologies } = useContext(GoogleSheetsContext);
-  const { quadrant } = useParams<QuadParamType>();
+  const { data: technologies } = useContext(googleSheetsContext);
   const { quadrant: quadrantParam } = useParams<QuadParamType>();
 
   const quadrantNum: number = d3Config.quadrants.findIndex(
@@ -102,7 +101,7 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
   const data = useMemo(
     () =>
       !value.length
-        ? []
+        ? {}
         : technologies
             .filter(t => t.name.toLocaleLowerCase().includes(value))
             .reduce(
