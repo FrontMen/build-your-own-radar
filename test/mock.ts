@@ -1,11 +1,8 @@
-import { useAppState } from 'src/hooks/useAppState';
-import { mockData } from 'test/mockData';
+import { getGoogleSheetsData } from 'src/utils/API';
+import { MockGoogleSheetsData } from 'test/mockData';
 
-jest.mock('src/hooks/useAppState');
+jest.mock('src/utils/API');
 
-(useAppState as jest.MockedFunction<typeof useAppState>).mockReturnValue({
-  state: {
-    technologies: mockData,
-    selected: null,
-  },
-});
+(getGoogleSheetsData as jest.MockedFunction<
+  typeof getGoogleSheetsData
+>).mockResolvedValue(MockGoogleSheetsData);

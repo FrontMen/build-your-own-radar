@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useParams } from 'react-router';
 import styled from 'styled-components';
 import { MainContentSlot } from 'src/components/shared/PageSlots';
 import { ContentTitle } from 'src/components/shared/ContentTitle';
-import { useAppState } from 'src/hooks/useAppState';
+
 import { Link } from 'react-router-dom';
 import { d3Config } from 'src/utils/d3-config';
 import { Typography } from 'src/Theme/Typography';
 import { IoIosArrowRoundBack } from 'react-icons/io';
+import { GoogleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
 
 const Slot = styled(MainContentSlot)``;
 export interface DetailsParams {
@@ -40,9 +41,8 @@ const DetailsComponent: React.FC = () => {
   const { quadrant: quadrantParam, technology: technologyParam } = useParams<
     DetailsParams
   >();
-  const {
-    state: { technologies },
-  } = useAppState();
+
+  const { data: technologies } = useContext(GoogleSheetsContext);
 
   const technology = technologies.find(
     (item: Technology) => item.name.toLowerCase() === technologyParam,
