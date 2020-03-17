@@ -359,30 +359,35 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   >
     <div
       class="c1"
+      data-testid="subnav-container"
     >
       <div
         class="c2"
       >
         <a
           class="c3 c4"
+          data-testid="subnav-link-0"
           href="/frameworks-and-lang"
         >
           Frameworks, CMS & Programmeertalen
         </a>
         <a
           class="c3 c5"
+          data-testid="subnav-link-1"
           href="/tooling-and-testing"
         >
           Tooling en testing
         </a>
         <a
           class="c3 c6"
+          data-testid="subnav-link-2"
           href="/platforms-infra-and-data"
         >
           Platforms, infrastructure & Data
         </a>
         <a
           class="c3 c7"
+          data-testid="subnav-link-3"
           href="/technique"
         >
           Technieken
@@ -390,6 +395,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
       </div>
       <div
         class="c8"
+        data-testid="subnav-filters-container"
       >
         <div
           class="c9"
@@ -481,6 +487,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
       </div>
       <div
         class="c12"
+        data-testid="subnav-search-container"
       >
         <div
           class="c13"
@@ -538,6 +545,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
           class="c20"
         >
           <svg
+            data-testid="graph"
             viewBox="-8 -408 416 416"
           >
             <g>
@@ -1055,30 +1063,35 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   >
     <div
       class="c1"
+      data-testid="subnav-container"
     >
       <div
         class="c2"
       >
         <a
           class="c3 c4"
+          data-testid="subnav-link-0"
           href="/frameworks-and-lang"
         >
           Frameworks, CMS & Programmeertalen
         </a>
         <a
           class="c3 c5"
+          data-testid="subnav-link-1"
           href="/tooling-and-testing"
         >
           Tooling en testing
         </a>
         <a
           class="c3 c6"
+          data-testid="subnav-link-2"
           href="/platforms-infra-and-data"
         >
           Platforms, infrastructure & Data
         </a>
         <a
           class="c3 c7"
+          data-testid="subnav-link-3"
           href="/technique"
         >
           Technieken
@@ -1086,6 +1099,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
       </div>
       <div
         class="c8"
+        data-testid="subnav-filters-container"
       >
         <div
           class="c9"
@@ -1177,6 +1191,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
       </div>
       <div
         class="c12"
+        data-testid="subnav-search-container"
       >
         <div
           class="c13"
@@ -1234,6 +1249,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
           class="c20"
         >
           <svg
+            data-testid="graph"
             viewBox="-8 -408 416 416"
           >
             <g>

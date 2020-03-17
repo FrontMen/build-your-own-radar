@@ -6,6 +6,7 @@ import { Quadrant } from './components/Quadrant';
 import { PageGrid } from './components/shared/PageGrid';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { NotFound } from './components/NotFound';
 
 export const Router: React.FC = () => (
   <BrowserRouter>
@@ -14,6 +15,9 @@ export const Router: React.FC = () => (
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route exact path="/not-found">
+          <NotFound />
         </Route>
         <Route path="/:quadrant/:technology">
           <Details />
