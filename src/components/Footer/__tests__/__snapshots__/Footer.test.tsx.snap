@@ -34,6 +34,7 @@ exports[`Footer should matches the snapshot 1`] = `
   >
     <div>
       <a
+        data-testid="footer-home-link"
         href="/"
       >
         Home
@@ -42,12 +43,14 @@ exports[`Footer should matches the snapshot 1`] = `
     <i>
       A collaboration between 
       <a
+        data-testid="footer-Frontmen-link"
         href="https://www.frontmen.nl/"
       >
         Frontmen
       </a>
        and 
       <a
+        data-testid="footer-Intracto-link"
         href="https://www.intracto.com/"
       >
         Intracto
