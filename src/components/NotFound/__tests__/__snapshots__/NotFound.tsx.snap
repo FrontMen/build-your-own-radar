@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound matches the snapshot 1`] = `
+.c0 {
+  grid-area: main;
+  background-color: #fff;
+  padding: 16px;
+}
+
+.c1 {
+  padding-left: 16px;
+  font-family: Montserrat,san-serif;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+@media (min-width:481px) {
+  .c0 {
+    padding: 32px;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <h4
+      class="c1"
+      data-testid="not-found-content"
+    >
+      Page not found
+    </h4>
+  </div>
+</div>
+`;
