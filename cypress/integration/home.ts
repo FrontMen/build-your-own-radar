@@ -14,7 +14,9 @@ describe('Home', () => {
       .should('be.visible')
       .contains('Whats this all about?');
 
-    dataTestId('graph').should('be.visible');
+    dataTestId('graph')
+      .should('be.visible')
+      .should('have.attr', 'viewBox', '0 0 800 800');
   });
 
   d3Config.quadrants.forEach((quadrant, i) => {

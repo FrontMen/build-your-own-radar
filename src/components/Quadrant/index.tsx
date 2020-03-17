@@ -86,14 +86,16 @@ export const Quadrant = () => {
             </p>
           )}
         </Article>
-        <Graph
-          data-testid="graph"
-          highlighted={highlighted}
-          quadrantNum={quadrantNum}
-          setHighlighted={setHighlighted}
-          setSelected={setSelected}
-          technologies={data}
-        />
+        {data.length && (
+          <Graph
+            data-testid="graph"
+            highlighted={highlighted}
+            quadrantNum={quadrantNum}
+            setHighlighted={setHighlighted}
+            setSelected={setSelected}
+            technologies={data}
+          />
+        )}
       </Content>
     </Slot>
   ) : (

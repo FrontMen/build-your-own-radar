@@ -391,6 +391,7 @@ export const radar_visualization = (
   const bubble = radar
     .append('g')
     .attr('id', 'bubble')
+    .attr('data-testid', 'radar-bubble')
     .attr('x', 0)
     .attr('y', 0)
     .style('opacity', 0)

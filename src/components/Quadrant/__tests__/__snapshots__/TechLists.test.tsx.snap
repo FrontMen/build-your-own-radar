@@ -127,6 +127,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
       >
         <li
           class="c4"
+          data-testid="list-item-Babel"
         >
           <div
             class="c5"
@@ -174,6 +175,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
         </li>
         <li
           class="c4"
+          data-testid="list-item-Spark"
         >
           <div
             class="c5"
@@ -234,6 +236,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
       >
         <li
           class="c4"
+          data-testid="list-item-Electron"
         >
           <div
             class="c5"

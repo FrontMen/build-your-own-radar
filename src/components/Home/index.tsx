@@ -60,7 +60,9 @@ const StyledLinks = styled(Link)`
 export const Home: React.FC = () => {
   const quads = d3Config.quadrants;
   const { data: technologies } = useContext(googleSheetsContext);
-
+  if (!technologies.length) {
+    return  null;
+  }
   return (
     <MainContentSlot>
       <Intro>

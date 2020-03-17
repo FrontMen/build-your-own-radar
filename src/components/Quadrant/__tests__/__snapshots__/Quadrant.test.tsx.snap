@@ -652,6 +652,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
             >
               <li
                 class="c23"
+                data-testid="list-item-AMQP"
               >
                 <div
                   class="c24"
@@ -835,6 +836,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                 id="rink"
               />
               <g
+                data-testid="radar-bubble"
                 id="bubble"
                 style="opacity: 0; pointer-events: none; user-select: none;"
                 transform="translate(0,0)"
@@ -1515,6 +1517,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
             >
               <li
                 class="c23"
+                data-testid="list-item-AMQP"
               >
                 <div
                   class="c24"
@@ -1698,6 +1701,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                 id="rink"
               />
               <g
+                data-testid="radar-bubble"
                 id="bubble"
                 style="opacity: 0; pointer-events: none; user-select: none;"
                 transform="translate(0,0)"
