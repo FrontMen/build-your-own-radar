@@ -123,7 +123,7 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
   );
 
   return (
-    <Container>
+    <Container data-testid="subnav-search-container">
       <InputContainer>
         <Input
           data-testid="search-input"
