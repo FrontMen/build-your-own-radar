@@ -184,20 +184,9 @@ const getHoverPolygons = (maxRadius: number) => [
   ],
 ];
 
-const getQuadrantName = (quadrant: number) => {
-  switch (quadrant) {
-    case 0:
-      return d3Config.quadrants[2].route;
-    case 1:
-      return d3Config.quadrants[3].route;
-    case 2:
-      return d3Config.quadrants[0].route;
-    case 3:
-      return d3Config.quadrants[1].route;
-    default:
-      throw new Error('incorrect quadrant, it should be in range from 0 to 3');
-  }
-};
+//order of quadrants in config is 2 3 0 1, so rotating twice
+const getQuadrantRoute = (quadrant: number) =>
+  d3Config.quadrants[(2 + quadrant) % 4].route;
 
 export interface RadarVisualizationParams {
   quadrantNum?: number;
@@ -362,20 +351,20 @@ export const radar_visualization = (
       }
     }
 
-    if (isFullSize) {
-      // in full size draw boxes on top for hover effect
-      getHoverPolygons(maxRadius).forEach((p, i) => {
-        const polygons = svg
-          .append('polygon')
-          .attr('data-testid', `quadrant-${i}`)
-          .attr('cursor', 'pointer')
-          .attr('class', 'quadrant-hover')
-          .attr('fill', '#fff')
-          .attr('opacity', 0)
-          .attr('points', p.map(({ x, y }) => `${x}, ${y}`).join(' '))
-          .on('click', function() {
-            redirect(getQuadrantName(i));
-          });
+  if (isFullSize) {
+    // in full size draw boxes on top for hover effect
+    getHoverPolygons(maxRadius).forEach((p, i) => {
+      const polygons = svg
+        .append('polygon')
+        .attr('data-testid', `quadrant-${i}`)
+        .attr('cursor', 'pointer')
+        .attr('class', 'quadrant-hover')
+        .attr('fill', '#fff')
+        .attr('opacity', 0)
+        .attr('points', p.map(({ x, y }) => `${x}, ${y}`).join(' '))
+        .on('click', function() {
+          redirect(getQuadrantRoute(i));
+        });
 
         if (isNotMobile) {
           polygons

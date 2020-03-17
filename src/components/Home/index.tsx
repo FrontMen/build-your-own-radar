@@ -62,9 +62,11 @@ export const Home: React.FC = () => {
   const { data: technologies } = useContext(GoogleSheetsContext);
   
   return (
-    <MainContentSlot data-testid="home-title">
+    <MainContentSlot>
       <Intro>
-        <ContentTitle>Whats this all about?</ContentTitle>
+        <ContentTitle data-testid="home-title">
+          Whats this all about?
+        </ContentTitle>
         <Content>
           Consequat incididunt in occaecat reprehenderit culpa elit. Est
           cupidatat ex dolore duis do aliquip magna ullamco anim. Fugiat non eu
@@ -74,7 +76,7 @@ export const Home: React.FC = () => {
       <Graph highlighted={null} technologies={technologies} fullSize />
       <Quads>
         {quads.map((quad, i) => (
-          <Quadrant key={i}>
+          <Quadrant key={i} data-testid={`quadrant-container-${i}`}>
             <ContentTitle>{quad.name}</ContentTitle>
             <Content>
               Ex tempor nulla est nostrud non consectetur enim commodo. Elit
