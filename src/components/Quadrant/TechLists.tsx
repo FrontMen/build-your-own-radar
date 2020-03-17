@@ -47,7 +47,7 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
             <Dot>●</Dot>
             {ring}
             <Tooltip>?
-              <span className="tooltip-text">
+              <span>
                 {d3Config.tooltips[ring as RingNamesType]}
               </span>
             </Tooltip>

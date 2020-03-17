@@ -36,40 +36,40 @@ export const List = styled.ul`
 `;
 
 export const Dot = styled.span`
-  color: #1ebccd;
+  color: ${props => props.theme.pallet.blueLight};
   padding-right: 4px;
   font-size: 2em;
   vertical-align: sub;
 `;
 
 export const Tooltip = styled.span`
-  background-color: #bfc0bf;
+  background-color: ${props => props.theme.pallet.grayLight};
   position: relative;
   display: inline-block;
   line-height: 22px;
   width: 22px;
   margin-left: 12px;
-  color: #fff;
+  color: ${props => props.theme.pallet.white};
   cursor: pointer;
   text-align: center;
   border-radius: 50%;
   font-size: 16px;
 
   &:hover {
-    .tooltip-text {
+    span {
       visibility: visible;
       opacity: 1;
     } 
   }
 
-  .tooltip-text {
+  span {
     visibility: hidden;
     position: absolute;
     font-size: 14px;
     font-weight: 700;
     width: 270px;
     background: rgba(0,0,0,.8);
-    color: #FFF;
+    color: ${props => props.theme.pallet.white};
     border-radius: 6px;
     padding: 10px 15px;
     text-align: left;
@@ -87,7 +87,7 @@ export const Tooltip = styled.span`
       margin-left: -64px;
       border-width: 5px;
       border-style: solid;
-      border-color: #555 transparent transparent transparent;
+      border-color: ${props => props.theme.pallet.grayDark} transparent transparent transparent;
     }
   }
 `;

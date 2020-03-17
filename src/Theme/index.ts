@@ -19,6 +19,7 @@ export const baseTheme = {
 
   pallet: {
     blue: '#526de4',
+    blueLight: '#1ebccd',
     indigo: '#532778',
     purple: '#7843ab',
     pink: '#f8bfd1',
@@ -31,6 +32,7 @@ export const baseTheme = {
     white: '#fff',
     gray: '#6c757d',
     grayDark: '#343a40',
+    grayLight: '#bfc0bf',
     primary: '#526de4',
     secondary: '#767676',
     success: '#31bd70',
