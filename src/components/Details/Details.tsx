@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { d3Config } from 'src/utils/d3-config';
 import { Typography } from 'src/Theme/Typography';
 import { IoIosArrowRoundBack } from 'react-icons/io';
-import { GoogleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
+import { googleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
 
 const Slot = styled(MainContentSlot)``;
 export interface DetailsParams {
@@ -42,7 +42,7 @@ const DetailsComponent: React.FC = () => {
     DetailsParams
   >();
 
-  const { data: technologies } = useContext(GoogleSheetsContext);
+  const { data: technologies } = useContext(googleSheetsContext);
 
   const technology = technologies.find(
     (item: Technology) => item.name.toLowerCase() === technologyParam,
