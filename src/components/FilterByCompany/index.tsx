@@ -20,7 +20,7 @@ const Container = styled.div`
 export const FilterByCompany = () => {
   const { state, toggle } = useContext(filterByCompanyContext);
   return (
-    <Container>
+    <Container data-testid="subnav-filters-container">
       {Object.entries(state).map(([company, checked]) => (
         <CheckBox
           key={company}

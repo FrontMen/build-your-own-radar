@@ -65,6 +65,7 @@ exports[`FilterByCompany should matches the snapshot 1`] = `
 <div>
   <div
     class="c0"
+    data-testid="subnav-filters-container"
   >
     <div
       class="c1"
