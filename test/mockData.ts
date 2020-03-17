@@ -1,3 +1,5 @@
+import { parseGoogleSheetsApiResponse } from 'src/utils/dataParser';
+
 export const mockData: Technology[] = [
   {
     name: 'Babel',
@@ -31,7 +33,7 @@ export const mockData: Technology[] = [
   },
 ];
 
-/* 
+/*
 {
   parsedData: [
     // {
@@ -98,7 +100,7 @@ export const mockData: Technology[] = [
 }
 */
 
-export const MockGoogleSheetsData = {
+export const MockGoogleSheetsData: IncomingGoogleSheetsData = {
   sheets: [
     {
       properties: {
@@ -406,3 +408,5 @@ export const MockGoogleSheetsData = {
     },
   ],
 };
+
+export const parsedMockData = parseGoogleSheetsApiResponse(MockGoogleSheetsData)['data: 2020-01'];

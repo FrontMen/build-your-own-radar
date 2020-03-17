@@ -12,7 +12,7 @@ import { ContentTitle } from 'src/components/shared/ContentTitle';
 import { filterByCompanyContext } from 'src/ContextProviders/FilterByCompanyContextProvider';
 import { SubNav } from 'src/components/SubNav';
 import { useQueryAsState } from 'src/hooks/useQueryAsState';
-import { GoogleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
+import { googleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
 
 const Slot = styled(MainContentSlot)`
   display: flex;
@@ -48,7 +48,7 @@ export const Quadrant = () => {
 
   const quadrantName = d3Config.quadrants[quadrantNum].name;
 
-  const { data: technologies } = useContext(GoogleSheetsContext);
+  const { data: technologies } = useContext(googleSheetsContext);
   const { state: selectedCompanies } = useContext(filterByCompanyContext);
   const [highlighted, setHighlighted] = useState<null | string>(null);
   const [selected, setSelected] = useQueryAsState();

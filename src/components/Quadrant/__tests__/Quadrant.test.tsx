@@ -1,10 +1,10 @@
 import React from 'react';
 import { Context as ResponsiveContext } from 'react-responsive';
+import { mount } from 'enzyme';
 import { Quadrant } from '..';
 import { AllProvidersWrapper, withAllProviders } from 'test/helpers';
 import { MediaQueries } from 'src/Theme/Helpers';
-import { mockData } from 'test/mockData';
-import { mount } from 'enzyme';
+import { parsedMockData } from 'test/mockData';
 
 const routeProps = {
   path: '/:quadrant',
@@ -47,7 +47,7 @@ describe('Quadrant', () => {
       .at(0);
 
     expect(techLists.prop('technologies')).toEqual(
-      mockData.filter(t => t.quadrant === 3),
+      parsedMockData.filter(t => t.quadrant === 3),
     );
   });
 });
