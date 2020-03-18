@@ -82,7 +82,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   font-family: Montserrat,san-serif;
   font-weight: 700;
   line-height: 1.15;
-  font-size: 1;
+  font-size: 1em;
   margin: 0;
   margin-bottom: 8px;
 }
@@ -349,7 +349,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 
 @media (min-width:481px) {
   .c21 {
-    font-size: 1.5;
+    font-size: 1.5em;
   }
 }
 
@@ -508,6 +508,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
       >
         <div
           class="c9"
+          data-testid="ITR_BE"
         >
           <label
             class="c10"
@@ -537,6 +538,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
         </div>
         <div
           class="c9"
+          data-testid="ITR_NL"
         >
           <label
             class="c10"
@@ -566,6 +568,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
         </div>
         <div
           class="c9"
+          data-testid="FM"
         >
           <label
             class="c10"
@@ -633,17 +636,20 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
       >
         <h2
           class="c18"
+          data-testid="quadrant-content-title"
         >
           Technieken
         </h2>
         <div
           class="c19"
+          data-testid="tech-lists-section"
         >
           <div
             class="c20"
           >
             <h3
               class="c21"
+              data-testid="ring-title-Trial"
             >
               Trial
             </h3>
@@ -947,7 +953,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   font-family: Montserrat,san-serif;
   font-weight: 700;
   line-height: 1.15;
-  font-size: 1;
+  font-size: 1em;
   margin: 0;
   margin-bottom: 8px;
 }
@@ -1214,7 +1220,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 
 @media (min-width:481px) {
   .c21 {
-    font-size: 1.5;
+    font-size: 1.5em;
   }
 }
 
@@ -1373,6 +1379,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
       >
         <div
           class="c9"
+          data-testid="ITR_BE"
         >
           <label
             class="c10"
@@ -1402,6 +1409,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
         </div>
         <div
           class="c9"
+          data-testid="ITR_NL"
         >
           <label
             class="c10"
@@ -1431,6 +1439,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
         </div>
         <div
           class="c9"
+          data-testid="FM"
         >
           <label
             class="c10"
@@ -1498,17 +1507,20 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
       >
         <h2
           class="c18"
+          data-testid="quadrant-content-title"
         >
           Technieken
         </h2>
         <div
           class="c19"
+          data-testid="tech-lists-section"
         >
           <div
             class="c20"
           >
             <h3
               class="c21"
+              data-testid="ring-title-Trial"
             >
               Trial
             </h3>

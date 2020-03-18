@@ -8,4 +8,4 @@ export const hexToRgb = (hex: string) => {
   const b = bigint & 255;
 
   return `rgb(${r}, ${g}, ${b})`;
-}
+};

@@ -69,6 +69,7 @@ exports[`FilterByCompany should matches the snapshot 1`] = `
   >
     <div
       class="c1"
+      data-testid="ITR_BE"
     >
       <label
         class="c2"
@@ -98,6 +99,7 @@ exports[`FilterByCompany should matches the snapshot 1`] = `
     </div>
     <div
       class="c1"
+      data-testid="ITR_NL"
     >
       <label
         class="c2"
@@ -127,6 +129,7 @@ exports[`FilterByCompany should matches the snapshot 1`] = `
     </div>
     <div
       class="c1"
+      data-testid="FM"
     >
       <label
         class="c2"

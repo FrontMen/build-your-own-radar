@@ -23,12 +23,12 @@ const Ring = styled.div`
 
 const Title = styled.h3`
   ${Typography.header};
-  font-size: ${props => props.theme.fontSize[0]};
+  font-size: ${props => props.theme.fontSize[0]}em;
   margin: 0;
   margin-bottom: ${props => props.theme.space[2]}px;
 
   @media ${MediaQueries.phablet} {
-    font-size: ${props => props.theme.fontSize[1]};
+    font-size: ${props => props.theme.fontSize[1]}em;
   }
 `;
 
@@ -74,10 +74,10 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
   );
 
   return (
-    <Section>
+    <Section data-testid="tech-lists-section">
       {Object.entries(data).map(([ring, technologiesInRing]) => (
         <Ring key={ring}>
-          <Title>{ring}</Title>
+          <Title data-testid={`ring-title-${ring}`}>{ring}</Title>
           <List>
             {technologiesInRing.map(technology => (
               <TechItem
