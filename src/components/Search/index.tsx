@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useContext } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { IoIosSearch } from 'react-icons/io';
 
@@ -90,11 +90,6 @@ export interface SearchProps {
 
 export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
   const { data: technologies } = useContext(googleSheetsContext);
-  const { quadrant: quadrantParam } = useParams<QuadParamType>();
-
-  const quadrantNum: number = d3Config.quadrants.findIndex(
-    (item: { route: string }) => item.route === quadrantParam,
-  );
 
   const [value, setValue] = useState<string>('');
 
@@ -144,9 +139,7 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
                     key={technology.name}
                     to={`/${d3Config.quadrants[technology.quadrant].route}`}
                     onClick={() => {
-                      if (technology.quadrant !== quadrantNum) {
-                        setValue('');
-                      }
+                      setValue('');
                       setHighlighted(technology.name);
                     }}
                   >
