@@ -82,7 +82,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
   font-family: Montserrat,san-serif;
   font-weight: 700;
   line-height: 1.15;
-  font-size: 1;
+  font-size: 1em;
   margin: 0;
   margin-bottom: 8px;
 }
@@ -106,19 +106,21 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
 
 @media (min-width:481px) {
   .c2 {
-    font-size: 1.5;
+    font-size: 1.5em;
   }
 }
 
 <div>
   <div
     class="c0"
+    data-testid="tech-lists-section"
   >
     <div
       class="c1"
     >
       <h3
         class="c2"
+        data-testid="ring-title-Adopt"
       >
         Adopt
       </h3>
@@ -228,6 +230,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
     >
       <h3
         class="c2"
+        data-testid="ring-title-Assess"
       >
         Assess
       </h3>

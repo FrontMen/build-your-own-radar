@@ -3,6 +3,7 @@
 import { dataTestId, hexToRgb } from 'helpers';
 import { d3Config } from '../../src/utils/d3-config';
 import { lightTheme } from '../../src/Theme';
+import { COMPANY_NAMES } from '../../src/components/FilterByCompany/config';
 
 describe('quadrant', () => {
   beforeEach(() => {
@@ -40,6 +41,106 @@ describe('quadrant', () => {
         }
       });
     });
+
+    describe('filters', () => {
+      it('renders checkbox for each company with correct name and it is clickable', () => {
+        Object.entries(COMPANY_NAMES).forEach(([key, name]) => {
+          dataTestId(key)
+            .should('contain.text', name)
+            .find('[data-testid=checkbox]')
+            .children()
+            .should('exist')
+            .parent()
+            .click()
+            .children()
+            .should('not.exist');
+        });
+      });
+
+      it('should filter out elements in list if i uncheck a checkbox', () => {
+        //first waiting till data will be loaded
+        dataTestId('graph')
+          .find('.blip')
+          .then(blips => {
+            dataTestId('checkbox')
+              .first()
+              .click();
+
+            dataTestId('graph')
+              .find('.blip')
+              .should(v => {
+                expect(v.length)
+                  .to.be.greaterThan(0)
+                  .and.to.be.lessThan(blips.length);
+              });
+          });
+      });
+
+      it('doesnt redder graph and list if non of checkbox checked', () => {
+        Object.keys(COMPANY_NAMES).forEach(key => {
+          dataTestId(key)
+            .find('[data-testid=checkbox]')
+            .click();
+
+          dataTestId('graph').should('not.exist');
+
+          dataTestId('tech-lists').should('not.exist');
+
+          dataTestId('quadrant-no-content')
+            .should('exist')
+            .and('contain.text', 'You have no datasets selected');
+        });
+      });
+    });
+
+    describe('search', () => {
+      it('renders correctly in initial state', () => {
+        dataTestId('search-input')
+          .should('have.value', '')
+          .and('have.attr', 'placeholder', 'Looking for a technology?');
+
+        dataTestId('search-icon').should('exist');
+
+        dataTestId('search-content').should('not.exist');
+      });
+
+      it('should search technologies by name', () => {
+        const searchString = 'a';
+        const gibberish = '$%^&*(#)@@!';
+
+        dataTestId('search-input').type(searchString);
+
+        dataTestId('search-content').should('exist');
+
+        dataTestId('search-technology')
+          .first()
+          .should('exist')
+          .and('contain.text', searchString);
+
+        dataTestId('search-input').type(gibberish);
+
+        dataTestId('search-content').should('not.exist');
+      });
+
+      it('should select an element in list when i click on item in dropdown, and close dropdown', () => {
+        dataTestId('search-input').type('a');
+
+        dataTestId('search-technology')
+          .first()
+          .click()
+          .then(el => {
+            dataTestId(`list-item-${el.text()}`)
+              .find('[data-testid=label]')
+              .should(
+                'have.css',
+                'background-color',
+                hexToRgb(lightTheme.pallet.blue),
+              );
+          });
+
+        dataTestId('search-content').should('not.exist');
+      });
+    });
   });
 
   describe('radar', () => {
@@ -48,7 +149,8 @@ describe('quadrant', () => {
         .should('be.visible')
         .should('not.have.attr', 'viewBox', '0 0 800 800');
     });
-    it('shows bubble when hover on blip, and highlights tech in list', () => {
+
+    it('shows bubble when hover on blip and highlights tech in list', () => {
       dataTestId('graph')
         .find('.blip')
         .first()
@@ -62,7 +164,7 @@ describe('quadrant', () => {
             .should('contain', technologyName);
 
           dataTestId(`list-item-${technologyName}`)
-            .get('[data-testid=label]')
+            .find('[data-testid=label]')
             .should('contain.text', technologyName)
             .should(
               'have.css',
@@ -79,7 +181,7 @@ describe('quadrant', () => {
         .then(el => {
           const technologyName = el.attr('data-testid');
           dataTestId(`list-item-${technologyName}`)
-            .get('[data-testid=details]')
+            .find('[data-testid=details]')
             .should('be.hidden');
         });
 
@@ -90,9 +192,66 @@ describe('quadrant', () => {
         .then(el => {
           const technologyName = el.attr('data-testid');
           dataTestId(`list-item-${technologyName}`)
-            .get('[data-testid=details]')
+            .find('[data-testid=details]')
             .should('be.visible');
         });
+    });
+  });
+
+  describe('technologies list', () => {
+    it('renders content', () => {
+      dataTestId('quadrant-content-title')
+        .should('exist')
+        .and('contain.text', d3Config.quadrants[0].name);
+
+      dataTestId('tech-lists-section').should('exist');
+
+      d3Config.rings.forEach(({ name }) => {
+        dataTestId(`ring-title-${name}`)
+          .should('exist')
+          .parent()
+          .find('ul')
+          .should('exist')
+          .find('li')
+          .should('have.length.greaterThan', 0);
+      });
+    });
+
+    it('highlights tech in list and shows bubble when i hover on list item', () => {
+      cy.get('[data-testid^=list-item')
+        .first()
+        .trigger('mouseover')
+        .find('[data-testid=label]')
+        .should(
+          'have.css',
+          'background-color',
+          hexToRgb(lightTheme.pallet.blue),
+        )
+        .then(el => {
+          dataTestId('radar-bubble')
+            .should('have.css', 'opacity', '1')
+            .find('text')
+            .should('contain', el.text());
+        });
+
+      cy.get('[data-testid^=list-item')
+        .first()
+        .trigger('mouseout')
+        .find('[data-testid=label]')
+        .should('have.css', 'background-color', 'rgba(0, 0, 0, 0)');
+
+      dataTestId('radar-bubble').should('have.css', 'opacity', '0');
+    });
+
+    it('should expand list item details when i click on item', () => {
+      cy.get('[data-testid^=list-item')
+        .first()
+        .find('[data-testid=details]')
+        .should('be.hidden')
+        .parent()
+        .click()
+        .find('[data-testid=details]')
+        .should('be.visible');
     });
   });
 });

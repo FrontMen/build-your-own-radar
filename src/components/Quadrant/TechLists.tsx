@@ -40,7 +40,7 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
   );
 
   return (
-    <Section>
+    <Section data-testid="tech-lists-section">
       {Object.entries(data).map(([ring, technologiesInRing]) => (
         <Ring key={ring}>
           <Title>
@@ -52,6 +52,7 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
               </span>
             </Tooltip>
           </Title>
+          <Title data-testid={`ring-title-${ring}`}>{ring}</Title>
           <List>
             {technologiesInRing.map(technology => (
               <TechItem

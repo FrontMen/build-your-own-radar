@@ -68,7 +68,9 @@ export const Quadrant = () => {
       <SubNav setHighlighted={setHighlighted} />
       <Content>
         <Article>
-          <ContentTitle>{quadrantName}</ContentTitle>
+          <ContentTitle data-testid="quadrant-content-title">
+            {quadrantName}
+          </ContentTitle>
           {data.length ? (
             <TechLists
               data-testid="tech-lists"
@@ -80,13 +82,15 @@ export const Quadrant = () => {
               technologies={data}
             />
           ) : (
-            <p>
+            <p data-testid="quadrant-no-content">
               You have no datasets selected. The graph is sad{' '}
-              <span role="img" aria-label="crying smile">😢</span>
+              <span role="img" aria-label="crying smile">
+                😢
+              </span>
             </p>
           )}
         </Article>
-        {data.length && (
+        {!!data.length && (
           <Graph
             data-testid="graph"
             highlighted={highlighted}

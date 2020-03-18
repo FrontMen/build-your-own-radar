@@ -2,14 +2,7 @@ import React, { useContext } from 'react';
 import { CheckBox } from 'src/components/shared/CheckBox';
 import styled from 'styled-components';
 import { filterByCompanyContext } from 'src/ContextProviders/FilterByCompanyContextProvider';
-
-const COMPANY_NAMES: {
-  [K in CompanyTypes]: string;
-} = {
-  ITR_BE: 'Intracto BE',
-  ITR_NL: 'Intracto NL',
-  FM: 'Frontmen',
-};
+import { COMPANY_NAMES } from './config';
 
 const Container = styled.div`
   display: flex;
@@ -23,6 +16,7 @@ export const FilterByCompany = () => {
     <Container>
       {Object.entries(state).map(([company, checked]) => (
         <CheckBox
+          dataTestid={company}
           key={company}
           label={COMPANY_NAMES[company as CompanyTypes]}
           checked={checked}

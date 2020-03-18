@@ -276,6 +276,7 @@ exports[`SubNav component should match snapshot 1`] = `
     >
       <div
         class="c8"
+        data-testid="ITR_BE"
       >
         <label
           class="c9"
@@ -305,6 +306,7 @@ exports[`SubNav component should match snapshot 1`] = `
       </div>
       <div
         class="c8"
+        data-testid="ITR_NL"
       >
         <label
           class="c9"
@@ -334,6 +336,7 @@ exports[`SubNav component should match snapshot 1`] = `
       </div>
       <div
         class="c8"
+        data-testid="FM"
       >
         <label
           class="c9"
