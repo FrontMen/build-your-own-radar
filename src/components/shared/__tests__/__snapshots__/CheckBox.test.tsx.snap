@@ -54,6 +54,7 @@ exports[`CheckBox should matches the snapshot when checked 1`] = `
 <div>
   <div
     class="c0"
+    data-testid="testCheckboxId"
   >
     <label
       class="c1"
@@ -138,6 +139,7 @@ exports[`CheckBox should matches the snapshot when unchecked 1`] = `
 <div>
   <div
     class="c0"
+    data-testid="testCheckboxId"
   >
     <label
       class="c1"
