@@ -6,6 +6,7 @@ import { fireEvent, getByTestId } from '@testing-library/dom';
 
 const setHighlighted = jest.fn();
 const setSelected = jest.fn();
+const redirect = jest.fn();
 
 describe('d3', () => {
   beforeEach(() => {
@@ -18,11 +19,18 @@ describe('d3', () => {
     svg.setAttribute('id', 'radar');
     document.body.append(svg);
 
-    radar_visualization(svg, mockData, d3Config, setHighlighted, setSelected, {
-      width: 100,
-      height: 100,
-      quadrant: 0,
-    });
+    radar_visualization(
+      svg,
+      mockData,
+      d3Config,
+      setHighlighted,
+      setSelected,
+      {
+        isNotMobile: true,
+        quadrantNum: 0,
+      },
+      redirect,
+    );
 
     await new Promise(resolve => {
       setTimeout(resolve, 400);
@@ -55,11 +63,18 @@ describe('d3', () => {
     svg.setAttribute('id', 'radar');
     document.body.append(svg);
 
-    radar_visualization(svg, mockData, d3Config, setHighlighted, setSelected, {
-      width: 100,
-      height: 100,
-      quadrant: 0,
-    });
+    radar_visualization(
+      svg,
+      mockData,
+      d3Config,
+      setHighlighted,
+      setSelected,
+      {
+        quadrantNum: 0,
+        isNotMobile: true,
+      },
+      redirect,
+    );
 
     await new Promise(resolve => {
       setTimeout(resolve, 400);
@@ -74,6 +89,39 @@ describe('d3', () => {
         cancelable: true,
       }),
     );
-    expect(setSelected).toHaveBeenCalledWith(mockData[0].name);
+    expect(setSelected).toHaveBeenCalledWith(`?tech=${mockData[0].name}`);
+  });
+
+  it('should push correct path to history on quadrant click in fullSize mode', async () => {
+    // construct svg and append it to js-dom
+    const svg = document.createElement('svg');
+    svg.setAttribute('id', 'radar');
+    document.body.append(svg);
+
+    radar_visualization(
+      svg,
+      mockData,
+      d3Config,
+      setHighlighted,
+      setSelected,
+      { isNotMobile: true },
+      redirect,
+    );
+
+    await new Promise(resolve => {
+      setTimeout(resolve, 400);
+    });
+
+    const g = getByTestId(svg, 'quadrant-0');
+
+    fireEvent(
+      g,
+      new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true,
+      }),
+    );
+
+    expect(redirect).toHaveBeenCalledWith(d3Config.quadrants[2].route);
   });
 });

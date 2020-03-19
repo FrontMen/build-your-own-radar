@@ -8,7 +8,7 @@ import { mount } from 'enzyme';
 
 const routeProps = {
   path: '/:quadrant',
-  route: '/Technieken',
+  route: '/technique',
 };
 
 describe('Quadrant', () => {
@@ -17,7 +17,7 @@ describe('Quadrant', () => {
       <ResponsiveContext.Provider value={{ width: MediaQueries.phablet }}>
         <Quadrant />
       </ResponsiveContext.Provider>,
-      routeProps
+      routeProps,
     );
 
     expect(container).toMatchSnapshot();
@@ -46,6 +46,8 @@ describe('Quadrant', () => {
       })
       .at(0);
 
-    expect(techLists.prop('technologies')).toEqual(mockData.filter(t => t.quadrant === 'Technieken'));
+    expect(techLists.prop('technologies')).toEqual(
+      mockData.filter(t => t.quadrant === 3),
+    );
   });
 });

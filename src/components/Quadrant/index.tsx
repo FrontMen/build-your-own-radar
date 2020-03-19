@@ -5,12 +5,14 @@ import { useParams } from 'react-router';
 
 import { MainContentSlot } from 'src/components/shared/PageSlots';
 import { TechLists } from './TechLists';
-import { useAppState } from 'src/hooks/useAppState';
+
 import { d3Config } from 'src/utils/d3-config';
 import { Graph } from 'src/components/Graph';
 import { ContentTitle } from 'src/components/shared/ContentTitle';
 import { filterByCompanyContext } from 'src/ContextProviders/FilterByCompanyContextProvider';
 import { SubNav } from 'src/components/SubNav';
+import { useQueryAsState } from 'src/hooks/useQueryAsState';
+import { GoogleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
 
 const Slot = styled(MainContentSlot)`
   display: flex;
@@ -40,24 +42,25 @@ const Article = styled.div`
 export const Quadrant = () => {
   const { quadrant: quadrantParam } = useParams<QuadParamType>();
 
-  const quadrant: number = d3Config.quadrants.findIndex(
-    (item: { name: string }) => item.name === quadrantParam,
+  const quadrantNum: number = d3Config.quadrants.findIndex(
+    (item: { route: string }) => item.route === quadrantParam,
   );
-  const {
-    state: { technologies },
-  } = useAppState();
+
+  const quadrantName = d3Config.quadrants[quadrantNum].name;
+
+  const { data: technologies } = useContext(GoogleSheetsContext);
   const { state: selectedCompanies } = useContext(filterByCompanyContext);
   const [highlighted, setHighlighted] = useState<null | string>(null);
-  const [selected, setSelected] = useState<null | string>(null);
+  const [selected, setSelected] = useQueryAsState();
 
   const data = useMemo(
     () =>
       technologies
-        .filter(technology => technology.quadrant === quadrantParam)
+        .filter(technology => technology.quadrant === quadrantNum)
         .filter(({ companies }) =>
           companies.some(companyType => selectedCompanies[companyType]),
         ),
-    [quadrantParam, technologies, selectedCompanies],
+    [quadrantNum, technologies, selectedCompanies],
   );
 
   return (
@@ -65,7 +68,7 @@ export const Quadrant = () => {
       <SubNav setHighlighted={setHighlighted} />
       <Content>
         <Article>
-          <ContentTitle>{quadrantParam}</ContentTitle>
+          <ContentTitle>{quadrantName}</ContentTitle>
           {data.length ? (
             <TechLists
               data-testid="tech-lists"
@@ -79,14 +82,14 @@ export const Quadrant = () => {
           ) : (
             <p>
               You have no datasets selected. The graph is sad{' '}
-              <span role={'img'}>😢</span>
+              <span role="img" aria-label="crying smile">😢</span>
             </p>
           )}
         </Article>
         <Graph
           data-testid="graph"
           highlighted={highlighted}
-          quadrant={quadrant}
+          quadrantNum={quadrantNum}
           setHighlighted={setHighlighted}
           setSelected={setSelected}
           technologies={data}

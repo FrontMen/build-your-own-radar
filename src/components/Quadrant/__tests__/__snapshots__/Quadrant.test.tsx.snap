@@ -3,154 +3,14 @@
 exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 .c19 {
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.c20 {
-  min-width: 12rem;
-  padding-right: 16px;
-  margin-bottom: 32px;
-  -webkit-break-inside: avoid;
-  break-inside: avoid;
-}
-
-.c21 {
-  font-family: Montserrat,san-serif;
-  font-weight: 700;
-  line-height: 1.15;
-  font-size: 1;
-  margin: 0;
-  margin-bottom: 8px;
-}
-
-.c24 {
-  padding-left: 0;
-  margin: 0;
-}
-
-.c22 {
-  color: #1ebccd;
-  padding-right: 4px;
-}
-
-.c23 {
-  background-color: #bfc0bf;
-  position: relative;
-  display: inline-block;
-  line-height: 22px;
-  width: 22px;
-  margin-left: 12px;
-  color: #fff;
-  cursor: pointer;
-  text-align: center;
-  border-radius: 50%;
-  font-size: 16px;
-}
-
-.c23:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
-}
-
-.c23 .tooltip-text {
-  visibility: hidden;
-  position: absolute;
-  font-size: 12px;
-  font-weight: 700;
-  width: 270px;
-  background: rgba(0,0,0,.8);
-  color: #FFF;
-  border-radius: 6px;
-  padding: 10px 15px;
-  text-align: left;
-  z-index: 1;
-  bottom: 130%;
-  margin-left: -80px;
-  opacity: 0;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-}
-
-.c23 .tooltip-text::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -64px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-.c25 {
-  list-style: none;
-  width: 100%;
-  -webkit-break-inside: avoid;
-  break-inside: avoid;
-  overflow: hidden;
-}
-
-.c27 {
-  max-height: 0px;
-  -webkit-transition: max-height 0.2s ease-in-out;
-  transition: max-height 0.2s ease-in-out;
-  overflow: hidden;
-  background-color: #f8f9fa;
-}
-
-.c28 {
-  padding: 8px;
-  overflow: hidden;
-}
-
-.c26 {
-  font-family: Roboto,san-serif;
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 1.65;
-  cursor: pointer;
-  padding: 2px;
-}
-
-.c29 {
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 8px;
-  width: 100%;
-  color: #526de4;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-weight: 400;
-  font-size: 0.9em;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c30 {
-  height: 2em;
-  width: 2em;
-}
-
-.c31 {
-  width: 100%;
   max-width: 440px;
   min-width: 280px;
   height: auto;
-  pointer-events: none;
-  margin: 0 auto;
+  margin: 0 auto 8px;
+}
+
+.c20 {
+  text-align: center;
 }
 
 .c18 {
@@ -338,23 +198,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   background-color: #767676;
 }
 
-.c4:hover {
-  background-color: #31bd70;
-}
-
-.c5:hover {
-  background-color: #17a2b8;
-}
-
-.c6:hover {
-  background-color: #fd7e14;
-}
-
 .c7 {
-  background-color: #7843ab;
-}
-
-.c7:hover {
   background-color: #7843ab;
 }
 
@@ -401,39 +245,21 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 }
 
 @media (min-width:481px) {
-  .c20 {
-    width: 50%;
-  }
-}
-
-@media (min-width:481px) {
-  .c21 {
-    font-size: 1.5;
-  }
-}
-
-@media (min-width:481px) {
-  .c25 {
-    min-width: 9em;
-  }
-}
-
-@media (min-width:481px) {
-  .c31 {
-    pointer-events: all;
+  .c19 {
+    max-width: 80%;
+    margin-bottom: 16px;
   }
 }
 
 @media (min-width:1024px) {
-  .c31 {
-    margin: 0;
-    margin-left: auto;
+  .c19 {
     max-width: 50%;
+    margin-bottom: 64px;
   }
 }
 
 @media (min-width:1024px) {
-  .c32 {
+  .c20 {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -485,6 +311,30 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   }
 }
 
+@media (hover:hover) {
+  .c4:hover {
+    background-color: #31bd70;
+  }
+}
+
+@media (hover:hover) {
+  .c5:hover {
+    background-color: #17a2b8;
+  }
+}
+
+@media (hover:hover) {
+  .c6:hover {
+    background-color: #fd7e14;
+  }
+}
+
+@media (hover:hover) {
+  .c7:hover {
+    background-color: #7843ab;
+  }
+}
+
 @media (min-width:481px) {
   .c0 {
     padding: 32px;
@@ -515,25 +365,25 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
       >
         <a
           class="c3 c4"
-          href="/Frameworks, CMS & Programmeertalen"
+          href="/frameworks-and-lang"
         >
           Frameworks, CMS & Programmeertalen
         </a>
         <a
           class="c3 c5"
-          href="/Tooling en testing"
+          href="/tooling-and-testing"
         >
           Tooling en testing
         </a>
         <a
           class="c3 c6"
-          href="/Platforms, infrastructure & Data"
+          href="/platforms-infra-and-data"
         >
           Platforms, infrastructure & Data
         </a>
         <a
           class="c3 c7"
-          href="/Technieken"
+          href="/technique"
         >
           Technieken
         </a>
@@ -670,141 +520,25 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
         >
           Technieken
         </h2>
-        <div
-          class="c19"
-        >
-          <div
-            class="c20"
+        <p>
+          You have no datasets selected. The graph is sad
+           
+          <span
+            aria-label="crying smile"
+            role="img"
           >
-            <h3
-              class="c21"
-            >
-              <span
-                class="c22"
-              >
-                ●
-              </span>
-              Adopt
-              <span
-                class="c23"
-              >
-                ?
-                <span
-                  class="tooltip-text"
-                >
-                  We feel strongly that the industry should be adopting these items. We use them when appropriate on our projects.
-                </span>
-              </span>
-            </h3>
-            <ul
-              class="c24"
-            >
-              <li
-                class="c25"
-              >
-                <div
-                  class="c26"
-                  data-testid="label"
-                >
-                  Babel
-                </div>
-                <div
-                  class="c27"
-                  data-testid="details"
-                >
-                  <div
-                    class="c28"
-                  >
-                    <span>
-                      This is the description. You can use basic html such as the 
-                      <strong>
-                        strong tag to emphasise keywords and phrases
-                      </strong>
-                       and insert
-                    </span>
-                    <a
-                      class="c29"
-                      href="/technieken/babel"
-                    >
-                      More 
-                      <svg
-                        class="c30"
-                        data-testid="arrow-right-icon"
-                        fill="currentColor"
-                        height="1em"
-                        stroke="currentColor"
-                        stroke-width="0"
-                        viewBox="0 0 512 512"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li
-                class="c25"
-              >
-                <div
-                  class="c26"
-                  data-testid="label"
-                >
-                  Spark
-                </div>
-                <div
-                  class="c27"
-                  data-testid="details"
-                >
-                  <div
-                    class="c28"
-                  >
-                    <span>
-                      This is the description. You can use basic html such as the 
-                      <strong>
-                        strong tag to emphasise keywords and phrases
-                      </strong>
-                       and insert
-                    </span>
-                    <a
-                      class="c29"
-                      href="/technieken/spark"
-                    >
-                      More 
-                      <svg
-                        class="c30"
-                        data-testid="arrow-right-icon"
-                        fill="currentColor"
-                        height="1em"
-                        stroke="currentColor"
-                        stroke-width="0"
-                        viewBox="0 0 512 512"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+            😢
+          </span>
+        </p>
       </div>
       <div
-        class="c31"
+        class="c19"
       >
         <div
-          class="c32"
+          class="c20"
         >
           <svg
-            viewBox="-20 -420 435 435"
+            viewBox="-8 -408 416 416"
           >
             <g>
               <g>
@@ -853,37 +587,79 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                   style="fill: #BFC0BF; stroke-width: 1;"
                 />
                 <line
-                  style="stroke: #fff; stroke-width: 20; opacity: 0.3;"
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
                   x1="-400"
                   x2="400"
-                  y1="5"
-                  y2="5"
+                  y1="0"
+                  y2="0"
+                />
+                <line
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
+                  x1="0"
+                  x2="0"
+                  y1="-400"
+                  y2="-8"
+                />
+                <line
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
+                  x1="0"
+                  x2="0"
+                  y1="8"
+                  y2="400"
                 />
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="338"
                 >
                   Hold
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-338"
+                >
+                  Hold
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="248"
                 >
                   Assess
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-248"
+                >
+                  Assess
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="158"
                 >
                   Trial
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-158"
+                >
+                  Trial
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="68"
+                >
+                  Adopt
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-68"
                 >
                   Adopt
                 </text>
@@ -923,154 +699,14 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 .c19 {
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.c20 {
-  min-width: 12rem;
-  padding-right: 16px;
-  margin-bottom: 32px;
-  -webkit-break-inside: avoid;
-  break-inside: avoid;
-}
-
-.c21 {
-  font-family: Montserrat,san-serif;
-  font-weight: 700;
-  line-height: 1.15;
-  font-size: 1;
-  margin: 0;
-  margin-bottom: 8px;
-}
-
-.c24 {
-  padding-left: 0;
-  margin: 0;
-}
-
-.c22 {
-  color: #1ebccd;
-  padding-right: 4px;
-}
-
-.c23 {
-  background-color: #bfc0bf;
-  position: relative;
-  display: inline-block;
-  line-height: 22px;
-  width: 22px;
-  margin-left: 12px;
-  color: #fff;
-  cursor: pointer;
-  text-align: center;
-  border-radius: 50%;
-  font-size: 16px;
-}
-
-.c23:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
-}
-
-.c23 .tooltip-text {
-  visibility: hidden;
-  position: absolute;
-  font-size: 12px;
-  font-weight: 700;
-  width: 270px;
-  background: rgba(0,0,0,.8);
-  color: #FFF;
-  border-radius: 6px;
-  padding: 10px 15px;
-  text-align: left;
-  z-index: 1;
-  bottom: 130%;
-  margin-left: -80px;
-  opacity: 0;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-}
-
-.c23 .tooltip-text::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -64px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-.c25 {
-  list-style: none;
-  width: 100%;
-  -webkit-break-inside: avoid;
-  break-inside: avoid;
-  overflow: hidden;
-}
-
-.c27 {
-  max-height: 0px;
-  -webkit-transition: max-height 0.2s ease-in-out;
-  transition: max-height 0.2s ease-in-out;
-  overflow: hidden;
-  background-color: #f8f9fa;
-}
-
-.c28 {
-  padding: 8px;
-  overflow: hidden;
-}
-
-.c26 {
-  font-family: Roboto,san-serif;
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 1.65;
-  cursor: pointer;
-  padding: 2px;
-}
-
-.c29 {
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 8px;
-  width: 100%;
-  color: #526de4;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-weight: 400;
-  font-size: 0.9em;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c30 {
-  height: 2em;
-  width: 2em;
-}
-
-.c31 {
-  width: 100%;
   max-width: 440px;
   min-width: 280px;
   height: auto;
-  pointer-events: none;
-  margin: 0 auto;
+  margin: 0 auto 8px;
+}
+
+.c20 {
+  text-align: center;
 }
 
 .c18 {
@@ -1258,23 +894,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   background-color: #767676;
 }
 
-.c4:hover {
-  background-color: #31bd70;
-}
-
-.c5:hover {
-  background-color: #17a2b8;
-}
-
-.c6:hover {
-  background-color: #fd7e14;
-}
-
 .c7 {
-  background-color: #7843ab;
-}
-
-.c7:hover {
   background-color: #7843ab;
 }
 
@@ -1321,39 +941,21 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 }
 
 @media (min-width:481px) {
-  .c20 {
-    width: 50%;
-  }
-}
-
-@media (min-width:481px) {
-  .c21 {
-    font-size: 1.5;
-  }
-}
-
-@media (min-width:481px) {
-  .c25 {
-    min-width: 9em;
-  }
-}
-
-@media (min-width:481px) {
-  .c31 {
-    pointer-events: all;
+  .c19 {
+    max-width: 80%;
+    margin-bottom: 16px;
   }
 }
 
 @media (min-width:1024px) {
-  .c31 {
-    margin: 0;
-    margin-left: auto;
+  .c19 {
     max-width: 50%;
+    margin-bottom: 64px;
   }
 }
 
 @media (min-width:1024px) {
-  .c32 {
+  .c20 {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -1405,6 +1007,30 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   }
 }
 
+@media (hover:hover) {
+  .c4:hover {
+    background-color: #31bd70;
+  }
+}
+
+@media (hover:hover) {
+  .c5:hover {
+    background-color: #17a2b8;
+  }
+}
+
+@media (hover:hover) {
+  .c6:hover {
+    background-color: #fd7e14;
+  }
+}
+
+@media (hover:hover) {
+  .c7:hover {
+    background-color: #7843ab;
+  }
+}
+
 @media (min-width:481px) {
   .c0 {
     padding: 32px;
@@ -1435,25 +1061,25 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
       >
         <a
           class="c3 c4"
-          href="/Frameworks, CMS & Programmeertalen"
+          href="/frameworks-and-lang"
         >
           Frameworks, CMS & Programmeertalen
         </a>
         <a
           class="c3 c5"
-          href="/Tooling en testing"
+          href="/tooling-and-testing"
         >
           Tooling en testing
         </a>
         <a
           class="c3 c6"
-          href="/Platforms, infrastructure & Data"
+          href="/platforms-infra-and-data"
         >
           Platforms, infrastructure & Data
         </a>
         <a
           class="c3 c7"
-          href="/Technieken"
+          href="/technique"
         >
           Technieken
         </a>
@@ -1590,141 +1216,25 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
         >
           Technieken
         </h2>
-        <div
-          class="c19"
-        >
-          <div
-            class="c20"
+        <p>
+          You have no datasets selected. The graph is sad
+           
+          <span
+            aria-label="crying smile"
+            role="img"
           >
-            <h3
-              class="c21"
-            >
-              <span
-                class="c22"
-              >
-                ●
-              </span>
-              Adopt
-              <span
-                class="c23"
-              >
-                ?
-                <span
-                  class="tooltip-text"
-                >
-                  We feel strongly that the industry should be adopting these items. We use them when appropriate on our projects.
-                </span>
-              </span>
-            </h3>
-            <ul
-              class="c24"
-            >
-              <li
-                class="c25"
-              >
-                <div
-                  class="c26"
-                  data-testid="label"
-                >
-                  Babel
-                </div>
-                <div
-                  class="c27"
-                  data-testid="details"
-                >
-                  <div
-                    class="c28"
-                  >
-                    <span>
-                      This is the description. You can use basic html such as the 
-                      <strong>
-                        strong tag to emphasise keywords and phrases
-                      </strong>
-                       and insert
-                    </span>
-                    <a
-                      class="c29"
-                      href="/technieken/babel"
-                    >
-                      More 
-                      <svg
-                        class="c30"
-                        data-testid="arrow-right-icon"
-                        fill="currentColor"
-                        height="1em"
-                        stroke="currentColor"
-                        stroke-width="0"
-                        viewBox="0 0 512 512"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </li>
-              <li
-                class="c25"
-              >
-                <div
-                  class="c26"
-                  data-testid="label"
-                >
-                  Spark
-                </div>
-                <div
-                  class="c27"
-                  data-testid="details"
-                >
-                  <div
-                    class="c28"
-                  >
-                    <span>
-                      This is the description. You can use basic html such as the 
-                      <strong>
-                        strong tag to emphasise keywords and phrases
-                      </strong>
-                       and insert
-                    </span>
-                    <a
-                      class="c29"
-                      href="/technieken/spark"
-                    >
-                      More 
-                      <svg
-                        class="c30"
-                        data-testid="arrow-right-icon"
-                        fill="currentColor"
-                        height="1em"
-                        stroke="currentColor"
-                        stroke-width="0"
-                        viewBox="0 0 512 512"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+            😢
+          </span>
+        </p>
       </div>
       <div
-        class="c31"
+        class="c19"
       >
         <div
-          class="c32"
+          class="c20"
         >
           <svg
-            viewBox="-20 -420 435 435"
+            viewBox="-8 -408 416 416"
           >
             <g>
               <g>
@@ -1773,37 +1283,79 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                   style="fill: #BFC0BF; stroke-width: 1;"
                 />
                 <line
-                  style="stroke: #fff; stroke-width: 20; opacity: 0.3;"
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
                   x1="-400"
                   x2="400"
-                  y1="5"
-                  y2="5"
+                  y1="0"
+                  y2="0"
+                />
+                <line
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
+                  x1="0"
+                  x2="0"
+                  y1="-400"
+                  y2="-8"
+                />
+                <line
+                  style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
+                  x1="0"
+                  x2="0"
+                  y1="8"
+                  y2="400"
                 />
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="338"
                 >
                   Hold
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-338"
+                >
+                  Hold
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="248"
                 >
                   Assess
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-248"
+                >
+                  Assess
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="158"
                 >
                   Trial
                 </text>
                 <text
-                  style="fill: #000; transform: translateY(10px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-158"
+                >
+                  Trial
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="68"
+                >
+                  Adopt
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-68"
                 >
                   Adopt
                 </text>

@@ -12,13 +12,17 @@ const defaultProps = {
   highlighted: null,
   setHighlighted: jest.fn(),
   setSelected: jest.fn(),
-  quadrant: 0,
+  quadrantNum: 1,
 };
 
 jest.mock('src/utils/d3', () => ({
   radar_visualization: jest.fn(),
   showBubble: jest.fn(),
   hideBubble: jest.fn(),
+}));
+
+jest.mock('react-router', () => ({
+  useHistory: jest.fn(),
 }));
 
 describe('Graph', () => {
@@ -49,7 +53,7 @@ describe('Graph', () => {
     expect(hideBubble).toHaveBeenCalled();
   });
 
-  it('should call radar_visualization with proper params when technologies or quadrant changes',  async () => {
+  it('should call radar_visualization with proper params when technologies or quadrant changes', async () => {
     const {
       radar_visualization,
     }: {
@@ -73,13 +77,19 @@ describe('Graph', () => {
     radar_visualization.mockClear();
 
     wrapper.setProps({
-      quadrant: 1,
+      quadrantNum: 3,
     });
 
-    const [c, t, config, setHighlighted, setSelected, { quadrant }] = radar_visualization.mock.calls[0];
+    const [
+      c,
+      t,
+      config,
+      setHighlighted,
+      setSelected,
+      { quadrantNum },
+    ] = radar_visualization.mock.calls[0];
     expect(config).toBe(d3Config);
     expect(setHighlighted).toBe(defaultProps.setHighlighted);
-    expect(quadrant).toBe(1);
-
+    expect(quadrantNum).toBe(3);
   });
 });

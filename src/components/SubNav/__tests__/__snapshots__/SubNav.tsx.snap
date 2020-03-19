@@ -178,22 +178,6 @@ exports[`SubNav component should match snapshot 1`] = `
   background-color: #767676;
 }
 
-.c3:hover {
-  background-color: #31bd70;
-}
-
-.c4:hover {
-  background-color: #17a2b8;
-}
-
-.c5:hover {
-  background-color: #fd7e14;
-}
-
-.c6:hover {
-  background-color: #7843ab;
-}
-
 @media (min-width:768px) {
   .c11 {
     margin-left: 2em;
@@ -231,6 +215,30 @@ exports[`SubNav component should match snapshot 1`] = `
   }
 }
 
+@media (hover:hover) {
+  .c3:hover {
+    background-color: #31bd70;
+  }
+}
+
+@media (hover:hover) {
+  .c4:hover {
+    background-color: #17a2b8;
+  }
+}
+
+@media (hover:hover) {
+  .c5:hover {
+    background-color: #fd7e14;
+  }
+}
+
+@media (hover:hover) {
+  .c6:hover {
+    background-color: #7843ab;
+  }
+}
+
 <div>
   <div
     class="c0"
@@ -240,25 +248,25 @@ exports[`SubNav component should match snapshot 1`] = `
     >
       <a
         class="c2 c3"
-        href="/Frameworks, CMS & Programmeertalen"
+        href="/frameworks-and-lang"
       >
         Frameworks, CMS & Programmeertalen
       </a>
       <a
         class="c2 c4"
-        href="/Tooling en testing"
+        href="/tooling-and-testing"
       >
         Tooling en testing
       </a>
       <a
         class="c2 c5"
-        href="/Platforms, infrastructure & Data"
+        href="/platforms-infra-and-data"
       >
         Platforms, infrastructure & Data
       </a>
       <a
         class="c2 c6"
-        href="/Technieken"
+        href="/technique"
       >
         Technieken
       </a>

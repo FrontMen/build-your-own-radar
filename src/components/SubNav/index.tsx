@@ -22,7 +22,7 @@ const Links = styled.div`
   display: flex;
   flex-basis: 100%;
   flex-wrap: wrap;
-  
+
   @media ${MediaQueries.tablet} {
     flex-wrap: unset;
   }
@@ -66,8 +66,10 @@ const ColoredLinks = styled(({ selected, quadName, ...props }) => (
   background-color: ${props =>
     props.selected && props.theme.colors[props.quadName]};
 
-  &:hover {
-    background-color: ${props => props.theme.colors[props.quadName]};
+  @media(hover:hover) {
+    &:hover {
+      background-color: ${props => props.theme.colors[props.quadName]};
+    }
   }
 `;
 
@@ -86,18 +88,20 @@ export const SubNav = ({ setHighlighted }: PropTypes) => {
   return (
     <Container>
       <Links>
-        {d3Config.quadrants.map(({ name }: { name: string }) => {
-          return (
-            <ColoredLinks
-              selected={quadrantPram === name}
-              quadName={name}
-              to={`/${name}`}
-              key={name}
-            >
-              {name}
-            </ColoredLinks>
-          );
-        })}
+        {d3Config.quadrants.map(
+          ({ name, route }: { name: string; route: string }) => {
+            return (
+              <ColoredLinks
+                selected={quadrantPram === route}
+                quadName={name}
+                to={`/${route}`}
+                key={name}
+              >
+                {name}
+              </ColoredLinks>
+            );
+          },
+        )}
       </Links>
       <FilterByCompany />
       <Search setHighlighted={setHighlighted} />

@@ -37,6 +37,8 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
 .c3 {
   color: #1ebccd;
   padding-right: 4px;
+  font-size: 2em;
+  vertical-align: sub;
 }
 
 .c4 {
@@ -53,19 +55,19 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
   font-size: 16px;
 }
 
-.c4:hover .tooltip-text {
+.c4:hover span {
   visibility: visible;
   opacity: 1;
 }
 
-.c4 .tooltip-text {
+.c4 span {
   visibility: hidden;
   position: absolute;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   width: 270px;
   background: rgba(0,0,0,.8);
-  color: #FFF;
+  color: #fff;
   border-radius: 6px;
   padding: 10px 15px;
   text-align: left;
@@ -77,7 +79,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
   transition: opacity 0.3s;
 }
 
-.c4 .tooltip-text::after {
+.c4 span::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -85,7 +87,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
   margin-left: -64px;
   border-width: 5px;
   border-style: solid;
-  border-color: #555 transparent transparent transparent;
+  border-color: #343a40 transparent transparent transparent;
 }
 
 .c6 {
@@ -98,8 +100,6 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
 
 .c8 {
   max-height: 0px;
-  -webkit-transition: max-height 0.2s ease-in-out;
-  transition: max-height 0.2s ease-in-out;
   overflow: hidden;
   background-color: #f8f9fa;
 }
@@ -114,7 +114,11 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
+  display: block;
   cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
   padding: 2px;
 }
 
@@ -182,9 +186,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
           class="c4"
         >
           ?
-          <span
-            class="tooltip-text"
-          >
+          <span>
             We feel strongly that the industry should be adopting these items. We use them when appropriate on our projects.
           </span>
         </span>
@@ -304,9 +306,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
           class="c4"
         >
           ?
-          <span
-            class="tooltip-text"
-          >
+          <span>
             Worth exploring with the goal of understanding how it will affect your enterprise.
           </span>
         </span>
