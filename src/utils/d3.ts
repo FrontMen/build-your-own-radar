@@ -220,8 +220,6 @@ export const radar_visualization = (
     .select(container)
     .style('background-color', config.colors.background);
 
-  svg.html('');
-
   // partition entries according to segments
   const segmented: Segmented = new Array(4);
   for (let quadrant = 0; quadrant < 4; quadrant++) {
@@ -258,169 +256,189 @@ export const radar_visualization = (
     }
   }
 
-  const radar = svg.append('g');
+  const isFirstRender = !svg.html();
+  const radar = isFirstRender ? svg.append('g') : svg.select('g');
+
   if (quadrantProp !== undefined) {
-    svg.attr('viewBox', viewbox(quadrantProp, maxRadius));
+    svg
+      .transition()
+      .duration(500)
+      .attr('viewBox', viewbox(quadrantProp, maxRadius));
   } else {
     svg.attr('viewBox', `0 0 ${maxRadius * 2} ${maxRadius * 2}`);
     radar.attr('transform', translate(maxRadius, maxRadius));
   }
 
-  const grid = radar.append('g');
+  const grid = isFirstRender ? radar.append('g') : radar.select('g');
 
   // background color. Usage `.attr("filter", "url(#solid)")`
   // SOURCE: https://stackoverflow.com/a/31013492/2609980
-  const defs = grid.append('defs');
-  const filter = defs
-    .append('filter')
-    .attr('x', 0)
-    .attr('y', 0)
-    .attr('width', 1)
-    .attr('height', 1)
-    .attr('id', 'solid');
-  filter.append('feFlood').attr('flood-color', 'rgb(0, 0, 0, 0.8)');
-  filter.append('feComposite').attr('in', 'SourceGraphic');
-
-  // draw rings
-  for (let i = 3; i >= 0; i--) {
-    grid
-      .append('circle')
-      .attr('class', 'ring')
-      .attr('cx', 0)
-      .attr('cy', 0)
-      .attr('r', 0)
-      .style('fill', config.rings[i].backgroundColor)
-      // .style('stroke', config.colors.grid)
-      .style('stroke-width', 1);
-  }
-
-  //cover lines for ring names
-  grid
-    .append('line')
-    .attr('x1', -maxRadius)
-    .attr('y1', 0)
-    .attr('x2', maxRadius)
-    .attr('y2', 0)
-    .style('stroke', '#fff')
-    .style('stroke-width', AXIS_STROKE_WIDTH)
-    .style('opacity', 0.3);
-
-  grid
-    .append('line')
-    .attr('x1', 0)
-    .attr('y1', -maxRadius)
-    .attr('x2', 0)
-    .attr('y2', -AXIS_STROKE_WIDTH / 2)
-    .style('stroke', '#fff')
-    .style('stroke-width', AXIS_STROKE_WIDTH)
-    .style('opacity', 0.3);
-
-  grid
-    .append('line')
-    .attr('x1', 0)
-    .attr('y1', AXIS_STROKE_WIDTH / 2)
-    .attr('x2', 0)
-    .attr('y2', maxRadius)
-    .style('stroke', '#fff')
-    .style('stroke-width', AXIS_STROKE_WIDTH)
-    .style('opacity', 0.3);
-
-  //ring names displaying
-  if (!isFullSize) {
-    for (let i = 3; i >= 0; i--) {
-      grid
-        .append('text')
-        .text(config.rings[i].name)
-        .attr('x', rings[i].radius - 62)
-        .attr('text-anchor', 'middle')
-        .style('fill', '#000')
-        .style('transform', 'translateY(4px)')
-        .style('font-family', 'Arial, Helvetica')
-        .style('font-size', 12)
-        .style('font-weight', 'bold')
-        .style('pointer-events', 'none')
-        .style('user-select', 'none');
-
-      grid
-        .append('text')
-        .text(config.rings[i].name)
-        .attr('x', -rings[i].radius + 62)
-        .attr('text-anchor', 'middle')
-        .style('fill', '#000')
-        .style('transform', 'translateY(4px)')
-        .style('font-family', 'Arial, Helvetica')
-        .style('font-size', '12px')
-        .style('font-weight', 'bold')
-        .style('pointer-events', 'none')
-        .style('user-select', 'none');
-    }
-  }
-
-  if (isFullSize) {
-    // in full size draw boxes on top for hover effect
-    getHoverPolygons(maxRadius).forEach((p, i) => {
-      const polygons = svg
-        .append('polygon')
-        .attr('data-testid', `quadrant-${i}`)
-        .attr('cursor', 'pointer')
-        .attr('class', 'quadrant-hover')
-        .attr('fill', '#fff')
-        .attr('opacity', 0)
-        .attr('points', p.map(({ x, y }) => `${x}, ${y}`).join(' '))
-        .on('click', function() {
-          redirect(getQuadrantName(i));
-        });
-
-      if (isNotMobile) {
-        polygons
-          .on('mouseover', function() {
-            svg.selectAll('.quadrant-hover').attr('opacity', '0.3');
-            this.setAttribute('opacity', '0');
-          })
-          .on('mouseout', function() {
-            svg.selectAll('.quadrant-hover').attr('opacity', '0');
-          });
-      }
-    });
-  }
+  const defs = isFirstRender ? grid.append('defs') : grid.select('defs');
 
   // animate rings
-  d3.selectAll('.ring')
-    .transition()
-    .duration(400)
-    .delay(function(d, i) {
-      return i * 40;
-    }) // <-- delay as a function of i
-    .attr('r', function(d, i) {
-      return rings[3 - i].radius;
-    });
+  if (isFirstRender) {
+    const filter = defs
+      .append('filter')
+      .attr('x', 0)
+      .attr('y', 0)
+      .attr('width', 1)
+      .attr('height', 1)
+      .attr('id', 'solid');
+    filter.append('feFlood').attr('flood-color', 'rgb(0, 0, 0, 0.8)');
+    filter.append('feComposite').attr('in', 'SourceGraphic');
 
-  // layer for entries
-  const rink = radar.append('g').attr('id', 'rink');
+    // draw rings
+    for (let i = 3; i >= 0; i--) {
+      grid
+        .append('circle')
+        .attr('class', 'ring')
+        .attr('cx', 0)
+        .attr('cy', 0)
+        .attr('r', 0)
+        .style('fill', config.rings[i].backgroundColor)
+        // .style('stroke', config.colors.grid)
+        .style('stroke-width', 1);
+    }
 
-  // rollover bubble (on top of everything else)
-  const bubble = radar
-    .append('g')
-    .attr('id', 'bubble')
-    .attr('x', 0)
-    .attr('y', 0)
-    .style('opacity', 0)
-    .style('pointer-events', 'none')
-    .style('user-select', 'none');
-  bubble
-    .append('rect')
-    .attr('rx', 4)
-    .attr('ry', 4)
-    .style('fill', '#333');
-  bubble
-    .append('text')
-    .style('font-family', 'sans-serif')
-    .style('font-size', '14px')
-    .style('fill', '#fff');
-  bubble
-    .append('path')
-    .attr('d', 'M 0,0 10,0 5,8 z')
-    .style('fill', '#333');
+    //cover lines for ring names
+    grid
+      .append('line')
+      .attr('x1', -maxRadius)
+      .attr('y1', 0)
+      .attr('x2', maxRadius)
+      .attr('y2', 0)
+      .style('stroke', '#fff')
+      .style('stroke-width', AXIS_STROKE_WIDTH)
+      .style('opacity', 0.3);
+
+    grid
+      .append('line')
+      .attr('x1', 0)
+      .attr('y1', -maxRadius)
+      .attr('x2', 0)
+      .attr('y2', -AXIS_STROKE_WIDTH / 2)
+      .style('stroke', '#fff')
+      .style('stroke-width', AXIS_STROKE_WIDTH)
+      .style('opacity', 0.3);
+
+    grid
+      .append('line')
+      .attr('x1', 0)
+      .attr('y1', AXIS_STROKE_WIDTH / 2)
+      .attr('x2', 0)
+      .attr('y2', maxRadius)
+      .style('stroke', '#fff')
+      .style('stroke-width', AXIS_STROKE_WIDTH)
+      .style('opacity', 0.3);
+
+    //ring names displaying
+    if (!isFullSize) {
+      for (let i = 3; i >= 0; i--) {
+        grid
+          .append('text')
+          .text(config.rings[i].name)
+          .attr('x', rings[i].radius - 62)
+          .attr('text-anchor', 'middle')
+          .style('fill', '#000')
+          .style('transform', 'translateY(4px)')
+          .style('font-family', 'Arial, Helvetica')
+          .style('font-size', 12)
+          .style('font-weight', 'bold')
+          .style('pointer-events', 'none')
+          .style('user-select', 'none');
+
+        grid
+          .append('text')
+          .text(config.rings[i].name)
+          .attr('x', -rings[i].radius + 62)
+          .attr('text-anchor', 'middle')
+          .style('fill', '#000')
+          .style('transform', 'translateY(4px)')
+          .style('font-family', 'Arial, Helvetica')
+          .style('font-size', '12px')
+          .style('font-weight', 'bold')
+          .style('pointer-events', 'none')
+          .style('user-select', 'none');
+      }
+    }
+
+    if (isFullSize) {
+      // in full size draw boxes on top for hover effect
+      getHoverPolygons(maxRadius).forEach((p, i) => {
+        const polygons = svg
+          .append('polygon')
+          .attr('data-testid', `quadrant-${i}`)
+          .attr('cursor', 'pointer')
+          .attr('class', 'quadrant-hover')
+          .attr('fill', '#fff')
+          .attr('opacity', 0)
+          .attr('points', p.map(({ x, y }) => `${x}, ${y}`).join(' '))
+          .on('click', function() {
+            redirect(getQuadrantName(i));
+          });
+
+        if (isNotMobile) {
+          polygons
+            .on('mouseover', function() {
+              svg.selectAll('.quadrant-hover').attr('opacity', '0.3');
+              this.setAttribute('opacity', '0');
+            })
+            .on('mouseout', function() {
+              svg.selectAll('.quadrant-hover').attr('opacity', '0');
+            });
+        }
+      });
+    }
+
+    d3.selectAll('.ring')
+      .transition()
+      .duration(400)
+      .delay(function(d, i) {
+        return i * 40;
+      }) // <-- delay as a function of i
+      .attr('r', function(d, i) {
+        return rings[3 - i].radius;
+      });
+  }
+
+  // // layer for entries
+  const rink: d3.Selection<
+    SVGGElement,
+    unknown,
+    null,
+    undefined
+  > = isFirstRender
+    ? radar.append('g').attr('id', 'rink')
+    : radar.select('#rink');
+
+  rink.selectAll('.blip').remove();
+
+  if (isFirstRender) {
+    // rollover bubble (on top of everything else)
+    const bubble = radar
+      .append('g')
+      .attr('id', 'bubble')
+      .attr('data-testid', 'radar-bubble')
+      .attr('x', 0)
+      .attr('y', 0)
+      .style('opacity', 0)
+      .style('pointer-events', 'none')
+      .style('user-select', 'none');
+    bubble
+      .append('rect')
+      .attr('rx', 4)
+      .attr('ry', 4)
+      .style('fill', '#333');
+    bubble
+      .append('text')
+      .style('font-family', 'sans-serif')
+      .style('font-size', '14px')
+      .style('fill', '#fff');
+    bubble
+      .append('path')
+      .attr('d', 'M 0,0 10,0 5,8 z')
+      .style('fill', '#333');
+  }
 
   const mouseOverListener = (technology: Technology) => {
     showBubble(technology);
@@ -455,11 +473,6 @@ export const radar_visualization = (
 
       blip.attr('data-testid', technology.name);
       blip.style('cursor', 'pointer');
-
-      // blip link
-      // if (technology.active && technology.hasOwnProperty('link')) {
-      //   blip.append('a').attr('xlink:href', technology.link);
-      // }
 
       // blip shape
       if (technology.moved > 0) {
