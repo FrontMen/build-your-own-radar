@@ -31,10 +31,10 @@ export const d3Config = {
     Assess: 'Worth exploring with the goal of understanding how it will affect your enterprise.',
     Hold: 'Proceed with caution.',
   },
-  rings: [
-    { name: 'Adopt', color: '#17a2b8', backgroundColor: '#BFC0BF' } as const,
-    { name: 'Trial', color: '#17a2b8', backgroundColor: '#CBCCCB' } as const,
-    { name: 'Assess', color: '#17a2b8', backgroundColor: '#D7D8D6' } as const,
-    { name: 'Hold', color: '#17a2b8', backgroundColor: '#E4E5E4' } as const,
-  ],
+  rings: {
+    Adopt: { color: '#17a2b8', backgroundColor: '#BFC0BF', num: 0 } as const,
+    Trial: { color: '#17a2b8', backgroundColor: '#CBCCCB', num: 1 } as const,
+    Assess: { color: '#17a2b8', backgroundColor: '#D7D8D6', num: 2 } as const,
+    Hold: { color: '#17a2b8', backgroundColor: '#E4E5E4', num: 3 } as const,
+  }
 };
