@@ -535,7 +535,7 @@ export const radar_visualization = (
 
       if (!isFullSize) {
         // blip text
-        const blip_text = technology.id!.toString();
+        const blip_text = technology.id || '';
         blip
           .append('text')
           .text(blip_text)
