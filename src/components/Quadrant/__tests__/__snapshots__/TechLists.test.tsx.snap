@@ -35,7 +35,6 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
 }
 
 .c3 {
-  color: #1ebccd;
   padding-right: 4px;
   font-size: 2em;
   vertical-align: sub;
