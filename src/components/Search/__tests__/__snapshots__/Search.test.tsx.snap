@@ -64,6 +64,7 @@ exports[`Search render search icon and input field 1`] = `
 <div>
   <div
     class="c0"
+    data-testid="subnav-search-container"
   >
     <div
       class="c1"

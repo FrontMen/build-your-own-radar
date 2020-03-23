@@ -1,7 +1,7 @@
 import React, { useContext, useMemo, useState } from 'react';
 import styled from 'styled-components/macro';
 import { MediaQueries } from 'src/Theme/Helpers';
-import { useParams } from 'react-router';
+import { Redirect, useParams } from 'react-router';
 
 import { MainContentSlot } from 'src/components/shared/PageSlots';
 import { TechLists } from './TechLists';
@@ -12,7 +12,7 @@ import { ContentTitle } from 'src/components/shared/ContentTitle';
 import { filterByCompanyContext } from 'src/ContextProviders/FilterByCompanyContextProvider';
 import { SubNav } from 'src/components/SubNav';
 import { useQueryAsState } from 'src/hooks/useQueryAsState';
-import { GoogleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
+import { googleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
 
 const Slot = styled(MainContentSlot)`
   display: flex;
@@ -45,9 +45,9 @@ export const Quadrant = () => {
   const quadrantNum: number = d3Config.quadrants.findIndex(
     (item: { route: string }) => item.route === quadrantParam,
   );
-  const { color: quadrantColor, name: quadrantName } = d3Config.quadrants[quadrantNum];
+  const { color: quadrantColor, name: quadrantName } = d3Config.quadrants[quadrantNum] || {};
 
-  const { data: technologies } = useContext(GoogleSheetsContext);
+  const { data: technologies } = useContext(googleSheetsContext);
   const { state: selectedCompanies } = useContext(filterByCompanyContext);
   const [highlighted, setHighlighted] = useState<null | string>(null);
   const [selected, setSelected] = useQueryAsState();
@@ -62,12 +62,14 @@ export const Quadrant = () => {
     [quadrantNum, technologies, selectedCompanies],
   );
 
-  return (
+  return quadrantName ? (
     <Slot>
       <SubNav setHighlighted={setHighlighted} />
       <Content>
         <Article>
-          <ContentTitle>{quadrantName}</ContentTitle>
+          <ContentTitle data-testid="quadrant-content-title">
+            {quadrantName}
+          </ContentTitle>
           {data.length ? (
             <TechLists
               data-testid="tech-lists"
@@ -80,21 +82,27 @@ export const Quadrant = () => {
               color={quadrantColor}
             />
           ) : (
-            <p>
+            <p data-testid="quadrant-no-content">
               You have no datasets selected. The graph is sad{' '}
-              <span role="img" aria-label="crying smile">😢</span>
+              <span role="img" aria-label="crying smile">
+                😢
+              </span>
             </p>
           )}
         </Article>
-        <Graph
-          data-testid="graph"
-          highlighted={highlighted}
-          quadrantNum={quadrantNum}
-          setHighlighted={setHighlighted}
-          setSelected={setSelected}
-          technologies={data}
-        />
+        {!!data.length && (
+          <Graph
+            data-testid="graph"
+            highlighted={highlighted}
+            quadrantNum={quadrantNum}
+            setHighlighted={setHighlighted}
+            setSelected={setSelected}
+            technologies={data}
+          />
+        )}
       </Content>
     </Slot>
+  ) : (
+    <Redirect to="not-found" />
   );
 };

@@ -1,49 +1,6 @@
 import { d3Config } from 'src/utils/d3-config';
 
-type IncomingGoogleSheetsData = {
-  sheets: IncomingSheet[];
-};
-
-type IncomingSheet = {
-  properties: {
-    title: string;
-  };
-  data: [
-    {
-      rowData: [KeyRowValues, ...RowValues[]];
-    },
-  ];
-};
-
-type RowValues = { values: EffectiveValue[] };
-type KeyRowValues = { values: KeyEffectiveValue[] };
-
-type KeyEffectiveValue = {
-  effectiveValue: { stringValue: MappedDataRowKey };
-};
-type EffectiveValue = {
-  effectiveValue: { stringValue?: string; boolValue?: boolean };
-};
-
-interface MappedDataRow {
-  name: string;
-  quadrant: string;
-  ring: RingNamesType;
-  isNew: boolean;
-  description: string;
-  'ITR BE': string;
-  'ITR NL': string;
-  FM: string;
-  'In radar?'?: 'Y' | 'N';
-}
-
-type MappedDataRowKey = keyof MappedDataRow;
-
-interface ParsedGoogleSheets {
-  [K: string]: Technology[];
-}
-
-export function ParseGoogleSheetsApiResponse(
+export function parseGoogleSheetsApiResponse(
   sheets: IncomingGoogleSheetsData,
 ): ParsedGoogleSheets {
   return sheets.sheets.reduce((acc: ParsedGoogleSheets, sheet) => {
@@ -79,6 +36,9 @@ function flattenSheet(sheet: IncomingSheet) {
 function getSheetTableHeaders(row: KeyRowValues) {
   // TODO: This should probably throw an error if the cell doesn't contain a string, Not sure how to Type that.
   return row.values.map(({ effectiveValue }) => {
+    if (!effectiveValue) {
+      throw new Error('Sheet table headers should have names, please fix data source');
+    }
     return effectiveValue.stringValue!;
   });
 }

@@ -20,10 +20,16 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettier": "prettier --write 'src/**/*.ts'"
+    "prettier": "prettier --write 'src/**/*.ts'",
+    "cy:test": "cypress open",
+    "cy:run": "cypress run"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "globals": {
+      "Cypress": true,
+      "cy": true
+    }
   },
   "browserslist": {
     "production": [
@@ -55,7 +61,7 @@
     "@types/styled-components": "^5.0.0",
     "@types/webfontloader": "^1.6.29",
     "csvtojson": "^2.0.10",
-    "cypress": "^4.0.2",
+    "cypress": "^4.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "jest": "^25.1.0",

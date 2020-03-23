@@ -1,4 +1,4 @@
-/* 
+/*
   Opted to use the http API so as to not pull in any google scripts unnecessarily.
   To play with the google API go to:
   https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/get?apix=true&cf_lbyyhhwhyjj5l3rs65cb3w=tn4ndag841q5atgdz5vdj&apix_params=%7B%22spreadsheetId%22%3A%221V2DJEiF7vmx-zhh4_kyUmDsUVF7zt40SSkkKDRoJXug%22%2C%22includeGridData%22%3Afalse%2C%22ranges%22%3A%5B%22A%3AI%22%5D%2C%22fields%22%3A%22sheets.properties.title%2Csheets.data.rowData.values.effectiveValue%22%7D

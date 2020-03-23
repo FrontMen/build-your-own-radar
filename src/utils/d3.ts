@@ -183,20 +183,9 @@ const getHoverPolygons = (maxRadius: number) => [
   ],
 ];
 
-const getQuadrantName = (quadrant: number) => {
-  switch (quadrant) {
-    case 0:
-      return d3Config.quadrants[2].route;
-    case 1:
-      return d3Config.quadrants[3].route;
-    case 2:
-      return d3Config.quadrants[0].route;
-    case 3:
-      return d3Config.quadrants[1].route;
-    default:
-      throw new Error('incorrect quadrant, it should be in range from 0 to 3');
-  }
-};
+//order of quadrants in config is 2 3 0 1, so rotating twice
+const getQuadrantRoute = (quadrant: number) =>
+  d3Config.quadrants[(2 + quadrant) % 4].route;
 
 const drawLegend = (radar: any, quadrant: number, maxRadius: number) => {
   removeLegend();
@@ -413,7 +402,7 @@ export const radar_visualization = (
           .attr('opacity', 0)
           .attr('points', p.map(({ x, y }) => `${x}, ${y}`).join(' '))
           .on('click', function() {
-            redirect(getQuadrantName(i));
+            redirect(getQuadrantRoute(i));
           });
 
         if (isNotMobile) {

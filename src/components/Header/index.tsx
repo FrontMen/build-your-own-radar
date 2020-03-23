@@ -31,13 +31,11 @@ const PageTitle = styled.h1`
   }
 `;
 
-export const Header = () => {
-  return (
-    <Slot>
-      <StylelessLink to={'/'}>
-        <PageTitle>Tech Radar</PageTitle>
-      </StylelessLink>
-      <Logo />
-    </Slot>
-  );
-};
+export const Header = () => (
+  <Slot>
+    <StylelessLink to="/" data-testid="home-link">
+      <PageTitle>Tech Radar</PageTitle>
+    </StylelessLink>
+    <Logo />
+  </Slot>
+);

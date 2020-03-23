@@ -7,7 +7,7 @@ import { ContentTitle } from 'src/components/shared/ContentTitle';
 import { d3Config } from 'src/utils/d3-config';
 import { Typography } from 'src/Theme/Typography';
 import { Graph } from 'src/components/Graph';
-import { GoogleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
+import { googleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
 
 const Intro = styled.div`
   margin: auto;
@@ -59,12 +59,16 @@ const StyledLinks = styled(Link)`
 
 export const Home: React.FC = () => {
   const quads = d3Config.quadrants;
-  const { data: technologies } = useContext(GoogleSheetsContext);
-  
+  const { data: technologies } = useContext(googleSheetsContext);
+  if (!technologies.length) {
+    return  null;
+  }
   return (
-    <MainContentSlot data-testid="home-title">
+    <MainContentSlot>
       <Intro>
-        <ContentTitle>Whats this all about?</ContentTitle>
+        <ContentTitle data-testid="home-title">
+          Whats this all about?
+        </ContentTitle>
         <Content>
           Consequat incididunt in occaecat reprehenderit culpa elit. Est
           cupidatat ex dolore duis do aliquip magna ullamco anim. Fugiat non eu
@@ -74,7 +78,7 @@ export const Home: React.FC = () => {
       <Graph highlighted={null} technologies={technologies} fullSize />
       <Quads>
         {quads.map((quad, i) => (
-          <Quadrant key={i}>
+          <Quadrant key={i} data-testid={`quadrant-container-${i}`}>
             <ContentTitle>{quad.name}</ContentTitle>
             <Content>
               Ex tempor nulla est nostrud non consectetur enim commodo. Elit
