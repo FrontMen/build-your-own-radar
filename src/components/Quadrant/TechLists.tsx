@@ -10,6 +10,7 @@ export interface TechnologiesListProps {
   selected: string | null;
   setSelected: (a: string | null) => void;
   quadrant: string;
+  color: string;
 }
 
 export const TechLists: React.FC<TechnologiesListProps> = ({
@@ -19,6 +20,7 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
   selected,
   setSelected,
   quadrant,
+  color,
 }) => {
   const data = useMemo(
     () =>
@@ -44,7 +46,7 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
       {Object.entries(data).map(([ring, technologiesInRing]) => (
         <Ring key={ring}>
           <Title>
-            <Dot>●</Dot>
+            <Dot color={color}>●</Dot>
             {ring}
             <Tooltip>?
               <span>

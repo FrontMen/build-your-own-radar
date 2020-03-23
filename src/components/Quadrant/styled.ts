@@ -35,8 +35,8 @@ export const List = styled.ul`
   margin: 0;
 `;
 
-export const Dot = styled.span`
-  color: ${props => props.theme.pallet.blueLight};
+export const Dot = styled.span<{ color: string }>`
+  color: ${props => props.color};
   padding-right: 4px;
   font-size: 2em;
   vertical-align: sub;
