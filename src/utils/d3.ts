@@ -99,17 +99,16 @@ const segment = (quadrant: number, ring: number) => {
 
 const translate = (x: number, y: number) => `translate(${x},${y})`;
 
-const viewbox = (quadrant: number, maxRadius: number) =>
-  [
-    Math.max(0, quadrants[quadrant].factor_x * maxRadius) -
-      maxRadius -
-      AXIS_STROKE_WIDTH / 2,
-    Math.max(0, quadrants[quadrant].factor_y * maxRadius) -
-      maxRadius -
-      AXIS_STROKE_WIDTH / 2,
-    maxRadius + AXIS_STROKE_WIDTH,
-    maxRadius + AXIS_STROKE_WIDTH,
-  ];
+const viewbox = (quadrant: number, maxRadius: number) => [
+  Math.max(0, quadrants[quadrant].factor_x * maxRadius) -
+    maxRadius -
+    AXIS_STROKE_WIDTH / 2,
+  Math.max(0, quadrants[quadrant].factor_y * maxRadius) -
+    maxRadius -
+    AXIS_STROKE_WIDTH / 2,
+  maxRadius + AXIS_STROKE_WIDTH,
+  maxRadius + AXIS_STROKE_WIDTH,
+];
 
 export const showBubble = (technology: Technology) => {
   const tooltip = d3
@@ -206,50 +205,47 @@ const drawLegend = (radar: any, quadrant: number, maxRadius: number) => {
   const X = x + dx;
   const Y = y + dy;
 
-  const legendContainer = radar
-  .append('g')
-  .attr('id', 'radar-legend')
+  const legendContainer = radar.append('g').attr('id', 'radar-legend');
 
   legendContainer
-  .append('path')
-  .attr('d', 'M -8,5 8,5 0,-10 z')
-  .attr("transform", `translate(${X},${Y})`);
+    .append('path')
+    .attr('d', 'M -8,5 8,5 0,-10 z')
+    .attr('transform', `translate(${X},${Y})`);
 
   legendContainer
-  .append("text")
-  .attr("x", X + 15)
-  .attr("y", Y + 2)
-  .attr("font-size", "0.7em")
-  .text("New or Moved")
+    .append('text')
+    .attr('x', X + 15)
+    .attr('y', Y + 2)
+    .attr('font-size', '0.7em')
+    .text('New or Moved');
 
   legendContainer
-  .append("circle")
-  .attr("r", "7")
-  .attr("transform", `translate(${X},${Y + 20})`);
+    .append('circle')
+    .attr('r', '7')
+    .attr('transform', `translate(${X},${Y + 20})`);
 
   legendContainer
-  .append("text")
-  .attr("x", X + 15)
-  .attr("y", Y + 25)
-  .attr("font-size", "0.7em")
-  .text("No Change")
-  
-}
+    .append('text')
+    .attr('x', X + 15)
+    .attr('y', Y + 25)
+    .attr('font-size', '0.7em')
+    .text('No Change');
+};
 
 const removeLegend = () => {
   d3.select('#radar-legend').remove();
-}
+};
 
 const translateLegend = (quadrant: number) => {
   const { factor_x, factor_y } = quadrants[quadrant];
   const translationFactor = 260;
   const paddingX = 40;
   const paddingY = 70;
-  const dx = factor_x > 0 ? translationFactor + paddingX : paddingX; 
+  const dx = factor_x > 0 ? translationFactor + paddingX : paddingX;
   const dy = factor_y > 0 ? translationFactor + paddingY : paddingY;
 
   return [dx, dy];
-}
+};
 
 export interface RadarVisualizationParams {
   quadrantNum?: number;
@@ -274,7 +270,9 @@ export const radar_visualization = (
     .style('background-color', config.colors.background);
 
   // partition entries according to segments
-  const segmented: Segmented = [...Array(NUMBER_OF_RINGS)].map(() => [...Array(NUMBER_OF_RINGS)].map(() => []));
+  const segmented: Segmented = [...Array(NUMBER_OF_RINGS)].map(() =>
+    [...Array(NUMBER_OF_RINGS)].map(() => []),
+  );
 
   // position each entry randomly in its segment
   data.forEach(technology => {
@@ -292,12 +290,12 @@ export const radar_visualization = (
   // assign unique sequential id to each entry
   let tempId = 1;
   let currentQuadrant = data.length > 0 ? data[0].quadrant : 0;
-  const setId = (technology: Technology) => technology.id = '' + tempId++;
+  const setId = (technology: Technology) => (technology.id = '' + tempId++);
 
-    for (let ring = 0; ring < NUMBER_OF_RINGS; ring++) {
+  for (let ring = 0; ring < NUMBER_OF_RINGS; ring++) {
     const entries = segmented[currentQuadrant][ring];
-      entries.sort(sortTechnologyByName).forEach(setId);
-    }
+    entries.sort(sortTechnologyByName).forEach(setId);
+  }
 
   const isFirstRender = !svg.html();
   const radar = isFirstRender ? svg.append('g') : svg.select('g');
@@ -307,7 +305,7 @@ export const radar_visualization = (
       .transition()
       .duration(500)
       .attr('viewBox', viewbox(quadrantProp, maxRadius).join(' '));
-    
+
     drawLegend(radar, quadrantProp, maxRadius);
   } else {
     svg.attr('viewBox', `0 0 ${maxRadius * 2} ${maxRadius * 2}`);

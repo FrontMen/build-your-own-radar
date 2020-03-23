@@ -59,7 +59,7 @@ export const Tooltip = styled.span`
     span {
       visibility: visible;
       opacity: 1;
-    } 
+    }
   }
 
   span {
@@ -68,7 +68,7 @@ export const Tooltip = styled.span`
     font-size: 14px;
     font-weight: 700;
     width: 270px;
-    background: rgba(0,0,0,.8);
+    background: rgba(0, 0, 0, 0.8);
     color: ${props => props.theme.pallet.white};
     border-radius: 6px;
     padding: 10px 15px;
@@ -80,14 +80,15 @@ export const Tooltip = styled.span`
     transition: opacity 0.3s;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 100%;
       left: 50%;
       margin-left: -64px;
       border-width: 5px;
       border-style: solid;
-      border-color: ${props => props.theme.pallet.grayDark} transparent transparent transparent;
+      border-color: ${props => props.theme.pallet.grayDark} transparent
+        transparent transparent;
     }
   }
 `;
