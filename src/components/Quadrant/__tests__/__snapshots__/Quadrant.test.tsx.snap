@@ -537,9 +537,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
         <div
           class="c20"
         >
-          <svg
-            viewBox="-8 -408 416 416"
-          >
+          <svg>
             <g>
               <g>
                 <defs>
@@ -668,6 +666,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                 id="rink"
               />
               <g
+                data-testid="radar-bubble"
                 id="bubble"
                 style="opacity: 0; pointer-events: none; user-select: none;"
                 transform="translate(0,0)"
@@ -1233,9 +1232,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
         <div
           class="c20"
         >
-          <svg
-            viewBox="-8 -408 416 416"
-          >
+          <svg>
             <g>
               <g>
                 <defs>
@@ -1364,6 +1361,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                 id="rink"
               />
               <g
+                data-testid="radar-bubble"
                 id="bubble"
                 style="opacity: 0; pointer-events: none; user-select: none;"
                 transform="translate(0,0)"
