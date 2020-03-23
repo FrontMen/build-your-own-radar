@@ -1,41 +1,7 @@
 import React, { useMemo } from 'react';
-import styled from 'styled-components';
-import { Typography } from 'src/Theme/Typography';
-import { MediaQueries } from 'src/Theme/Helpers';
+import { Section, Ring, Title, List, Dot, Tooltip } from './styled';
+import { d3Config } from 'src/utils/d3-config';
 import { TechItem } from './TechItem';
-
-const Section = styled.div`
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const Ring = styled.div`
-  min-width: 12rem;
-  padding-right: ${props => props.theme.space[3]}px;
-  margin-bottom: ${props => props.theme.space[4]}px;
-  break-inside: avoid;
-
-  @media ${MediaQueries.phablet} {
-    width: 50%;
-  }
-`;
-
-const Title = styled.h3`
-  ${Typography.header};
-  font-size: ${props => props.theme.fontSize[0]};
-  margin: 0;
-  margin-bottom: ${props => props.theme.space[2]}px;
-
-  @media ${MediaQueries.phablet} {
-    font-size: ${props => props.theme.fontSize[1]};
-  }
-`;
-
-const List = styled.ul`
-  padding-left: 0;
-  margin: 0;
-`;
 
 export interface TechnologiesListProps {
   technologies: Technology[];
@@ -44,6 +10,7 @@ export interface TechnologiesListProps {
   selected: string | null;
   setSelected: (a: string | null) => void;
   quadrant: string;
+  color: string;
 }
 
 export const TechLists: React.FC<TechnologiesListProps> = ({
@@ -53,6 +20,7 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
   selected,
   setSelected,
   quadrant,
+  color,
 }) => {
   const data = useMemo(
     () =>
@@ -77,7 +45,15 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
     <Section>
       {Object.entries(data).map(([ring, technologiesInRing]) => (
         <Ring key={ring}>
-          <Title>{ring}</Title>
+          <Title>
+            <Dot color={color}>●</Dot>
+            {ring}
+            <Tooltip>?
+              <span>
+                {d3Config.tooltips[ring as RingNamesType]}
+              </span>
+            </Tooltip>
+          </Title>
           <List>
             {technologiesInRing.map(technology => (
               <TechItem

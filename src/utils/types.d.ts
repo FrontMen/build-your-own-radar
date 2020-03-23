@@ -14,7 +14,7 @@ interface Segment {
   random: () => Point;
 }
 
-type RingNamesType = 'Adopt' | 'Trail' | 'Assess' | 'Hold';
+type RingNamesType = 'Adopt' | 'Trial' | 'Assess' | 'Hold';
 type CompanyTypes = 'ITR_BE' | 'ITR_NL' | 'FM';
 
 interface Technology extends Partial<Point> {
@@ -24,10 +24,6 @@ interface Technology extends Partial<Point> {
   isNew: boolean;
   description: string;
   companies: CompanyTypes[];
-  /*
-  active: boolean;
-  link: string;
-  */
   description: string;
   moved: number;
   segment?: Segment;
