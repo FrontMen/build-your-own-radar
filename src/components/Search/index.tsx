@@ -2,6 +2,9 @@ import React, { useMemo, useState, useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { IoIosSearch } from 'react-icons/io';
+import Fuse from 'fuse.js';
+import Groupby from 'lodash.groupby';
+
 
 import { Typography } from 'src/Theme/Typography';
 import { MediaQueries } from 'src/Theme/Helpers';
@@ -84,13 +87,22 @@ const Technology = styled(Link)`
   }
 `;
 
+const options = {
+  keys: [{ name: 'name', weight: 0.7 }, { name: 'description', weight: 0.3 }],
+  threshold: 0.3,
+  minMatchCharLength: 2,
+};
+
 export interface SearchProps {
   setHighlighted: (a: string | null) => void;
 }
 
+export interface fuseResult {
+  item: Technology,
+};
+
 export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
   const { data: technologies } = useContext(GoogleSheetsContext);
-  const { quadrant } = useParams<QuadParamType>();
   const { quadrant: quadrantParam } = useParams<QuadParamType>();
 
   const quadrantNum: number = d3Config.quadrants.findIndex(
@@ -98,29 +110,13 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
   );
 
   const [value, setValue] = useState<string>('');
-
-  const data = useMemo(
-    () =>
-      !value.length
-        ? []
-        : technologies
-            .filter(t => t.name.toLocaleLowerCase().includes(value))
-            .reduce(
-              (acc, tech) => {
-                const ringName = tech.ring;
-                if (acc[ringName]) {
-                  acc[ringName].push(tech);
-                } else {
-                  acc[ringName] = [tech];
-                }
-                return acc;
-              },
-              {} as {
-                [key: string]: Technology[];
-              },
-            ),
-    [value, technologies],
-  );
+  const fuse = new Fuse(technologies, options);
+  // @ts-ignore
+  const results: fuseResult[] = fuse.search(value);
+  const data = useMemo(() => {
+    if (value.length < 2) return [];
+    return Groupby(results.map(tech => tech.item), 'ring')
+  }, [value, results])
 
   return (
     <Container>
@@ -129,34 +125,36 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
           data-testid="search-input"
           value={value}
           onChange={e => setValue(e.target.value)}
-          placeholder={'Looking for a technology?'}
+          placeholder={'Search...'}
         />
       </InputContainer>
       <SearchIcon data-testid="search-icon" />
-      {!!Object.keys(data).length && (
+      {Object.keys(data).length > 0 && (
         <DropDownContainer data-testid="search-content">
-          {Object.entries(data).map(([ringName, techArray]) => (
-            <React.Fragment key={ringName}>
-              <RingName data-testid="search-ringName">{ringName}</RingName>
-              <div>
-                {techArray.map(technology => (
-                  <Technology
-                    data-testid="search-technology"
-                    key={technology.name}
-                    to={`/${d3Config.quadrants[technology.quadrant].route}`}
-                    onClick={() => {
-                      if (technology.quadrant !== quadrantNum) {
-                        setValue('');
-                      }
-                      setHighlighted(technology.name);
-                    }}
-                  >
-                    {technology.name}
-                  </Technology>
-                ))}
-              </div>
-            </React.Fragment>
-          ))}
+          {
+            Object.entries(data).map(([ringName, techArray]) => 
+              <React.Fragment key={ringName}>
+                <RingName data-testid="search-ringName">{ringName}</RingName>
+                <div>
+                  {
+                    // @ts-ignore
+                    techArray.map((technology: any) => (
+                    <Technology
+                      data-testid="search-technology"
+                      key={technology.name}
+                      to={`/${d3Config.quadrants[technology.quadrant].route}`}
+                      onClick={() => {
+                        if (technology.quadrant !== quadrantNum) setValue('');
+                        setHighlighted(technology.name);
+                      }}
+                    >
+                      {technology.name}
+                    </Technology>
+                  ))}
+                </div>
+              </React.Fragment>
+            )
+          }
         </DropDownContainer>
       )}
     </Container>
