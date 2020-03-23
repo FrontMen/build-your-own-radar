@@ -45,8 +45,7 @@ export const Quadrant = () => {
   const quadrantNum: number = d3Config.quadrants.findIndex(
     (item: { route: string }) => item.route === quadrantParam,
   );
-
-  const quadrantName = d3Config.quadrants[quadrantNum]?.name;
+  const { color: quadrantColor, name: quadrantName } = d3Config.quadrants[quadrantNum] || {};
 
   const { data: technologies } = useContext(googleSheetsContext);
   const { state: selectedCompanies } = useContext(filterByCompanyContext);
@@ -80,6 +79,7 @@ export const Quadrant = () => {
               highlighted={highlighted}
               setHighlighted={setHighlighted}
               technologies={data}
+              color={quadrantColor}
             />
           ) : (
             <p data-testid="quadrant-no-content">

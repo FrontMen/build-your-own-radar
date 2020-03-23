@@ -1,64 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
-.c23 {
-  list-style: none;
-  width: 100%;
-  -webkit-break-inside: avoid;
-  break-inside: avoid;
-  overflow: hidden;
-}
-
-.c25 {
-  max-height: 0px;
-  overflow: hidden;
-  background-color: #f8f9fa;
-}
-
-.c26 {
-  padding: 8px;
-  overflow: hidden;
-}
-
-.c24 {
-  font-family: Roboto,san-serif;
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 1.65;
-  display: block;
-  cursor: pointer;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  color: inherit;
-  padding: 2px;
-}
-
-.c27 {
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 8px;
-  width: 100%;
-  color: #526de4;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-weight: 400;
-  font-size: 0.9em;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c28 {
-  height: 2em;
-  width: 2em;
-}
-
 .c19 {
   width: 100%;
   display: -webkit-box;
@@ -82,17 +24,131 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   font-family: Montserrat,san-serif;
   font-weight: 700;
   line-height: 1.15;
-  font-size: 1em;
+  font-size: 1;
   margin: 0;
   margin-bottom: 8px;
 }
 
-.c22 {
+.c24 {
   padding-left: 0;
   margin: 0;
 }
 
+.c22 {
+  color: #7843ab;
+  padding-right: 4px;
+  font-size: 2em;
+  vertical-align: sub;
+}
+
+.c23 {
+  background-color: #bfc0bf;
+  position: relative;
+  display: inline-block;
+  line-height: 22px;
+  width: 22px;
+  margin-left: 12px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.c23:hover span {
+  visibility: visible;
+  opacity: 1;
+}
+
+.c23 span {
+  visibility: hidden;
+  position: absolute;
+  font-size: 14px;
+  font-weight: 700;
+  width: 270px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  border-radius: 6px;
+  padding: 10px 15px;
+  text-align: left;
+  z-index: 1;
+  bottom: 130%;
+  margin-left: -80px;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.c23 span::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -64px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #343a40 transparent transparent transparent;
+}
+
+.c25 {
+  list-style: none;
+  width: 100%;
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
+  overflow: hidden;
+}
+
+.c27 {
+  max-height: 0px;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+.c28 {
+  padding: 8px;
+  overflow: hidden;
+}
+
+.c26 {
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  display: block;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  padding: 2px;
+}
+
 .c29 {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 8px;
+  width: 100%;
+  color: #526de4;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 400;
+  font-size: 0.9em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c30 {
+  height: 2em;
+  width: 2em;
+}
+
+.c31 {
   width: 100%;
   max-width: 440px;
   min-width: 280px;
@@ -100,7 +156,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   margin: 0 auto 8px;
 }
 
-.c30 {
+.c32 {
   text-align: center;
 }
 
@@ -336,12 +392,6 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 }
 
 @media (min-width:481px) {
-  .c23 {
-    min-width: 9em;
-  }
-}
-
-@media (min-width:481px) {
   .c20 {
     width: 50%;
   }
@@ -349,26 +399,32 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 
 @media (min-width:481px) {
   .c21 {
-    font-size: 1.5em;
+    font-size: 1.5;
   }
 }
 
 @media (min-width:481px) {
-  .c29 {
+  .c25 {
+    min-width: 9em;
+  }
+}
+
+@media (min-width:481px) {
+  .c31 {
     max-width: 80%;
     margin-bottom: 16px;
   }
 }
 
 @media (min-width:1024px) {
-  .c29 {
+  .c31 {
     max-width: 50%;
     margin-bottom: 64px;
   }
 }
 
 @media (min-width:1024px) {
-  .c30 {
+  .c32 {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -651,38 +707,52 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
               class="c21"
               data-testid="ring-title-Trial"
             >
+              <span
+                class="c22"
+                color="#7843ab"
+              >
+                ●
+              </span>
               Trial
+              <span
+                class="c23"
+              >
+                ?
+                <span>
+                  Worth pursuing. It is important to understand how to build up this capability. Enterprises should try this technology on a project that can handle the risk.
+                </span>
+              </span>
             </h3>
             <ul
-              class="c22"
+              class="c24"
             >
               <li
-                class="c23"
+                class="c25"
                 data-testid="list-item-AMQP"
               >
                 <div
-                  class="c24"
+                  class="c26"
                   data-testid="label"
                 >
                   AMQP
                 </div>
                 <div
-                  class="c25"
+                  class="c27"
                   data-testid="details"
                 >
                   <div
-                    class="c26"
+                    class="c28"
                   >
                     <span>
                       Advanced Messaging Queueing Protocol (Apache Kafka, RabbitMQ, AWS SQS)
                     </span>
                     <a
-                      class="c27"
+                      class="c29"
                       href="/technique/amqp"
                     >
                       More 
                       <svg
-                        class="c28"
+                        class="c30"
                         data-testid="arrow-right-icon"
                         fill="currentColor"
                         height="1em"
@@ -705,16 +775,41 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
         </div>
       </div>
       <div
-        class="c29"
+        class="c31"
       >
         <div
-          class="c30"
+          class="c32"
         >
           <svg
             data-testid="graph"
-            viewBox="-8 -408 416 416"
           >
             <g>
+              <g
+                id="radar-legend"
+              >
+                <path
+                  d="M -6,5 6,5 0,-7 z"
+                  transform="translate(292,-338)"
+                />
+                <text
+                  font-size="0.6em"
+                  x="302"
+                  y="-335"
+                >
+                  New or Moved
+                </text>
+                <circle
+                  r="6"
+                  transform="translate(292,-323)"
+                />
+                <text
+                  font-size="0.6em"
+                  x="302"
+                  y="-319"
+                >
+                  No Change
+                </text>
+              </g>
               <g>
                 <defs>
                   <filter
@@ -784,56 +879,56 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
-                  x="338"
+                  x="68"
                 >
                   Hold
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
-                  x="-338"
+                  x="-68"
                 >
                   Hold
-                </text>
-                <text
-                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
-                  text-anchor="middle"
-                  x="248"
-                >
-                  Assess
-                </text>
-                <text
-                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
-                  text-anchor="middle"
-                  x="-248"
-                >
-                  Assess
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="158"
                 >
-                  Trial
+                  Assess
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="-158"
                 >
+                  Assess
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="248"
+                >
+                  Trial
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-248"
+                >
                   Trial
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
-                  x="68"
+                  x="338"
                 >
                   Adopt
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
-                  x="-68"
+                  x="-338"
                 >
                   Adopt
                 </text>
@@ -872,64 +967,6 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 `;
 
 exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
-.c23 {
-  list-style: none;
-  width: 100%;
-  -webkit-break-inside: avoid;
-  break-inside: avoid;
-  overflow: hidden;
-}
-
-.c25 {
-  max-height: 0px;
-  overflow: hidden;
-  background-color: #f8f9fa;
-}
-
-.c26 {
-  padding: 8px;
-  overflow: hidden;
-}
-
-.c24 {
-  font-family: Roboto,san-serif;
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 1.65;
-  display: block;
-  cursor: pointer;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  color: inherit;
-  padding: 2px;
-}
-
-.c27 {
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 8px;
-  width: 100%;
-  color: #526de4;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  font-weight: 400;
-  font-size: 0.9em;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c28 {
-  height: 2em;
-  width: 2em;
-}
-
 .c19 {
   width: 100%;
   display: -webkit-box;
@@ -953,17 +990,131 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   font-family: Montserrat,san-serif;
   font-weight: 700;
   line-height: 1.15;
-  font-size: 1em;
+  font-size: 1;
   margin: 0;
   margin-bottom: 8px;
 }
 
-.c22 {
+.c24 {
   padding-left: 0;
   margin: 0;
 }
 
+.c22 {
+  color: #7843ab;
+  padding-right: 4px;
+  font-size: 2em;
+  vertical-align: sub;
+}
+
+.c23 {
+  background-color: #bfc0bf;
+  position: relative;
+  display: inline-block;
+  line-height: 22px;
+  width: 22px;
+  margin-left: 12px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.c23:hover span {
+  visibility: visible;
+  opacity: 1;
+}
+
+.c23 span {
+  visibility: hidden;
+  position: absolute;
+  font-size: 14px;
+  font-weight: 700;
+  width: 270px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  border-radius: 6px;
+  padding: 10px 15px;
+  text-align: left;
+  z-index: 1;
+  bottom: 130%;
+  margin-left: -80px;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.c23 span::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -64px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #343a40 transparent transparent transparent;
+}
+
+.c25 {
+  list-style: none;
+  width: 100%;
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
+  overflow: hidden;
+}
+
+.c27 {
+  max-height: 0px;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+.c28 {
+  padding: 8px;
+  overflow: hidden;
+}
+
+.c26 {
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  display: block;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  padding: 2px;
+}
+
 .c29 {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 8px;
+  width: 100%;
+  color: #526de4;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 400;
+  font-size: 0.9em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c30 {
+  height: 2em;
+  width: 2em;
+}
+
+.c31 {
   width: 100%;
   max-width: 440px;
   min-width: 280px;
@@ -971,7 +1122,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   margin: 0 auto 8px;
 }
 
-.c30 {
+.c32 {
   text-align: center;
 }
 
@@ -1207,12 +1358,6 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 }
 
 @media (min-width:481px) {
-  .c23 {
-    min-width: 9em;
-  }
-}
-
-@media (min-width:481px) {
   .c20 {
     width: 50%;
   }
@@ -1220,26 +1365,32 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 
 @media (min-width:481px) {
   .c21 {
-    font-size: 1.5em;
+    font-size: 1.5;
   }
 }
 
 @media (min-width:481px) {
-  .c29 {
+  .c25 {
+    min-width: 9em;
+  }
+}
+
+@media (min-width:481px) {
+  .c31 {
     max-width: 80%;
     margin-bottom: 16px;
   }
 }
 
 @media (min-width:1024px) {
-  .c29 {
+  .c31 {
     max-width: 50%;
     margin-bottom: 64px;
   }
 }
 
 @media (min-width:1024px) {
-  .c30 {
+  .c32 {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -1522,38 +1673,52 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
               class="c21"
               data-testid="ring-title-Trial"
             >
+              <span
+                class="c22"
+                color="#7843ab"
+              >
+                ●
+              </span>
               Trial
+              <span
+                class="c23"
+              >
+                ?
+                <span>
+                  Worth pursuing. It is important to understand how to build up this capability. Enterprises should try this technology on a project that can handle the risk.
+                </span>
+              </span>
             </h3>
             <ul
-              class="c22"
+              class="c24"
             >
               <li
-                class="c23"
+                class="c25"
                 data-testid="list-item-AMQP"
               >
                 <div
-                  class="c24"
+                  class="c26"
                   data-testid="label"
                 >
                   AMQP
                 </div>
                 <div
-                  class="c25"
+                  class="c27"
                   data-testid="details"
                 >
                   <div
-                    class="c26"
+                    class="c28"
                   >
                     <span>
                       Advanced Messaging Queueing Protocol (Apache Kafka, RabbitMQ, AWS SQS)
                     </span>
                     <a
-                      class="c27"
+                      class="c29"
                       href="/technique/amqp"
                     >
                       More 
                       <svg
-                        class="c28"
+                        class="c30"
                         data-testid="arrow-right-icon"
                         fill="currentColor"
                         height="1em"
@@ -1576,16 +1741,41 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
         </div>
       </div>
       <div
-        class="c29"
+        class="c31"
       >
         <div
-          class="c30"
+          class="c32"
         >
           <svg
             data-testid="graph"
-            viewBox="-8 -408 416 416"
           >
             <g>
+              <g
+                id="radar-legend"
+              >
+                <path
+                  d="M -6,5 6,5 0,-7 z"
+                  transform="translate(292,-338)"
+                />
+                <text
+                  font-size="0.6em"
+                  x="302"
+                  y="-335"
+                >
+                  New or Moved
+                </text>
+                <circle
+                  r="6"
+                  transform="translate(292,-323)"
+                />
+                <text
+                  font-size="0.6em"
+                  x="302"
+                  y="-319"
+                >
+                  No Change
+                </text>
+              </g>
               <g>
                 <defs>
                   <filter
@@ -1655,56 +1845,56 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
-                  x="338"
+                  x="68"
                 >
                   Hold
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
-                  x="-338"
+                  x="-68"
                 >
                   Hold
-                </text>
-                <text
-                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
-                  text-anchor="middle"
-                  x="248"
-                >
-                  Assess
-                </text>
-                <text
-                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
-                  text-anchor="middle"
-                  x="-248"
-                >
-                  Assess
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="158"
                 >
-                  Trial
+                  Assess
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="-158"
                 >
+                  Assess
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="248"
+                >
+                  Trial
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-248"
+                >
                   Trial
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
-                  x="68"
+                  x="338"
                 >
                   Adopt
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
-                  x="-68"
+                  x="-338"
                 >
                   Adopt
                 </text>

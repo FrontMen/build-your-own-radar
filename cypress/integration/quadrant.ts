@@ -206,7 +206,7 @@ describe('quadrant', () => {
 
       dataTestId('tech-lists-section').should('exist');
 
-      d3Config.rings.forEach(({ name }) => {
+      Object.keys(d3Config.rings).forEach((name) => {
         dataTestId(`ring-title-${name}`)
           .should('exist')
           .parent()

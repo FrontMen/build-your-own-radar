@@ -99,17 +99,16 @@ const segment = (quadrant: number, ring: number) => {
 
 const translate = (x: number, y: number) => `translate(${x},${y})`;
 
-const viewbox = (quadrant: number, maxRadius: number) =>
-  [
-    Math.max(0, quadrants[quadrant].factor_x * maxRadius) -
-      maxRadius -
-      AXIS_STROKE_WIDTH / 2,
-    Math.max(0, quadrants[quadrant].factor_y * maxRadius) -
-      maxRadius -
-      AXIS_STROKE_WIDTH / 2,
-    maxRadius + AXIS_STROKE_WIDTH,
-    maxRadius + AXIS_STROKE_WIDTH,
-  ].join(' ');
+const viewbox = (quadrant: number, maxRadius: number) => [
+  Math.max(0, quadrants[quadrant].factor_x * maxRadius) -
+    maxRadius -
+    AXIS_STROKE_WIDTH / 2,
+  Math.max(0, quadrants[quadrant].factor_y * maxRadius) -
+    maxRadius -
+    AXIS_STROKE_WIDTH / 2,
+  maxRadius + AXIS_STROKE_WIDTH,
+  maxRadius + AXIS_STROKE_WIDTH,
+];
 
 export const showBubble = (technology: Technology) => {
   const tooltip = d3
@@ -188,6 +187,55 @@ const getHoverPolygons = (maxRadius: number) => [
 const getQuadrantRoute = (quadrant: number) =>
   d3Config.quadrants[(2 + quadrant) % 4].route;
 
+const drawLegend = (radar: any, quadrant: number, maxRadius: number) => {
+  removeLegend();
+  const [x, y] = viewbox(quadrant, maxRadius).slice(0, 2);
+  const [dx, dy] = translateLegend(quadrant);
+  const X = x + dx;
+  const Y = y + dy;
+
+  const legendContainer = radar.append('g').attr('id', 'radar-legend');
+
+  legendContainer
+    .append('path')
+    .attr('d', 'M -6,5 6,5 0,-7 z')
+    .attr('transform', `translate(${X},${Y})`);
+
+  legendContainer
+    .append('text')
+    .attr('x', X + 10)
+    .attr('y', Y + 3)
+    .attr('font-size', '0.6em')
+    .text('New or Moved');
+
+  legendContainer
+    .append('circle')
+    .attr('r', '6')
+    .attr('transform', `translate(${X},${Y + 15})`);
+
+  legendContainer
+    .append('text')
+    .attr('x', X + 10)
+    .attr('y', Y + 19)
+    .attr('font-size', '0.6em')
+    .text('No Change');
+};
+
+const removeLegend = () => {
+  d3.select('#radar-legend').remove();
+};
+
+const translateLegend = (quadrant: number) => {
+  const { factor_x, factor_y } = quadrants[quadrant];
+  const translationFactor = 260;
+  const paddingX = 40;
+  const paddingY = 70;
+  const dx = factor_x > 0 ? translationFactor + paddingX : paddingX;
+  const dy = factor_y > 0 ? translationFactor + paddingY : paddingY;
+
+  return [dx, dy];
+};
+
 export interface RadarVisualizationParams {
   quadrantNum?: number;
   isNotMobile: boolean;
@@ -203,30 +251,22 @@ export const radar_visualization = (
   redirect: (path: string) => void,
 ) => {
   const maxRadius = rings[rings.length - 1].radius;
-  const isFullSize = quadrantProp === undefined;
+  const isFullSize = typeof quadrantProp === 'undefined';
+  const ringsNames = Object.keys(config.rings);
 
   const svg = d3
     .select(container)
     .style('background-color', config.colors.background);
 
-  svg.html('');
-
   // partition entries according to segments
-  const segmented: Segmented = new Array(4);
-  for (let quadrant = 0; quadrant < 4; quadrant++) {
-    segmented[quadrant] = new Array(4);
-    for (let ring = 0; ring < NUMBER_OF_RINGS; ring++) {
-      segmented[quadrant][ring] = [];
-    }
-  }
+  const segmented: Segmented = [...Array(NUMBER_OF_RINGS)].map(() =>
+    [...Array(NUMBER_OF_RINGS)].map(() => []),
+  );
 
   // position each entry randomly in its segment
   data.forEach(technology => {
     const quadNum: number = technology.quadrant;
-
-    const ringNum: number = config.rings.findIndex(
-      (item: { name: string }) => item.name === technology.ring,
-    );
+    const ringNum: number = config.rings[technology.ring].num;
 
     technology.segment = segment(quadNum, ringNum);
     const { x, y } = technology.segment.random();
@@ -238,179 +278,195 @@ export const radar_visualization = (
 
   // assign unique sequential id to each entry
   let tempId = 1;
+  let currentQuadrant = data.length > 0 ? data[0].quadrant : 0;
   const setId = (technology: Technology) => (technology.id = '' + tempId++);
 
-  for (let quadrant of [2, 3, 1, 0]) {
-    for (let ring = 0; ring < NUMBER_OF_RINGS; ring++) {
-      const entries = segmented[quadrant][ring];
-      entries.sort(sortTechnologyByName).forEach(setId);
-    }
+  for (let ring = 0; ring < NUMBER_OF_RINGS; ring++) {
+    const entries = segmented[currentQuadrant][ring];
+    entries.sort(sortTechnologyByName).forEach(setId);
   }
 
-  const radar = svg.append('g');
-  if (quadrantProp !== undefined) {
-    svg.attr('viewBox', viewbox(quadrantProp, maxRadius));
+  const isFirstRender = !svg.html();
+  const radar = isFirstRender ? svg.append('g') : svg.select('g');
+
+  if (typeof quadrantProp !== 'undefined') {
+    svg
+      .transition()
+      .duration(500)
+      .attr('viewBox', viewbox(quadrantProp, maxRadius).join(' '));
+
+    drawLegend(radar, quadrantProp, maxRadius);
   } else {
     svg.attr('viewBox', `0 0 ${maxRadius * 2} ${maxRadius * 2}`);
     radar.attr('transform', translate(maxRadius, maxRadius));
   }
 
-  const grid = radar.append('g');
+  const grid = isFirstRender ? radar.append('g') : radar.select('g');
 
   // background color. Usage `.attr("filter", "url(#solid)")`
   // SOURCE: https://stackoverflow.com/a/31013492/2609980
-  const defs = grid.append('defs');
-  const filter = defs
-    .append('filter')
-    .attr('x', 0)
-    .attr('y', 0)
-    .attr('width', 1)
-    .attr('height', 1)
-    .attr('id', 'solid');
-  filter.append('feFlood').attr('flood-color', 'rgb(0, 0, 0, 0.8)');
-  filter.append('feComposite').attr('in', 'SourceGraphic');
-
-  // draw rings
-  for (let i = 3; i >= 0; i--) {
-    grid
-      .append('circle')
-      .attr('class', 'ring')
-      .attr('cx', 0)
-      .attr('cy', 0)
-      .attr('r', 0)
-      .style('fill', config.rings[i].backgroundColor)
-      // .style('stroke', config.colors.grid)
-      .style('stroke-width', 1);
-  }
-
-  //cover lines for ring names
-  grid
-    .append('line')
-    .attr('x1', -maxRadius)
-    .attr('y1', 0)
-    .attr('x2', maxRadius)
-    .attr('y2', 0)
-    .style('stroke', '#fff')
-    .style('stroke-width', AXIS_STROKE_WIDTH)
-    .style('opacity', 0.3);
-
-  grid
-    .append('line')
-    .attr('x1', 0)
-    .attr('y1', -maxRadius)
-    .attr('x2', 0)
-    .attr('y2', -AXIS_STROKE_WIDTH / 2)
-    .style('stroke', '#fff')
-    .style('stroke-width', AXIS_STROKE_WIDTH)
-    .style('opacity', 0.3);
-
-  grid
-    .append('line')
-    .attr('x1', 0)
-    .attr('y1', AXIS_STROKE_WIDTH / 2)
-    .attr('x2', 0)
-    .attr('y2', maxRadius)
-    .style('stroke', '#fff')
-    .style('stroke-width', AXIS_STROKE_WIDTH)
-    .style('opacity', 0.3);
-
-  //ring names displaying
-  if (!isFullSize) {
-    for (let i = 3; i >= 0; i--) {
-      grid
-        .append('text')
-        .text(config.rings[i].name)
-        .attr('x', rings[i].radius - 62)
-        .attr('text-anchor', 'middle')
-        .style('fill', '#000')
-        .style('transform', 'translateY(4px)')
-        .style('font-family', 'Arial, Helvetica')
-        .style('font-size', 12)
-        .style('font-weight', 'bold')
-        .style('pointer-events', 'none')
-        .style('user-select', 'none');
-
-      grid
-        .append('text')
-        .text(config.rings[i].name)
-        .attr('x', -rings[i].radius + 62)
-        .attr('text-anchor', 'middle')
-        .style('fill', '#000')
-        .style('transform', 'translateY(4px)')
-        .style('font-family', 'Arial, Helvetica')
-        .style('font-size', '12px')
-        .style('font-weight', 'bold')
-        .style('pointer-events', 'none')
-        .style('user-select', 'none');
-    }
-  }
-
-  if (isFullSize) {
-    // in full size draw boxes on top for hover effect
-    getHoverPolygons(maxRadius).forEach((p, i) => {
-      const polygons = svg
-        .append('polygon')
-        .attr('data-testid', `quadrant-${i}`)
-        .attr('cursor', 'pointer')
-        .attr('class', 'quadrant-hover')
-        .attr('fill', '#fff')
-        .attr('opacity', 0)
-        .attr('points', p.map(({ x, y }) => `${x}, ${y}`).join(' '))
-        .on('click', function() {
-          redirect(getQuadrantRoute(i));
-        });
-
-      if (isNotMobile) {
-        polygons
-          .on('mouseover', function() {
-            svg.selectAll('.quadrant-hover').attr('opacity', '0.3');
-            this.setAttribute('opacity', '0');
-          })
-          .on('mouseout', function() {
-            svg.selectAll('.quadrant-hover').attr('opacity', '0');
-          });
-      }
-    });
-  }
+  const defs = isFirstRender ? grid.append('defs') : grid.select('defs');
 
   // animate rings
-  d3.selectAll('.ring')
-    .transition()
-    .duration(400)
-    .delay(function(d, i) {
-      return i * 40;
-    }) // <-- delay as a function of i
-    .attr('r', function(d, i) {
-      return rings[3 - i].radius;
-    });
+  if (isFirstRender) {
+    const filter = defs
+      .append('filter')
+      .attr('x', 0)
+      .attr('y', 0)
+      .attr('width', 1)
+      .attr('height', 1)
+      .attr('id', 'solid');
+    filter.append('feFlood').attr('flood-color', 'rgb(0, 0, 0, 0.8)');
+    filter.append('feComposite').attr('in', 'SourceGraphic');
 
-  // layer for entries
-  const rink = radar.append('g').attr('id', 'rink');
+    // draw rings
+    for (let ringName of ringsNames.reverse()) {
+      grid
+        .append('circle')
+        .attr('class', 'ring')
+        .attr('cx', 0)
+        .attr('cy', 0)
+        .attr('r', 0)
+        .style('fill', config.rings[ringName].backgroundColor)
+        .style('stroke-width', 1);
+    }
 
-  // rollover bubble (on top of everything else)
-  const bubble = radar
-    .append('g')
-    .attr('id', 'bubble')
-    .attr('data-testid', 'radar-bubble')
-    .attr('x', 0)
-    .attr('y', 0)
-    .style('opacity', 0)
-    .style('pointer-events', 'none')
-    .style('user-select', 'none');
-  bubble
-    .append('rect')
-    .attr('rx', 4)
-    .attr('ry', 4)
-    .style('fill', '#333');
-  bubble
-    .append('text')
-    .style('font-family', 'sans-serif')
-    .style('font-size', '14px')
-    .style('fill', '#fff');
-  bubble
-    .append('path')
-    .attr('d', 'M 0,0 10,0 5,8 z')
-    .style('fill', '#333');
+    //cover lines for ring names
+    grid
+      .append('line')
+      .attr('x1', -maxRadius)
+      .attr('y1', 0)
+      .attr('x2', maxRadius)
+      .attr('y2', 0)
+      .style('stroke', '#fff')
+      .style('stroke-width', AXIS_STROKE_WIDTH)
+      .style('opacity', 0.3);
+
+    grid
+      .append('line')
+      .attr('x1', 0)
+      .attr('y1', -maxRadius)
+      .attr('x2', 0)
+      .attr('y2', -AXIS_STROKE_WIDTH / 2)
+      .style('stroke', '#fff')
+      .style('stroke-width', AXIS_STROKE_WIDTH)
+      .style('opacity', 0.3);
+
+    grid
+      .append('line')
+      .attr('x1', 0)
+      .attr('y1', AXIS_STROKE_WIDTH / 2)
+      .attr('x2', 0)
+      .attr('y2', maxRadius)
+      .style('stroke', '#fff')
+      .style('stroke-width', AXIS_STROKE_WIDTH)
+      .style('opacity', 0.3);
+
+    //ring names displaying
+    if (!isFullSize) {
+      ringsNames.forEach((ringName, i) => {
+        grid
+          .append('text')
+          .text(ringName)
+          .attr('x', rings[i].radius - 62)
+          .attr('text-anchor', 'middle')
+          .style('fill', '#000')
+          .style('transform', 'translateY(4px)')
+          .style('font-family', 'Arial, Helvetica')
+          .style('font-size', 12)
+          .style('font-weight', 'bold')
+          .style('pointer-events', 'none')
+          .style('user-select', 'none');
+        grid
+          .append('text')
+          .text(ringName)
+          .attr('x', -rings[i].radius + 62)
+          .attr('text-anchor', 'middle')
+          .style('fill', '#000')
+          .style('transform', 'translateY(4px)')
+          .style('font-family', 'Arial, Helvetica')
+          .style('font-size', '12px')
+          .style('font-weight', 'bold')
+          .style('pointer-events', 'none')
+          .style('user-select', 'none');
+      });
+    } else {
+      // in full size draw boxes on top for hover effect
+      getHoverPolygons(maxRadius).forEach((p, i) => {
+        const polygons = svg
+          .append('polygon')
+          .attr('data-testid', `quadrant-${i}`)
+          .attr('cursor', 'pointer')
+          .attr('class', 'quadrant-hover')
+          .attr('fill', '#fff')
+          .attr('opacity', 0)
+          .attr('points', p.map(({ x, y }) => `${x}, ${y}`).join(' '))
+          .on('click', function() {
+            redirect(getQuadrantRoute(i));
+          });
+
+        if (isNotMobile) {
+          polygons
+            .on('mouseover', function() {
+              svg.selectAll('.quadrant-hover').attr('opacity', '0.3');
+              this.setAttribute('opacity', '0');
+            })
+            .on('mouseout', function() {
+              svg.selectAll('.quadrant-hover').attr('opacity', '0');
+            });
+        }
+      });
+    }
+
+    d3.selectAll('.ring')
+      .transition()
+      .duration(400)
+      .delay(function(d, i) {
+        return i * 40;
+      }) // <-- delay as a function of i
+      .attr('r', function(d, i) {
+        return rings[3 - i].radius;
+      });
+  }
+
+  // // layer for entries
+  const rink: d3.Selection<
+    SVGGElement,
+    unknown,
+    null,
+    undefined
+  > = isFirstRender
+    ? radar.append('g').attr('id', 'rink')
+    : radar.select('#rink');
+
+  rink.selectAll('.blip').remove();
+
+  if (isFirstRender) {
+    // rollover bubble (on top of everything else)
+    const bubble = radar
+      .append('g')
+      .attr('id', 'bubble')
+      .attr('data-testid', 'radar-bubble')
+      .attr('x', 0)
+      .attr('y', 0)
+      .style('opacity', 0)
+      .style('pointer-events', 'none')
+      .style('user-select', 'none');
+    bubble
+      .append('rect')
+      .attr('rx', 4)
+      .attr('ry', 4)
+      .style('fill', '#333');
+    bubble
+      .append('text')
+      .style('font-family', 'sans-serif')
+      .style('font-size', '14px')
+      .style('fill', '#fff');
+    bubble
+      .append('path')
+      .attr('d', 'M 0,0 10,0 5,8 z')
+      .style('fill', '#333');
+  }
 
   const mouseOverListener = (technology: Technology) => {
     showBubble(technology);
@@ -446,11 +502,6 @@ export const radar_visualization = (
       blip.attr('data-testid', technology.name);
       blip.style('cursor', 'pointer');
 
-      // blip link
-      // if (technology.active && technology.hasOwnProperty('link')) {
-      //   blip.append('a').attr('xlink:href', technology.link);
-      // }
-
       // blip shape
       if (technology.moved > 0) {
         blip
@@ -471,7 +522,7 @@ export const radar_visualization = (
 
       if (!isFullSize) {
         // blip text
-        const blip_text = technology.id!.toString();
+        const blip_text = technology.id || '';
         blip
           .append('text')
           .text(blip_text)

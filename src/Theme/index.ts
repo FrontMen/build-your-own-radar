@@ -31,6 +31,7 @@ export const baseTheme = {
     white: '#fff',
     gray: '#6c757d',
     grayDark: '#343a40',
+    grayLight: '#bfc0bf',
     primary: '#526de4',
     secondary: '#767676',
     success: '#31bd70',
