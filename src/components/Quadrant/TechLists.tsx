@@ -10,7 +10,7 @@ export interface TechnologiesListProps {
   selected: string | null;
   setSelected: (a: string | null) => void;
   quadrant: string;
-  color: string,
+  color: string;
 }
 
 export const TechLists: React.FC<TechnologiesListProps> = ({

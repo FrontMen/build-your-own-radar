@@ -35,7 +35,7 @@ export const List = styled.ul`
   margin: 0;
 `;
 
-export const Dot = styled.span`
+export const Dot = styled.span<{ color: string }>`
   color: ${props => props.color};
   padding-right: 4px;
   font-size: 2em;
