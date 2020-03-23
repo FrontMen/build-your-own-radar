@@ -209,26 +209,26 @@ const drawLegend = (radar: any, quadrant: number, maxRadius: number) => {
 
   legendContainer
     .append('path')
-    .attr('d', 'M -8,5 8,5 0,-10 z')
+    .attr('d', 'M -7,5 7,5 0,-8 z')
     .attr('transform', `translate(${X},${Y})`);
 
   legendContainer
     .append('text')
-    .attr('x', X + 15)
+    .attr('x', X + 10)
     .attr('y', Y + 2)
-    .attr('font-size', '0.7em')
+    .attr('font-size', '0.6em')
     .text('New or Moved');
 
   legendContainer
     .append('circle')
-    .attr('r', '7')
-    .attr('transform', `translate(${X},${Y + 20})`);
+    .attr('r', '6')
+    .attr('transform', `translate(${X},${Y + 15})`);
 
   legendContainer
     .append('text')
-    .attr('x', X + 15)
-    .attr('y', Y + 25)
-    .attr('font-size', '0.7em')
+    .attr('x', X + 10)
+    .attr('y', Y + 19)
+    .attr('font-size', '0.6em')
     .text('No Change');
 };
 
@@ -411,7 +411,7 @@ export const radar_visualization = (
           .attr('class', 'quadrant-hover')
           .attr('fill', '#fff')
           .attr('opacity', 0)
-          // .attr('points', p.map(({ x, y }) => `${x}, ${y}`).join(' '))
+          .attr('points', p.map(({ x, y }) => `${x}, ${y}`).join(' '))
           .on('click', function() {
             redirect(getQuadrantName(i));
           });
