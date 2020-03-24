@@ -1,7 +1,6 @@
 import { Reducer } from 'redux';
 import { TActions } from 'src/redux/types';
 import { ETechnologiesActionTypes } from 'src/redux/actions/technologies';
-import { ParsedGoogleSheets } from 'src/utils/dataParser';
 
 export interface ITechnologiesState {
   data: ParsedGoogleSheets;

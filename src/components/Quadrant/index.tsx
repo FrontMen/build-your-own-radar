@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from 'react';
+import React, {  useMemo, useState } from 'react';
 import styled from 'styled-components/macro';
 import { MediaQueries } from 'src/Theme/Helpers';
 import { Redirect, useParams } from 'react-router';
@@ -9,10 +9,11 @@ import { TechLists } from './TechLists';
 import { d3Config } from 'src/utils/d3-config';
 import { Graph } from 'src/components/Graph';
 import { ContentTitle } from 'src/components/shared/ContentTitle';
-import { filterByCompanyContext } from 'src/ContextProviders/FilterByCompanyContextProvider';
 import { SubNav } from 'src/components/SubNav';
 import { useQueryAsState } from 'src/hooks/useQueryAsState';
-import { googleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
+import { useSelector } from 'react-redux';
+import { selectedTechnologyDataSetSelector } from 'src/redux/selectors/technologies';
+import { selectedCompaniesSelector } from 'src/redux/selectors/filters';
 
 const Slot = styled(MainContentSlot)`
   display: flex;
@@ -45,10 +46,13 @@ export const Quadrant = () => {
   const quadrantNum: number = d3Config.quadrants.findIndex(
     (item: { route: string }) => item.route === quadrantParam,
   );
-  const { color: quadrantColor, name: quadrantName } = d3Config.quadrants[quadrantNum] || {};
+  const { color: quadrantColor, name: quadrantName } = d3Config.quadrants[
+    quadrantNum
+  ];
 
-  const { data: technologies } = useContext(googleSheetsContext);
-  const { state: selectedCompanies } = useContext(filterByCompanyContext);
+  const technologies = useSelector(selectedTechnologyDataSetSelector);
+  const selectedCompanies = useSelector(selectedCompaniesSelector);
+
   const [highlighted, setHighlighted] = useState<null | string>(null);
   const [selected, setSelected] = useQueryAsState();
 
@@ -90,16 +94,14 @@ export const Quadrant = () => {
             </p>
           )}
         </Article>
-        {!!data.length && (
-          <Graph
-            data-testid="graph"
-            highlighted={highlighted}
-            quadrantNum={quadrantNum}
-            setHighlighted={setHighlighted}
-            setSelected={setSelected}
-            technologies={data}
-          />
-        )}
+        <Graph
+          data-testid="graph"
+          highlighted={highlighted}
+          quadrantNum={quadrantNum}
+          setHighlighted={setHighlighted}
+          setSelected={setSelected}
+          technologies={data}
+        />
       </Content>
     </Slot>
   ) : (

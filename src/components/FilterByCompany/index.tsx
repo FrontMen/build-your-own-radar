@@ -1,8 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { CheckBox } from 'src/components/shared/CheckBox';
 import styled from 'styled-components';
-import { filterByCompanyContext } from 'src/ContextProviders/FilterByCompanyContextProvider';
 import { COMPANY_NAMES } from './config';
+import { selectedCompaniesSelector } from 'src/redux/selectors/filters';
+import { filtersActions } from 'src/redux/actions/filters';
+
 
 const Container = styled.div`
   display: flex;
@@ -11,10 +14,18 @@ const Container = styled.div`
 `;
 
 export const FilterByCompany = () => {
-  const { state, toggle } = useContext(filterByCompanyContext);
+  const selectedCompanies = useSelector(selectedCompaniesSelector);
+  const dispatch = useDispatch();
+  const toggle = useCallback(
+    (company: CompanyTypes) => {
+      dispatch(filtersActions.setCompany(company));
+    },
+    [dispatch],
+  );
+
   return (
     <Container data-testid="subnav-filters-container">
-      {Object.entries(state).map(([company, checked]) => (
+      {Object.entries(selectedCompanies).map(([company, checked]) => (
         <CheckBox
           dataTestid={company}
           key={company}

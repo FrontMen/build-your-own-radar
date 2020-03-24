@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useContext } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { IoIosSearch } from 'react-icons/io';
@@ -6,7 +6,8 @@ import { IoIosSearch } from 'react-icons/io';
 import { Typography } from 'src/Theme/Typography';
 import { MediaQueries } from 'src/Theme/Helpers';
 import { d3Config } from 'src/utils/d3-config';
-import { googleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
+import { useSelector } from 'react-redux';
+import { selectedTechnologyDataSetSelector } from 'src/redux/selectors/technologies';
 
 const Container = styled.div`
   display: flex;
@@ -89,7 +90,8 @@ export interface SearchProps {
 }
 
 export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
-  const { data: technologies } = useContext(googleSheetsContext);
+  const technologies = useSelector(selectedTechnologyDataSetSelector);
+
 
   const [value, setValue] = useState<string>('');
 

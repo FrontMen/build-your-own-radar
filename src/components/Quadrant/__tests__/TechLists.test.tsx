@@ -13,6 +13,7 @@ const defaultProps: TechnologiesListProps = {
   technologies: mockData,
   quadrant: 'tools',
   selected: null,
+  color: 'default'
 };
 
 describe('TechLists', () => {
