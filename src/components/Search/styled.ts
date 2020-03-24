@@ -43,7 +43,7 @@ export const DropDownContainer = styled.div`
   position: absolute;
   top: 60px;
   max-height: 500px;
-  overflow: scroll;
+  overflow: auto;
   z-index: 1;
 `;
 

@@ -28,10 +28,6 @@ export interface SearchProps {
   setHighlighted: (a: string | null) => void;
 }
 
-export interface fuseResult {
-  item: Technology;
-}
-
 export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
   const { data: technologies } = useContext(GoogleSheetsContext);
   const { quadrant: quadrantParam } = useParams<QuadParamType>();
@@ -46,8 +42,7 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
     if (value.length < 2) return [];
 
     const fuse = new Fuse(technologies, options);
-    // @ts-ignore
-    const results: fuseResult[] = fuse.search(value);
+    const results = fuse.search(value);
     return Groupby(
       results.map(tech => tech.item),
       'ring',
@@ -72,8 +67,7 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
             <React.Fragment key={ringName}>
               <RingName data-testid="search-ringName">{ringName}</RingName>
               <div>
-                {// @ts-ignore
-                techArray.map((technology: any) => (
+                {techArray.map(technology => (
                   <Technology
                     data-testid="search-technology"
                     key={technology.name}

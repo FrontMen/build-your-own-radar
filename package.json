@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "d3": "^5.15.0",
-    "fuse.js": "^5.0.7-beta",
+    "fuse.js": "^5.0.9-beta",
     "lodash.groupby": "^4.6.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
