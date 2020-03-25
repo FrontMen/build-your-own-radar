@@ -1,4 +1,3 @@
-import last from 'lodash.last';
 import {
   ETechnologiesActionTypes,
   technologiesActions,
@@ -34,7 +33,7 @@ export function* fetchTechnologiesSaga() {
       (a, b) => Date.parse(a) - Date.parse(b),
     );
 
-    yield put(filtersActions.selectDataSet(last(dates)!));
+    yield put(filtersActions.selectDataSet(dates[dates.length - 1]));
     yield put(filtersActions.fillDataSetDates(dates));
   } catch (error) {
     yield put(technologiesActions.fetchTechnologiesError(error));
