@@ -13,7 +13,7 @@ export interface IFiltersState {
     selected: string | null;
   };
 }
-const defaultState: IFiltersState = {
+export const defaultState: IFiltersState = {
   companies: {
     ITR_BE: true,
     ITR_NL: true,

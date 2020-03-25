@@ -409,6 +409,4 @@ export const MockGoogleSheetsData: IncomingGoogleSheetsData = {
   ],
 };
 
-export const parsedMockData = parseGoogleSheetsApiResponse(
-  MockGoogleSheetsData,
-)['data: 2020-01'];
+export const parsedMockData = parseGoogleSheetsApiResponse(MockGoogleSheetsData);

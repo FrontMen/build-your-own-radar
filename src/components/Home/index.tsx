@@ -23,7 +23,11 @@ export const Home: React.FC = () => {
 
   if (error) {
     //TODO: replace this with component error state
-    return <div>Unexpected error occured: {errorMessage}</div>;
+    return (
+      <div data-testid="home-error">
+        Unexpected error occurred: {errorMessage}
+      </div>
+    );
   }
 
   if (technologies === null) {
@@ -33,28 +37,35 @@ export const Home: React.FC = () => {
 
   return (
     <MainContentSlot>
-      <Intro>
-        <ContentTitle data-testid="home-title">
+      <Intro data-testid="home-intro">
+        <ContentTitle data-testid="home-intro-title">
           Whats this all about?
         </ContentTitle>
-        <Content>
+        <Content data-testid="home-intro-content">
           Consequat incididunt in occaecat reprehenderit culpa elit. Est
           cupidatat ex dolore duis do aliquip magna ullamco anim. Fugiat non eu
           laboris ut ea aute.
         </Content>
       </Intro>
       <Graph highlighted={null} technologies={technologies} fullSize />
-      <Quads>
+      <Quads data-testid="home-quadrants-wrapper">
         {quads.map((quad, i) => (
-          <Quadrant key={i} data-testid={`quadrant-container-${i}`}>
-            <ContentTitle>{quad.name}</ContentTitle>
-            <Content>
+          <Quadrant key={i} data-testid={`home-quadrant-${i}-container`}>
+            <ContentTitle data-testid={`home-quadrant-${i}-title`}>
+              {quad.name}
+            </ContentTitle>
+            <Content data-testid={`home-quadrant-${i}-content`}>
               Ex tempor nulla est nostrud non consectetur enim commodo. Elit
               aute ex pariatur commodo aute. Adipisicing eu dolore fugiat culpa
               deserunt id reprehenderit. Reprehenderit eiusmod exercitation
               labore sint enim.
             </Content>
-            <StyledLinks to={`/${quad.route}`}>look at {quad.name}</StyledLinks>
+            <StyledLinks
+              data-testid={`home-quadrant-${i}-link`}
+              to={`/${quad.route}`}
+            >
+              look at {quad.name}
+            </StyledLinks>
           </Quadrant>
         ))}
       </Quads>

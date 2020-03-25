@@ -1,12 +1,12 @@
 import React from 'react';
-import { mount, ReactWrapper } from 'enzyme';
-import { App } from '../';
-import { Router } from 'Router';
+import { shallow } from 'enzyme';
+import { App } from '../index';
 
 describe('App', () => {
-  const wrapper: ReactWrapper = mount(<App />);
+  const appWrapper = shallow(<App />);
 
-  it('should have Router', () => {
-    expect(wrapper.find(Router)).toBeTruthy();
+  it('should wrap content into redux and theme providers', () => {
+    expect(appWrapper.find('Provider')).toBeTruthy();
+    expect(appWrapper.find('ThemeProvider')).toBeTruthy();
   });
 });

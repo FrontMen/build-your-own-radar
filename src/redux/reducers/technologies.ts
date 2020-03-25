@@ -9,7 +9,7 @@ export interface ITechnologiesState {
   error: boolean;
   errorMessage: string;
 }
-const defaultState: ITechnologiesState = {
+export const defaultState: ITechnologiesState = {
   data: {},
   initialized: false,
   loading: false,

@@ -4,11 +4,19 @@ import { createMemoryHistory, History } from 'history';
 import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components/macro';
 import { lightTheme } from 'Theme';
+import { Provider } from 'react-redux';
+import { Store } from 'redux';
+import { rootStateBuilder, storeCreator } from 'test/builders';
+import { IRootState } from 'redux/reducers';
+
+
+const defaultStore = storeCreator(rootStateBuilder());
 
 interface Params {
   route?: string;
   path?: string;
   history?: History;
+  store?: Store<IRootState>;
 }
 
 // #region react-testing-library
@@ -47,17 +55,20 @@ export const withAllProviders = (
     route = '/',
     path = '/',
     history = createMemoryHistory({ initialEntries: [route] }),
+    store = defaultStore,
   }: Params = {},
   theme = lightTheme,
   ...options: any
 ) => {
   const Wrapper = ({ children }: { children: ReactNode }) => (
-    <ThemeProvider theme={theme}>
-      <MemoryRouter initialEntries={[route]}>
-        {/* <Route path={route}>{children}</Route> */}
-        <Route path={path}>{children}</Route>
-      </MemoryRouter>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <MemoryRouter initialEntries={[route]}>
+          {/* <Route path={route}>{children}</Route> */}
+          <Route path={path}>{children}</Route>
+        </MemoryRouter>
+      </ThemeProvider>
+    </Provider>
   );
   return render(ui, {
     wrapper: Wrapper,
@@ -72,18 +83,22 @@ export const AllProvidersWrapper = ({
   path = '/',
   route = '/',
   history = createMemoryHistory({ initialEntries: [route] }),
+  store = defaultStore,
 }: {
   children: ReactNode;
   path: string;
   route: string;
   history: History;
+  store: Store<IRootState>;
 }) => {
   return (
-    <ThemeProvider theme={lightTheme}>
-      <Router history={history}>
-        <Route path={path}>{children}</Route>
-      </Router>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={lightTheme}>
+        <Router history={history}>
+          <Route path={path}>{children}</Route>
+        </Router>
+      </ThemeProvider>
+    </Provider>
   );
 };
 
