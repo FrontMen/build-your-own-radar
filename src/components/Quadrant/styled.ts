@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { MediaQueries } from 'src/Theme/Helpers';
-import { Typography } from 'src/Theme/Typography';
+import { MediaQueries } from 'Theme/Helpers';
+import { Typography } from 'Theme/Typography';
 
 export const Section = styled.div`
   width: 100%;

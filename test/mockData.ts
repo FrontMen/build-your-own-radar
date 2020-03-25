@@ -1,4 +1,4 @@
-import { parseGoogleSheetsApiResponse } from 'src/utils/dataParser';
+import { parseGoogleSheetsApiResponse } from 'utils/dataParser';
 
 export const mockData: Technology[] = [
   {
@@ -409,4 +409,6 @@ export const MockGoogleSheetsData: IncomingGoogleSheetsData = {
   ],
 };
 
-export const parsedMockData = parseGoogleSheetsApiResponse(MockGoogleSheetsData)['data: 2020-01'];
+export const parsedMockData = parseGoogleSheetsApiResponse(
+  MockGoogleSheetsData,
+)['data: 2020-01'];

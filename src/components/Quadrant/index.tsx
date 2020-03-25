@@ -1,19 +1,19 @@
-import React, {  useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import styled from 'styled-components/macro';
-import { MediaQueries } from 'src/Theme/Helpers';
+import { MediaQueries } from 'Theme/Helpers';
 import { Redirect, useParams } from 'react-router';
 
-import { MainContentSlot } from 'src/components/shared/PageSlots';
+import { MainContentSlot } from 'components/shared/PageSlots';
 import { TechLists } from './TechLists';
 
-import { d3Config } from 'src/utils/d3-config';
-import { Graph } from 'src/components/Graph';
-import { ContentTitle } from 'src/components/shared/ContentTitle';
-import { SubNav } from 'src/components/SubNav';
-import { useQueryAsState } from 'src/hooks/useQueryAsState';
+import { d3Config } from 'utils/d3-config';
+import { Graph } from 'components/Graph';
+import { ContentTitle } from 'components/shared/ContentTitle';
+import { SubNav } from 'components/SubNav';
+import { useQueryAsState } from 'hooks/useQueryAsState';
 import { useSelector } from 'react-redux';
-import { selectedTechnologyDataSetSelector } from 'src/redux/selectors/technologies';
-import { selectedCompaniesSelector } from 'src/redux/selectors/filters';
+import { selectedTechnologyDataSetSelector } from 'redux/selectors/technologies';
+import { selectedCompaniesSelector } from 'redux/selectors/filters';
 
 const Slot = styled(MainContentSlot)`
   display: flex;

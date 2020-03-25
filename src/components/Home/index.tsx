@@ -2,16 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MainContentSlot } from '../shared/PageSlots';
 import styled from 'styled-components';
-import { MediaQueries } from 'src/Theme/Helpers';
-import { ContentTitle } from 'src/components/shared/ContentTitle';
-import { d3Config } from 'src/utils/d3-config';
-import { Typography } from 'src/Theme/Typography';
-import { Graph } from 'src/components/Graph';
+import { MediaQueries } from 'Theme/Helpers';
+import { ContentTitle } from 'components/shared/ContentTitle';
+import { d3Config } from 'utils/d3-config';
+import { Typography } from 'Theme/Typography';
+import { Graph } from 'components/Graph';
 import { useSelector } from 'react-redux';
 import {
   selectedTechnologyDataSetSelector,
   technologiesLoadingStateSelector,
-} from 'src/redux/selectors/technologies';
+} from 'redux/selectors/technologies';
 
 const Intro = styled.div`
   margin: auto;

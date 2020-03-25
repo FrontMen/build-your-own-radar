@@ -1,4 +1,4 @@
-import { d3Config } from 'src/utils/d3-config';
+import { d3Config } from 'utils/d3-config';
 
 export function parseGoogleSheetsApiResponse(
   sheets: IncomingGoogleSheetsData,
@@ -37,7 +37,9 @@ function getSheetTableHeaders(row: KeyRowValues) {
   // TODO: This should probably throw an error if the cell doesn't contain a string, Not sure how to Type that.
   return row.values.map(({ effectiveValue }) => {
     if (!effectiveValue) {
-      throw new Error('Sheet table headers should have names, please fix data source');
+      throw new Error(
+        'Sheet table headers should have names, please fix data source',
+      );
     }
     return effectiveValue.stringValue!;
   });

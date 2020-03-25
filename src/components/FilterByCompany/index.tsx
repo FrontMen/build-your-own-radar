@@ -1,11 +1,10 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CheckBox } from 'src/components/shared/CheckBox';
+import { CheckBox } from 'components/shared/CheckBox';
 import styled from 'styled-components';
 import { COMPANY_NAMES } from './config';
-import { selectedCompaniesSelector } from 'src/redux/selectors/filters';
-import { filtersActions } from 'src/redux/actions/filters';
-
+import { selectedCompaniesSelector } from 'redux/selectors/filters';
+import { filtersActions } from 'redux/actions/filters';
 
 const Container = styled.div`
   display: flex;

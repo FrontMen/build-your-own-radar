@@ -11,9 +11,9 @@ import {
   RingName,
   Technology,
 } from './styled';
-import { d3Config } from 'src/utils/d3-config';
+import { d3Config } from 'utils/d3-config';
 import { useSelector } from 'react-redux';
-import { selectedTechnologyDataSetSelector } from 'src/redux/selectors/technologies';
+import { selectedTechnologyDataSetSelector } from 'redux/selectors/technologies';
 
 const options = {
   keys: [

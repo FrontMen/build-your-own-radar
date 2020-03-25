@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
-import { LightThemeType } from 'src/Theme';
-import { MediaQueries } from 'src/Theme/Helpers';
+import { LightThemeType } from 'Theme';
+import { MediaQueries } from 'Theme/Helpers';
 
 export const HeaderSlot = styled.div`
   grid-area: header;

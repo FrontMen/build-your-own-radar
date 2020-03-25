@@ -1,8 +1,8 @@
 import React from 'react';
 import { withAllProviders } from 'test/helpers';
-import { SubNav } from 'src/components/SubNav';
+import { SubNav } from 'components/SubNav';
 import { fireEvent } from '@testing-library/react';
-import { lightTheme } from 'src/Theme';
+import { lightTheme } from 'Theme';
 
 describe('SubNav component', () => {
   const setHighlighted = jest.fn();

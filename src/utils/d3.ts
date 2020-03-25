@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { d3Config } from 'src/utils/d3-config';
+import { d3Config } from 'utils/d3-config';
 
 const quadrants = [
   { radial_min: 0, radial_max: 0.5, factor_x: 1, factor_y: 1 },

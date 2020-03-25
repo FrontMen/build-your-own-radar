@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Typography } from 'src/Theme/Typography';
-import { MediaQueries } from 'src/Theme/Helpers';
+import { Typography } from 'Theme/Typography';
+import { MediaQueries } from 'Theme/Helpers';
 import { Link } from 'react-router-dom';
 import { IoIosArrowRoundForward } from 'react-icons/io';
 
@@ -120,9 +120,7 @@ export class TechItem extends React.Component<TechnologyProps> {
     const quadrantSlug = this.props.quadrant;
     const technologySlug = name.toLowerCase();
     return (
-      <ListItem
-        data-testid={`list-item-${name}`}
-      >
+      <ListItem data-testid={`list-item-${name}`}>
         <Label
           data-testid="label"
           onMouseOver={this.handleMouseOver}

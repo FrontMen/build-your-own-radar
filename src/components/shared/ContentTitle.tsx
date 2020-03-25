@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Typography } from 'src/Theme/Typography';
-import { MediaQueries } from 'src/Theme/Helpers';
+import { Typography } from 'Theme/Typography';
+import { MediaQueries } from 'Theme/Helpers';
 
 export const ContentTitle = styled.h2`
   ${Typography.header};

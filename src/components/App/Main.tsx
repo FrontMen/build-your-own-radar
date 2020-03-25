@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { Router } from 'src/Router';
-import { GlobalStyle } from 'src/Theme/GlobalStyles';
+import { Router } from 'Router';
+import { GlobalStyle } from 'Theme/GlobalStyles';
 import { useDispatch } from 'react-redux';
-import { actions } from 'src/redux/actions';
+import { actions } from 'redux/actions';
 
 export const Main: React.FC = () => {
   const dispatch = useDispatch();

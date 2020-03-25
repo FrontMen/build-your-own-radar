@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaCheck } from 'react-icons/fa';
-import { lightTheme } from 'src/Theme';
-import { Typography } from 'src/Theme/Typography';
+import { lightTheme } from 'Theme';
+import { Typography } from 'Theme/Typography';
 
 const CheckBoxContainer = styled.span<Pick<CheckBoxProps, 'checked'>>`
   border: 2px solid ${props => props.theme.pallet.primary};

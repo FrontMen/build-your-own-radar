@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Section, Ring, Title, List, Dot, Tooltip } from './styled';
-import { d3Config } from 'src/utils/d3-config';
+import { d3Config } from 'utils/d3-config';
 import { TechItem } from './TechItem';
 
 export interface TechnologiesListProps {
@@ -48,10 +48,8 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
           <Title data-testid={`ring-title-${ring}`}>
             <Dot color={color}>●</Dot>
             {ring}
-            <Tooltip>?
-              <span>
-                {d3Config.tooltips[ring as RingNamesType]}
-              </span>
+            <Tooltip>
+              ?<span>{d3Config.tooltips[ring as RingNamesType]}</span>
             </Tooltip>
           </Title>
           <List>
