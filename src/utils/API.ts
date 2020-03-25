@@ -9,8 +9,14 @@
   - key: API key setup with google developer console https://console.developers.google.com/
 */
 
+const SPREADSHEET = '1V2DJEiF7vmx-zhh4_kyUmDsUVF7zt40SSkkKDRoJXug';
+const API_KEY = 'AIzaSyCrUdcfg1a4hKCucwQuP4hCS8WSVL1SSuY';
+
+export const isErrorResponse = (response: { status: number }) =>
+  response.status >= 400;
+
 const requestURL = (spreadsheet: string, apiKey: string) =>
   `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheet}?ranges=A%3AI&fields=sheets.properties.title%2Csheets.data.rowData.values.effectiveValue&key=${apiKey}`;
 
-export const getGoogleSheetsData = (spreadsheet: string, apiKey: string) =>
-  fetch(requestURL(spreadsheet, apiKey)).then(res => res.json());
+export const fetchSpreadSheet = () =>
+  fetch(requestURL(SPREADSHEET, API_KEY));
