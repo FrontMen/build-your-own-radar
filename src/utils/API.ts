@@ -16,7 +16,7 @@ export const isErrorResponse = (response: { status: number }) =>
   response.status >= 400;
 
 const requestURL = (spreadsheet: string, apiKey: string) =>
-  `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheet}?ranges=A%3AI&fields=sheets.properties.title%2Csheets.data.rowData.values.effectiveValue&key=${apiKey}`;
+  `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheet}?fields=sheets.properties.title%2Csheets.data.rowData.values.effectiveValue&key=${apiKey}`;
 
 export const fetchSpreadSheet = () =>
   fetch(requestURL(SPREADSHEET, API_KEY));
