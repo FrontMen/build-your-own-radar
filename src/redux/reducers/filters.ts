@@ -30,7 +30,7 @@ export const filtersReducer: Reducer<IFiltersState, TActions> = (
   action,
 ): IFiltersState => {
   switch (action.type) {
-    case EFilterActionTypes.SET_COMPANY:
+    case EFilterActionTypes.TOGGLE_COMPANY:
       return {
         ...state,
         companies: {

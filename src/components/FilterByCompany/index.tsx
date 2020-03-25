@@ -18,7 +18,7 @@ export const FilterByCompany = () => {
   const dispatch = useDispatch();
   const toggle = useCallback(
     (company: CompanyTypes) => {
-      dispatch(filtersActions.setCompany(company));
+      dispatch(filtersActions.toggleCompany(company));
     },
     [dispatch],
   );
