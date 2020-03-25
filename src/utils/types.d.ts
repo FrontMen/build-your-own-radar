@@ -33,13 +33,49 @@ interface Technology extends Partial<Point> {
 
 type Segmented = Array<Array<Technology[]>>;
 
-interface ListChildComponentPropsWithData<T> {
-  index: number;
-  style: CSSProperties;
-  data: T;
-  isScrolling?: boolean;
-}
-
 type QuadParamType = {
   readonly quadrant: string;
 };
+
+type IncomingGoogleSheetsData = {
+  sheets: IncomingSheet[];
+};
+
+type IncomingSheet = {
+  properties: {
+    title: string;
+  };
+  data: [
+    {
+      rowData: [KeyRowValues, ...RowValues[]];
+    },
+  ];
+};
+
+type RowValues = { values: EffectiveValue[] };
+type KeyRowValues = { values: KeyEffectiveValue[] };
+
+type KeyEffectiveValue = {
+  effectiveValue?: { stringValue: MappedDataRowKey };
+};
+type EffectiveValue = {
+  effectiveValue?: { stringValue?: string; boolValue?: boolean };
+};
+
+interface MappedDataRow {
+  name: string;
+  quadrant: string;
+  ring: RingNamesType;
+  isNew: boolean;
+  description: string;
+  'ITR BE': string;
+  'ITR NL': string;
+  FM: string;
+  'In radar?'?: 'Y' | 'N';
+}
+
+type MappedDataRowKey = keyof MappedDataRow;
+
+interface ParsedGoogleSheets {
+  [K: string]: Technology[];
+}

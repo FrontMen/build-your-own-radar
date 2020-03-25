@@ -1,5 +1,4 @@
-import React, { useMemo, useState, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useMemo, useState } from 'react';
 import Fuse from 'fuse.js';
 import Groupby from 'lodash.groupby';
 
@@ -13,7 +12,8 @@ import {
   Technology,
 } from './styled';
 import { d3Config } from 'src/utils/d3-config';
-import { GoogleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
+import { useSelector } from 'react-redux';
+import { selectedTechnologyDataSetSelector } from 'src/redux/selectors/technologies';
 
 const options = {
   keys: [
@@ -29,12 +29,7 @@ export interface SearchProps {
 }
 
 export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
-  const { data: technologies } = useContext(GoogleSheetsContext);
-  const { quadrant: quadrantParam } = useParams<QuadParamType>();
-
-  const quadrantNum: number = d3Config.quadrants.findIndex(
-    (item: { route: string }) => item.route === quadrantParam,
-  );
+  const technologies = useSelector(selectedTechnologyDataSetSelector);
 
   const [value, setValue] = useState<string>('');
 
@@ -51,7 +46,7 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
   const dataEntries = Object.entries(data);
 
   return (
-    <Container>
+    <Container data-testid="subnav-search-container">
       <InputContainer>
         <Input
           data-testid="search-input"
@@ -73,7 +68,7 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
                     key={technology.name}
                     to={`/${d3Config.quadrants[technology.quadrant].route}`}
                     onClick={() => {
-                      if (technology.quadrant !== quadrantNum) setValue('');
+                      setValue('');
                       setHighlighted(technology.name);
                     }}
                   >

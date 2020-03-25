@@ -7,6 +7,7 @@ import { withAllProviders } from 'test/helpers';
 const defaultProps = {
   checked: false,
   label: 'testCheckbox',
+  dataTestid: 'testCheckboxId',
   onClick: jest.fn(),
 };
 

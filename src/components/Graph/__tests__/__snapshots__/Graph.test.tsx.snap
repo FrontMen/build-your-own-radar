@@ -42,7 +42,9 @@ exports[`Graph should matches the snapshot 1`] = `
     <div
       class="c1"
     >
-      <svg />
+      <svg
+        data-testid="graph"
+      />
     </div>
   </div>
 </div>

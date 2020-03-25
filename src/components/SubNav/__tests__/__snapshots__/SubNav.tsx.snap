@@ -242,30 +242,35 @@ exports[`SubNav component should match snapshot 1`] = `
 <div>
   <div
     class="c0"
+    data-testid="subnav-container"
   >
     <div
       class="c1"
     >
       <a
         class="c2 c3"
+        data-testid="subnav-link-0"
         href="/frameworks-and-lang"
       >
         Frameworks, CMS & Programmeertalen
       </a>
       <a
         class="c2 c4"
+        data-testid="subnav-link-1"
         href="/tooling-and-testing"
       >
         Tooling en testing
       </a>
       <a
         class="c2 c5"
+        data-testid="subnav-link-2"
         href="/platforms-infra-and-data"
       >
         Platforms, infrastructure & Data
       </a>
       <a
         class="c2 c6"
+        data-testid="subnav-link-3"
         href="/technique"
       >
         Technieken
@@ -273,9 +278,11 @@ exports[`SubNav component should match snapshot 1`] = `
     </div>
     <div
       class="c7"
+      data-testid="subnav-filters-container"
     >
       <div
         class="c8"
+        data-testid="ITR_BE"
       >
         <label
           class="c9"
@@ -305,6 +312,7 @@ exports[`SubNav component should match snapshot 1`] = `
       </div>
       <div
         class="c8"
+        data-testid="ITR_NL"
       >
         <label
           class="c9"
@@ -334,6 +342,7 @@ exports[`SubNav component should match snapshot 1`] = `
       </div>
       <div
         class="c8"
+        data-testid="FM"
       >
         <label
           class="c9"
@@ -364,6 +373,7 @@ exports[`SubNav component should match snapshot 1`] = `
     </div>
     <div
       class="c11"
+      data-testid="subnav-search-container"
     >
       <div
         class="c12"

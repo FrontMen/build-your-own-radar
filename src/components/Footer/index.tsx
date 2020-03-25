@@ -9,19 +9,24 @@ const Slot = styled(FooterSlot)`
   align-items: center;
 `;
 
-export const Footer = () => {
-  return (
-    <Slot>
-      <div>
-        <Link to={'/'}>Home</Link>
-      </div>
+export const Footer = () => (
+  <Slot>
+    <div>
+      <Link to="/" data-testid="footer-home-link">
+        Home
+      </Link>
+    </div>
 
-      <i>
-        {'A collaboration between '}
-        <a href={'https://www.frontmen.nl/'}>Frontmen</a>
-        {' and '}
-        <a href={'https://www.intracto.com/'}>Intracto</a>.
-      </i>
-    </Slot>
-  );
-};
+    <i>
+      {'A collaboration between '}
+      <a href="https://www.frontmen.nl/" data-testid="footer-Frontmen-link">
+        Frontmen
+      </a>
+      {' and '}
+      <a href="https://www.intracto.com/" data-testid="footer-Intracto-link">
+        Intracto
+      </a>
+      .
+    </i>
+  </Slot>
+);

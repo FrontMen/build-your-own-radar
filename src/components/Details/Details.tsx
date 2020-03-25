@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useParams } from 'react-router';
 import styled from 'styled-components';
 import { MainContentSlot } from 'src/components/shared/PageSlots';
@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom';
 import { d3Config } from 'src/utils/d3-config';
 import { Typography } from 'src/Theme/Typography';
 import { IoIosArrowRoundBack } from 'react-icons/io';
-import { GoogleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
+import { useSelector } from 'react-redux';
+import { selectedTechnologyDataSetSelector } from 'src/redux/selectors/technologies';
 
 const Slot = styled(MainContentSlot)``;
 export interface DetailsParams {
@@ -42,7 +43,7 @@ const DetailsComponent: React.FC = () => {
     DetailsParams
   >();
 
-  const { data: technologies } = useContext(GoogleSheetsContext);
+  const technologies = useSelector(selectedTechnologyDataSetSelector);
 
   const technology = technologies.find(
     (item: Technology) => item.name.toLowerCase() === technologyParam,

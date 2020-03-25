@@ -120,7 +120,9 @@ export class TechItem extends React.Component<TechnologyProps> {
     const quadrantSlug = this.props.quadrant;
     const technologySlug = name.toLowerCase();
     return (
-      <ListItem>
+      <ListItem
+        data-testid={`list-item-${name}`}
+      >
         <Label
           data-testid="label"
           onMouseOver={this.handleMouseOver}

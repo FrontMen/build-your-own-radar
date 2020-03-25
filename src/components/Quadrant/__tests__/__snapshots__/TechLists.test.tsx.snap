@@ -35,6 +35,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
 }
 
 .c3 {
+  color: default;
   padding-right: 4px;
   font-size: 2em;
   vertical-align: sub;
@@ -65,7 +66,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
   font-size: 14px;
   font-weight: 700;
   width: 270px;
-  background: rgba(0,0,0,.8);
+  background: rgba(0,0,0,0.8);
   color: #fff;
   border-radius: 6px;
   padding: 10px 15px;
@@ -79,7 +80,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
 }
 
 .c4 span::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 100%;
   left: 50%;
@@ -168,15 +169,18 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
 <div>
   <div
     class="c0"
+    data-testid="tech-lists-section"
   >
     <div
       class="c1"
     >
       <h3
         class="c2"
+        data-testid="ring-title-Adopt"
       >
         <span
           class="c3"
+          color="default"
         >
           ●
         </span>
@@ -195,6 +199,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
       >
         <li
           class="c6"
+          data-testid="list-item-Babel"
         >
           <div
             class="c7"
@@ -242,6 +247,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
         </li>
         <li
           class="c6"
+          data-testid="list-item-Spark"
         >
           <div
             class="c7"
@@ -294,9 +300,11 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
     >
       <h3
         class="c2"
+        data-testid="ring-title-Assess"
       >
         <span
           class="c3"
+          color="default"
         >
           ●
         </span>
@@ -315,6 +323,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
       >
         <li
           class="c6"
+          data-testid="list-item-Electron"
         >
           <div
             class="c7"

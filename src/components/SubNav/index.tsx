@@ -66,7 +66,7 @@ const ColoredLinks = styled(({ selected, quadName, ...props }) => (
   background-color: ${props =>
     props.selected && props.theme.colors[props.quadName]};
 
-  @media(hover:hover) {
+  @media (hover: hover) {
     &:hover {
       background-color: ${props => props.theme.colors[props.quadName]};
     }
@@ -86,21 +86,20 @@ export const SubNav = ({ setHighlighted }: PropTypes) => {
   const { quadrant: quadrantPram } = useParams<Params>();
 
   return (
-    <Container>
+    <Container data-testid="subnav-container">
       <Links>
         {d3Config.quadrants.map(
-          ({ name, route }: { name: string; route: string }) => {
-            return (
-              <ColoredLinks
-                selected={quadrantPram === route}
-                quadName={name}
-                to={`/${route}`}
-                key={name}
-              >
-                {name}
-              </ColoredLinks>
-            );
-          },
+          ({ name, route }: { name: string; route: string }, index) => (
+            <ColoredLinks
+              data-testid={`subnav-link-${index}`}
+              selected={quadrantPram === route}
+              quadName={name}
+              to={`/${route}`}
+              key={name}
+            >
+              {name}
+            </ColoredLinks>
+          ),
         )}
       </Links>
       <FilterByCompany />

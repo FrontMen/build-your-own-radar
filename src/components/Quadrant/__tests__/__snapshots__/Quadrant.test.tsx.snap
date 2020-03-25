@@ -3,13 +3,160 @@
 exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 .c19 {
   width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c20 {
+  min-width: 12rem;
+  padding-right: 16px;
+  margin-bottom: 32px;
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.c21 {
+  font-family: Montserrat,san-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  font-size: 1;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.c24 {
+  padding-left: 0;
+  margin: 0;
+}
+
+.c22 {
+  color: #7843ab;
+  padding-right: 4px;
+  font-size: 2em;
+  vertical-align: sub;
+}
+
+.c23 {
+  background-color: #bfc0bf;
+  position: relative;
+  display: inline-block;
+  line-height: 22px;
+  width: 22px;
+  margin-left: 12px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.c23:hover span {
+  visibility: visible;
+  opacity: 1;
+}
+
+.c23 span {
+  visibility: hidden;
+  position: absolute;
+  font-size: 14px;
+  font-weight: 700;
+  width: 270px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  border-radius: 6px;
+  padding: 10px 15px;
+  text-align: left;
+  z-index: 1;
+  bottom: 130%;
+  margin-left: -80px;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.c23 span::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -64px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #343a40 transparent transparent transparent;
+}
+
+.c25 {
+  list-style: none;
+  width: 100%;
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
+  overflow: hidden;
+}
+
+.c27 {
+  max-height: 0px;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+.c28 {
+  padding: 8px;
+  overflow: hidden;
+}
+
+.c26 {
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  display: block;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  padding: 2px;
+}
+
+.c29 {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 8px;
+  width: 100%;
+  color: #526de4;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 400;
+  font-size: 0.9em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c30 {
+  height: 2em;
+  width: 2em;
+}
+
+.c31 {
+  width: 100%;
   max-width: 440px;
   min-width: 280px;
   height: auto;
   margin: 0 auto 8px;
 }
 
-.c20 {
+.c32 {
   text-align: center;
 }
 
@@ -245,21 +392,39 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 }
 
 @media (min-width:481px) {
-  .c19 {
+  .c20 {
+    width: 50%;
+  }
+}
+
+@media (min-width:481px) {
+  .c21 {
+    font-size: 1.5;
+  }
+}
+
+@media (min-width:481px) {
+  .c25 {
+    min-width: 9em;
+  }
+}
+
+@media (min-width:481px) {
+  .c31 {
     max-width: 80%;
     margin-bottom: 16px;
   }
 }
 
 @media (min-width:1024px) {
-  .c19 {
+  .c31 {
     max-width: 50%;
     margin-bottom: 64px;
   }
 }
 
 @media (min-width:1024px) {
-  .c20 {
+  .c32 {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -359,30 +524,35 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   >
     <div
       class="c1"
+      data-testid="subnav-container"
     >
       <div
         class="c2"
       >
         <a
           class="c3 c4"
+          data-testid="subnav-link-0"
           href="/frameworks-and-lang"
         >
           Frameworks, CMS & Programmeertalen
         </a>
         <a
           class="c3 c5"
+          data-testid="subnav-link-1"
           href="/tooling-and-testing"
         >
           Tooling en testing
         </a>
         <a
           class="c3 c6"
+          data-testid="subnav-link-2"
           href="/platforms-infra-and-data"
         >
           Platforms, infrastructure & Data
         </a>
         <a
           class="c3 c7"
+          data-testid="subnav-link-3"
           href="/technique"
         >
           Technieken
@@ -390,9 +560,11 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
       </div>
       <div
         class="c8"
+        data-testid="subnav-filters-container"
       >
         <div
           class="c9"
+          data-testid="ITR_BE"
         >
           <label
             class="c10"
@@ -422,6 +594,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
         </div>
         <div
           class="c9"
+          data-testid="ITR_NL"
         >
           <label
             class="c10"
@@ -451,6 +624,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
         </div>
         <div
           class="c9"
+          data-testid="FM"
         >
           <label
             class="c10"
@@ -481,6 +655,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
       </div>
       <div
         class="c12"
+        data-testid="subnav-search-container"
       >
         <div
           class="c13"
@@ -517,28 +692,124 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
       >
         <h2
           class="c18"
+          data-testid="quadrant-content-title"
         >
           Technieken
         </h2>
-        <p>
-          You have no datasets selected. The graph is sad
-           
-          <span
-            aria-label="crying smile"
-            role="img"
+        <div
+          class="c19"
+          data-testid="tech-lists-section"
+        >
+          <div
+            class="c20"
           >
-            😢
-          </span>
-        </p>
+            <h3
+              class="c21"
+              data-testid="ring-title-Trial"
+            >
+              <span
+                class="c22"
+                color="#7843ab"
+              >
+                ●
+              </span>
+              Trial
+              <span
+                class="c23"
+              >
+                ?
+                <span>
+                  Worth pursuing. It is important to understand how to build up this capability. Enterprises should try this technology on a project that can handle the risk.
+                </span>
+              </span>
+            </h3>
+            <ul
+              class="c24"
+            >
+              <li
+                class="c25"
+                data-testid="list-item-AMQP"
+              >
+                <div
+                  class="c26"
+                  data-testid="label"
+                >
+                  AMQP
+                </div>
+                <div
+                  class="c27"
+                  data-testid="details"
+                >
+                  <div
+                    class="c28"
+                  >
+                    <span>
+                      Advanced Messaging Queueing Protocol (Apache Kafka, RabbitMQ, AWS SQS)
+                    </span>
+                    <a
+                      class="c29"
+                      href="/technique/amqp"
+                    >
+                      More 
+                      <svg
+                        class="c30"
+                        data-testid="arrow-right-icon"
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div
-        class="c19"
+        class="c31"
       >
         <div
-          class="c20"
+          class="c32"
         >
-          <svg>
+          <svg
+            data-testid="graph"
+          >
             <g>
+              <g
+                id="radar-legend"
+              >
+                <path
+                  d="M -6,5 6,5 0,-7 z"
+                  transform="translate(292,-338)"
+                />
+                <text
+                  font-size="0.6em"
+                  x="302"
+                  y="-335"
+                >
+                  New or Moved
+                </text>
+                <circle
+                  r="6"
+                  transform="translate(292,-323)"
+                />
+                <text
+                  font-size="0.6em"
+                  x="302"
+                  y="-319"
+                >
+                  No Change
+                </text>
+              </g>
               <g>
                 <defs>
                   <filter
@@ -608,56 +879,56 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
-                  x="338"
+                  x="68"
                 >
                   Hold
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
-                  x="-338"
+                  x="-68"
                 >
                   Hold
-                </text>
-                <text
-                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
-                  text-anchor="middle"
-                  x="248"
-                >
-                  Assess
-                </text>
-                <text
-                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
-                  text-anchor="middle"
-                  x="-248"
-                >
-                  Assess
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="158"
                 >
-                  Trial
+                  Assess
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="-158"
                 >
+                  Assess
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="248"
+                >
+                  Trial
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-248"
+                >
                   Trial
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
-                  x="68"
+                  x="338"
                 >
                   Adopt
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
-                  x="-68"
+                  x="-338"
                 >
                   Adopt
                 </text>
@@ -698,13 +969,160 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
 exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 .c19 {
   width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c20 {
+  min-width: 12rem;
+  padding-right: 16px;
+  margin-bottom: 32px;
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.c21 {
+  font-family: Montserrat,san-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  font-size: 1;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.c24 {
+  padding-left: 0;
+  margin: 0;
+}
+
+.c22 {
+  color: #7843ab;
+  padding-right: 4px;
+  font-size: 2em;
+  vertical-align: sub;
+}
+
+.c23 {
+  background-color: #bfc0bf;
+  position: relative;
+  display: inline-block;
+  line-height: 22px;
+  width: 22px;
+  margin-left: 12px;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.c23:hover span {
+  visibility: visible;
+  opacity: 1;
+}
+
+.c23 span {
+  visibility: hidden;
+  position: absolute;
+  font-size: 14px;
+  font-weight: 700;
+  width: 270px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  border-radius: 6px;
+  padding: 10px 15px;
+  text-align: left;
+  z-index: 1;
+  bottom: 130%;
+  margin-left: -80px;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.c23 span::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -64px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #343a40 transparent transparent transparent;
+}
+
+.c25 {
+  list-style: none;
+  width: 100%;
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
+  overflow: hidden;
+}
+
+.c27 {
+  max-height: 0px;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+.c28 {
+  padding: 8px;
+  overflow: hidden;
+}
+
+.c26 {
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  display: block;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  padding: 2px;
+}
+
+.c29 {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 8px;
+  width: 100%;
+  color: #526de4;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 400;
+  font-size: 0.9em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c30 {
+  height: 2em;
+  width: 2em;
+}
+
+.c31 {
+  width: 100%;
   max-width: 440px;
   min-width: 280px;
   height: auto;
   margin: 0 auto 8px;
 }
 
-.c20 {
+.c32 {
   text-align: center;
 }
 
@@ -940,21 +1358,39 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 }
 
 @media (min-width:481px) {
-  .c19 {
+  .c20 {
+    width: 50%;
+  }
+}
+
+@media (min-width:481px) {
+  .c21 {
+    font-size: 1.5;
+  }
+}
+
+@media (min-width:481px) {
+  .c25 {
+    min-width: 9em;
+  }
+}
+
+@media (min-width:481px) {
+  .c31 {
     max-width: 80%;
     margin-bottom: 16px;
   }
 }
 
 @media (min-width:1024px) {
-  .c19 {
+  .c31 {
     max-width: 50%;
     margin-bottom: 64px;
   }
 }
 
 @media (min-width:1024px) {
-  .c20 {
+  .c32 {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -1054,30 +1490,35 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   >
     <div
       class="c1"
+      data-testid="subnav-container"
     >
       <div
         class="c2"
       >
         <a
           class="c3 c4"
+          data-testid="subnav-link-0"
           href="/frameworks-and-lang"
         >
           Frameworks, CMS & Programmeertalen
         </a>
         <a
           class="c3 c5"
+          data-testid="subnav-link-1"
           href="/tooling-and-testing"
         >
           Tooling en testing
         </a>
         <a
           class="c3 c6"
+          data-testid="subnav-link-2"
           href="/platforms-infra-and-data"
         >
           Platforms, infrastructure & Data
         </a>
         <a
           class="c3 c7"
+          data-testid="subnav-link-3"
           href="/technique"
         >
           Technieken
@@ -1085,9 +1526,11 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
       </div>
       <div
         class="c8"
+        data-testid="subnav-filters-container"
       >
         <div
           class="c9"
+          data-testid="ITR_BE"
         >
           <label
             class="c10"
@@ -1117,6 +1560,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
         </div>
         <div
           class="c9"
+          data-testid="ITR_NL"
         >
           <label
             class="c10"
@@ -1146,6 +1590,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
         </div>
         <div
           class="c9"
+          data-testid="FM"
         >
           <label
             class="c10"
@@ -1176,6 +1621,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
       </div>
       <div
         class="c12"
+        data-testid="subnav-search-container"
       >
         <div
           class="c13"
@@ -1212,28 +1658,124 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
       >
         <h2
           class="c18"
+          data-testid="quadrant-content-title"
         >
           Technieken
         </h2>
-        <p>
-          You have no datasets selected. The graph is sad
-           
-          <span
-            aria-label="crying smile"
-            role="img"
+        <div
+          class="c19"
+          data-testid="tech-lists-section"
+        >
+          <div
+            class="c20"
           >
-            😢
-          </span>
-        </p>
+            <h3
+              class="c21"
+              data-testid="ring-title-Trial"
+            >
+              <span
+                class="c22"
+                color="#7843ab"
+              >
+                ●
+              </span>
+              Trial
+              <span
+                class="c23"
+              >
+                ?
+                <span>
+                  Worth pursuing. It is important to understand how to build up this capability. Enterprises should try this technology on a project that can handle the risk.
+                </span>
+              </span>
+            </h3>
+            <ul
+              class="c24"
+            >
+              <li
+                class="c25"
+                data-testid="list-item-AMQP"
+              >
+                <div
+                  class="c26"
+                  data-testid="label"
+                >
+                  AMQP
+                </div>
+                <div
+                  class="c27"
+                  data-testid="details"
+                >
+                  <div
+                    class="c28"
+                  >
+                    <span>
+                      Advanced Messaging Queueing Protocol (Apache Kafka, RabbitMQ, AWS SQS)
+                    </span>
+                    <a
+                      class="c29"
+                      href="/technique/amqp"
+                    >
+                      More 
+                      <svg
+                        class="c30"
+                        data-testid="arrow-right-icon"
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div
-        class="c19"
+        class="c31"
       >
         <div
-          class="c20"
+          class="c32"
         >
-          <svg>
+          <svg
+            data-testid="graph"
+          >
             <g>
+              <g
+                id="radar-legend"
+              >
+                <path
+                  d="M -6,5 6,5 0,-7 z"
+                  transform="translate(292,-338)"
+                />
+                <text
+                  font-size="0.6em"
+                  x="302"
+                  y="-335"
+                >
+                  New or Moved
+                </text>
+                <circle
+                  r="6"
+                  transform="translate(292,-323)"
+                />
+                <text
+                  font-size="0.6em"
+                  x="302"
+                  y="-319"
+                >
+                  No Change
+                </text>
+              </g>
               <g>
                 <defs>
                   <filter
@@ -1303,56 +1845,56 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
-                  x="338"
+                  x="68"
                 >
                   Hold
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
-                  x="-338"
+                  x="-68"
                 >
                   Hold
-                </text>
-                <text
-                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
-                  text-anchor="middle"
-                  x="248"
-                >
-                  Assess
-                </text>
-                <text
-                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
-                  text-anchor="middle"
-                  x="-248"
-                >
-                  Assess
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="158"
                 >
-                  Trial
+                  Assess
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
                   x="-158"
                 >
+                  Assess
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="248"
+                >
+                  Trial
+                </text>
+                <text
+                  style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
+                  text-anchor="middle"
+                  x="-248"
+                >
                   Trial
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
-                  x="68"
+                  x="338"
                 >
                   Adopt
                 </text>
                 <text
                   style="fill: #000; transform: translateY(4px); font-family: Arial, Helvetica; font-size: 12px; font-weight: bold; pointer-events: none; user-select: none;"
                   text-anchor="middle"
-                  x="-68"
+                  x="-338"
                 >
                   Adopt
                 </text>

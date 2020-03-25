@@ -90,7 +90,7 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   return (
     <GraphWrapper fullSize={fullSize}>
       <GraphContainer>
-        <svg ref={d3Container} />
+        <svg ref={d3Container} data-testid="graph" />
       </GraphContainer>
     </GraphWrapper>
   );
