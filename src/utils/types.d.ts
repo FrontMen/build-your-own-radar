@@ -33,13 +33,6 @@ interface Technology extends Partial<Point> {
 
 type Segmented = Array<Array<Technology[]>>;
 
-interface ListChildComponentPropsWithData<T> {
-  index: number;
-  style: CSSProperties;
-  data: T;
-  isScrolling?: boolean;
-}
-
 type QuadParamType = {
   readonly quadrant: string;
 };

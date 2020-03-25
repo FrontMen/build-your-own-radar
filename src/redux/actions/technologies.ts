@@ -1,6 +1,5 @@
 import { Action } from 'redux';
 import { ActionWithError, ActionWithPayload } from 'src/redux/types';
-import { ParsedGoogleSheets } from 'src/utils/dataParser';
 
 export enum ETechnologiesActionTypes {
   FETCH_TECHNOLOGIES = 'technologies/fetch-technologies',

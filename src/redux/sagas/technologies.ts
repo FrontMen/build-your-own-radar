@@ -6,7 +6,6 @@ import { filtersActions } from 'src/redux/actions/filters';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import {
   parseGoogleSheetsApiResponse,
-  IncomingGoogleSheetsData,
 } from 'src/utils/dataParser';
 
 import { isErrorResponse, fetchSpreadSheet } from 'src/utils/API';

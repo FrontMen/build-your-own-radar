@@ -1,14 +1,14 @@
 import { ActionWithPayload } from 'src/redux/types';
 
 export enum EFilterActionTypes {
-  SET_COMPANY = 'filters/set-company',
+  TOGGLE_COMPANY = 'filters/toggle-company',
   SELECT_DATA_SET = 'filters/select-data-set',
   FILL_DATA_SET_DATES = 'filters/fill-data-set-dates',
 }
 
-type TSetCompany = ActionWithPayload<EFilterActionTypes.SET_COMPANY, CompanyTypes>;
-const setCompany = (company: CompanyTypes ): TSetCompany => ({
-  type: EFilterActionTypes.SET_COMPANY,
+type TToggleCompany = ActionWithPayload<EFilterActionTypes.TOGGLE_COMPANY, CompanyTypes>;
+const toggleCompany = (company: CompanyTypes ): TToggleCompany => ({
+  type: EFilterActionTypes.TOGGLE_COMPANY,
   payload: company
 } as const);
 
@@ -26,7 +26,7 @@ const fillDataSetDates = (dates: string[]): TFillDataSetDates => ({
 
 
 export const filtersActions = {
-  setCompany,
+  toggleCompany,
   selectDataSet,
   fillDataSetDates,
 };
