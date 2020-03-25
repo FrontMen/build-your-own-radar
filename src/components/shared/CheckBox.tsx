@@ -34,15 +34,17 @@ interface CheckBoxProps {
   checked: boolean;
   label: string;
   onClick: () => void;
+  dataTestid: string;
 }
 
 export const CheckBox: React.FC<CheckBoxProps> = ({
   checked,
   label,
   onClick,
+  dataTestid,
 }) => {
   return (
-    <Container>
+    <Container data-testid={dataTestid}>
       <Label>{label}</Label>
       <CheckBoxContainer
         data-testid="checkbox"

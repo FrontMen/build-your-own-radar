@@ -1,12 +1,13 @@
-import React, { useMemo, useState, useContext } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { IoIosSearch } from 'react-icons/io';
 
 import { Typography } from 'src/Theme/Typography';
 import { MediaQueries } from 'src/Theme/Helpers';
 import { d3Config } from 'src/utils/d3-config';
-import { GoogleSheetsContext } from 'src/ContextProviders/GoogleSheetsContextProvider';
+import { useSelector } from 'react-redux';
+import { selectedTechnologyDataSetSelector } from 'src/redux/selectors/technologies';
 
 const Container = styled.div`
   display: flex;
@@ -89,20 +90,15 @@ export interface SearchProps {
 }
 
 export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
-  const { data: technologies } = useContext(GoogleSheetsContext);
-  const { quadrant } = useParams<QuadParamType>();
-  const { quadrant: quadrantParam } = useParams<QuadParamType>();
+  const technologies = useSelector(selectedTechnologyDataSetSelector);
 
-  const quadrantNum: number = d3Config.quadrants.findIndex(
-    (item: { route: string }) => item.route === quadrantParam,
-  );
 
   const [value, setValue] = useState<string>('');
 
   const data = useMemo(
     () =>
       !value.length
-        ? []
+        ? {}
         : technologies
             .filter(t => t.name.toLocaleLowerCase().includes(value))
             .reduce(
@@ -123,7 +119,7 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
   );
 
   return (
-    <Container>
+    <Container data-testid="subnav-search-container">
       <InputContainer>
         <Input
           data-testid="search-input"
@@ -145,9 +141,7 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
                     key={technology.name}
                     to={`/${d3Config.quadrants[technology.quadrant].route}`}
                     onClick={() => {
-                      if (technology.quadrant !== quadrantNum) {
-                        setValue('');
-                      }
+                      setValue('');
                       setHighlighted(technology.name);
                     }}
                   >

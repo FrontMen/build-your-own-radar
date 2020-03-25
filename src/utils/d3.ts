@@ -99,17 +99,16 @@ const segment = (quadrant: number, ring: number) => {
 
 const translate = (x: number, y: number) => `translate(${x},${y})`;
 
-const viewbox = (quadrant: number, maxRadius: number) =>
-  [
-    Math.max(0, quadrants[quadrant].factor_x * maxRadius) -
-      maxRadius -
-      AXIS_STROKE_WIDTH / 2,
-    Math.max(0, quadrants[quadrant].factor_y * maxRadius) -
-      maxRadius -
-      AXIS_STROKE_WIDTH / 2,
-    maxRadius + AXIS_STROKE_WIDTH,
-    maxRadius + AXIS_STROKE_WIDTH,
-  ].join(' ');
+const viewbox = (quadrant: number, maxRadius: number) => [
+  Math.max(0, quadrants[quadrant].factor_x * maxRadius) -
+    maxRadius -
+    AXIS_STROKE_WIDTH / 2,
+  Math.max(0, quadrants[quadrant].factor_y * maxRadius) -
+    maxRadius -
+    AXIS_STROKE_WIDTH / 2,
+  maxRadius + AXIS_STROKE_WIDTH,
+  maxRadius + AXIS_STROKE_WIDTH,
+];
 
 export const showBubble = (technology: Technology) => {
   const tooltip = d3
@@ -184,19 +183,57 @@ const getHoverPolygons = (maxRadius: number) => [
   ],
 ];
 
-const getQuadrantName = (quadrant: number) => {
-  switch (quadrant) {
-    case 0:
-      return d3Config.quadrants[2].route;
-    case 1:
-      return d3Config.quadrants[3].route;
-    case 2:
-      return d3Config.quadrants[0].route;
-    case 3:
-      return d3Config.quadrants[1].route;
-    default:
-      throw new Error('incorrect quadrant, it should be in range from 0 to 3');
-  }
+//order of quadrants in config is 2 3 0 1, so rotating twice
+const getQuadrantRoute = (quadrant: number) =>
+  d3Config.quadrants[(2 + quadrant) % 4].route;
+
+const drawLegend = (radar: any, quadrant: number, maxRadius: number) => {
+  removeLegend();
+  const [x, y] = viewbox(quadrant, maxRadius).slice(0, 2);
+  const [dx, dy] = translateLegend(quadrant);
+  const X = x + dx;
+  const Y = y + dy;
+
+  const legendContainer = radar.append('g').attr('id', 'radar-legend');
+
+  legendContainer
+    .append('path')
+    .attr('d', 'M -6,5 6,5 0,-7 z')
+    .attr('transform', `translate(${X},${Y})`);
+
+  legendContainer
+    .append('text')
+    .attr('x', X + 10)
+    .attr('y', Y + 3)
+    .attr('font-size', '0.6em')
+    .text('New or Moved');
+
+  legendContainer
+    .append('circle')
+    .attr('r', '6')
+    .attr('transform', `translate(${X},${Y + 15})`);
+
+  legendContainer
+    .append('text')
+    .attr('x', X + 10)
+    .attr('y', Y + 19)
+    .attr('font-size', '0.6em')
+    .text('No Change');
+};
+
+const removeLegend = () => {
+  d3.select('#radar-legend').remove();
+};
+
+const translateLegend = (quadrant: number) => {
+  const { factor_x, factor_y } = quadrants[quadrant];
+  const translationFactor = 260;
+  const paddingX = 40;
+  const paddingY = 70;
+  const dx = factor_x > 0 ? translationFactor + paddingX : paddingX;
+  const dy = factor_y > 0 ? translationFactor + paddingY : paddingY;
+
+  return [dx, dy];
 };
 
 export interface RadarVisualizationParams {
@@ -214,28 +251,22 @@ export const radar_visualization = (
   redirect: (path: string) => void,
 ) => {
   const maxRadius = rings[rings.length - 1].radius;
-  const isFullSize = quadrantProp === undefined;
+  const isFullSize = typeof quadrantProp === 'undefined';
+  const ringsNames = Object.keys(config.rings);
 
   const svg = d3
     .select(container)
     .style('background-color', config.colors.background);
 
   // partition entries according to segments
-  const segmented: Segmented = new Array(4);
-  for (let quadrant = 0; quadrant < 4; quadrant++) {
-    segmented[quadrant] = new Array(4);
-    for (let ring = 0; ring < NUMBER_OF_RINGS; ring++) {
-      segmented[quadrant][ring] = [];
-    }
-  }
+  const segmented: Segmented = [...Array(NUMBER_OF_RINGS)].map(() =>
+    [...Array(NUMBER_OF_RINGS)].map(() => []),
+  );
 
   // position each entry randomly in its segment
   data.forEach(technology => {
     const quadNum: number = technology.quadrant;
-
-    const ringNum: number = config.rings.findIndex(
-      (item: { name: string }) => item.name === technology.ring,
-    );
+    const ringNum: number = config.rings[technology.ring].num;
 
     technology.segment = segment(quadNum, ringNum);
     const { x, y } = technology.segment.random();
@@ -247,23 +278,24 @@ export const radar_visualization = (
 
   // assign unique sequential id to each entry
   let tempId = 1;
+  let currentQuadrant = data.length > 0 ? data[0].quadrant : 0;
   const setId = (technology: Technology) => (technology.id = '' + tempId++);
 
-  for (let quadrant of [2, 3, 1, 0]) {
-    for (let ring = 0; ring < NUMBER_OF_RINGS; ring++) {
-      const entries = segmented[quadrant][ring];
-      entries.sort(sortTechnologyByName).forEach(setId);
-    }
+  for (let ring = 0; ring < NUMBER_OF_RINGS; ring++) {
+    const entries = segmented[currentQuadrant][ring];
+    entries.sort(sortTechnologyByName).forEach(setId);
   }
 
   const isFirstRender = !svg.html();
   const radar = isFirstRender ? svg.append('g') : svg.select('g');
 
-  if (quadrantProp !== undefined) {
+  if (typeof quadrantProp !== 'undefined') {
     svg
       .transition()
       .duration(500)
-      .attr('viewBox', viewbox(quadrantProp, maxRadius));
+      .attr('viewBox', viewbox(quadrantProp, maxRadius).join(' '));
+
+    drawLegend(radar, quadrantProp, maxRadius);
   } else {
     svg.attr('viewBox', `0 0 ${maxRadius * 2} ${maxRadius * 2}`);
     radar.attr('transform', translate(maxRadius, maxRadius));
@@ -288,15 +320,14 @@ export const radar_visualization = (
     filter.append('feComposite').attr('in', 'SourceGraphic');
 
     // draw rings
-    for (let i = 3; i >= 0; i--) {
+    for (let ringName of ringsNames.reverse()) {
       grid
         .append('circle')
         .attr('class', 'ring')
         .attr('cx', 0)
         .attr('cy', 0)
         .attr('r', 0)
-        .style('fill', config.rings[i].backgroundColor)
-        // .style('stroke', config.colors.grid)
+        .style('fill', config.rings[ringName].backgroundColor)
         .style('stroke-width', 1);
     }
 
@@ -333,10 +364,10 @@ export const radar_visualization = (
 
     //ring names displaying
     if (!isFullSize) {
-      for (let i = 3; i >= 0; i--) {
+      ringsNames.forEach((ringName, i) => {
         grid
           .append('text')
-          .text(config.rings[i].name)
+          .text(ringName)
           .attr('x', rings[i].radius - 62)
           .attr('text-anchor', 'middle')
           .style('fill', '#000')
@@ -346,10 +377,9 @@ export const radar_visualization = (
           .style('font-weight', 'bold')
           .style('pointer-events', 'none')
           .style('user-select', 'none');
-
         grid
           .append('text')
-          .text(config.rings[i].name)
+          .text(ringName)
           .attr('x', -rings[i].radius + 62)
           .attr('text-anchor', 'middle')
           .style('fill', '#000')
@@ -359,10 +389,8 @@ export const radar_visualization = (
           .style('font-weight', 'bold')
           .style('pointer-events', 'none')
           .style('user-select', 'none');
-      }
-    }
-
-    if (isFullSize) {
+      });
+    } else {
       // in full size draw boxes on top for hover effect
       getHoverPolygons(maxRadius).forEach((p, i) => {
         const polygons = svg
@@ -374,7 +402,7 @@ export const radar_visualization = (
           .attr('opacity', 0)
           .attr('points', p.map(({ x, y }) => `${x}, ${y}`).join(' '))
           .on('click', function() {
-            redirect(getQuadrantName(i));
+            redirect(getQuadrantRoute(i));
           });
 
         if (isNotMobile) {
@@ -494,7 +522,7 @@ export const radar_visualization = (
 
       if (!isFullSize) {
         // blip text
-        const blip_text = technology.id!.toString();
+        const blip_text = technology.id || '';
         blip
           .append('text')
           .text(blip_text)
