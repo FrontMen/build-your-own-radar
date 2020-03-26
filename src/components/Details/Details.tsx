@@ -102,14 +102,22 @@ const DetailsComponent: React.FC = () => {
     DetailsParams
   >();
   const allData = useSelector(allTechnologyDataSetSelector);
+  let lastDescription: string;
   const technologies = Object.entries(allData)
+    .sort((a, b) => Date.parse(b[0]) - Date.parse(a[0]))
     .map(([date, data]) => {
       const foundItem = data.find(
         (item: Technology) => item.name.toLowerCase() === technologyParam,
       );
-      return { ...foundItem!, date };
+      if (foundItem) {
+        if (lastDescription !== foundItem.description) {
+          lastDescription = foundItem.description;
+          return { ...foundItem, date };
+        }
+      }
+      return null;
     })
-    .sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+    .filter(Boolean);
   const quadrant = d3Config.quadrants.find(
     quad => quad.route === quadrantParam,
   );
@@ -129,9 +137,9 @@ const DetailsComponent: React.FC = () => {
         <ContentTitle data-testid="details">{`Timeline: ${technologyParam}`}</ContentTitle>
         <Timeline>
           {technologies.map((item, index) => (
-            <TimelineItem key={index} value={dateFormat(item.date)}>
-              <h3>{item.name}</h3>
-              <p>{item.description}</p>
+            <TimelineItem key={index} value={dateFormat(item!.date)}>
+              <h3>{item!.name}</h3>
+              <p>{item!.description}</p>
             </TimelineItem>
           ))}
         </Timeline>
