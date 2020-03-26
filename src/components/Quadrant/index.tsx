@@ -6,9 +6,13 @@ import { d3Config } from 'src/utils/d3-config';
 import { Graph } from 'src/components/Graph';
 import { ContentTitle } from 'src/components/shared/ContentTitle';
 import { SubNav } from 'src/components/SubNav';
+import QuadrantPageSkeleton from 'src/components/Skeleton/Quadrantpage';
 import { useQueryAsState } from 'src/hooks/useQueryAsState';
 import { useSelector } from 'react-redux';
-import { selectedTechnologyDataSetSelector } from 'src/redux/selectors/technologies';
+import {
+  selectedTechnologyDataSetSelector,
+  technologiesLoadingStateSelector,
+} from 'src/redux/selectors/technologies';
 import { selectedCompaniesSelector } from 'src/redux/selectors/filters';
 import { Slot, Content, Article } from './styled';
 
@@ -16,9 +20,13 @@ export const Quadrant = () => {
   const { quadrant: quadrantParam } = useParams<QuadParamType>();
   const technologies = useSelector(selectedTechnologyDataSetSelector);
   const selectedCompanies = useSelector(selectedCompaniesSelector);
+  const { initialized, loading } = useSelector(
+    technologiesLoadingStateSelector,
+  );
   const [highlighted, setHighlighted] = useState<null | string>(null);
   const [selected, setSelected] = useQueryAsState();
 
+  const showLoader = !initialized || loading;
   const quadrantNum: number = d3Config.quadrants.findIndex(
     (item: { route: string }) => item.route === quadrantParam,
   );
@@ -35,6 +43,7 @@ export const Quadrant = () => {
   );
 
   if (quadrantNum < 0) return <Redirect to="not-found" />;
+  if (showLoader) return <QuadrantPageSkeleton />;
 
   const { color: quadrantColor, name: quadrantName } = d3Config.quadrants[
     quadrantNum
