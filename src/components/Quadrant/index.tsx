@@ -1,11 +1,7 @@
-import React, {  useMemo, useState } from 'react';
-import styled from 'styled-components/macro';
-import { MediaQueries } from 'src/Theme/Helpers';
+import React, { useMemo, useState } from 'react';
 import { Redirect, useParams } from 'react-router';
 
-import { MainContentSlot } from 'src/components/shared/PageSlots';
 import { TechLists } from './TechLists';
-
 import { d3Config } from 'src/utils/d3-config';
 import { Graph } from 'src/components/Graph';
 import { ContentTitle } from 'src/components/shared/ContentTitle';
@@ -14,59 +10,37 @@ import { useQueryAsState } from 'src/hooks/useQueryAsState';
 import { useSelector } from 'react-redux';
 import { selectedTechnologyDataSetSelector } from 'src/redux/selectors/technologies';
 import { selectedCompaniesSelector } from 'src/redux/selectors/filters';
-
-const Slot = styled(MainContentSlot)`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-`;
-
-const Content = styled.div`
-  display: flex;
-  flex-wrap: wrap-reverse;
-  flex-grow: 1;
-`;
-
-const Article = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-right: ${props => props.theme.space[2]}px;
-  @media ${MediaQueries.phablet} {
-    padding-right: ${props => props.theme.space[3]}px;
-  }
-
-  @media ${MediaQueries.desktop} {
-    max-width: 50%;
-  }
-`;
+import { Slot, Content, Article } from './styled';
 
 export const Quadrant = () => {
   const { quadrant: quadrantParam } = useParams<QuadParamType>();
+  const technologies = useSelector(selectedTechnologyDataSetSelector);
+  const selectedCompanies = useSelector(selectedCompaniesSelector);
+  const [highlighted, setHighlighted] = useState<null | string>(null);
+  const [selected, setSelected] = useQueryAsState();
 
   const quadrantNum: number = d3Config.quadrants.findIndex(
     (item: { route: string }) => item.route === quadrantParam,
   );
+  const data = useMemo(
+    () =>
+      technologies.filter(
+        technology =>
+          technology.quadrant === quadrantNum &&
+          technology.companies.some(
+            companyType => selectedCompanies[companyType],
+          ),
+      ),
+    [quadrantNum, technologies, selectedCompanies],
+  );
+
+  if (quadrantNum < 0) return <Redirect to="not-found" />;
+
   const { color: quadrantColor, name: quadrantName } = d3Config.quadrants[
     quadrantNum
   ];
 
-  const technologies = useSelector(selectedTechnologyDataSetSelector);
-  const selectedCompanies = useSelector(selectedCompaniesSelector);
-
-  const [highlighted, setHighlighted] = useState<null | string>(null);
-  const [selected, setSelected] = useQueryAsState();
-
-  const data = useMemo(
-    () =>
-      technologies
-        .filter(technology => technology.quadrant === quadrantNum)
-        .filter(({ companies }) =>
-          companies.some(companyType => selectedCompanies[companyType]),
-        ),
-    [quadrantNum, technologies, selectedCompanies],
-  );
-
-  return quadrantName ? (
+  return (
     <Slot>
       <SubNav setHighlighted={setHighlighted} />
       <Content>
@@ -104,7 +78,5 @@ export const Quadrant = () => {
         />
       </Content>
     </Slot>
-  ) : (
-    <Redirect to="not-found" />
   );
 };
