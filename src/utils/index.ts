@@ -24,8 +24,10 @@ export const bounded_interval = (
 export const dateFormat = (date: string) => {
   if (isNaN(Date.parse(date))) return '';
 
-  return new Date(date).toLocaleString('default', {
-    month: 'short',
-    year: 'numeric',
-  });
+  return new Date(date)
+    .toLocaleString('default', {
+      month: 'short',
+      year: 'numeric',
+    })
+    .replace(/ /g, ', ');
 };

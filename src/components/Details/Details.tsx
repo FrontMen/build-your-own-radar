@@ -39,7 +39,7 @@ const Content = styled.div`
 `;
 
 const Timeline = styled.ul`
-  border-left: 4px solid #83cdd8;
+  border-left: ${props => `4px solid ${props.theme.colors[props.color || '']}`};
   margin: 50px auto;
   padding: 50px;
   list-style: none;
@@ -81,7 +81,8 @@ const TimelineItem = styled.li`
   }
 
   &:after {
-    box-shadow: 0 0 0 4px #2da8bc;
+    box-shadow: ${props =>
+      `0 0 0 4px ${props.theme.colors[props.color || '']}`};
     left: -58px;
     background: #fff;
     border-radius: 50%;
@@ -135,9 +136,13 @@ const DetailsComponent: React.FC = () => {
       )}
       <Content>
         <ContentTitle data-testid="details">{`Timeline: ${technologyParam}`}</ContentTitle>
-        <Timeline>
+        <Timeline color={quadrant!.name}>
           {technologies.map((item, index) => (
-            <TimelineItem key={index} value={dateFormat(item!.date)}>
+            <TimelineItem
+              key={index}
+              value={dateFormat(item!.date)}
+              color={quadrant!.name}
+            >
               <h3>{item!.name}</h3>
               <p>{item!.description}</p>
             </TimelineItem>
