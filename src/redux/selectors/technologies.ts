@@ -21,5 +21,10 @@ export const selectedTechnologyDataSetSelector = createSelector(
   (state: IRootState) => ({
     selected: state.filters.dataSet.selected,
   }),
-  ({ data }, { selected }) => selected === null ? [] : data[selected],
+  ({ data }, { selected }) => (selected === null ? [] : data[selected]),
+);
+
+export const allTechnologyDataSetSelector = createSelector(
+  technologiesStateSelector,
+  ({ data }) => data,
 );

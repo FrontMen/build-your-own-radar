@@ -9,7 +9,7 @@ import { d3Config } from 'src/utils/d3-config';
 import { Typography } from 'src/Theme/Typography';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 import { useSelector } from 'react-redux';
-import { selectedTechnologyDataSetSelector } from 'src/redux/selectors/technologies';
+import { allTechnologyDataSetSelector } from 'src/redux/selectors/technologies';
 
 const Slot = styled(MainContentSlot)``;
 export interface DetailsParams {
@@ -34,21 +34,79 @@ const ArrowLeftIcon = styled(IoIosArrowRoundBack)`
 
 const Content = styled.div`
   margin: ${props => `${props.theme.space[3]}px 0 ${props.theme.space[4]}px`};
-  display: flex;
-  flex-direction: column;
+  text-align: center;
+`;
+
+const Timeline = styled.ul`
+  border-left: 4px solid #83cdd8;
+  margin: 50px auto;
+  padding: 50px;
+  list-style: none;
+  text-align: left;
+  max-width: 50%;
+
+  h3 {
+    font-weight: 400;
+    font-size: 1.4em;
+  }
+`;
+
+const TimelineItem = styled.li`
+  border-bottom: 1px dashed #82cdd8;
+  padding-bottom: 25px;
+  position: relative;
+
+  &:last-of-type {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border: none;
+  }
+
+  &:before,
+  &:after {
+    position: absolute;
+    display: block;
+    top: 0;
+  }
+
+  &:before {
+    left: -200px;
+    content: '${props => props.value}';
+    text-align: right;
+    min-width: 120px;
+    font-weight: bold;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+  }
+
+  &:after {
+    box-shadow: 0 0 0 4px #2da8bc;
+    left: -58px;
+    background: #fff;
+    border-radius: 50%;
+    height: 11px;
+    width: 11px;
+    content: '';
+    top: 5px;
+  }
+
+  h3 {
+    font-weight: 400;
+    font-size: 1.4em;
+  }
 `;
 
 const DetailsComponent: React.FC = () => {
   const { quadrant: quadrantParam, technology: technologyParam } = useParams<
     DetailsParams
   >();
-
-  const technologies = useSelector(selectedTechnologyDataSetSelector);
-
-  const technology = technologies.find(
-    (item: Technology) => item.name.toLowerCase() === technologyParam,
-  );
-
+  const allData = useSelector(allTechnologyDataSetSelector);
+  const technologies = Object.entries(allData).map(([date, data]) => {
+    const foundItem = data.find(
+      (item: Technology) => item.name.toLowerCase() === technologyParam,
+    );
+    return { ...foundItem!, date };
+  });
   const quadrant = d3Config.quadrants.find(
     quad => quad.route === quadrantParam,
   );
@@ -65,10 +123,15 @@ const DetailsComponent: React.FC = () => {
         </BackLink>
       )}
       <Content>
-        <ContentTitle data-testid="details">{technologyParam}</ContentTitle>
-        {technology && (
-          <div dangerouslySetInnerHTML={{ __html: technology.description }} />
-        )}
+        <ContentTitle data-testid="details">{`Timeline: ${technologyParam}`}</ContentTitle>
+        <Timeline>
+          {technologies.map((item, index) => (
+            <TimelineItem key={index} value={item.date}>
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+            </TimelineItem>
+          ))}
+        </Timeline>
       </Content>
     </Slot>
   );
