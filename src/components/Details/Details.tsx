@@ -10,6 +10,7 @@ import { Typography } from 'src/Theme/Typography';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 import { useSelector } from 'react-redux';
 import { allTechnologyDataSetSelector } from 'src/redux/selectors/technologies';
+import { dateFormat } from 'src/utils';
 
 const Slot = styled(MainContentSlot)``;
 export interface DetailsParams {
@@ -101,12 +102,14 @@ const DetailsComponent: React.FC = () => {
     DetailsParams
   >();
   const allData = useSelector(allTechnologyDataSetSelector);
-  const technologies = Object.entries(allData).map(([date, data]) => {
-    const foundItem = data.find(
-      (item: Technology) => item.name.toLowerCase() === technologyParam,
-    );
-    return { ...foundItem!, date };
-  });
+  const technologies = Object.entries(allData)
+    .map(([date, data]) => {
+      const foundItem = data.find(
+        (item: Technology) => item.name.toLowerCase() === technologyParam,
+      );
+      return { ...foundItem!, date };
+    })
+    .sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
   const quadrant = d3Config.quadrants.find(
     quad => quad.route === quadrantParam,
   );
@@ -126,7 +129,7 @@ const DetailsComponent: React.FC = () => {
         <ContentTitle data-testid="details">{`Timeline: ${technologyParam}`}</ContentTitle>
         <Timeline>
           {technologies.map((item, index) => (
-            <TimelineItem key={index} value={item.date}>
+            <TimelineItem key={index} value={dateFormat(item.date)}>
               <h3>{item.name}</h3>
               <p>{item.description}</p>
             </TimelineItem>
