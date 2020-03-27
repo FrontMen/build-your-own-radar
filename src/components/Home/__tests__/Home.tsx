@@ -8,12 +8,8 @@ import {
 } from 'test/builders';
 import { parsedMockData } from 'test/mockData';
 import { d3Config } from 'utils/d3-config';
-import { cleanup } from '@testing-library/react';
 
 describe('Home', () => {
-  afterEach(cleanup);
-
-  //TODO: fix this test after sceleton implementation
   it('should render correctly when content is loading', () => {
     const { getByTestId } = withAllProviders(<Home />);
     const container = getByTestId('home-skeleton');
