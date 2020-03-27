@@ -38,7 +38,7 @@ const Content = styled.div`
   text-align: center;
 `;
 
-const Timeline = styled.ul`
+const Timeline = styled.ul<{ color: string }>`
   border-left: ${props => `4px solid ${props.theme.colors[props.color || '']}`};
   margin: 50px auto;
   padding: 50px;
@@ -52,7 +52,7 @@ const Timeline = styled.ul`
   }
 `;
 
-const TimelineItem = styled.li`
+const TimelineItem = styled.li<{ color: string; value: string }>`
   border-bottom: 1px dashed #82cdd8;
   padding-bottom: 25px;
   position: relative;
@@ -103,6 +103,21 @@ const DetailsComponent: React.FC = () => {
     DetailsParams
   >();
   const allData = useSelector(allTechnologyDataSetSelector);
+  const quadrant = d3Config.quadrants.find(
+    quad => quad.route === quadrantParam,
+  );
+  if (!quadrant) {
+    return (
+      <Slot>
+        <div>Couldn't find The corresponding quadrant name</div>
+        <BackLink to={`/`}>
+          <ArrowLeftIcon />
+          Back Home
+        </BackLink>
+      </Slot>
+    );
+  }
+
   let lastDescription: string;
   const technologies = Object.entries(allData)
     .sort((a, b) => Date.parse(b[0]) - Date.parse(a[0]))
@@ -119,29 +134,24 @@ const DetailsComponent: React.FC = () => {
       return null;
     })
     .filter(Boolean);
-  const quadrant = d3Config.quadrants.find(
-    quad => quad.route === quadrantParam,
-  );
 
   return (
     <Slot>
-      {quadrant && (
-        <BackLink
-          quadName={quadrant.name}
-          to={`/${quadrantParam}?tech=${technologyParam}`}
-        >
-          <ArrowLeftIcon />
-          Back to {quadrant.name}
-        </BackLink>
-      )}
+      <BackLink
+        quadName={quadrant.name}
+        to={`/${quadrantParam}?tech=${technologyParam}`}
+      >
+        <ArrowLeftIcon />
+        Back to {quadrant.name}
+      </BackLink>
       <Content>
         <ContentTitle data-testid="details">{`Timeline: ${technologyParam}`}</ContentTitle>
-        <Timeline color={quadrant!.name}>
+        <Timeline color={quadrant.name}>
           {technologies.map((item, index) => (
             <TimelineItem
               key={index}
               value={dateFormat(item!.date)}
-              color={quadrant!.name}
+              color={quadrant.name}
             >
               <h3>{item!.name}</h3>
               <p>{item!.description}</p>
