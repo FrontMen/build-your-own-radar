@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
-import { App } from '../index';
-import { Router } from '../../../Router';
+import { App } from '../';
+import { Router } from 'Router';
 
 describe('App', () => {
   const wrapper: ReactWrapper = mount(<App />);
