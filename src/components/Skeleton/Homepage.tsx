@@ -6,7 +6,7 @@ import { Intro, Quads, Content, Quadrant } from '../Home/styled';
 
 export const HomePageSkeleton: React.FC = () => {
   return (
-    <MainContentSlot>
+    <MainContentSlot data-testid="home-skeleton">
       <Intro>
         <ContentTitle>
           <TitleSkeleton />

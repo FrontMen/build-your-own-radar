@@ -18,10 +18,10 @@ import { Slot, Content, Article } from './styled';
 
 export const Quadrant = () => {
   const { quadrant: quadrantParam } = useParams<QuadParamType>();
-  const technologies = useSelector(selectedTechnologyDataSetSelector);
+  const technologies = useSelector(selectedTechnologyDataSetSelector());
   const selectedCompanies = useSelector(selectedCompaniesSelector);
   const { initialized, loading } = useSelector(
-    technologiesLoadingStateSelector,
+    technologiesLoadingStateSelector(),
   );
   const [highlighted, setHighlighted] = useState<null | string>(null);
   const [selected, setSelected] = useQueryAsState();

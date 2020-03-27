@@ -3,8 +3,8 @@ import { FilterByCompany } from '..';
 import { AllProvidersWrapper, withAllProviders } from 'test/helpers';
 import { mount } from 'enzyme';
 import { rootStateBuilder, storeCreator } from 'test/builders';
-import { filtersActions } from 'src/redux/actions/filters';
-import { COMPANY_NAMES } from 'src/components/FilterByCompany/config';
+import { filtersActions } from 'redux/actions/filters';
+import { COMPANY_NAMES } from 'components/FilterByCompany/config';
 
 describe('FilterByCompany', () => {
   it('should matches the snapshot', () => {

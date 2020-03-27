@@ -57,7 +57,7 @@ describe('Search', () => {
       .at(0)
       .simulate('change', {
         target: {
-          value: 'a',
+          value: 'Angular',
         },
       });
 

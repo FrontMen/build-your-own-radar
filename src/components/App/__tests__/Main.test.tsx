@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Router } from 'src/Router';
-import { GlobalStyle } from 'src/Theme/GlobalStyles';
+import { Router } from 'Router';
+import { GlobalStyle } from 'Theme/GlobalStyles';
 import { AllProvidersWrapper } from 'test/helpers';
 import { Main } from '../Main';
 

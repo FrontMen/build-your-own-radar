@@ -381,7 +381,7 @@ exports[`SubNav component should match snapshot 1`] = `
         <input
           class="c13"
           data-testid="search-input"
-          placeholder="Looking for a technology?"
+          placeholder="Search..."
           value=""
         />
       </div>

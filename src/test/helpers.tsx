@@ -6,10 +6,8 @@ import { ThemeProvider } from 'styled-components/macro';
 import { lightTheme } from 'Theme';
 import { Provider } from 'react-redux';
 import { rootStateBuilder, storeCreator } from 'test/builders';
-import { IRootState, defaultRootState, rootReducer } from 'redux/reducers';
+import { IRootState } from 'redux/reducers';
 import { MockStore } from '@jedmao/redux-mock-store';
-
-const defaultStore = storeCreator(rootStateBuilder());
 
 interface Params {
   route?: string;

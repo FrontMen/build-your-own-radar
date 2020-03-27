@@ -1,4 +1,3 @@
-// import 'jest';
 import React from 'react';
 import { Home } from '../';
 import { withAllProviders } from 'test/helpers';
@@ -8,7 +7,7 @@ import {
   rootStateBuilder,
 } from 'test/builders';
 import { parsedMockData } from 'test/mockData';
-import { d3Config } from 'src/utils/d3-config';
+import { d3Config } from 'utils/d3-config';
 import { cleanup } from '@testing-library/react';
 
 describe('Home', () => {
@@ -17,9 +16,9 @@ describe('Home', () => {
   //TODO: fix this test after sceleton implementation
   it('should render correctly when content is loading', () => {
     const { getByTestId } = withAllProviders(<Home />);
-    const container = getByTestId('home-loading');
+    const container = getByTestId('home-skeleton');
 
-    expect(container).toHaveTextContent('LOADING');
+    expect(container).toMatchSnapshot();
   });
 
   it('should render correctly when there was an error requesting data', () => {
