@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Typography } from 'src/Theme/Typography';
-import { MediaQueries } from 'src/Theme/Helpers';
+import { Typography } from 'Theme/Typography';
+import { MediaQueries } from 'Theme/Helpers';
 import { Link } from 'react-router-dom';
 import { IoIosArrowRoundForward } from 'react-icons/io';
 

@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
-import { IRootState } from 'src/redux/reducers';
-import { ITechnologiesState } from 'src/redux/reducers/technologies';
+import { IRootState } from 'redux/reducers';
+import { ITechnologiesState } from 'redux/reducers/technologies';
 
 export const technologiesStateSelector = (
   state: IRootState,

@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { MediaQueries } from 'src/Theme/Helpers';
-import { Typography } from 'src/Theme/Typography';
+import { MediaQueries } from 'Theme/Helpers';
+import { Typography } from 'Theme/Typography';
 import { HeaderSlot } from '../shared/PageSlots';
 import { Link } from 'react-router-dom';
-import { Logo } from 'src/components/Header/Logo';
+import { Logo } from 'components/Header/Logo';
 
 const Slot = styled(HeaderSlot)`
   height: 48px;

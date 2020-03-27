@@ -1,16 +1,16 @@
 import React from 'react';
 import { useParams } from 'react-router';
 import styled from 'styled-components';
-import { MainContentSlot } from 'src/components/shared/PageSlots';
-import { ContentTitle } from 'src/components/shared/ContentTitle';
+import { MainContentSlot } from 'components/shared/PageSlots';
+import { ContentTitle } from 'components/shared/ContentTitle';
 
 import { Link } from 'react-router-dom';
-import { d3Config } from 'src/utils/d3-config';
-import { Typography } from 'src/Theme/Typography';
+import { d3Config } from 'utils/d3-config';
+import { Typography } from 'Theme/Typography';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 import { useSelector } from 'react-redux';
-import { allTechnologyDataSetSelector } from 'src/redux/selectors/technologies';
-import { dateFormat } from 'src/utils';
+import { allTechnologyDataSetSelector } from 'redux/selectors/technologies';
+import { dateFormat } from 'utils';
 
 const Slot = styled(MainContentSlot)``;
 export interface DetailsParams {

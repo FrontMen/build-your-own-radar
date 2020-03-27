@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContentTitle } from 'src/components/shared/ContentTitle';
+import { ContentTitle } from 'components/shared/ContentTitle';
 import {
   RadarSkeleton,
   TitleSkeleton,

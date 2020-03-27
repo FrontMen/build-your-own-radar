@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
-import { d3Config } from 'src/utils/d3-config';
-import { random_between, polar, cartesian, bounded_interval } from 'src/utils';
+import { d3Config } from 'utils/d3-config';
+import { random_between, polar, cartesian, bounded_interval } from 'utils';
 const quadrants = [
   { radial_min: 0, radial_max: 0.5, factor_x: 1, factor_y: 1 },
   { radial_min: 0.5, radial_max: 1, factor_x: -1, factor_y: 1 },

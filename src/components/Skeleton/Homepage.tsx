@@ -1,6 +1,6 @@
 import React from 'react';
 import { MainContentSlot } from '../shared/PageSlots';
-import { ContentTitle } from 'src/components/shared/ContentTitle';
+import { ContentTitle } from 'components/shared/ContentTitle';
 import { RadarSkeleton, TitleSkeleton, ContentSkeleton } from './styled';
 import { Intro, Quads, Content, Quadrant } from '../Home/styled';
 

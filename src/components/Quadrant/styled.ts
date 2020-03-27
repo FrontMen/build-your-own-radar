@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { MainContentSlot } from 'src/components/shared/PageSlots';
-import { MediaQueries } from 'src/Theme/Helpers';
-import { Typography } from 'src/Theme/Typography';
+import { MainContentSlot } from 'components/shared/PageSlots';
+import { MediaQueries } from 'Theme/Helpers';
+import { Typography } from 'Theme/Typography';
 
 export const Section = styled.div`
   width: 100%;

@@ -1,4 +1,4 @@
-import { d3Config } from 'src/utils/d3-config';
+import { d3Config } from 'utils/d3-config';
 
 export function parseGoogleSheetsApiResponse(
   sheets: IncomingGoogleSheetsData,

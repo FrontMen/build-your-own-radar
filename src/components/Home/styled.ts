@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { MediaQueries } from 'src/Theme/Helpers';
-import { Typography } from 'src/Theme/Typography';
+import { MediaQueries } from 'Theme/Helpers';
+import { Typography } from 'Theme/Typography';
 
 export const Intro = styled.div`
   margin: auto;

@@ -2,18 +2,18 @@ import React, { useMemo, useState } from 'react';
 import { Redirect, useParams } from 'react-router';
 
 import { TechLists } from './TechLists';
-import { d3Config } from 'src/utils/d3-config';
-import { Graph } from 'src/components/Graph';
-import { ContentTitle } from 'src/components/shared/ContentTitle';
-import { SubNav } from 'src/components/SubNav';
-import { QuadrantPageSkeleton } from 'src/components/Skeleton/Quadrantpage';
-import { useQueryAsState } from 'src/hooks/useQueryAsState';
+import { d3Config } from 'utils/d3-config';
+import { Graph } from 'components/Graph';
+import { ContentTitle } from 'components/shared/ContentTitle';
+import { SubNav } from 'components/SubNav';
+import { QuadrantPageSkeleton } from 'components/Skeleton/Quadrantpage';
+import { useQueryAsState } from 'hooks/useQueryAsState';
 import { useSelector } from 'react-redux';
 import {
   selectedTechnologyDataSetSelector,
   technologiesLoadingStateSelector,
-} from 'src/redux/selectors/technologies';
-import { selectedCompaniesSelector } from 'src/redux/selectors/filters';
+} from 'redux/selectors/technologies';
+import { selectedCompaniesSelector } from 'redux/selectors/filters';
 import { Slot, Content, Article } from './styled';
 
 export const Quadrant = () => {

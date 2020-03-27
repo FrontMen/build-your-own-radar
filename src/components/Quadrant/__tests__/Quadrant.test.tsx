@@ -3,7 +3,7 @@ import { Context as ResponsiveContext } from 'react-responsive';
 import { mount } from 'enzyme';
 import { Quadrant } from '..';
 import { AllProvidersWrapper, withAllProviders } from 'test/helpers';
-import { MediaQueries } from 'src/Theme/Helpers';
+import { MediaQueries } from 'Theme/Helpers';
 import { parsedMockData } from 'test/mockData';
 
 const routeProps = {

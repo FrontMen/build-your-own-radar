@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MediaQueries } from 'src/Theme/Helpers';
+import { MediaQueries } from 'Theme/Helpers';
 import { Link, useParams } from 'react-router-dom';
-import { Typography } from 'src/Theme/Typography';
-import { d3Config } from 'src/utils/d3-config';
-import { Search } from 'src/components/Search';
-import { FilterByCompany } from 'src/components/FilterByCompany';
+import { Typography } from 'Theme/Typography';
+import { d3Config } from 'utils/d3-config';
+import { Search } from 'components/Search';
+import { FilterByCompany } from 'components/FilterByCompany';
 
 const Container = styled.div`
   display: flex;

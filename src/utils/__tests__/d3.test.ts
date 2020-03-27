@@ -1,5 +1,5 @@
-import { radar_visualization } from 'src/utils/d3';
-import { d3Config } from 'src/utils/d3-config';
+import { radar_visualization } from 'utils/d3';
+import { d3Config } from 'utils/d3-config';
 import { mockData } from 'test/mockData';
 
 import { fireEvent, getByTestId } from '@testing-library/dom';

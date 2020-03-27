@@ -1,11 +1,11 @@
 import React from 'react';
-import { Graph } from 'src/components/Graph';
+import { Graph } from 'components/Graph';
 import { withThemeProviders } from 'test/helpers';
 import { mockData } from 'test/mockData';
 import { mount } from 'enzyme';
 import { ThemeProvider } from 'styled-components/macro';
-import { lightTheme } from 'src/Theme';
-import { d3Config } from 'src/utils/d3-config';
+import { lightTheme } from 'Theme';
+import { d3Config } from 'utils/d3-config';
 
 const defaultProps = {
   technologies: mockData,
@@ -15,7 +15,7 @@ const defaultProps = {
   quadrantNum: 1,
 };
 
-jest.mock('src/utils/d3', () => ({
+jest.mock('utils/d3', () => ({
   radar_visualization: jest.fn(),
   showBubble: jest.fn(),
   hideBubble: jest.fn(),
@@ -34,7 +34,7 @@ describe('Graph', () => {
   });
 
   it('should call showBubble when technology selected and hideBubble when not', async () => {
-    const { showBubble, hideBubble } = await import('src/utils/d3');
+    const { showBubble, hideBubble } = await import('utils/d3');
     const wrapper = mount(<Graph {...defaultProps} />, {
       wrappingComponent: ThemeProvider,
       wrappingComponentProps: {
@@ -58,7 +58,7 @@ describe('Graph', () => {
       radar_visualization,
     }: {
       radar_visualization: jest.MockedFunction<any>;
-    } = await import('src/utils/d3');
+    } = await import('utils/d3');
 
     const wrapper = mount(<Graph {...defaultProps} technologies={[]} />, {
       wrappingComponent: ThemeProvider,

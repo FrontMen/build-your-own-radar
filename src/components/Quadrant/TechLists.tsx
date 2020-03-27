@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import Groupby from 'lodash.groupby';
 import { Section, Ring, Title, List, Dot, Tooltip } from './styled';
-import { d3Config } from 'src/utils/d3-config';
+import { d3Config } from 'utils/d3-config';
 import { TechItem } from './TechItem';
 
 export interface TechnologiesListProps {

@@ -1,14 +1,14 @@
 import React from 'react';
 import { MainContentSlot } from '../shared/PageSlots';
-import { ContentTitle } from 'src/components/shared/ContentTitle';
-import { d3Config } from 'src/utils/d3-config';
-import { Graph } from 'src/components/Graph';
-import { HomePageSkeleton } from 'src/components/Skeleton/Homepage';
+import { ContentTitle } from 'components/shared/ContentTitle';
+import { d3Config } from 'utils/d3-config';
+import { Graph } from 'components/Graph';
+import { HomePageSkeleton } from 'components/Skeleton/Homepage';
 import { useSelector } from 'react-redux';
 import {
   selectedTechnologyDataSetSelector,
   technologiesLoadingStateSelector,
-} from 'src/redux/selectors/technologies';
+} from 'redux/selectors/technologies';
 import { Intro, Quads, Quadrant, Content, StyledLinks } from './styled';
 
 export const Home: React.FC = () => {

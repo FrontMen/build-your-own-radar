@@ -1,6 +1,6 @@
-jest.mock('src/ContextProviders/GoogleSheetsContextProvider', () => {
+jest.mock('ContextProviders/GoogleSheetsContextProvider', () => {
   const React = require('react');
-  const { parsedMockData: data } = require('test/mockData') ;
+  const { parsedMockData: data } = require('test/mockData');
 
   const googleSheetsContext = React.createContext({ data });
 
@@ -13,6 +13,5 @@ jest.mock('src/ContextProviders/GoogleSheetsContextProvider', () => {
     GoogleSheetsContextProvider,
   };
 });
-
 
 export {};
