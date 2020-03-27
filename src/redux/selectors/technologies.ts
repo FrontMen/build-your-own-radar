@@ -23,3 +23,8 @@ export const selectedTechnologyDataSetSelector = createSelector(
   }),
   ({ data }, { selected }) => (selected === null ? [] : data[selected]),
 );
+
+export const allTechnologyDataSetSelector = createSelector(
+  technologiesStateSelector,
+  ({ data }) => data,
+);

@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import Groupby from 'lodash.groupby';
 import { Section, Ring, Title, List, Dot, Tooltip } from './styled';
 import { d3Config } from 'utils/d3-config';
 import { TechItem } from './TechItem';
@@ -22,24 +23,7 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
   quadrant,
   color,
 }) => {
-  const data = useMemo(
-    () =>
-      technologies.reduce(
-        (acc, tech) => {
-          const ringName = tech.ring;
-          if (acc[ringName]) {
-            acc[ringName].push(tech);
-          } else {
-            acc[ringName] = [tech];
-          }
-          return acc;
-        },
-        {} as {
-          [key: string]: Technology[];
-        },
-      ),
-    [technologies],
-  );
+  const data = useMemo(() => Groupby(technologies, 'ring'), [technologies]);
 
   return (
     <Section data-testid="tech-lists-section">

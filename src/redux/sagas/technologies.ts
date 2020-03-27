@@ -27,10 +27,10 @@ export function* fetchTechnologiesSaga() {
     yield put(technologiesActions.fetchTechnologiesSuccess(parsedData));
 
     const dates = Object.keys(parsedData).sort(
-      (a, b) => Date.parse(a) - Date.parse(b),
+      (a, b) => Date.parse(b) - Date.parse(a),
     );
 
-    yield put(filtersActions.selectDataSet(dates[dates.length - 1]));
+    yield put(filtersActions.selectDataSet(dates[0]));
     yield put(filtersActions.fillDataSetDates(dates));
   } catch (error) {
     yield put(technologiesActions.fetchTechnologiesError(error));

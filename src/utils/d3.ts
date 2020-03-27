@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import { d3Config } from 'utils/d3-config';
-
+import { random_between, polar, cartesian, bounded_interval } from 'utils';
 const quadrants = [
   { radial_min: 0, radial_max: 0.5, factor_x: 1, factor_y: 1 },
   { radial_min: 0.5, radial_max: 1, factor_x: -1, factor_y: 1 },
@@ -14,35 +14,8 @@ const rings = [
   { radius: 400 },
 ];
 
-let seed = 42;
 const NUMBER_OF_RINGS = 4;
 const AXIS_STROKE_WIDTH = 16;
-
-const random = () => {
-  const x = Math.sin(seed++) * 10000;
-  return x - Math.floor(x);
-};
-const random_between = (min: number, max: number): number =>
-  min + random() * (max - min);
-
-const normal_between = (min: number, max: number): number =>
-  min + (random() + random()) * 0.5 * (max - min);
-
-const polar = ({ x, y }: Point): Polar => ({
-  t: Math.atan2(y, x),
-  r: Math.sqrt(x * x + y * y),
-});
-
-const cartesian = ({ r, t }: Polar): Point => ({
-  x: r * Math.cos(t),
-  y: r * Math.sin(t),
-});
-
-const bounded_interval = (value: number, min: number, max: number): number => {
-  const low = Math.min(min, max);
-  const high = Math.max(min, max);
-  return Math.min(Math.max(value, low), high);
-};
 
 const bounded_ring = (
   { t, r }: Polar,
@@ -91,7 +64,7 @@ const segment = (quadrant: number, ring: number) => {
     random() {
       return cartesian({
         t: random_between(polar_min.t, polar_max.t),
-        r: normal_between(polar_min.r, polar_max.r),
+        r: random_between(polar_min.r, polar_max.r),
       });
     },
   };
@@ -114,13 +87,14 @@ export const showBubble = (technology: Technology) => {
   const tooltip = d3
     .select<SVGTextElement, SVGTextElement>('#bubble text')
     .text(technology.name)
+    .style('font-size', '0.6em')
     .node();
   if (tooltip) {
     const bbox = tooltip.getBBox?.() || { width: 0, height: 0 }; // default value for testing env
     d3.select('#bubble')
       .attr(
         'transform',
-        translate(technology.x! - bbox.width / 2, technology.y! - 16),
+        translate(technology.x! - bbox.width / 2, technology.y! - 20),
       )
       .style('opacity', 1);
     d3.select('#bubble rect')
@@ -199,7 +173,7 @@ const drawLegend = (radar: any, quadrant: number, maxRadius: number) => {
   legendContainer
     .append('path')
     .attr('d', 'M -6,5 6,5 0,-7 z')
-    .attr('transform', `translate(${X},${Y})`);
+    .attr('transform', translate(X, Y));
 
   legendContainer
     .append('text')
@@ -211,7 +185,7 @@ const drawLegend = (radar: any, quadrant: number, maxRadius: number) => {
   legendContainer
     .append('circle')
     .attr('r', '6')
-    .attr('transform', `translate(${X},${Y + 15})`);
+    .attr('transform', translate(X, Y + 15));
 
   legendContainer
     .append('text')

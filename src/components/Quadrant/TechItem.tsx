@@ -72,29 +72,19 @@ export class TechItem extends React.Component<TechnologyProps> {
       selected: prevActive,
       technology: { name: prevName },
     } = this.props;
-
     const {
       highlighted: nextHighlighted,
       selected: nextActive,
       technology: { name: nextName },
     } = nextProps;
 
-    // updating if highlighted property changed
-    if (
+    // updating if selected or highlighted property changed
+    return (
       (prevHighlighted === prevName && nextHighlighted !== nextName) ||
-      (prevHighlighted !== prevName && nextHighlighted === nextName)
-    ) {
-      return true;
-    }
-    // updating if selected property changed
-    if (
+      (prevHighlighted !== prevName && nextHighlighted === nextName) ||
       (prevActive === prevName && nextActive !== nextName) ||
       (prevActive !== prevName && nextActive === nextName)
-    ) {
-      return true;
-    }
-    // otherwise not
-    return false;
+    );
   }
 
   handleMouseOver = () => this.props.setHighlighted(this.props.technology.name);
@@ -115,10 +105,9 @@ export class TechItem extends React.Component<TechnologyProps> {
       selected,
       highlighted,
       technology: { name, description },
+      quadrant,
     } = this.props;
 
-    const quadrantSlug = this.props.quadrant;
-    const technologySlug = name.toLowerCase();
     return (
       <ListItem data-testid={`list-item-${name}`}>
         <Label
@@ -134,7 +123,7 @@ export class TechItem extends React.Component<TechnologyProps> {
         <Details data-testid="details" isOpened={selected === name}>
           <Content>
             <span dangerouslySetInnerHTML={{ __html: description }} />
-            <DetailsLink to={`/${quadrantSlug}/${technologySlug}`}>
+            <DetailsLink to={`/${quadrant}/${name.toLowerCase()}`}>
               {'More '}
               <ArrowRightIcon data-testid="arrow-right-icon" />
             </DetailsLink>
