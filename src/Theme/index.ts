@@ -38,7 +38,7 @@ export const baseTheme = {
     info: '#17a2b8',
     warning: '#fcea0b',
     danger: '#ff5100',
-    light: '#f8f9fa',
+    light: '#f3f3f3',
     dark: '#37383d',
   },
 };
