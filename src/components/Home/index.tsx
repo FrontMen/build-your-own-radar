@@ -3,7 +3,7 @@ import { MainContentSlot } from '../shared/PageSlots';
 import { ContentTitle } from 'src/components/shared/ContentTitle';
 import { d3Config } from 'src/utils/d3-config';
 import { Graph } from 'src/components/Graph';
-import HomePageSkeleton from 'src/components/Skeleton/Homepage';
+import { HomePageSkeleton } from 'src/components/Skeleton/Homepage';
 import { useSelector } from 'react-redux';
 import {
   selectedTechnologyDataSetSelector,

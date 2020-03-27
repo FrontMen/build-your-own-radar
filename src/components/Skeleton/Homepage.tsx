@@ -4,7 +4,7 @@ import { ContentTitle } from 'src/components/shared/ContentTitle';
 import { RadarSkeleton, TitleSkeleton, ContentSkeleton } from './styled';
 import { Intro, Quads, Content, Quadrant } from '../Home/styled';
 
-const HomePageSkeleton: React.FC = () => {
+export const HomePageSkeleton: React.FC = () => {
   return (
     <MainContentSlot>
       <Intro>
@@ -32,5 +32,3 @@ const HomePageSkeleton: React.FC = () => {
     </MainContentSlot>
   );
 };
-
-export default HomePageSkeleton;

@@ -8,7 +8,7 @@ import {
 } from './styled';
 import { Slot, Content, Article, Ring, Section } from '../Quadrant/styled';
 
-const QuadrantPageSkeleton: React.FC = () => {
+export const QuadrantPageSkeleton: React.FC = () => {
   return (
     <Slot>
       <NavSkeleton />
@@ -31,5 +31,3 @@ const QuadrantPageSkeleton: React.FC = () => {
     </Slot>
   );
 };
-
-export default QuadrantPageSkeleton;

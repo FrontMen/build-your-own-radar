@@ -6,7 +6,7 @@ import { d3Config } from 'src/utils/d3-config';
 import { Graph } from 'src/components/Graph';
 import { ContentTitle } from 'src/components/shared/ContentTitle';
 import { SubNav } from 'src/components/SubNav';
-import QuadrantPageSkeleton from 'src/components/Skeleton/Quadrantpage';
+import { QuadrantPageSkeleton } from 'src/components/Skeleton/Quadrantpage';
 import { useQueryAsState } from 'src/hooks/useQueryAsState';
 import { useSelector } from 'react-redux';
 import {
