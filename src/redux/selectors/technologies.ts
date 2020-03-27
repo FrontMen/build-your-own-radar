@@ -6,7 +6,7 @@ export const technologiesStateSelector = (
   state: IRootState,
 ): ITechnologiesState => state.technologies;
 
-export const technologiesLoadingStateSelector = createSelector(
+export const technologiesLoadingStateSelector = () => createSelector(
   technologiesStateSelector,
   ({ loading, error, errorMessage, initialized }) => ({
     loading,
@@ -16,7 +16,7 @@ export const technologiesLoadingStateSelector = createSelector(
   }),
 );
 
-export const selectedTechnologyDataSetSelector = createSelector(
+export const selectedTechnologyDataSetSelector = () => createSelector(
   technologiesStateSelector,
   (state: IRootState) => ({
     selected: state.filters.dataSet.selected,

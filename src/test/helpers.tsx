@@ -5,10 +5,9 @@ import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components/macro';
 import { lightTheme } from 'Theme';
 import { Provider } from 'react-redux';
-import { Store } from 'redux';
 import { rootStateBuilder, storeCreator } from 'test/builders';
-import { IRootState } from 'redux/reducers';
-
+import { IRootState, defaultRootState, rootReducer } from 'redux/reducers';
+import { MockStore } from '@jedmao/redux-mock-store';
 
 const defaultStore = storeCreator(rootStateBuilder());
 
@@ -16,7 +15,7 @@ interface Params {
   route?: string;
   path?: string;
   history?: History;
-  store?: Store<IRootState>;
+  store?: MockStore<IRootState>;
 }
 
 // #region react-testing-library
@@ -55,7 +54,7 @@ export const withAllProviders = (
     route = '/',
     path = '/',
     history = createMemoryHistory({ initialEntries: [route] }),
-    store = defaultStore,
+    store = storeCreator(rootStateBuilder()),
   }: Params = {},
   theme = lightTheme,
   ...options: any
@@ -83,13 +82,13 @@ export const AllProvidersWrapper = ({
   path = '/',
   route = '/',
   history = createMemoryHistory({ initialEntries: [route] }),
-  store = defaultStore,
+  store = storeCreator(rootStateBuilder()),
 }: {
   children: ReactNode;
   path: string;
   route: string;
   history: History;
-  store: Store<IRootState>;
+  store: MockStore<IRootState>;
 }) => {
   return (
     <Provider store={store}>

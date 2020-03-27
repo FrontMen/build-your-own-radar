@@ -1,7 +1,7 @@
 import { defaultRootState, IRootState } from 'src/redux/reducers';
 import { ITechnologiesState } from 'src/redux/reducers/technologies';
 import { generateBuilder } from './utils';
-import configureMockStore from 'redux-mock-store';
+import { configureMockStore } from '@jedmao/redux-mock-store';
 
 const builderFor = <T extends keyof IRootState>(
   key: T,
@@ -17,5 +17,6 @@ const builderFor = <T extends keyof IRootState>(
 export const storeCreator = configureMockStore<IRootState>();
 
 export const rootStateBuilder = generateBuilder<IRootState>(defaultRootState);
-export const technologiesStateBuilder = (partialState: Partial<ITechnologiesState>) =>
-  builderFor<'technologies'>('technologies', partialState);
+export const technologiesStateBuilder = (
+  partialState: Partial<ITechnologiesState>,
+) => builderFor<'technologies'>('technologies', partialState);

@@ -29,7 +29,7 @@ export interface SearchProps {
 }
 
 export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
-  const technologies = useSelector(selectedTechnologyDataSetSelector);
+  const technologies = useSelector(selectedTechnologyDataSetSelector());
 
   const [value, setValue] = useState<string>('');
 

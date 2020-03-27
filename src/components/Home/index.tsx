@@ -14,9 +14,9 @@ import { Intro, Quads, Quadrant, Content, StyledLinks } from './styled';
 export const Home: React.FC = () => {
   const quads = d3Config.quadrants;
   const { initialized, loading, error, errorMessage } = useSelector(
-    technologiesLoadingStateSelector,
+    technologiesLoadingStateSelector(),
   );
-  const technologies = useSelector(selectedTechnologyDataSetSelector);
+  const technologies = useSelector(selectedTechnologyDataSetSelector());
   const showLoader = !initialized || loading;
 
   if (showLoader) return <HomePageSkeleton />;

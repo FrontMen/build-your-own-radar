@@ -6,7 +6,7 @@ describe('App', () => {
   const appWrapper = shallow(<App />);
 
   it('should wrap content into redux and theme providers', () => {
-    expect(appWrapper.find('Provider')).toBeTruthy();
-    expect(appWrapper.find('ThemeProvider')).toBeTruthy();
+    expect(appWrapper.find('Provider')).toHaveLength(1);
+    expect(appWrapper.find('ThemeProvider')).toHaveLength(1);
   });
 });

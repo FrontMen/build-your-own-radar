@@ -16,3 +16,7 @@ declare namespace jest {
     toHaveStyleRule(property: string, value?: Value, options?: Options): R;
   }
 }
+
+type RecursivePartial<T> = {
+  [P in keyof T]?: RecursivePartial<T[P]>;
+};

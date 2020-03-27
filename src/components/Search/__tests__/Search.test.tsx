@@ -6,6 +6,8 @@ import {
   getSelector,
 } from 'test/helpers';
 import { mount } from 'enzyme';
+import { rootStateBuilder, storeCreator } from 'test/builders';
+import { parsedMockData } from 'test/mockData';
 
 const setHighlighted = jest.fn();
 
@@ -25,8 +27,26 @@ describe('Search', () => {
   });
 
   it('should render dropdown if input has a matching value', () => {
+    const [dataSetKey] = Object.entries(parsedMockData)[0];
+    const state = rootStateBuilder({
+      technologies: {
+        initialized: true,
+        loading: false,
+        data: parsedMockData,
+      },
+      filters: {
+        dataSet: {
+          selected: dataSetKey,
+        },
+      },
+    });
+    const store = storeCreator(state);
+
     const wrapper = mount(<Search setHighlighted={setHighlighted} />, {
       wrappingComponent: AllProvidersWrapper,
+      wrappingComponentProps: {
+        store,
+      },
     });
 
     //there should not be dropdown when input is empty
@@ -44,8 +64,12 @@ describe('Search', () => {
     let dropdown = wrapper.find(dropdownSelector).at(0);
 
     expect(dropdown).toHaveLength(1);
-    expect(dropdown.at(0).find(getSelector('search-ringName')).length).toBeGreaterThan(0);
-    expect(dropdown.at(0).find(getSelector('search-technology')).length).toBeGreaterThan(0);
+    expect(
+      dropdown.at(0).find(getSelector('search-ringName')).length,
+    ).toBeGreaterThan(0);
+    expect(
+      dropdown.at(0).find(getSelector('search-technology')).length,
+    ).toBeGreaterThan(0);
 
     wrapper
       .find(inputSelector)
@@ -60,6 +84,5 @@ describe('Search', () => {
     dropdown = wrapper.find(dropdownSelector).at(0);
 
     expect(dropdown).toHaveLength(0);
-
   });
 });
