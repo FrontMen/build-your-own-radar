@@ -72,7 +72,7 @@ exports[`Search render search icon and input field 1`] = `
       <input
         class="c2"
         data-testid="search-input"
-        placeholder="Looking for a technology?"
+        placeholder="Search..."
         value=""
       />
     </div>

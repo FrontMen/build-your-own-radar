@@ -9,10 +9,22 @@ describe('Home', () => {
     cy.visit('/');
   });
 
+  it('renders loader when request is in progress', () => {
+    dataTestId('home-loading')
+      .should('be.visible')
+      .contains('LOADING');
+  });
+
   it('renders page elements', () => {
-    dataTestId('home-title')
+    dataTestId('home-intro').should('be.visible');
+
+    dataTestId('home-intro-title')
       .should('be.visible')
       .contains('Whats this all about?');
+
+    dataTestId('home-intro-content')
+      .should('be.visible')
+      .contains('Consequat incididunt');
 
     dataTestId('graph')
       .should('be.visible')
@@ -21,14 +33,13 @@ describe('Home', () => {
 
   d3Config.quadrants.forEach((quadrant, i) => {
     it(`renders quadrant ${i} and redirects to proper quadrant on link click`, () => {
-      dataTestId(`quadrant-container-${i}`).should('be.visible');
+      dataTestId(`home-quadrant-${i}-container`).should('be.visible');
 
-      dataTestId(`quadrant-container-${i}`)
-        .find('h2')
-        .contains(quadrant.name);
+      dataTestId(`home-quadrant-${i}-title`).contains(quadrant.name);
 
-      dataTestId(`quadrant-container-${i}`)
-        .find('a')
+      dataTestId(`home-quadrant-${i}-content`).contains('Ex tempor nulla est');
+
+      dataTestId(`home-quadrant-${i}-link`)
         .contains('look at ' + quadrant.name)
         .click();
 

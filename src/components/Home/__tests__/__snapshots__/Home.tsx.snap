@@ -1,0 +1,636 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should render correctly when content is loading 1`] = `
+.c0 {
+  grid-area: main;
+  background-color: #fff;
+  padding: 16px;
+}
+
+.c2 {
+  font-family: Montserrat,san-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  font-size: 1.5em;
+  text-transform: capitalize;
+}
+
+.c6 {
+  width: 500px;
+  height: 500px;
+  margin: 0px auto 50px;
+  border-radius: 50%;
+  background-color: #f3f3f3;
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  -webkit-animation: jYeOic 0.65s infinite alternate;
+  animation: jYeOic 0.65s infinite alternate;
+}
+
+.c3 {
+  width: 50%;
+  height: 20px;
+  margin-bottom: 20px;
+  background-color: #f3f3f3;
+  border-radius: 7px;
+  -webkit-animation: jYeOic 0.65s infinite alternate;
+  animation: jYeOic 0.65s infinite alternate;
+}
+
+.c5 {
+  display: inline-block;
+  width: 75%;
+  height: 110px;
+  border-radius: 6px;
+  background-color: #f3f3f3;
+  -webkit-animation: jYeOic 0.65s infinite alternate;
+  animation: jYeOic 0.65s infinite alternate;
+}
+
+.c1 {
+  margin: auto;
+  margin-bottom: 8px;
+  max-width: 48em;
+}
+
+.c7 {
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  grid-gap: 32px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.c4 {
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+@media (min-width:481px) {
+  .c0 {
+    padding: 32px;
+  }
+}
+
+@media (min-width:481px) {
+  .c2 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width:481px) {
+  .c1 {
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width:1024px) {
+  .c1 {
+    margin-bottom: 64px;
+  }
+}
+
+@media (min-width:768px) {
+  .c7 {
+    grid-template-columns: repeat(auto-fit,minmax(25em,1fr));
+  }
+}
+
+@media (min-width:768px) {
+  .c8 {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+}
+
+<div
+  class="c0"
+  data-testid="home-skeleton"
+>
+  <div
+    class="c1"
+  >
+    <h2
+      class="c2"
+    >
+      <div
+        class="c3"
+      />
+    </h2>
+    <p
+      class="c4"
+    >
+      <span
+        class="c5"
+      />
+    </p>
+  </div>
+  <div
+    class="c6"
+  />
+  <div
+    class="c7"
+  >
+    <div
+      class="c8"
+    >
+      <h2
+        class="c2"
+      >
+        <div
+          class="c3"
+        />
+      </h2>
+      <p
+        class="c4"
+      >
+        <span
+          class="c5"
+        />
+      </p>
+      <div
+        class="c3"
+      />
+    </div>
+    <div
+      class="c8"
+    >
+      <h2
+        class="c2"
+      >
+        <div
+          class="c3"
+        />
+      </h2>
+      <p
+        class="c4"
+      >
+        <span
+          class="c5"
+        />
+      </p>
+      <div
+        class="c3"
+      />
+    </div>
+    <div
+      class="c8"
+    >
+      <h2
+        class="c2"
+      >
+        <div
+          class="c3"
+        />
+      </h2>
+      <p
+        class="c4"
+      >
+        <span
+          class="c5"
+        />
+      </p>
+      <div
+        class="c3"
+      />
+    </div>
+    <div
+      class="c8"
+    >
+      <h2
+        class="c2"
+      >
+        <div
+          class="c3"
+        />
+      </h2>
+      <p
+        class="c4"
+      >
+        <span
+          class="c5"
+        />
+      </p>
+      <div
+        class="c3"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Home should render correctly when content is there 1`] = `
+.c0 {
+  grid-area: main;
+  background-color: #fff;
+  padding: 16px;
+}
+
+.c2 {
+  font-family: Montserrat,san-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  font-size: 1.5em;
+  text-transform: capitalize;
+}
+
+.c4 {
+  width: 100%;
+  max-width: 800px;
+  min-width: 280px;
+  height: auto;
+  margin: 0 auto 8px;
+}
+
+.c5 {
+  text-align: center;
+}
+
+.c1 {
+  margin: auto;
+  margin-bottom: 8px;
+  max-width: 48em;
+}
+
+.c6 {
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  grid-gap: 32px;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.c3 {
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.c8 {
+  margin-top: auto;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  color: #526de4;
+}
+
+@media (min-width:481px) {
+  .c0 {
+    padding: 32px;
+  }
+}
+
+@media (min-width:481px) {
+  .c2 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width:481px) {
+  .c4 {
+    max-width: 80%;
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width:1024px) {
+  .c4 {
+    max-width: 50%;
+    margin-bottom: 64px;
+  }
+}
+
+@media (min-width:1024px) {
+  .c5 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+}
+
+@media (min-width:481px) {
+  .c1 {
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width:1024px) {
+  .c1 {
+    margin-bottom: 64px;
+  }
+}
+
+@media (min-width:768px) {
+  .c6 {
+    grid-template-columns: repeat(auto-fit,minmax(25em,1fr));
+  }
+}
+
+@media (min-width:768px) {
+  .c7 {
+    width: 100%;
+    margin-bottom: 32px;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    <div
+      class="c1"
+      data-testid="home-intro"
+    >
+      <h2
+        class="c2"
+        data-testid="home-intro-title"
+      >
+        Whats this all about?
+      </h2>
+      <p
+        class="c3"
+        data-testid="home-intro-content"
+      >
+        Consequat incididunt in occaecat reprehenderit culpa elit. Est cupidatat ex dolore duis do aliquip magna ullamco anim. Fugiat non eu laboris ut ea aute.
+      </p>
+    </div>
+    <div
+      class="c4"
+    >
+      <div
+        class="c5"
+      >
+        <svg
+          data-testid="graph"
+          viewBox="0 0 800 800"
+        >
+          <g
+            transform="translate(400,400)"
+          >
+            <g>
+              <defs>
+                <filter
+                  height="1"
+                  id="solid"
+                  width="1"
+                  x="0"
+                  y="0"
+                >
+                  <feflood
+                    flood-color="rgb(0, 0, 0, 0.8)"
+                  />
+                  <fecomposite
+                    in="SourceGraphic"
+                  />
+                </filter>
+              </defs>
+              <circle
+                class="ring"
+                cx="0"
+                cy="0"
+                r="0"
+                style="fill: #E4E5E4; stroke-width: 1;"
+              />
+              <circle
+                class="ring"
+                cx="0"
+                cy="0"
+                r="0"
+                style="fill: #D7D8D6; stroke-width: 1;"
+              />
+              <circle
+                class="ring"
+                cx="0"
+                cy="0"
+                r="0"
+                style="fill: #CBCCCB; stroke-width: 1;"
+              />
+              <circle
+                class="ring"
+                cx="0"
+                cy="0"
+                r="0"
+                style="fill: #BFC0BF; stroke-width: 1;"
+              />
+              <line
+                style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
+                x1="-400"
+                x2="400"
+                y1="0"
+                y2="0"
+              />
+              <line
+                style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
+                x1="0"
+                x2="0"
+                y1="-400"
+                y2="-8"
+              />
+              <line
+                style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
+                x1="0"
+                x2="0"
+                y1="8"
+                y2="400"
+              />
+            </g>
+            <g
+              id="rink"
+            />
+            <g
+              data-testid="radar-bubble"
+              id="bubble"
+              style="opacity: 0; pointer-events: none; user-select: none;"
+              transform="translate(0,0)"
+              x="0"
+              y="0"
+            >
+              <rect
+                rx="4"
+                ry="4"
+                style="fill: #333;"
+              />
+              <text
+                style="font-family: sans-serif; font-size: 14px; fill: #fff;"
+              />
+              <path
+                d="M 0,0 10,0 5,8 z"
+                style="fill: #333;"
+              />
+            </g>
+          </g>
+          <polygon
+            class="quadrant-hover"
+            cursor="pointer"
+            data-testid="quadrant-0"
+            fill="#fff"
+            opacity="0"
+            points="0, 392 0, 0 392, 0 392, 392"
+          />
+          <polygon
+            class="quadrant-hover"
+            cursor="pointer"
+            data-testid="quadrant-1"
+            fill="#fff"
+            opacity="0"
+            points="408, 392 408, 0 800, 0 800, 392"
+          />
+          <polygon
+            class="quadrant-hover"
+            cursor="pointer"
+            data-testid="quadrant-2"
+            fill="#fff"
+            opacity="0"
+            points="408, 800 408, 408 800, 408 800, 800"
+          />
+          <polygon
+            class="quadrant-hover"
+            cursor="pointer"
+            data-testid="quadrant-3"
+            fill="#fff"
+            opacity="0"
+            points="0, 800 0, 408 392, 408 392, 800"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="c6"
+      data-testid="home-quadrants-wrapper"
+    >
+      <div
+        class="c7"
+        data-testid="home-quadrant-0-container"
+      >
+        <h2
+          class="c2"
+          data-testid="home-quadrant-0-title"
+        >
+          Frameworks, CMS & Programmeertalen
+        </h2>
+        <p
+          class="c3"
+          data-testid="home-quadrant-0-content"
+        >
+          Ex tempor nulla est nostrud non consectetur enim commodo. Elit aute ex pariatur commodo aute. Adipisicing eu dolore fugiat culpa deserunt id reprehenderit. Reprehenderit eiusmod exercitation labore sint enim.
+        </p>
+        <a
+          class="c8"
+          data-testid="home-quadrant-0-link"
+          href="/frameworks-and-lang"
+        >
+          look at 
+          Frameworks, CMS & Programmeertalen
+        </a>
+      </div>
+      <div
+        class="c7"
+        data-testid="home-quadrant-1-container"
+      >
+        <h2
+          class="c2"
+          data-testid="home-quadrant-1-title"
+        >
+          Tooling en testing
+        </h2>
+        <p
+          class="c3"
+          data-testid="home-quadrant-1-content"
+        >
+          Ex tempor nulla est nostrud non consectetur enim commodo. Elit aute ex pariatur commodo aute. Adipisicing eu dolore fugiat culpa deserunt id reprehenderit. Reprehenderit eiusmod exercitation labore sint enim.
+        </p>
+        <a
+          class="c8"
+          data-testid="home-quadrant-1-link"
+          href="/tooling-and-testing"
+        >
+          look at 
+          Tooling en testing
+        </a>
+      </div>
+      <div
+        class="c7"
+        data-testid="home-quadrant-2-container"
+      >
+        <h2
+          class="c2"
+          data-testid="home-quadrant-2-title"
+        >
+          Platforms, infrastructure & Data
+        </h2>
+        <p
+          class="c3"
+          data-testid="home-quadrant-2-content"
+        >
+          Ex tempor nulla est nostrud non consectetur enim commodo. Elit aute ex pariatur commodo aute. Adipisicing eu dolore fugiat culpa deserunt id reprehenderit. Reprehenderit eiusmod exercitation labore sint enim.
+        </p>
+        <a
+          class="c8"
+          data-testid="home-quadrant-2-link"
+          href="/platforms-infra-and-data"
+        >
+          look at 
+          Platforms, infrastructure & Data
+        </a>
+      </div>
+      <div
+        class="c7"
+        data-testid="home-quadrant-3-container"
+      >
+        <h2
+          class="c2"
+          data-testid="home-quadrant-3-title"
+        >
+          Technieken
+        </h2>
+        <p
+          class="c3"
+          data-testid="home-quadrant-3-content"
+        >
+          Ex tempor nulla est nostrud non consectetur enim commodo. Elit aute ex pariatur commodo aute. Adipisicing eu dolore fugiat culpa deserunt id reprehenderit. Reprehenderit eiusmod exercitation labore sint enim.
+        </p>
+        <a
+          class="c8"
+          data-testid="home-quadrant-3-link"
+          href="/technique"
+        >
+          look at 
+          Technieken
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
