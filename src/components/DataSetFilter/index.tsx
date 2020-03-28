@@ -27,8 +27,8 @@ export const DataSetFilter = () => {
 
   return (
     <Container>
-      <Selected onClick={toggleOpened}>
-        <Text>{selected}</Text>
+      <Selected data-testid="dataSetFilter-anchor" onClick={toggleOpened}>
+        <Text data-testid="dataSetFilter-text">{selected}</Text>
         <Triangle
           opened={opened}
           focusable="false"
@@ -40,9 +40,11 @@ export const DataSetFilter = () => {
         </Triangle>
       </Selected>
       {opened && (
-        <DropDown opened={opened}>
+        <DropDown opened={opened} data-testid="dataSetFilter-dropdown">
           {availableDates.map(date => (
             <Option
+              key={date}
+              data-testid={`dataSetFilter-dropdown-option-${date}`}
               selected={selected === date}
               onClick={() => {
                 selectDate(date);
