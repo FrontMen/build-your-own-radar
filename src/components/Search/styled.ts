@@ -11,7 +11,7 @@ export const Container = styled.div`
   position: relative;
   padding: ${props => props.theme.space[2]}px;
 
-  @media ${MediaQueries.tablet} {
+  @media ${MediaQueries.desktop} {
     margin-left: 2em;
   }
 `;
@@ -59,7 +59,7 @@ export const RingName = styled.div`
   font-size: 1.25em;
   font-weight: 600;
   min-width: 12rem;
-  border-top: 1px solid #f1f1f1;
+  border-top: 1px solid ${props => props.theme.pallet.borderLight};
   padding-top: 10px;
   margin-top: 5px;
   &:first-of-type {

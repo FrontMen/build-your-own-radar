@@ -39,6 +39,7 @@ export const baseTheme = {
     warning: '#fcea0b',
     danger: '#ff5100',
     light: '#f3f3f3',
+    borderLight: `#f1f1f1`,
     dark: '#37383d',
   },
 };

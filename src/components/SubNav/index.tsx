@@ -6,6 +6,7 @@ import { Typography } from 'Theme/Typography';
 import { d3Config } from 'utils/d3-config';
 import { Search } from 'components/Search';
 import { FilterByCompany } from 'components/FilterByCompany';
+import { DataSetFilter } from 'components/DataSetFilter';
 
 const Container = styled.div`
   display: flex;
@@ -14,7 +15,12 @@ const Container = styled.div`
 
   @media ${MediaQueries.phablet} {
     margin-bottom: ${props => props.theme.space[4]}px;
-    justify-content: space-between;
+        justify-content: space-between;
+
+  }
+   @media ${MediaQueries.desktop} {
+       justify-content: flex-start;
+
   }
 `;
 
@@ -103,6 +109,7 @@ export const SubNav = ({ setHighlighted }: PropTypes) => {
         )}
       </Links>
       <FilterByCompany />
+      <DataSetFilter />
       <Search setHighlighted={setHighlighted} />
     </Container>
   );
