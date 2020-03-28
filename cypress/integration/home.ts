@@ -9,10 +9,9 @@ describe('Home', () => {
     cy.visit('/');
   });
 
-  it('renders loader when request is in progress', () => {
-    dataTestId('home-loading')
-      .should('be.visible')
-      .contains('LOADING');
+  it('renders page skeleton when request is in progress', () => {
+    dataTestId('home-skeleton')
+      .should('be.visible');
   });
 
   it('renders page elements', () => {
