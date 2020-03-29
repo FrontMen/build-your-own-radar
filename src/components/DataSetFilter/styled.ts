@@ -40,7 +40,7 @@ export const Option = styled.li<{ selected: boolean }>`
   props.selected ? props.theme.pallet.primary : props.theme.pallet.white};
   padding: 0.5em 0 0.5em ${props => props.theme.space[2]}px;
   color: ${props => (props.selected ? props.theme.pallet.white : 'inherit')};
-  border-top: 1px solid ${props => props.theme.pallet.borderLight};
+  border-top: 1px solid ${props => props.theme.pallet.light};
   &:hover {
     background-color: ${props =>
   props.selected ? props.theme.pallet.primary : '#526de41a'};

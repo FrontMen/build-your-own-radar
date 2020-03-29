@@ -212,7 +212,7 @@ exports[`DataSetFilter should render dropdown when text is clicked 1`] = `
   background-color: #526de4;
   padding: 0.5em 0 0.5em 8px;
   color: #fff;
-  border-top: 1px solid #f1f1f1;
+  border-top: 1px solid #f3f3f3;
 }
 
 .c5:hover {
@@ -224,7 +224,7 @@ exports[`DataSetFilter should render dropdown when text is clicked 1`] = `
   background-color: #fff;
   padding: 0.5em 0 0.5em 8px;
   color: inherit;
-  border-top: 1px solid #f1f1f1;
+  border-top: 1px solid #f3f3f3;
 }
 
 .c6:hover {

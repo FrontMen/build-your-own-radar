@@ -59,7 +59,7 @@ export const RingName = styled.div`
   font-size: 1.25em;
   font-weight: 600;
   min-width: 12rem;
-  border-top: 1px solid ${props => props.theme.pallet.borderLight};
+  border-top: 1px solid ${props => props.theme.pallet.light};
   padding-top: 10px;
   margin-top: 5px;
   &:first-of-type {

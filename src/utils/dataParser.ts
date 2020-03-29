@@ -7,7 +7,7 @@ export function parseGoogleSheetsApiResponse(
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, title] = sheet.properties.title.split(':');
     if (!isNaN(Date.parse(sheet.properties.title))) {
-      acc[title.trimStart()] = flattenSheet(sheet.data[0].rowData);
+      acc[title.trim()] = flattenSheet(sheet.data[0].rowData);
     }
 
     return acc;

@@ -132,7 +132,6 @@ describe('quadrant', () => {
           .first()
           .click()
           .then(el => {
-            console.log('---> el ', el.text());
             dataTestId(`list-item-${el.text()}`)
               .find('[data-testid=label]')
               .should(
