@@ -990,9 +990,11 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
       >
         <div
           class="c13"
+          data-testid="dataSetFilter-anchor"
         >
           <span
             class="c14"
+            data-testid="dataSetFilter-text"
           />
           <svg
             aria-hidden="true"

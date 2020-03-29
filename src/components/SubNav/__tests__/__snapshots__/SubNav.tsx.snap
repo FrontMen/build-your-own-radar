@@ -437,9 +437,11 @@ exports[`SubNav component should match snapshot 1`] = `
     >
       <div
         class="c12"
+        data-testid="dataSetFilter-anchor"
       >
         <span
           class="c13"
+          data-testid="dataSetFilter-text"
         />
         <svg
           aria-hidden="true"
