@@ -987,6 +987,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
       </div>
       <div
         class="c12"
+        data-testid="dataSetFilter-container"
       >
         <div
           class="c13"
