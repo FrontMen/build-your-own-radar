@@ -27,5 +27,6 @@ jobs:
       - run: yarn install
       - run: yarn run build --if-present
       - run: yarn run test
+      - run: yarn run cy:run
         env:
           CI: true
