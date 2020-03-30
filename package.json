@@ -75,6 +75,7 @@
     "cypress": "^4.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
+    "husky": "^4.2.3",
     "jest": "^25.1.0",
     "jest-styled-components": "^7.0.0",
     "lodash.merge": "^4.6.2",
@@ -88,6 +89,11 @@
     },
     "moduleNameMapper": {
       "^test(.*)$": "<rootDir>/src/test/$1"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "CI=true yarn run test && yarn run cy:run"
     }
   }
 }
