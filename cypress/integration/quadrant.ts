@@ -110,7 +110,7 @@ describe('quadrant', () => {
         dataTestId('dataSetFilter-dropdown').should('be.visible');
       });
 
-      it.only('selects a DataSet filter item when i click on it', () => {
+      it('selects a DataSet filter item when i click on it', () => {
         //open dropdown
         dataTestId('dataSetFilter-anchor').click();
 
