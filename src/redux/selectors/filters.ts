@@ -9,3 +9,8 @@ export const selectedCompaniesSelector = createSelector(
   filtersStateSelector,
   ({ companies }) => companies,
 );
+
+export const selectedDataSetSelector = createSelector(
+  filtersStateSelector,
+  ({ dataSet }) => dataSet,
+);

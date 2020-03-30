@@ -76,20 +76,23 @@ describe('quadrant', () => {
           });
       });
 
-      it('doesnt redder graph and list if non of checkbox checked', () => {
+      it("doesn't render list if non of checkboxes checked, and graph should be empty", () => {
+        dataTestId('quadrant-no-content').should('not.exist');
+
         Object.keys(COMPANY_NAMES).forEach(key => {
           dataTestId(key)
             .find('[data-testid=checkbox]')
             .click();
-
-          dataTestId('graph').should('not.exist');
-
-          dataTestId('tech-lists').should('not.exist');
-
-          dataTestId('quadrant-no-content')
-            .should('exist')
-            .and('contain.text', 'You have no datasets selected');
         });
+        dataTestId('graph')
+          .find('.blip')
+          .should('have.length', 0);
+
+        dataTestId('tech-lists').should('not.exist');
+
+        dataTestId('quadrant-no-content')
+          .should('exist')
+          .and('contain.text', 'You have no datasets selected');
       });
     });
 
@@ -97,7 +100,7 @@ describe('quadrant', () => {
       it('renders correctly in initial state', () => {
         dataTestId('search-input')
           .should('have.value', '')
-          .and('have.attr', 'placeholder', 'Looking for a technology?');
+          .and('have.attr', 'placeholder', 'Search...');
 
         dataTestId('search-icon').should('exist');
 
@@ -105,7 +108,7 @@ describe('quadrant', () => {
       });
 
       it('should search technologies by name', () => {
-        const searchString = 'a';
+        const searchString = 'Ang';
         const gibberish = '$%^&*(#)@@!';
 
         dataTestId('search-input').type(searchString);
@@ -123,7 +126,7 @@ describe('quadrant', () => {
       });
 
       it('should select an element in list when i click on item in dropdown, and close dropdown', () => {
-        dataTestId('search-input').type('a');
+        dataTestId('search-input').type('react');
 
         dataTestId('search-technology')
           .first()
@@ -206,7 +209,7 @@ describe('quadrant', () => {
 
       dataTestId('tech-lists-section').should('exist');
 
-      Object.keys(d3Config.rings).forEach((name) => {
+      Object.keys(d3Config.rings).forEach(name => {
         dataTestId(`ring-title-${name}`)
           .should('exist')
           .parent()
