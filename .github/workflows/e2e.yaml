@@ -11,5 +11,5 @@ jobs:
         uses: cypress-io/github-action@v1
         with:
           build: yarn run build
-          start: serve -s -l 3000 build
+          start: npx serve -s -l 3000 build
           wait-on: http://localhost:3000
