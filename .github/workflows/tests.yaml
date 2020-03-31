@@ -42,6 +42,7 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
   trigger-deploy:
+    runs-on: ubuntu-latest
     steps:
       - name: Invoke deployment hook
         uses: distributhor/workflow-webhook@v1
