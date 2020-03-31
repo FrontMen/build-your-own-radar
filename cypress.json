@@ -1,4 +1,5 @@
 {
   "baseUrl": "http://0.0.0.0:3000",
-  "video": false
+  "video": false,
+  "projectId": "1hrppq"
 }
