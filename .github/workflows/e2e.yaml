@@ -7,9 +7,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: install sercve
-        run: npm install serve
-
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
