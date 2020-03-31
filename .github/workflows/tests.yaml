@@ -42,8 +42,9 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
   trigger-deploy:
-    - name: Invoke deployment hook
-      uses: distributhor/workflow-webhook@v1
-      env:
-        webhook_url: ${{ secrets.DEVELOP_BUILD_HOOK_URL }}
-        webhook_secret: ${{ secrets.DEVELOP_BUILD_HOOK_SECRET }}
+    steps:
+      - name: Invoke deployment hook
+        uses: distributhor/workflow-webhook@v1
+        env:
+          webhook_url: ${{ secrets.DEVELOP_BUILD_HOOK_URL }}
+          webhook_secret: ${{ secrets.DEVELOP_BUILD_HOOK_SECRET }}
