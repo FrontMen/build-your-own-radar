@@ -37,3 +37,6 @@ jobs:
           build: yarn run build
           start: npx serve -s -l 3000 build
           wait-on: http://localhost:3000
+          record: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
