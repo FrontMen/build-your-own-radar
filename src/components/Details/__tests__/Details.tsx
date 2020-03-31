@@ -11,6 +11,7 @@ describe('Details', () => {
   });
 
   it('should render :technology', () => {
+    //TODO: fix it
     // const container = getByTestId('details');
     // expect(container).toHaveTextContent(TEST_ID);
   });
