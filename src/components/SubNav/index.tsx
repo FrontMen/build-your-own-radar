@@ -88,9 +88,9 @@ export const SubNav = ({ setHighlighted }: PropTypes) => {
         )}
       </Container>
       <Container>
-        <FilterByCompany />
-        <DataSetFilter />
         <Search setHighlighted={setHighlighted} />
+        <DataSetFilter />
+        <FilterByCompany />
       </Container>
     </>
   );

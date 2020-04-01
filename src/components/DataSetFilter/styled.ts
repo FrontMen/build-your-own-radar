@@ -9,7 +9,7 @@ export const Container = styled.div`
   cursor: pointer;
   padding: ${props => props.theme.space[2]}px;
   @media ${MediaQueries.desktop} {
-    margin-left: 2em;
+    margin-left: 0.5em;
   }
   margin-bottom: 20px;
 `;
