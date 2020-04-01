@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectedDataSetSelector } from 'redux/selectors/filters';
 import { filtersActions } from 'redux/actions/filters';
+import { dateFormat } from 'utils';
 import {
   Container,
   Selected,
@@ -28,7 +29,7 @@ export const DataSetFilter = () => {
   return (
     <Container data-testid="dataSetFilter-container">
       <Selected data-testid="dataSetFilter-anchor" onClick={toggleOpened}>
-        <Text data-testid="dataSetFilter-text">{selected}</Text>
+        <Text data-testid="dataSetFilter-text">{dateFormat(selected!)}</Text>
         <Triangle
           opened={opened}
           focusable="false"
@@ -51,7 +52,7 @@ export const DataSetFilter = () => {
                 setOpened(false);
               }}
             >
-              {date}
+              {dateFormat(date)}
             </Option>
           ))}
         </DropDown>
