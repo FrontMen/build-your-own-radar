@@ -93,7 +93,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "CI=true yarn run test && yarn run cy:run"
+      "pre-push": "CI=true yarn run test"
     }
   }
 }
