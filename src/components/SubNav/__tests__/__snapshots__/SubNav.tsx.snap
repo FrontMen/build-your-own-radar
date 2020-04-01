@@ -434,6 +434,7 @@ exports[`SubNav component should match snapshot 1`] = `
     </div>
     <div
       class="c11"
+      data-testid="dataSetFilter-container"
     >
       <div
         class="c12"

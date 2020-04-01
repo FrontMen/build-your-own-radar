@@ -94,6 +94,67 @@ describe('quadrant', () => {
           .should('exist')
           .and('contain.text', 'You have no datasets selected');
       });
+
+      it('should render DataSet filter', () => {
+        dataTestId('dataSetFilter-container').should('be.visible');
+        dataTestId('dataSetFilter-anchor')
+          .should('be.visible')
+          .find('svg')
+          .should('be.visible');
+        dataTestId('dataSetFilter-text').should('be.visible');
+      });
+
+      it('opens DataSet dropdown when i click on it', () => {
+        dataTestId('dataSetFilter-dropdown').should('not.exist');
+        dataTestId('dataSetFilter-anchor').click();
+        dataTestId('dataSetFilter-dropdown').should('be.visible');
+      });
+
+      it('selects a DataSet filter item when i click on it', () => {
+        //open dropdown
+        dataTestId('dataSetFilter-anchor').click();
+
+        //check initial state
+        cy.get(`[data-testid^=dataSetFilter-dropdown-option]`)
+          .first()
+          .should('be.visible')
+          .should(
+            'have.css',
+            'background-color',
+            hexToRgb(lightTheme.pallet.primary),
+          );
+
+        cy.get(`[data-testid^=dataSetFilter-dropdown-option]`)
+          .last()
+          .should('be.visible')
+          .should(
+            'have.css',
+            'background-color',
+            hexToRgb(lightTheme.pallet.white),
+          )
+          .click(); // select another item
+
+        //open dropdown again
+        dataTestId('dataSetFilter-anchor').click();
+
+        //check changed state
+        cy.get(`[data-testid^=dataSetFilter-dropdown-option]`)
+          .first()
+          .should(
+            'have.css',
+            'background-color',
+            hexToRgb(lightTheme.pallet.white),
+          );
+
+        cy.get(`[data-testid^=dataSetFilter-dropdown-option]`)
+          .last()
+          .should('be.visible')
+          .should(
+            'have.css',
+            'background-color',
+            hexToRgb(lightTheme.pallet.primary),
+          );
+      });
     });
 
     describe('search', () => {

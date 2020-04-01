@@ -26,7 +26,7 @@ export const DataSetFilter = () => {
   }, [setOpened]);
 
   return (
-    <Container>
+    <Container data-testid="dataSetFilter-container">
       <Selected data-testid="dataSetFilter-anchor" onClick={toggleOpened}>
         <Text data-testid="dataSetFilter-text">{selected}</Text>
         <Triangle
