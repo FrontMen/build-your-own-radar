@@ -6,7 +6,7 @@ export function parseGoogleSheetsApiResponse(
   return sheets.sheets.reduce((acc: ParsedGoogleSheets, sheet) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, title] = sheet.properties.title.split(':');
-    if (!isNaN(Date.parse(sheet.properties.title))) {
+    if (!isNaN(Date.parse(title))) {
       acc[title.trim()] = flattenSheet(sheet.data[0].rowData);
     }
 
