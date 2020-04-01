@@ -10,28 +10,9 @@ import { DataSetFilter } from 'components/DataSetFilter';
 
 const Container = styled.div`
   display: flex;
-  flex-grow: 1;
+  flex: 1 1 100%;
+  margin-bottom: 10px;
   flex-wrap: wrap;
-
-  @media ${MediaQueries.phablet} {
-    margin-bottom: ${props => props.theme.space[4]}px;
-        justify-content: space-between;
-
-  }
-   @media ${MediaQueries.desktop} {
-       justify-content: flex-start;
-
-  }
-`;
-
-const Links = styled.div`
-  display: flex;
-  flex-basis: 100%;
-  flex-wrap: wrap;
-
-  @media ${MediaQueries.tablet} {
-    flex-wrap: unset;
-  }
 `;
 
 const QuadLink = styled(Link)`
@@ -46,14 +27,12 @@ const QuadLink = styled(Link)`
   line-height: 1.25;
   text-decoration: none;
   color: inherit;
-
   padding: ${({ theme }) => `${theme.space[3]}px`};
-
   margin-bottom: ${props => props.theme.space[2]}px;
   color: ${props => props.theme.pallet.white};
-
   transition: opacity 100ms ease-in;
   background-color: ${props => props.theme.pallet.secondary};
+  border-left: 1px solid ${props => props.theme.pallet.grayLight};
 
   @media ${MediaQueries.phablet} {
     max-width: 50%;
@@ -92,8 +71,8 @@ export const SubNav = ({ setHighlighted }: PropTypes) => {
   const { quadrant: quadrantPram } = useParams<Params>();
 
   return (
-    <Container data-testid="subnav-container">
-      <Links>
+    <>
+      <Container data-testid="subnav-container">
         {d3Config.quadrants.map(
           ({ name, route }: { name: string; route: string }, index) => (
             <ColoredLinks
@@ -107,10 +86,12 @@ export const SubNav = ({ setHighlighted }: PropTypes) => {
             </ColoredLinks>
           ),
         )}
-      </Links>
-      <FilterByCompany />
-      <DataSetFilter />
-      <Search setHighlighted={setHighlighted} />
-    </Container>
+      </Container>
+      <Container>
+        <FilterByCompany />
+        <DataSetFilter />
+        <Search setHighlighted={setHighlighted} />
+      </Container>
+    </>
   );
 };

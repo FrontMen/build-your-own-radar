@@ -10,6 +10,7 @@ export const Container = styled.div`
   min-width: 18em;
   position: relative;
   padding: ${props => props.theme.space[2]}px;
+  margin-bottom: 20px;
 
   @media ${MediaQueries.desktop} {
     margin-left: 2em;
