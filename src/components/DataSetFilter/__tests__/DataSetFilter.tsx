@@ -6,7 +6,7 @@ import { dateFormat } from 'utils';
 import { lightTheme } from 'Theme';
 
 describe('DataSetFilter', () => {
-  const availableDates = ['date: 2020-01', 'date: 2020-02'];
+  const availableDates = ['2020-01', '2020-02'];
   it('should render correctly when dataset is empty', () => {
     const { container, getByTestId, queryByTestId } = withAllProviders(
       <DataSetFilter />,

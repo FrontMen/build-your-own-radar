@@ -287,13 +287,13 @@ exports[`DataSetFilter should render dropdown when text is clicked 1`] = `
     >
       <li
         class="c5"
-        data-testid="dataSetFilter-dropdown-option-date: 2020-01"
+        data-testid="dataSetFilter-dropdown-option-2020-01"
       >
         Jan, 2020
       </li>
       <li
         class="c6"
-        data-testid="dataSetFilter-dropdown-option-date: 2020-02"
+        data-testid="dataSetFilter-dropdown-option-2020-02"
       >
         Feb, 2020
       </li>
