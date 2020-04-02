@@ -122,8 +122,8 @@ const DetailsComponent: React.FC = () => {
   const technologies = Object.entries(allData)
     .sort((a, b) => Date.parse(b[0]) - Date.parse(a[0]))
     .map(([date, data]) => {
-      const foundItem = data.find(
-        (item: Technology) => item.name.toLowerCase() === technologyParam,
+      const foundItem = data.find((item: Technology) =>
+        item.name.toLowerCase().includes(technologyParam!),
       );
       if (foundItem) {
         if (lastDescription !== foundItem.description) {
