@@ -21,7 +21,7 @@ export const bounded_interval = (
   return Math.min(Math.max(value, low), high);
 };
 
-export const dateFormat = (date: string) => {
+export const dateFormat = (date: string | null) => {
   if (isNaN(Date.parse(date))) return '';
 
   return new Date(date)

@@ -29,7 +29,7 @@ export const DataSetFilter = () => {
   return (
     <Container data-testid="dataSetFilter-container">
       <Selected data-testid="dataSetFilter-anchor" onClick={toggleOpened}>
-        <Text data-testid="dataSetFilter-text">{dateFormat(selected!)}</Text>
+        <Text data-testid="dataSetFilter-text">{dateFormat(selected)}</Text>
         <Triangle
           opened={opened}
           focusable="false"
