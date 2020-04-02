@@ -1,6 +1,6 @@
 import { Reducer } from 'redux';
-import { TActions } from 'src/redux/types';
-import { ETechnologiesActionTypes } from 'src/redux/actions/technologies';
+import { TActions } from 'redux/types';
+import { ETechnologiesActionTypes } from 'redux/actions/technologies';
 
 export interface ITechnologiesState {
   data: ParsedGoogleSheets;
@@ -9,7 +9,7 @@ export interface ITechnologiesState {
   error: boolean;
   errorMessage: string;
 }
-const defaultState: ITechnologiesState = {
+export const defaultState: ITechnologiesState = {
   data: {},
   initialized: false,
   loading: false,

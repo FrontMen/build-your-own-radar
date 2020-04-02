@@ -1,14 +1,12 @@
 import {
   ETechnologiesActionTypes,
   technologiesActions,
-} from 'src/redux/actions/technologies';
-import { filtersActions } from 'src/redux/actions/filters';
+} from 'redux/actions/technologies';
+import { filtersActions } from 'redux/actions/filters';
 import { call, put, takeLatest } from 'redux-saga/effects';
-import {
-  parseGoogleSheetsApiResponse,
-} from 'src/utils/dataParser';
+import { parseGoogleSheetsApiResponse } from 'utils/dataParser';
 
-import { isErrorResponse, fetchSpreadSheet } from 'src/utils/API';
+import { isErrorResponse, fetchSpreadSheet } from 'utils/API';
 
 export const getGoogleSheetsData = async () => {
   const response = await fetchSpreadSheet();
@@ -29,10 +27,10 @@ export function* fetchTechnologiesSaga() {
     yield put(technologiesActions.fetchTechnologiesSuccess(parsedData));
 
     const dates = Object.keys(parsedData).sort(
-      (a, b) => Date.parse(a) - Date.parse(b),
+      (a, b) => Date.parse(b) - Date.parse(a),
     );
 
-    yield put(filtersActions.selectDataSet(dates[dates.length - 1]));
+    yield put(filtersActions.selectDataSet(dates[0]));
     yield put(filtersActions.fillDataSetDates(dates));
   } catch (error) {
     yield put(technologiesActions.fetchTechnologiesError(error));

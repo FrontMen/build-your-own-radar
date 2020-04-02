@@ -1,0 +1,303 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataSetFilter should render correctly when data is there 1`] = `
+.c0 {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  position: relative;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.c1 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 8px 0;
+  padding-left: 8px;
+  border-bottom: 2px solid #767676;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c3 {
+  fill: #767676;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  font-size: 1.5rem;
+  -webkit-transform: scale( 1 );
+  -ms-transform: scale( 1 );
+  transform: scale( 1 );
+}
+
+.c2 {
+  margin-right: 8px;
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    margin-left: 2em;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-testid="dataSetFilter-container"
+  >
+    <div
+      class="c1"
+      data-testid="dataSetFilter-anchor"
+    >
+      <span
+        class="c2"
+        data-testid="dataSetFilter-text"
+      >
+        date1
+      </span>
+      <svg
+        aria-hidden="true"
+        class="c3"
+        focusable="false"
+        role="presentation"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DataSetFilter should render correctly when dataset is empty 1`] = `
+.c0 {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  position: relative;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.c1 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 8px 0;
+  padding-left: 8px;
+  border-bottom: 2px solid #767676;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c3 {
+  fill: #767676;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  font-size: 1.5rem;
+  -webkit-transform: scale( 1 );
+  -ms-transform: scale( 1 );
+  transform: scale( 1 );
+}
+
+.c2 {
+  margin-right: 8px;
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    margin-left: 2em;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-testid="dataSetFilter-container"
+  >
+    <div
+      class="c1"
+      data-testid="dataSetFilter-anchor"
+    >
+      <span
+        class="c2"
+        data-testid="dataSetFilter-text"
+      />
+      <svg
+        aria-hidden="true"
+        class="c3"
+        focusable="false"
+        role="presentation"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`DataSetFilter should render dropdown when text is clicked 1`] = `
+.c0 {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  position: relative;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.c1 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 8px 0;
+  padding-left: 8px;
+  border-bottom: 2px solid #767676;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c4 {
+  list-style: none;
+  width: 100%;
+  position: absolute;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.075),0 8px 8px 0 rgba(0,0,0,0.025);
+  padding: 4px 0 0;
+  background-color: #fff;
+  z-index: 1;
+  margin: 0;
+}
+
+.c5 {
+  display: block;
+  background-color: #526de4;
+  padding: 0.5em 0 0.5em 8px;
+  color: #fff;
+  border-top: 1px solid #f3f3f3;
+}
+
+.c5:hover {
+  background-color: #526de4;
+}
+
+.c6 {
+  display: block;
+  background-color: #fff;
+  padding: 0.5em 0 0.5em 8px;
+  color: inherit;
+  border-top: 1px solid #f3f3f3;
+}
+
+.c6:hover {
+  background-color: #526de41a;
+}
+
+.c3 {
+  fill: #767676;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  font-size: 1.5rem;
+  -webkit-transform: scale( -1 );
+  -ms-transform: scale( -1 );
+  transform: scale( -1 );
+}
+
+.c2 {
+  margin-right: 8px;
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    margin-left: 2em;
+  }
+}
+
+<div>
+  <div
+    class="c0"
+    data-testid="dataSetFilter-container"
+  >
+    <div
+      class="c1"
+      data-testid="dataSetFilter-anchor"
+    >
+      <span
+        class="c2"
+        data-testid="dataSetFilter-text"
+      >
+        date1
+      </span>
+      <svg
+        aria-hidden="true"
+        class="c3"
+        focusable="false"
+        role="presentation"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M7 10l5 5 5-5z"
+        />
+      </svg>
+    </div>
+    <ul
+      class="c4"
+      data-testid="dataSetFilter-dropdown"
+    >
+      <li
+        class="c5"
+        data-testid="dataSetFilter-dropdown-option-date1"
+      >
+        date1
+      </li>
+      <li
+        class="c6"
+        data-testid="dataSetFilter-dropdown-option-date2"
+      >
+        date2
+      </li>
+    </ul>
+  </div>
+</div>
+`;

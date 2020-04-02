@@ -1,82 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { MainContentSlot } from '../shared/PageSlots';
-import styled from 'styled-components';
-import { MediaQueries } from 'src/Theme/Helpers';
-import { ContentTitle } from 'src/components/shared/ContentTitle';
-import { d3Config } from 'src/utils/d3-config';
-import { Typography } from 'src/Theme/Typography';
-import { Graph } from 'src/components/Graph';
+import { ContentTitle } from 'components/shared/ContentTitle';
+import { d3Config } from 'utils/d3-config';
+import { Graph } from 'components/Graph';
+import { HomePageSkeleton } from 'components/Skeleton/Homepage';
 import { useSelector } from 'react-redux';
 import {
   selectedTechnologyDataSetSelector,
   technologiesLoadingStateSelector,
-} from 'src/redux/selectors/technologies';
-
-const Intro = styled.div`
-  margin: auto;
-  margin-bottom: ${props => props.theme.space[2]}px;
-  max-width: 48em;
-
-  @media ${MediaQueries.phablet} {
-    margin-bottom: ${props => props.theme.space[3]}px;
-  }
-  @media ${MediaQueries.desktop} {
-    margin-bottom: ${props => props.theme.space[5]}px;
-  }
-`;
-
-const Quads = styled.div`
-  display: grid;
-  grid-template-columns: repeat(1fr);
-  grid-gap: ${props => props.theme.space[4]}px;
-
-  @media ${MediaQueries.tablet} {
-    grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
-  }
-`;
-
-const Quadrant = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: ${props => props.theme.space[2]}px;
-
-  @media ${MediaQueries.tablet} {
-    width: 100%;
-    margin-bottom: ${props => props.theme.space[4]}px;
-  }
-`;
-
-const Content = styled.p`
-  ${Typography.body};
-  margin: 0;
-  margin-bottom: ${props => props.theme.space[3]}px;
-`;
-
-const StyledLinks = styled(Link)`
-  margin-top: auto;
-  text-decoration: none;
-  font-weight: 700;
-  color: ${props => props.theme.pallet.primary};
-`;
+} from 'redux/selectors/technologies';
+import { Intro, Quads, Quadrant, Content, StyledLinks } from './styled';
 
 export const Home: React.FC = () => {
   const quads = d3Config.quadrants;
   const { initialized, loading, error, errorMessage } = useSelector(
-    technologiesLoadingStateSelector,
+    technologiesLoadingStateSelector(),
   );
-  const technologies = useSelector(selectedTechnologyDataSetSelector);
+  const technologies = useSelector(selectedTechnologyDataSetSelector());
   const showLoader = !initialized || loading;
 
-  if (showLoader) {
-    //TODO: replace this with component loading skeleton
-    return <div> LOADING </div>;
-  }
+  if (showLoader) return <HomePageSkeleton />;
 
   if (error) {
     //TODO: replace this with component error state
-    return <div>Unexpected error occured: {errorMessage}</div>;
+    return (
+      <div data-testid="home-error">
+        Unexpected error occurred: {errorMessage}
+      </div>
+    );
   }
 
   if (technologies === null) {
@@ -86,28 +37,35 @@ export const Home: React.FC = () => {
 
   return (
     <MainContentSlot>
-      <Intro>
-        <ContentTitle data-testid="home-title">
+      <Intro data-testid="home-intro">
+        <ContentTitle data-testid="home-intro-title">
           Whats this all about?
         </ContentTitle>
-        <Content>
+        <Content data-testid="home-intro-content">
           Consequat incididunt in occaecat reprehenderit culpa elit. Est
           cupidatat ex dolore duis do aliquip magna ullamco anim. Fugiat non eu
           laboris ut ea aute.
         </Content>
       </Intro>
       <Graph highlighted={null} technologies={technologies} fullSize />
-      <Quads>
+      <Quads data-testid="home-quadrants-wrapper">
         {quads.map((quad, i) => (
-          <Quadrant key={i} data-testid={`quadrant-container-${i}`}>
-            <ContentTitle>{quad.name}</ContentTitle>
-            <Content>
+          <Quadrant key={i} data-testid={`home-quadrant-${i}-container`}>
+            <ContentTitle data-testid={`home-quadrant-${i}-title`}>
+              {quad.name}
+            </ContentTitle>
+            <Content data-testid={`home-quadrant-${i}-content`}>
               Ex tempor nulla est nostrud non consectetur enim commodo. Elit
               aute ex pariatur commodo aute. Adipisicing eu dolore fugiat culpa
               deserunt id reprehenderit. Reprehenderit eiusmod exercitation
               labore sint enim.
             </Content>
-            <StyledLinks to={`/${quad.route}`}>look at {quad.name}</StyledLinks>
+            <StyledLinks
+              data-testid={`home-quadrant-${i}-link`}
+              to={`/${quad.route}`}
+            >
+              look at {quad.name}
+            </StyledLinks>
           </Quadrant>
         ))}
       </Quads>

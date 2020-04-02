@@ -1,43 +1,37 @@
-import { d3Config } from 'src/utils/d3-config';
+import { d3Config } from 'utils/d3-config';
 
 export function parseGoogleSheetsApiResponse(
   sheets: IncomingGoogleSheetsData,
 ): ParsedGoogleSheets {
   return sheets.sheets.reduce((acc: ParsedGoogleSheets, sheet) => {
-    let tempSheet = flattenSheet(sheet);
-    if (tempSheet) {
-      acc[sheet.properties.title] = tempSheet;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_, title] = sheet.properties.title.split(':');
+    if (!isNaN(Date.parse(title))) {
+      acc[title.trim()] = flattenSheet(sheet.data[0].rowData);
     }
+
     return acc;
   }, {});
 }
 
-function flattenSheet(sheet: IncomingSheet) {
-  const [keyRow, ...remainingDataRows] = sheet.data[0].rowData;
+function flattenSheet(data: [KeyRowValues, ...RowValues[]]) {
+  const [keyRow, ...remainingDataRows] = data;
   const keys = getSheetTableHeaders(keyRow);
-  const [nameSpace, title] = sheet.properties.title.split(':');
 
-  if (nameSpace === 'data') {
-    const [year, monthIndex] = title.split('-');
-    const date = new Date(parseInt(year), parseInt(monthIndex));
-
-    if (date) {
-      return (remainingDataRows as RowValues[]).reduce((acc, row) => {
-        const tempRow = flattenDataRows(row, keys);
-        if (tempRow) acc.push(tempRow);
-        return acc;
-      }, [] as Technology[]);
-    } else {
-      // TODO: do something with other sheets like the config sheet.
-    }
-  }
+  return (remainingDataRows as RowValues[]).reduce((acc, row) => {
+    const tempRow = flattenDataRows(row, keys);
+    if (tempRow) acc.push(tempRow);
+    return acc;
+  }, [] as Technology[]);
 }
 
 function getSheetTableHeaders(row: KeyRowValues) {
   // TODO: This should probably throw an error if the cell doesn't contain a string, Not sure how to Type that.
   return row.values.map(({ effectiveValue }) => {
     if (!effectiveValue) {
-      throw new Error('Sheet table headers should have names, please fix data source');
+      throw new Error(
+        'Sheet table headers should have names, please fix data source',
+      );
     }
     return effectiveValue.stringValue!;
   });
@@ -51,7 +45,6 @@ function flattenDataRows(row: RowValues, keys: MappedDataRowKey[]) {
         : effectiveValue.boolValue
       : '';
     (acc[keys[i]] as typeof value) = value;
-    //
     return acc;
   }, {} as MappedDataRow);
 

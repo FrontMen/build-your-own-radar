@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SubNav component should match snapshot 1`] = `
-.c11 {
+.c15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -15,7 +15,7 @@ exports[`SubNav component should match snapshot 1`] = `
   padding: 8px;
 }
 
-.c14 {
+.c18 {
   -webkit-flex: 0 0 2em;
   -ms-flex: 0 0 2em;
   flex: 0 0 2em;
@@ -23,7 +23,7 @@ exports[`SubNav component should match snapshot 1`] = `
   width: 2em;
 }
 
-.c13 {
+.c17 {
   border: none;
   border-bottom: 2px solid;
   border-color: #767676;
@@ -37,11 +37,11 @@ exports[`SubNav component should match snapshot 1`] = `
   outline: none;
 }
 
-.c13:focus {
+.c17:focus {
   border-color: #526de4;
 }
 
-.c12 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -116,6 +116,52 @@ exports[`SubNav component should match snapshot 1`] = `
   margin: 8px 0;
 }
 
+.c11 {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  position: relative;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.c12 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 8px 0;
+  padding-left: 8px;
+  border-bottom: 2px solid #767676;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c14 {
+  fill: #767676;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  font-size: 1.5rem;
+  -webkit-transform: scale( 1 );
+  -ms-transform: scale( 1 );
+  transform: scale( 1 );
+}
+
+.c13 {
+  margin-right: 8px;
+}
+
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -178,7 +224,13 @@ exports[`SubNav component should match snapshot 1`] = `
   background-color: #767676;
 }
 
-@media (min-width:768px) {
+@media (min-width:1024px) {
+  .c15 {
+    margin-left: 2em;
+  }
+}
+
+@media (min-width:1024px) {
   .c11 {
     margin-left: 2em;
   }
@@ -191,6 +243,15 @@ exports[`SubNav component should match snapshot 1`] = `
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
+  }
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
   }
 }
 
@@ -373,20 +434,45 @@ exports[`SubNav component should match snapshot 1`] = `
     </div>
     <div
       class="c11"
-      data-testid="subnav-search-container"
+      data-testid="dataSetFilter-container"
     >
       <div
         class="c12"
+        data-testid="dataSetFilter-anchor"
+      >
+        <span
+          class="c13"
+          data-testid="dataSetFilter-text"
+        />
+        <svg
+          aria-hidden="true"
+          class="c14"
+          focusable="false"
+          role="presentation"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M7 10l5 5 5-5z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div
+      class="c15"
+      data-testid="subnav-search-container"
+    >
+      <div
+        class="c16"
       >
         <input
-          class="c13"
+          class="c17"
           data-testid="search-input"
-          placeholder="Looking for a technology?"
+          placeholder="Search..."
           value=""
         />
       </div>
       <svg
-        class="c14"
+        class="c18"
         data-testid="search-icon"
         fill="currentColor"
         height="1em"

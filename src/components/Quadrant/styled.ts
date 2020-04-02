@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { MediaQueries } from 'src/Theme/Helpers';
-import { Typography } from 'src/Theme/Typography';
+import { MainContentSlot } from 'components/shared/PageSlots';
+import { MediaQueries } from 'Theme/Helpers';
+import { Typography } from 'Theme/Typography';
 
 export const Section = styled.div`
   width: 100%;
@@ -90,5 +91,30 @@ export const Tooltip = styled.span`
       border-color: ${props => props.theme.pallet.grayDark} transparent
         transparent transparent;
     }
+  }
+`;
+
+export const Slot = styled(MainContentSlot)`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-wrap: wrap-reverse;
+  flex-grow: 1;
+`;
+
+export const Article = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-right: ${props => props.theme.space[2]}px;
+  @media ${MediaQueries.phablet} {
+    padding-right: ${props => props.theme.space[3]}px;
+  }
+
+  @media ${MediaQueries.desktop} {
+    max-width: 50%;
   }
 `;

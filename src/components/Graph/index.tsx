@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { radar_visualization, showBubble, hideBubble } from 'src/utils/d3';
-import { d3Config } from 'src/utils/d3-config';
+import { radar_visualization, showBubble, hideBubble } from 'utils/d3';
+import { d3Config } from 'utils/d3-config';
 import styled from 'styled-components';
-import { MediaQueries } from 'src/Theme/Helpers';
+import { MediaQueries } from 'Theme/Helpers';
 import { useHistory } from 'react-router';
 
 const GraphWrapper = styled.div<{ fullSize: boolean | undefined }>`
@@ -76,7 +76,14 @@ export const Graph: React.FC<TechnologiesListProps> = ({
         redirect,
       );
     }
-  }, [technologies, quadrantNum, setHighlighted, setSelected, redirect, isNotMobile]);
+  }, [
+    technologies,
+    quadrantNum,
+    setHighlighted,
+    setSelected,
+    redirect,
+    isNotMobile,
+  ]);
 
   useEffect(() => {
     const technology = technologies?.find(t => t.name === highlighted);

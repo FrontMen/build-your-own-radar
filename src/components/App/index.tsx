@@ -1,8 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components/macro';
-import { lightTheme } from 'src/Theme';
-import { store } from 'src/redux/store';
+import { lightTheme } from 'Theme';
+import { store } from 'redux/store';
 import { Main } from './Main';
 
 export const App: React.FC = () => (

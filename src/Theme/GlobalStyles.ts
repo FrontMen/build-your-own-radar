@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components/macro';
 import { LightThemeType } from '.';
-import { MediaQueries } from 'src/Theme/Helpers';
+import { MediaQueries } from 'Theme/Helpers';
 
 export const GlobalStyle = createGlobalStyle<{ theme: LightThemeType }>`
     *,

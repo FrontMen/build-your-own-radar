@@ -1,6 +1,6 @@
 import { Reducer } from 'redux';
-import { TActions } from 'src/redux/types';
-import { EFilterActionTypes } from 'src/redux/actions/filters';
+import { TActions } from 'redux/types';
+import { EFilterActionTypes } from 'redux/actions/filters';
 
 export type TCompany = {
   [key in CompanyTypes]: boolean;
@@ -11,9 +11,9 @@ export interface IFiltersState {
   dataSet: {
     availableDates: string[];
     selected: string | null;
-  }
+  };
 }
-const defaultState: IFiltersState = {
+export const defaultState: IFiltersState = {
   companies: {
     ITR_BE: true,
     ITR_NL: true,
@@ -22,7 +22,7 @@ const defaultState: IFiltersState = {
   dataSet: {
     availableDates: [],
     selected: null,
-  }
+  },
 };
 
 export const filtersReducer: Reducer<IFiltersState, TActions> = (
@@ -45,7 +45,7 @@ export const filtersReducer: Reducer<IFiltersState, TActions> = (
         dataSet: {
           ...state.dataSet,
           selected: action.payload,
-        }
+        },
       };
 
     case EFilterActionTypes.FILL_DATA_SET_DATES:
@@ -54,7 +54,7 @@ export const filtersReducer: Reducer<IFiltersState, TActions> = (
         dataSet: {
           ...state.dataSet,
           availableDates: action.payload,
-        }
+        },
       };
 
     default:

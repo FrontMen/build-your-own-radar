@@ -1,4 +1,4 @@
-import { parseGoogleSheetsApiResponse } from 'src/utils/dataParser';
+import { parseGoogleSheetsApiResponse } from 'utils/dataParser';
 
 export const mockData: Technology[] = [
   {
@@ -32,73 +32,6 @@ export const mockData: Technology[] = [
     companies: ['ITR_NL', 'FM'],
   },
 ];
-
-/*
-{
-  parsedData: [
-    // {
-    //   name: '.NET Core',
-    //   ring: 'Adopt',
-    //   isNew: true,
-    //   description: '',
-    //   'In radar?': 'N',
-    //   moved: 0,
-    //   quadrant: 0,
-    //   companies: [Array]
-    // },
-    {
-      name: 'A-Frame',
-      ring: 'Assess',
-      isNew: true,
-      description: 'A web framework for building virtual reality experiences',
-      'In radar?': 'Y',
-      moved: 0,
-      quadrant: 0,
-      companies: [Array]
-    },
-    {
-      name: 'Alpine',
-      ring: 'Adopt',
-      isNew: true,
-      description: '',
-      'In radar?': 'Y',
-      moved: 0,
-      quadrant: 2,
-      companies: [Array]
-    },
-    {
-      name: 'AMQP',
-      ring: 'Trial',
-      isNew: true,
-      description: 'Advanced Messaging Queueing Protocol (Apache Kafka, RabbitMQ, AWS SQS)',
-      'In radar?': 'Y',
-      moved: 0,
-      quadrant: 3,
-      companies: [Array]
-    },
-    {
-      name: 'Angular 2+',
-      ring: 'Assess',
-      isNew: true,
-      description: '',
-      'In radar?': 'Y',
-      moved: 0,
-      quadrant: 0,
-      companies: [Array]
-    },
-    {
-      name: 'AngularJS (Angular 1)',
-      ring: 'Hold',
-      isNew: true,
-      description: '',
-      'In radar?': 'Y',
-      moved: 0,
-      quadrant: 0,
-      companies: [Array]
-    }
-  ]
-}
-*/
 
 export const MockGoogleSheetsData: IncomingGoogleSheetsData = {
   sheets: [
@@ -409,4 +342,4 @@ export const MockGoogleSheetsData: IncomingGoogleSheetsData = {
   ],
 };
 
-export const parsedMockData = parseGoogleSheetsApiResponse(MockGoogleSheetsData)['data: 2020-01'];
+export const parsedMockData = parseGoogleSheetsApiResponse(MockGoogleSheetsData);

@@ -6,9 +6,9 @@ import {
   createStore as createReduxStore,
 } from 'redux';
 import createSagaMiddleware, { Saga } from 'redux-saga';
-import { IRootState, rootReducer } from 'src/redux/reducers';
-import { TActions } from 'src/redux/types';
-import { rootSaga } from 'src/redux/sagas';
+import { IRootState, rootReducer } from 'redux/reducers';
+import { TActions } from 'redux/types';
+import { rootSaga } from 'redux/sagas';
 
 const composeEnhancers =
   (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -1,4 +1,4 @@
-import { baseTheme } from '../Theme/index';
+import { baseTheme } from '../Theme'; //relative import due to cypress incorrect resolution
 
 export const d3Config = {
   svg_id: 'radar',
