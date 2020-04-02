@@ -9,8 +9,9 @@ export const Container = styled.div`
   cursor: pointer;
   padding: ${props => props.theme.space[2]}px;
   @media ${MediaQueries.desktop} {
-    margin-left: 2em;
+    margin-left: 0.5em;
   }
+  margin-bottom: 20px;
 `;
 
 export const Selected = styled.div`
@@ -37,13 +38,13 @@ export const DropDown = styled.ul<WithOpened>`
 export const Option = styled.li<{ selected: boolean }>`
   display: block;
   background-color: ${props =>
-  props.selected ? props.theme.pallet.primary : props.theme.pallet.white};
+    props.selected ? props.theme.pallet.primary : props.theme.pallet.white};
   padding: 0.5em 0 0.5em ${props => props.theme.space[2]}px;
   color: ${props => (props.selected ? props.theme.pallet.white : 'inherit')};
   border-top: 1px solid ${props => props.theme.pallet.light};
   &:hover {
     background-color: ${props =>
-  props.selected ? props.theme.pallet.primary : '#526de41a'};
+      props.selected ? props.theme.pallet.primary : '#526de41a'};
   }
 `;
 

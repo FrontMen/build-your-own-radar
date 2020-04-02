@@ -8,6 +8,7 @@ exports[`DataSetFilter should render correctly when data is there 1`] = `
   position: relative;
   cursor: pointer;
   padding: 8px;
+  margin-bottom: 20px;
 }
 
 .c1 {
@@ -49,7 +50,7 @@ exports[`DataSetFilter should render correctly when data is there 1`] = `
 
 @media (min-width:1024px) {
   .c0 {
-    margin-left: 2em;
+    margin-left: 0.5em;
   }
 }
 
@@ -66,7 +67,7 @@ exports[`DataSetFilter should render correctly when data is there 1`] = `
         class="c2"
         data-testid="dataSetFilter-text"
       >
-        date1
+        Jan, 2020
       </span>
       <svg
         aria-hidden="true"
@@ -92,6 +93,7 @@ exports[`DataSetFilter should render correctly when dataset is empty 1`] = `
   position: relative;
   cursor: pointer;
   padding: 8px;
+  margin-bottom: 20px;
 }
 
 .c1 {
@@ -133,7 +135,7 @@ exports[`DataSetFilter should render correctly when dataset is empty 1`] = `
 
 @media (min-width:1024px) {
   .c0 {
-    margin-left: 2em;
+    margin-left: 0.5em;
   }
 }
 
@@ -174,6 +176,7 @@ exports[`DataSetFilter should render dropdown when text is clicked 1`] = `
   position: relative;
   cursor: pointer;
   padding: 8px;
+  margin-bottom: 20px;
 }
 
 .c1 {
@@ -250,7 +253,7 @@ exports[`DataSetFilter should render dropdown when text is clicked 1`] = `
 
 @media (min-width:1024px) {
   .c0 {
-    margin-left: 2em;
+    margin-left: 0.5em;
   }
 }
 
@@ -267,7 +270,7 @@ exports[`DataSetFilter should render dropdown when text is clicked 1`] = `
         class="c2"
         data-testid="dataSetFilter-text"
       >
-        date1
+        Jan, 2020
       </span>
       <svg
         aria-hidden="true"
@@ -287,15 +290,15 @@ exports[`DataSetFilter should render dropdown when text is clicked 1`] = `
     >
       <li
         class="c5"
-        data-testid="dataSetFilter-dropdown-option-date1"
+        data-testid="dataSetFilter-dropdown-option-2020-01"
       >
-        date1
+        Jan, 2020
       </li>
       <li
         class="c6"
-        data-testid="dataSetFilter-dropdown-option-date2"
+        data-testid="dataSetFilter-dropdown-option-2020-02"
       >
-        date2
+        Feb, 2020
       </li>
     </ul>
   </div>

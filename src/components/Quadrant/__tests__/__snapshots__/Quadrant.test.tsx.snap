@@ -454,7 +454,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   justify-content: space-between;
 }
 
-.c20 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -468,7 +468,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   flex-grow: 1;
 }
 
-.c21 {
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -479,7 +479,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   padding-right: 8px;
 }
 
-.c23 {
+.c22 {
   width: 100%;
   max-width: 440px;
   min-width: 280px;
@@ -487,11 +487,11 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   margin: 0 auto 8px;
 }
 
-.c24 {
+.c23 {
   text-align: center;
 }
 
-.c22 {
+.c21 {
   font-family: Montserrat,san-serif;
   font-weight: 700;
   line-height: 1.15;
@@ -499,7 +499,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   text-transform: capitalize;
 }
 
-.c16 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -508,20 +508,21 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  min-width: 18em;
   position: relative;
-  padding: 8px;
+  padding: 8px 0;
+  margin-bottom: 20px;
 }
 
-.c19 {
-  -webkit-flex: 0 0 2em;
-  -ms-flex: 0 0 2em;
-  flex: 0 0 2em;
+.c8 {
+  -webkit-flex: 0 0 1.5em;
+  -ms-flex: 0 0 1.5em;
+  flex: 0 0 1.5em;
   height: 2em;
   width: 2em;
+  margin: 5px;
 }
 
-.c18 {
+.c10 {
   border: none;
   border-bottom: 2px solid;
   border-color: #767676;
@@ -533,13 +534,14 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   font-weight: 400;
   line-height: 1.65;
   outline: none;
+  -webkit-appearance: none;
 }
 
-.c18:focus {
+.c10:focus {
   border-color: #526de4;
 }
 
-.c17 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -553,7 +555,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   position: relative;
 }
 
-.c11 {
+.c18 {
   border: 2px solid #526de4;
   background-color: #526de4;
   padding: 2px;
@@ -579,7 +581,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   line-height: 1.65;
 }
 
-.c10 {
+.c17 {
   font-family: Roboto,san-serif;
   font-size: 1em;
   font-weight: 400;
@@ -587,7 +589,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   margin-right: 16px;
 }
 
-.c9 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -603,7 +605,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   align-items: center;
 }
 
-.c8 {
+.c15 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -614,16 +616,17 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   margin: 8px 0;
 }
 
-.c12 {
+.c11 {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   position: relative;
   cursor: pointer;
   padding: 8px;
+  margin-bottom: 20px;
 }
 
-.c13 {
+.c12 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -645,7 +648,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   justify-content: space-between;
 }
 
-.c15 {
+.c14 {
   fill: #767676;
   width: 1em;
   height: 1em;
@@ -656,7 +659,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   transform: scale( 1 );
 }
 
-.c14 {
+.c13 {
   margin-right: 8px;
 }
 
@@ -665,29 +668,16 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  margin-bottom: 10px;
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
 .c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-basis: 100%;
-  -ms-flex-preferred-size: 100%;
-  flex-basis: 100%;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -720,9 +710,10 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   -webkit-transition: opacity 100ms ease-in;
   transition: opacity 100ms ease-in;
   background-color: #767676;
+  border-left: 1px solid #bfc0bf;
 }
 
-.c7 {
+.c6 {
   background-color: #7843ab;
 }
 
@@ -733,33 +724,33 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
 }
 
 @media (min-width:481px) {
-  .c21 {
+  .c20 {
     padding-right: 16px;
   }
 }
 
 @media (min-width:1024px) {
-  .c21 {
+  .c20 {
     max-width: 50%;
   }
 }
 
 @media (min-width:481px) {
-  .c23 {
+  .c22 {
     max-width: 80%;
     margin-bottom: 16px;
   }
 }
 
 @media (min-width:1024px) {
-  .c23 {
+  .c22 {
     max-width: 50%;
     margin-bottom: 64px;
   }
 }
 
 @media (min-width:1024px) {
-  .c24 {
+  .c23 {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -767,7 +758,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
 }
 
 @media (min-width:481px) {
-  .c22 {
+  .c21 {
     font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 16px;
@@ -775,77 +766,44 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
 }
 
 @media (min-width:1024px) {
-  .c16 {
-    margin-left: 2em;
-  }
-}
-
-@media (min-width:1024px) {
-  .c12 {
-    margin-left: 2em;
+  .c11 {
+    margin-left: 0.5em;
   }
 }
 
 @media (min-width:481px) {
-  .c1 {
-    margin-bottom: 32px;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-  }
-}
-
-@media (min-width:1024px) {
-  .c1 {
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-  }
-}
-
-@media (min-width:768px) {
   .c2 {
-    -webkit-flex-wrap: unset;
-    -ms-flex-wrap: unset;
-    flex-wrap: unset;
-  }
-}
-
-@media (min-width:481px) {
-  .c3 {
     max-width: 50%;
   }
 }
 
 @media (min-width:768px) {
-  .c3 {
+  .c2 {
     max-width: 25%;
     margin-bottom: 0px;
   }
 }
 
 @media (hover:hover) {
-  .c4:hover {
+  .c3:hover {
     background-color: #31bd70;
   }
 }
 
 @media (hover:hover) {
-  .c5:hover {
+  .c4:hover {
     background-color: #17a2b8;
   }
 }
 
 @media (hover:hover) {
-  .c6:hover {
+  .c5:hover {
     background-color: #fd7e14;
   }
 }
 
 @media (hover:hover) {
-  .c7:hover {
+  .c6:hover {
     background-color: #7843ab;
   }
 }
@@ -858,174 +816,44 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
       class="c1"
       data-testid="subnav-container"
     >
-      <div
-        class="c2"
+      <a
+        class="c2 c3"
+        data-testid="subnav-link-0"
+        href="/frameworks-and-lang"
       >
-        <a
-          class="c3 c4"
-          data-testid="subnav-link-0"
-          href="/frameworks-and-lang"
-        >
-          Frameworks, CMS & Programmeertalen
-        </a>
-        <a
-          class="c3 c5"
-          data-testid="subnav-link-1"
-          href="/tooling-and-testing"
-        >
-          Tooling en testing
-        </a>
-        <a
-          class="c3 c6"
-          data-testid="subnav-link-2"
-          href="/platforms-infra-and-data"
-        >
-          Platforms, infrastructure & Data
-        </a>
-        <a
-          class="c3 c7"
-          data-testid="subnav-link-3"
-          href="/technique"
-        >
-          Technieken
-        </a>
-      </div>
-      <div
-        class="c8"
-        data-testid="subnav-filters-container"
+        Frameworks, CMS & Programmeertalen
+      </a>
+      <a
+        class="c2 c4"
+        data-testid="subnav-link-1"
+        href="/tooling-and-testing"
       >
-        <div
-          class="c9"
-          data-testid="ITR_BE"
-        >
-          <label
-            class="c10"
-          >
-            Intracto BE
-          </label>
-          <span
-            class="c11"
-            data-testid="checkbox"
-          >
-            <svg
-              color="#fff"
-              fill="currentColor"
-              height="1em"
-              stroke="currentColor"
-              stroke-width="0"
-              style="color: rgb(255, 255, 255);"
-              viewBox="0 0 512 512"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-              />
-            </svg>
-          </span>
-        </div>
-        <div
-          class="c9"
-          data-testid="ITR_NL"
-        >
-          <label
-            class="c10"
-          >
-            Intracto NL
-          </label>
-          <span
-            class="c11"
-            data-testid="checkbox"
-          >
-            <svg
-              color="#fff"
-              fill="currentColor"
-              height="1em"
-              stroke="currentColor"
-              stroke-width="0"
-              style="color: rgb(255, 255, 255);"
-              viewBox="0 0 512 512"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-              />
-            </svg>
-          </span>
-        </div>
-        <div
-          class="c9"
-          data-testid="FM"
-        >
-          <label
-            class="c10"
-          >
-            Frontmen
-          </label>
-          <span
-            class="c11"
-            data-testid="checkbox"
-          >
-            <svg
-              color="#fff"
-              fill="currentColor"
-              height="1em"
-              stroke="currentColor"
-              stroke-width="0"
-              style="color: rgb(255, 255, 255);"
-              viewBox="0 0 512 512"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
-              />
-            </svg>
-          </span>
-        </div>
-      </div>
-      <div
-        class="c12"
-        data-testid="dataSetFilter-container"
+        Tooling en testing
+      </a>
+      <a
+        class="c2 c5"
+        data-testid="subnav-link-2"
+        href="/platforms-infra-and-data"
       >
-        <div
-          class="c13"
-          data-testid="dataSetFilter-anchor"
-        >
-          <span
-            class="c14"
-            data-testid="dataSetFilter-text"
-          />
-          <svg
-            aria-hidden="true"
-            class="c15"
-            focusable="false"
-            role="presentation"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M7 10l5 5 5-5z"
-            />
-          </svg>
-        </div>
-      </div>
+        Platforms, infrastructure & Data
+      </a>
+      <a
+        class="c2 c6"
+        data-testid="subnav-link-3"
+        href="/technique"
+      >
+        Technieken
+      </a>
+    </div>
+    <div
+      class="c1"
+    >
       <div
-        class="c16"
+        class="c7"
         data-testid="subnav-search-container"
       >
-        <div
-          class="c17"
-        >
-          <input
-            class="c18"
-            data-testid="search-input"
-            placeholder="Search..."
-            value=""
-          />
-        </div>
         <svg
-          class="c19"
+          class="c8"
           data-testid="search-icon"
           fill="currentColor"
           height="1em"
@@ -1039,16 +867,147 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
             d="M443.5 420.2L336.7 312.4c20.9-26.2 33.5-59.4 33.5-95.5 0-84.5-68.5-153-153.1-153S64 132.5 64 217s68.5 153 153.1 153c36.6 0 70.1-12.8 96.5-34.2l106.1 107.1c3.2 3.4 7.6 5.1 11.9 5.1 4.1 0 8.2-1.5 11.3-4.5 6.6-6.3 6.8-16.7.6-23.3zm-226.4-83.1c-32.1 0-62.3-12.5-85-35.2-22.7-22.7-35.2-52.9-35.2-84.9 0-32.1 12.5-62.3 35.2-84.9 22.7-22.7 52.9-35.2 85-35.2s62.3 12.5 85 35.2c22.7 22.7 35.2 52.9 35.2 84.9 0 32.1-12.5 62.3-35.2 84.9-22.7 22.7-52.9 35.2-85 35.2z"
           />
         </svg>
+        <div
+          class="c9"
+        >
+          <input
+            class="c10"
+            data-testid="search-input"
+            placeholder="Search..."
+            type="search"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="c11"
+        data-testid="dataSetFilter-container"
+      >
+        <div
+          class="c12"
+          data-testid="dataSetFilter-anchor"
+        >
+          <span
+            class="c13"
+            data-testid="dataSetFilter-text"
+          />
+          <svg
+            aria-hidden="true"
+            class="c14"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7 10l5 5 5-5z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="c15"
+        data-testid="subnav-filters-container"
+      >
+        <div
+          class="c16"
+          data-testid="ITR_BE"
+        >
+          <label
+            class="c17"
+          >
+            Intracto BE
+          </label>
+          <span
+            class="c18"
+            data-testid="checkbox"
+          >
+            <svg
+              color="#fff"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              style="color: rgb(255, 255, 255);"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="c16"
+          data-testid="ITR_NL"
+        >
+          <label
+            class="c17"
+          >
+            Intracto NL
+          </label>
+          <span
+            class="c18"
+            data-testid="checkbox"
+          >
+            <svg
+              color="#fff"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              style="color: rgb(255, 255, 255);"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="c16"
+          data-testid="FM"
+        >
+          <label
+            class="c17"
+          >
+            Frontmen
+          </label>
+          <span
+            class="c18"
+            data-testid="checkbox"
+          >
+            <svg
+              color="#fff"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              style="color: rgb(255, 255, 255);"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"
+              />
+            </svg>
+          </span>
+        </div>
       </div>
     </div>
     <div
-      class="c20"
+      class="c19"
     >
       <div
-        class="c21"
+        class="c20"
       >
         <h2
-          class="c22"
+          class="c21"
           data-testid="quadrant-content-title"
         >
           Technieken
@@ -1067,10 +1026,10 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
         </p>
       </div>
       <div
-        class="c23"
+        class="c22"
       >
         <div
-          class="c24"
+          class="c23"
         >
           <svg
             data-testid="graph"

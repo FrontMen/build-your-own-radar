@@ -2,10 +2,11 @@ import React from 'react';
 import { DataSetFilter } from '../';
 import { withAllProviders } from 'test/helpers';
 import { storeCreator, filtersStateBuilder } from 'test/builders';
+import { dateFormat } from 'utils';
 import { lightTheme } from 'Theme';
 
 describe('DataSetFilter', () => {
-  const availableDates = ['date1', 'date2'];
+  const availableDates = ['2020-01', '2020-02'];
   it('should render correctly when dataset is empty', () => {
     const { container, getByTestId, queryByTestId } = withAllProviders(
       <DataSetFilter />,
@@ -30,7 +31,7 @@ describe('DataSetFilter', () => {
     });
 
     expect(getByTestId('dataSetFilter-text')).toHaveTextContent(
-      availableDates[0],
+      dateFormat(availableDates[0]),
     );
     expect(container).toMatchSnapshot();
   });
@@ -63,10 +64,10 @@ describe('DataSetFilter', () => {
       );
       expect(
         getByTestId(`dataSetFilter-dropdown-option-${date}`),
-      ).toHaveTextContent(date);
+      ).toHaveTextContent(dateFormat(date));
       expect(
         getByTestId(`dataSetFilter-dropdown-option-${date}`),
-      ).toHaveTextContent(date);
+      ).toHaveTextContent(dateFormat(date));
     });
   });
 });

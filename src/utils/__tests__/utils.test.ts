@@ -2,6 +2,7 @@ import { dateFormat } from '../';
 
 describe('Utils', () => {
   it('Should convert a valid date to month, year format', () => {
+    expect(dateFormat(null)).toBe('');
     expect(dateFormat('')).toBe('');
     expect(dateFormat('foo')).toBe('');
 
