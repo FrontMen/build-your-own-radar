@@ -1,25 +1,21 @@
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import { IoIosSearch } from 'react-icons/io';
-import { MediaQueries } from 'Theme/Helpers';
 import { Typography } from 'Theme/Typography';
 
 export const Container = styled.div`
   display: flex;
   flex-grow: 1;
-  min-width: 18em;
   position: relative;
-  padding: ${props => props.theme.space[2]}px;
-
-  @media ${MediaQueries.desktop} {
-    margin-left: 2em;
-  }
+  padding: ${props => props.theme.space[2]}px 0;
+  margin-bottom: 20px;
 `;
 
 export const SearchIcon = styled(IoIosSearch)`
-  flex: 0 0 2em;
+  flex: 0 0 1.5em;
   height: 2em;
   width: 2em;
+  margin: 5px;
 `;
 
 export const Input = styled.input`
@@ -29,6 +25,7 @@ export const Input = styled.input`
   flex: 1;
   ${Typography.body};
   outline: none;
+  -webkit-appearance: none;
 
   &:focus {
     border-color: ${props => props.theme.pallet.primary};

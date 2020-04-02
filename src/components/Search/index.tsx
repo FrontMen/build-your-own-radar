@@ -47,15 +47,17 @@ export const Search: React.FC<SearchProps> = ({ setHighlighted }) => {
 
   return (
     <Container data-testid="subnav-search-container">
+      <SearchIcon data-testid="search-icon" />
       <InputContainer>
         <Input
           data-testid="search-input"
           value={value}
           onChange={e => setValue(e.target.value)}
           placeholder={'Search...'}
+          type="search"
         />
       </InputContainer>
-      <SearchIcon data-testid="search-icon" />
+
       {dataEntries.length > 0 && (
         <DropDownContainer data-testid="search-content">
           {dataEntries.map(([ringName, techArray]) => (
