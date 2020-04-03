@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Route, MemoryRouter, Router } from 'react-router-dom';
+import { Route, MemoryRouter, Router, Switch } from 'react-router-dom';
 import { createMemoryHistory, History } from 'history';
 import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components/macro';
@@ -92,7 +92,10 @@ export const AllProvidersWrapper = ({
     <Provider store={store}>
       <ThemeProvider theme={lightTheme}>
         <Router history={history}>
-          <Route path={path}>{children}</Route>
+          <Switch>
+            <Route path={path}>{children}</Route>
+            <Route>{children}</Route>
+          </Switch>
         </Router>
       </ThemeProvider>
     </Provider>

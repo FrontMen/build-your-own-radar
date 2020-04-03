@@ -1,15 +1,19 @@
 import React from 'react';
-import { useParams } from 'react-router';
+import { Redirect, useParams } from 'react-router';
 import styled from 'styled-components';
 import { MainContentSlot } from 'components/shared/PageSlots';
 import { ContentTitle } from 'components/shared/ContentTitle';
+import { DetailsSkeleton } from 'components/Skeleton/Details';
 
 import { Link } from 'react-router-dom';
 import { d3Config } from 'utils/d3-config';
 import { Typography } from 'Theme/Typography';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 import { useSelector } from 'react-redux';
-import { allTechnologyDataSetSelector } from 'redux/selectors/technologies';
+import {
+  allTechnologyDataSetSelector,
+  technologiesLoadingStateSelector,
+} from 'redux/selectors/technologies';
 import { dateFormat } from 'utils';
 
 const Slot = styled(MainContentSlot)``;
@@ -103,19 +107,20 @@ const DetailsComponent: React.FC = () => {
     DetailsParams
   >();
   const allData = useSelector(allTechnologyDataSetSelector);
+  const { loading, initialized } = useSelector(technologiesLoadingStateSelector());
+  const matchingTechnology = Object.values(allData).some(dataset =>
+    dataset.some(item => item.name.toLowerCase().includes(technologyParam!)),
+  );
   const quadrant = d3Config.quadrants.find(
     quad => quad.route === quadrantParam,
   );
-  if (!quadrant) {
-    return (
-      <Slot>
-        <div>Couldn't find The corresponding quadrant name</div>
-        <BackLink to={`/`}>
-          <ArrowLeftIcon />
-          Back Home
-        </BackLink>
-      </Slot>
-    );
+
+  if (loading || !initialized) {
+    return <DetailsSkeleton />;
+  }
+
+  if (!quadrant || !matchingTechnology) {
+    return <Redirect to="/not-found" />;
   }
 
   let lastDescription: string;
@@ -137,15 +142,19 @@ const DetailsComponent: React.FC = () => {
 
   return (
     <Slot>
-      <BackLink quadName={quadrant.name} to={`/${quadrantParam}`}>
+      <BackLink quadName={quadrant.name} to={`/${quadrantParam}`} data-testid="details-back-link">
         <ArrowLeftIcon />
         Back to {quadrant.name}
       </BackLink>
       <Content>
-        <ContentTitle data-testid="details">{`Timeline: ${technologyParam}`}</ContentTitle>
-        <Timeline color={quadrant.name}>
+        <ContentTitle data-testid="details-content-title">{`Timeline: ${technologyParam}`}</ContentTitle>
+        <Timeline
+          data-testid="details-timeline-container"
+          color={quadrant.name}
+        >
           {technologies.map((item, index) => (
             <TimelineItem
+              data-testid={`details-timeline-item-${index}`}
               key={index}
               value={dateFormat(item!.date)}
               color={quadrant.name}
