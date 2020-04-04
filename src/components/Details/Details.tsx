@@ -40,11 +40,10 @@ const Content = styled.div`
 
 const Timeline = styled.ul<{ color: string }>`
   border-left: ${props => `4px solid ${props.theme.colors[props.color || '']}`};
-  margin: 50px auto;
-  padding: 50px;
+  margin: 50px 0% 0 30%;
+  padding: 50px 0 50px 20px;
   list-style: none;
   text-align: left;
-  max-width: 50%;
 
   h3 {
     font-weight: 400;
@@ -71,7 +70,8 @@ const TimelineItem = styled.li<{ color: string; value: string }>`
   }
 
   &:before {
-    left: -200px;
+    left: -160px;
+    top: 2px;
     content: '${props => props.value}';
     text-align: right;
     min-width: 120px;
@@ -83,7 +83,7 @@ const TimelineItem = styled.li<{ color: string; value: string }>`
   &:after {
     box-shadow: ${props =>
       `0 0 0 4px ${props.theme.colors[props.color || '']}`};
-    left: -58px;
+    left: -28px;
     background: #fff;
     border-radius: 50%;
     height: 11px;
