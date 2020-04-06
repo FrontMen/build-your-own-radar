@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro';
-import { Link } from 'react-router-dom';
 import { IoIosSearch } from 'react-icons/io';
 import { Typography } from 'Theme/Typography';
 
@@ -64,7 +63,7 @@ export const RingName = styled.div`
   }
 `;
 
-export const Technology = styled(Link)`
+export const Technology = styled.a`
   ${Typography.body};
   text-decoration: none;
   display: block;

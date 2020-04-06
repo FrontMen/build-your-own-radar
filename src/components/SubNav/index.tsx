@@ -60,6 +60,7 @@ const ColoredLinks = styled(({ selected, quadName, ...props }) => (
 
 type PropTypes = {
   setHighlighted: React.Dispatch<React.SetStateAction<string | null>>;
+  setSelected: (a: string | null) => void;
 };
 
 export interface Params {
@@ -67,7 +68,7 @@ export interface Params {
   technology?: string;
 }
 
-export const SubNav = ({ setHighlighted }: PropTypes) => {
+export const SubNav = ({ setHighlighted, setSelected }: PropTypes) => {
   const { quadrant: quadrantPram } = useParams<Params>();
 
   return (
@@ -88,7 +89,7 @@ export const SubNav = ({ setHighlighted }: PropTypes) => {
         )}
       </Container>
       <Container>
-        <Search setHighlighted={setHighlighted} />
+        <Search setHighlighted={setHighlighted} setSelected={setSelected} />
         <DataSetFilter />
         <FilterByCompany />
       </Container>

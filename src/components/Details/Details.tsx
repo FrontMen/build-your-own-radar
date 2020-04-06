@@ -137,10 +137,7 @@ const DetailsComponent: React.FC = () => {
 
   return (
     <Slot>
-      <BackLink
-        quadName={quadrant.name}
-        to={`/${quadrantParam}?tech=${technologyParam}`}
-      >
+      <BackLink quadName={quadrant.name} to={`/${quadrantParam}`}>
         <ArrowLeftIcon />
         Back to {quadrant.name}
       </BackLink>
