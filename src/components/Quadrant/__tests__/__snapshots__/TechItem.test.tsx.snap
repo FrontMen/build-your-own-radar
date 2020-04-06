@@ -68,13 +68,13 @@ exports[`TechItem it should matches the snapshot with default values 1`] = `
 <div>
   <li
     class="c0"
-    data-testid="list-item-Babel"
+    data-testid="list-item-A-Frame"
   >
     <div
       class="c1"
       data-testid="label"
     >
-      Babel
+      A-Frame
     </div>
     <div
       class="c2"
@@ -84,15 +84,11 @@ exports[`TechItem it should matches the snapshot with default values 1`] = `
         class="c3"
       >
         <span>
-          This is the description. You can use basic html such as the 
-          <strong>
-            strong tag to emphasise keywords and phrases
-          </strong>
-           and insert
+          A web framework for building virtual reality experiences
         </span>
         <a
           class="c4"
-          href="/tools/babel"
+          href="/tools/a-frame"
         >
           More 
           <svg

@@ -176,7 +176,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
     >
       <h3
         class="c2"
-        data-testid="ring-title-Adopt"
+        data-testid="ring-title-Assess"
       >
         <span
           class="c3"
@@ -184,13 +184,13 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
         >
           ●
         </span>
-        Adopt
+        Assess
         <span
           class="c4"
         >
           ?
           <span>
-            We feel strongly that the industry should be adopting these items. We use them when appropriate on our projects.
+            Worth exploring with the goal of understanding how it will affect your enterprise.
           </span>
         </span>
       </h3>
@@ -199,13 +199,13 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
       >
         <li
           class="c6"
-          data-testid="list-item-Babel"
+          data-testid="list-item-A-Frame"
         >
           <div
             class="c7"
             data-testid="label"
           >
-            Babel
+            A-Frame
           </div>
           <div
             class="c8"
@@ -215,15 +215,11 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
               class="c9"
             >
               <span>
-                This is the description. You can use basic html such as the 
-                <strong>
-                  strong tag to emphasise keywords and phrases
-                </strong>
-                 and insert
+                A web framework for building virtual reality experiences
               </span>
               <a
                 class="c10"
-                href="/tools/babel"
+                href="/tools/a-frame"
               >
                 More 
                 <svg
@@ -247,13 +243,13 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
         </li>
         <li
           class="c6"
-          data-testid="list-item-Spark"
+          data-testid="list-item-Angular 2+"
         >
           <div
             class="c7"
             data-testid="label"
           >
-            Spark
+            Angular 2+
           </div>
           <div
             class="c8"
@@ -262,16 +258,10 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
             <div
               class="c9"
             >
-              <span>
-                This is the description. You can use basic html such as the 
-                <strong>
-                  strong tag to emphasise keywords and phrases
-                </strong>
-                 and insert
-              </span>
+              <span />
               <a
                 class="c10"
-                href="/tools/spark"
+                href="/tools/angular 2+"
               >
                 More 
                 <svg
@@ -300,7 +290,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
     >
       <h3
         class="c2"
-        data-testid="ring-title-Assess"
+        data-testid="ring-title-Adopt"
       >
         <span
           class="c3"
@@ -308,13 +298,13 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
         >
           ●
         </span>
-        Assess
+        Adopt
         <span
           class="c4"
         >
           ?
           <span>
-            Worth exploring with the goal of understanding how it will affect your enterprise.
+            We feel strongly that the industry should be adopting these items. We use them when appropriate on our projects.
           </span>
         </span>
       </h3>
@@ -323,13 +313,83 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
       >
         <li
           class="c6"
-          data-testid="list-item-Electron"
+          data-testid="list-item-Alpine"
         >
           <div
             class="c7"
             data-testid="label"
           >
-            Electron
+            Alpine
+          </div>
+          <div
+            class="c8"
+            data-testid="details"
+          >
+            <div
+              class="c9"
+            >
+              <span />
+              <a
+                class="c10"
+                href="/tools/alpine"
+              >
+                More 
+                <svg
+                  class="c11"
+                  data-testid="arrow-right-icon"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 512 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="c1"
+    >
+      <h3
+        class="c2"
+        data-testid="ring-title-Trial"
+      >
+        <span
+          class="c3"
+          color="default"
+        >
+          ●
+        </span>
+        Trial
+        <span
+          class="c4"
+        >
+          ?
+          <span>
+            Worth pursuing. It is important to understand how to build up this capability. Enterprises should try this technology on a project that can handle the risk.
+          </span>
+        </span>
+      </h3>
+      <ul
+        class="c5"
+      >
+        <li
+          class="c6"
+          data-testid="list-item-AMQP"
+        >
+          <div
+            class="c7"
+            data-testid="label"
+          >
+            AMQP
           </div>
           <div
             class="c8"
@@ -339,21 +399,81 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
               class="c9"
             >
               <span>
-                This is the description. You can use basic html such as the 
-                <strong>
-                  strong tag to emphasise keywords and phrases
-                </strong>
-                 and insert 
-                <a
-                  href="https://www.thoughtworks.com"
-                >
-                  anchor links to documentation and referance material
-                </a>
-                .
+                Advanced Messaging Queueing Protocol (Apache Kafka, RabbitMQ, AWS SQS)
               </span>
               <a
                 class="c10"
-                href="/tools/electron"
+                href="/tools/amqp"
+              >
+                More 
+                <svg
+                  class="c11"
+                  data-testid="arrow-right-icon"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 512 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="c1"
+    >
+      <h3
+        class="c2"
+        data-testid="ring-title-Hold"
+      >
+        <span
+          class="c3"
+          color="default"
+        >
+          ●
+        </span>
+        Hold
+        <span
+          class="c4"
+        >
+          ?
+          <span>
+            Proceed with caution.
+          </span>
+        </span>
+      </h3>
+      <ul
+        class="c5"
+      >
+        <li
+          class="c6"
+          data-testid="list-item-AngularJS (Angular 1)"
+        >
+          <div
+            class="c7"
+            data-testid="label"
+          >
+            AngularJS (Angular 1)
+          </div>
+          <div
+            class="c8"
+            data-testid="details"
+          >
+            <div
+              class="c9"
+            >
+              <span />
+              <a
+                class="c10"
+                href="/tools/angularjs (angular 1)"
               >
                 More 
                 <svg
