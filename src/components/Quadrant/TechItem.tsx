@@ -83,13 +83,13 @@ export class TechItem extends React.Component<TechnologyProps> {
       (prevHighlighted === prevName && nextHighlighted !== nextName) ||
       (prevHighlighted !== prevName && nextHighlighted === nextName) ||
       (prevActive === prevName && nextActive !== nextName) ||
-      (prevActive !== prevName && nextActive === nextName)
+      (prevActive !== prevName && nextActive === nextName) ||
+      nextActive === nextName
     );
   }
 
-  handleMouseOver = () => this.props.setHighlighted(this.props.technology.name);
-
-  handleMouseOut = () => this.props.setHighlighted(null);
+  handleHovering = (param: string | null) => () =>
+    this.props.setHighlighted(param);
 
   handleClick = () => {
     const {
@@ -97,7 +97,8 @@ export class TechItem extends React.Component<TechnologyProps> {
       technology: { name },
       selected,
     } = this.props;
-    name !== selected && setSelected(`?tech=${name}`);
+
+    name !== selected ? setSelected(`?tech=${name}`) : setSelected('?tech=');
   };
 
   render() {
@@ -112,10 +113,10 @@ export class TechItem extends React.Component<TechnologyProps> {
       <ListItem data-testid={`list-item-${name}`}>
         <Label
           data-testid="label"
-          onMouseOver={this.handleMouseOver}
-          onMouseOut={this.handleMouseOut}
+          onMouseOver={this.handleHovering(name)}
+          onMouseOut={this.handleHovering(null)}
           onClick={this.handleClick}
-          highlighted={highlighted === name}
+          highlighted={highlighted === name || selected === name}
         >
           {name}
         </Label>
