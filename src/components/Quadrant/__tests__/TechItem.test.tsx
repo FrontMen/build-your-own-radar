@@ -49,6 +49,23 @@ describe('TechItem', () => {
     expect(label).toHaveStyleRule('font-weight', '600');
   });
 
+  it('it should highlight label when selected property is set', () => {
+    const wrapper = mount(<TechItem {...defaultProps} />, {
+      wrappingComponent: AllProvidersWrapper,
+      wrappingComponentProps: { history },
+    });
+
+    let label = wrapper.find(LabelSelector);
+    expect(label).toHaveStyleRule('font-weight', '400');
+
+    wrapper.setProps({
+      selected: mockData[0].name,
+    });
+
+    label = wrapper.find(LabelSelector);
+    expect(label).toHaveStyleRule('font-weight', '600');
+  });
+
   it('it should expand details when selected prop matches item label', () => {
     const wrapper = mount<TechnologyProps>(<TechItem {...defaultProps} />, {
       wrappingComponent: AllProvidersWrapper,
@@ -93,6 +110,8 @@ describe('TechItem', () => {
       .find(LabelSelector)
       .at(0)
       .simulate('click');
-    expect(defaultProps.setSelected).toHaveBeenCalledWith(`?tech=${mockData[0].name}`);
+    expect(defaultProps.setSelected).toHaveBeenCalledWith(
+      `?tech=${mockData[0].name}`,
+    );
   });
 });

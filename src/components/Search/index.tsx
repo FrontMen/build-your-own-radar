@@ -72,7 +72,6 @@ export const Search: React.FC<SearchProps> = ({
                   <Technology
                     data-testid="search-technology"
                     key={technology.name}
-                    to={''}
                     onClick={e => {
                       e.preventDefault();
                       const baseLink = `/${
