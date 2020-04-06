@@ -88,11 +88,11 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   useEffect(() => {
     const technology = technologies?.find(t => t.name === highlighted);
     if (technology) {
-      showBubble(technology);
+      showBubble(technology, quadrantNum!);
     } else {
       hideBubble();
     }
-  }, [highlighted, technologies]);
+  }, [highlighted, technologies, quadrantNum]);
 
   return (
     <GraphWrapper fullSize={fullSize}>

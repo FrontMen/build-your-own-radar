@@ -45,7 +45,7 @@ describe('Graph', () => {
     wrapper.setProps({
       highlighted: mockData[0].name,
     });
-    expect(showBubble).toHaveBeenCalledWith(mockData[0]);
+    expect(showBubble).toHaveBeenCalledWith(mockData[0], 1);
 
     wrapper.setProps({
       highlighted: null,
