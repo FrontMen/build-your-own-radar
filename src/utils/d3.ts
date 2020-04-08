@@ -94,7 +94,7 @@ export const showBubble = (technology: Technology, quadrant: number) => {
     .node();
   if (tooltip) {
     const bbox = tooltip.getBBox?.() || { width: 0, height: 0 }; // default value for testing env
-    const dx = factor_x > 0 ? 5 : bbox.width;
+    const dx = technology.x! < factor_x * 250 ? 5 : bbox.width;
 
     d3.select('#bubble')
       .attr('transform', translate(technology.x! - dx, technology.y! - 22))
