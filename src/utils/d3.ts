@@ -1,6 +1,7 @@
 import * as d3 from 'd3';
 import { d3Config } from 'utils/d3-config';
 import { random_between, polar, cartesian, bounded_interval } from 'utils';
+
 const quadrants = [
   { radial_min: 0, radial_max: 0.5, factor_x: 1, factor_y: 1 },
   { radial_min: 0.5, radial_max: 1, factor_x: -1, factor_y: 1 },
@@ -83,29 +84,27 @@ const viewbox = (quadrant: number, maxRadius: number) => [
   maxRadius + AXIS_STROKE_WIDTH,
 ];
 
-export const showBubble = (technology: Technology) => {
+export const showBubble = (technology: Technology, quadrant: number) => {
+  const { factor_x } = quadrants[quadrant];
+
   const tooltip = d3
     .select<SVGTextElement, SVGTextElement>('#bubble text')
     .text(technology.name)
-    .style('font-size', '0.6em')
+    .style('font-size', '0.7em')
     .node();
   if (tooltip) {
     const bbox = tooltip.getBBox?.() || { width: 0, height: 0 }; // default value for testing env
+    const dx = factor_x > 0 ? 5 : bbox.width;
+
     d3.select('#bubble')
-      .attr(
-        'transform',
-        translate(technology.x! - bbox.width / 2, technology.y! - 20),
-      )
+      .attr('transform', translate(technology.x! - dx, technology.y! - 22))
       .style('opacity', 1);
     d3.select('#bubble rect')
       .attr('x', -5)
       .attr('y', -bbox.height + 1)
-      .attr('width', bbox.width + 10)
+      .attr('width', bbox.width + 12)
       .attr('height', bbox.height + 6);
-    d3.select('#bubble path').attr(
-      'transform',
-      translate(bbox.width / 2 - 5, 3),
-    );
+    d3.select('#bubble path').attr('transform', translate(dx - 5, 5));
   }
 };
 
@@ -167,7 +166,6 @@ const drawLegend = (radar: any, quadrant: number, maxRadius: number) => {
   const [dx, dy] = translateLegend(quadrant);
   const X = x + dx;
   const Y = y + dy;
-
   const legendContainer = radar.append('g').attr('id', 'radar-legend');
 
   legendContainer
@@ -403,7 +401,7 @@ export const radar_visualization = (
       });
   }
 
-  // // layer for entries
+  // layer for entries
   const rink: d3.Selection<
     SVGGElement,
     unknown,
@@ -443,7 +441,7 @@ export const radar_visualization = (
   }
 
   const mouseOverListener = (technology: Technology) => {
-    showBubble(technology);
+    showBubble(technology, quadrantProp!);
     setHighlighted(technology.name);
   };
 
@@ -529,6 +527,7 @@ export const radar_visualization = (
       )
       .on('tick', ticked);
   };
+
   setTimeout(() => {
     setBlips();
   }, 400);
