@@ -43,7 +43,7 @@ describe('Graph', () => {
     });
 
     wrapper.setProps({
-      highlighted: parsedMockDataItem[0].name,
+      highlighted: parsedMockDataItem[0].positionId,
     });
     expect(showBubble).toHaveBeenCalledWith(parsedMockDataItem[0], 1);
 

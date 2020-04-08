@@ -435,11 +435,11 @@ export const radar_visualization = (
 
   const mouseOverListener = (technology: Technology) => {
     showBubble(technology, quadrantProp!);
-    setHighlighted(technology.name);
+    setHighlighted(technology.positionId!);
   };
 
   const onClick = (technology: Technology) => {
-    setSelected(`?tech=${technology.name}`);
+    setSelected(`?tech=${technology.positionId}`);
   };
 
   const mouseOutListener = () => {
@@ -472,7 +472,8 @@ export const radar_visualization = (
                     .size(250),
                 )
                 //@ts-ignore
-                .attr('fill', d => d.color);
+                .attr('fill', d => d.color)
+                .style('cursor', 'pointer');
 
               if (!isFullSize) {
                 gg.append('text')
