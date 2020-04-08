@@ -1,6 +1,7 @@
 import * as d3 from 'd3';
 import { d3Config } from 'utils/d3-config';
 import { random_between, polar, cartesian, bounded_interval } from 'utils';
+
 const quadrants = [
   { radial_min: 0, radial_max: 0.5, factor_x: 1, factor_y: 1 },
   { radial_min: 0.5, radial_max: 1, factor_x: -1, factor_y: 1 },
@@ -83,29 +84,27 @@ const viewbox = (quadrant: number, maxRadius: number) => [
   maxRadius + AXIS_STROKE_WIDTH,
 ];
 
-export const showBubble = (technology: Technology) => {
+export const showBubble = (technology: Technology, quadrant: number) => {
+  const { factor_x } = quadrants[quadrant];
+
   const tooltip = d3
     .select<SVGTextElement, SVGTextElement>('#bubble text')
     .text(technology.name)
-    .style('font-size', '0.6em')
+    .style('font-size', '0.7em')
     .node();
   if (tooltip) {
     const bbox = tooltip.getBBox?.() || { width: 0, height: 0 }; // default value for testing env
+    const dx = technology.x! < factor_x * 250 ? 5 : bbox.width;
+
     d3.select('#bubble')
-      .attr(
-        'transform',
-        translate(technology.x! - bbox.width / 2, technology.y! - 20),
-      )
+      .attr('transform', translate(technology.x! - dx, technology.y! - 22))
       .style('opacity', 1);
     d3.select('#bubble rect')
       .attr('x', -5)
       .attr('y', -bbox.height + 1)
-      .attr('width', bbox.width + 10)
+      .attr('width', bbox.width + 12)
       .attr('height', bbox.height + 6);
-    d3.select('#bubble path').attr(
-      'transform',
-      translate(bbox.width / 2 - 5, 3),
-    );
+    d3.select('#bubble path').attr('transform', translate(dx - 5, 5));
   }
 };
 
@@ -157,6 +156,9 @@ const getHoverPolygons = (maxRadius: number) => [
   ],
 ];
 
+let simulation: d3.Simulation<any, any>;
+let prevData: Technology[];
+
 //order of quadrants in config is 2 3 0 1, so rotating twice
 const getQuadrantRoute = (quadrant: number) =>
   d3Config.quadrants[(2 + quadrant) % 4].route;
@@ -167,7 +169,6 @@ const drawLegend = (radar: any, quadrant: number, maxRadius: number) => {
   const [dx, dy] = translateLegend(quadrant);
   const X = x + dx;
   const Y = y + dy;
-
   const legendContainer = radar.append('g').attr('id', 'radar-legend');
 
   legendContainer
@@ -224,6 +225,10 @@ export const radar_visualization = (
   { quadrantNum: quadrantProp, isNotMobile }: RadarVisualizationParams,
   redirect: (path: string) => void,
 ) => {
+  if (!data.length) {
+    return null;
+  }
+
   const maxRadius = rings[rings.length - 1].radius;
   const isFullSize = typeof quadrantProp === 'undefined';
   const ringsNames = Object.keys(config.rings);
@@ -231,11 +236,7 @@ export const radar_visualization = (
   const svg = d3
     .select(container)
     .style('background-color', config.colors.background);
-
-  // partition entries according to segments
-  const segmented: Segmented = [...Array(NUMBER_OF_RINGS)].map(() =>
-    [...Array(NUMBER_OF_RINGS)].map(() => []),
-  );
+  const isFirstRender = !svg.html();
 
   // position each entry randomly in its segment
   data.forEach(technology => {
@@ -244,23 +245,15 @@ export const radar_visualization = (
 
     technology.segment = segment(quadNum, ringNum);
     const { x, y } = technology.segment.random();
-    technology.x = x;
-    technology.y = y;
+    if (!technology.x) {
+      technology.x = x;
+    }
+    if (!technology.y) {
+      technology.y = y;
+    }
     technology.color = config.quadrants[quadNum].color;
-    segmented[quadNum][ringNum].push(technology);
   });
 
-  // assign unique sequential id to each entry
-  let tempId = 1;
-  let currentQuadrant = data.length > 0 ? data[0].quadrant : 0;
-  const setId = (technology: Technology) => (technology.id = '' + tempId++);
-
-  for (let ring = 0; ring < NUMBER_OF_RINGS; ring++) {
-    const entries = segmented[currentQuadrant][ring];
-    entries.sort(sortTechnologyByName).forEach(setId);
-  }
-
-  const isFirstRender = !svg.html();
   const radar = isFirstRender ? svg.append('g') : svg.select('g');
 
   if (typeof quadrantProp !== 'undefined') {
@@ -403,7 +396,7 @@ export const radar_visualization = (
       });
   }
 
-  // // layer for entries
+  // layer for entries
   const rink: d3.Selection<
     SVGGElement,
     unknown,
@@ -412,8 +405,6 @@ export const radar_visualization = (
   > = isFirstRender
     ? radar.append('g').attr('id', 'rink')
     : radar.select('#rink');
-
-  rink.selectAll('.blip').remove();
 
   if (isFirstRender) {
     // rollover bubble (on top of everything else)
@@ -443,7 +434,7 @@ export const radar_visualization = (
   }
 
   const mouseOverListener = (technology: Technology) => {
-    showBubble(technology);
+    showBubble(technology, quadrantProp!);
     setHighlighted(technology.name);
   };
 
@@ -456,80 +447,118 @@ export const radar_visualization = (
     setHighlighted(null);
   };
 
-  const setBlips = () => {
+  function setBlips() {
     // draw blips on radar
-    const blips = rink
-      .selectAll('.blip')
-      .data(data)
-      .enter()
-      .append('g')
-      .attr('class', 'blip')
-      .on('mouseover', mouseOverListener)
-      .on('mouseout', mouseOutListener)
-      .on('click', onClick);
+    rink
+      .selectAll<SVGGElement, Technology>('.blip')
+      .data<Technology>(data, (d: any) => d.name)
+      .join(
+        //@ts-ignore
+        function(enter) {
+          enter
+            .append('g')
+            .attr('class', 'blip')
+            .on('mouseover', mouseOverListener)
+            .on('mouseout', mouseOutListener)
+            .on('click', onClick)
+            .each(function(t) {
+              const gg = d3.select(this);
+              gg.append('path')
+                .attr(
+                  'd',
+                  d3
+                    .symbol()
+                    .type(d => (d.isNew ? d3.symbolTriangle : d3.symbolCircle))
+                    .size(250),
+                )
+                //@ts-ignore
+                .attr('fill', d => d.color);
 
-    // configure each blip
-    blips.each(function(technology) {
-      //
-      let blip = d3.select(this);
+              if (!isFullSize) {
+                gg.append('text')
+                  .text(`${t.id}`)
+                  .attr('y', 3)
+                  .attr('text-anchor', 'middle')
+                  .style('fill', '#fff')
+                  .style('font-family', 'Arial, Helvetica')
+                  .style('font-size', '8px')
+                  .style('pointer-events', 'none')
+                  .style('user-select', 'none');
+              }
+            });
 
-      blip.attr('data-testid', technology.name);
-      blip.style('cursor', 'pointer');
+          return enter.selectAll('g');
+        },
+        up => {
+          simulation?.stop();
+          const selection = up.select(function(d, i) {
+            const prev = prevData.find(({ name }) => name === d.name);
+            const shouldUpdate = prev!.ring !== d.ring;
+            return shouldUpdate ? this : null;
+          });
 
-      // blip shape
-      if (technology.moved > 0) {
-        blip
-          .append('path')
-          .attr('d', 'M -11,5 11,5 0,-13 z') // triangle pointing up
-          .style('fill', technology.color!);
-      } else if (technology.moved < 0) {
-        blip
-          .append('path')
-          .attr('d', 'M -11,-5 11,-5 0,13 z') // triangle pointing down
-          .style('fill', technology.color!);
-      } else {
-        blip
-          .append('circle')
-          .attr('r', isFullSize ? 7 : 9)
-          .attr('fill', technology.color!);
-      }
+          selection.select('path').attr(
+            'd',
+            d3
+              .symbol()
+              .type(d => (d.isNew ? d3.symbolTriangle : d3.symbolCircle))
+              .size(250),
+          );
+          const trans = d3
+            .transition()
+            .duration(2000)
+            .on('end', function() {
+              if (selection.size() > 0) {
+                simulation = simulateCollision();
+              }
+            });
+          //@ts-ignore
+          selection.transition(trans).attr('transform', d => {
+            const { x, y } = d;
+            return translate(x, y);
+          });
 
-      if (!isFullSize) {
-        // blip text
-        const blip_text = technology.id || '';
-        blip
-          .append('text')
-          .text(blip_text)
-          .attr('y', 3)
-          .attr('text-anchor', 'middle')
-          .style('fill', '#fff')
-          .style('font-family', 'Arial, Helvetica')
-          .style('font-size', () => (blip_text.length > 2 ? '8px' : '9px'))
-          .style('pointer-events', 'none')
-          .style('user-select', 'none');
-      }
-    });
-
-    // make sure that blips stay inside their segment
-    const ticked = () =>
-      blips.attr('transform', d =>
-        translate(d.segment!.clipx(d as Point), d.segment!.clipy(d as Point)),
+          return up.select('g');
+        },
+        exit => {
+          return exit.remove();
+        },
       );
 
+    // make sure that blips stay inside their segment
+    function ticked() {
+      rink
+        .selectAll('.blip')
+        .transition()
+        .duration(50)
+        .attr('transform', d =>
+          translate(
+            (d as Technology).segment!.clipx(d as Point),
+            (d as Technology).segment!.clipy(d as Point),
+          ),
+        );
+    }
+
     // distribute blips, while avoiding collisions
-    d3.forceSimulation()
-      .nodes(data)
-      .velocityDecay(0.19) // magic number (found by experimentation)
-      .force(
-        'collision',
-        d3
-          .forceCollide()
-          .radius(12)
-          .strength(0.85),
-      )
-      .on('tick', ticked);
-  };
-  setTimeout(() => {
-    setBlips();
-  }, 400);
+    function simulateCollision() {
+      return d3
+        .forceSimulation()
+        .nodes(data)
+        .velocityDecay(0.19) // magic number (found by experimentation)
+        .force(
+          'collision',
+          d3
+            .forceCollide()
+            .radius(16)
+            .strength(0.05),
+        )
+        .on('tick', ticked);
+    }
+
+    if (isFirstRender) {
+      simulation = simulateCollision();
+    }
+  }
+  setBlips();
+  prevData = data;
 };

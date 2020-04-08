@@ -18,8 +18,8 @@ function flattenSheet(data: [KeyRowValues, ...RowValues[]]) {
   const [keyRow, ...remainingDataRows] = data;
   const keys = getSheetTableHeaders(keyRow);
 
-  return (remainingDataRows as RowValues[]).reduce((acc, row) => {
-    const tempRow = flattenDataRows(row, keys);
+  return (remainingDataRows as RowValues[]).reduce((acc, row, index) => {
+    const tempRow = flattenDataRows(row, keys, index);
     if (tempRow) acc.push(tempRow);
     return acc;
   }, [] as Technology[]);
@@ -37,7 +37,11 @@ function getSheetTableHeaders(row: KeyRowValues) {
   });
 }
 
-function flattenDataRows(row: RowValues, keys: MappedDataRowKey[]) {
+function flattenDataRows(
+  row: RowValues,
+  keys: MappedDataRowKey[],
+  index: number,
+) {
   let newRow = row.values.reduce((acc, { effectiveValue }, i) => {
     let value = effectiveValue
       ? effectiveValue.stringValue
@@ -49,19 +53,17 @@ function flattenDataRows(row: RowValues, keys: MappedDataRowKey[]) {
   }, {} as MappedDataRow);
 
   // return newRow;
-  return cleanRow(newRow);
+  return cleanRow(newRow, index);
 }
 
-export const cleanRow = ({
-  quadrant,
-  'ITR BE': ITR_BE,
-  'ITR NL': ITR_NL,
-  FM,
-  ...item
-}: MappedDataRow): Technology | undefined => {
+export const cleanRow = (
+  { quadrant, 'ITR BE': ITR_BE, 'ITR NL': ITR_NL, FM, ...item }: MappedDataRow,
+  index: number,
+): Technology | undefined => {
   if (item['In radar?'] === 'N') return;
   return {
     ...item,
+    id: `${index}`,
     moved: 0,
     quadrant: d3Config.quadrants.findIndex(quad => quad.name === quadrant),
     companies: [

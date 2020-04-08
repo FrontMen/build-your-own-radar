@@ -1,14 +1,14 @@
 import React from 'react';
 import { Graph } from 'components/Graph';
 import { withThemeProviders } from 'test/helpers';
-import { mockData } from 'test/mockData';
+import { parsedMockDataItem } from 'test/mockData';
 import { mount } from 'enzyme';
 import { ThemeProvider } from 'styled-components/macro';
 import { lightTheme } from 'Theme';
 import { d3Config } from 'utils/d3-config';
 
 const defaultProps = {
-  technologies: mockData,
+  technologies: parsedMockDataItem,
   highlighted: null,
   setHighlighted: jest.fn(),
   setSelected: jest.fn(),
@@ -43,9 +43,9 @@ describe('Graph', () => {
     });
 
     wrapper.setProps({
-      highlighted: mockData[0].name,
+      highlighted: parsedMockDataItem[0].name,
     });
-    expect(showBubble).toHaveBeenCalledWith(mockData[0]);
+    expect(showBubble).toHaveBeenCalledWith(parsedMockDataItem[0], 1);
 
     wrapper.setProps({
       highlighted: null,
@@ -68,11 +68,11 @@ describe('Graph', () => {
     });
 
     wrapper.setProps({
-      technologies: mockData,
+      technologies: parsedMockDataItem,
     });
 
     const [_, technologies] = radar_visualization.mock.calls[0];
-    expect(technologies).toBe(mockData);
+    expect(technologies).toBe(parsedMockDataItem);
 
     radar_visualization.mockClear();
 
