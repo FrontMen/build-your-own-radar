@@ -23,7 +23,7 @@ describe('Details', () => {
         wrappingComponentProps: {
           path: '/:quadrant/:technology',
           route: `/invalid-quadrant-param/alpine`,
-          store
+          store,
         },
       });
 
@@ -90,7 +90,7 @@ describe('Details', () => {
         `Back to ${correctQuadrant.name}`,
       );
       expect(getByTestId('details-back-link').getAttribute('href')).toBe(
-        `/${correctQuadrant.route}?tech=alpine`,
+        `/${correctQuadrant.route}`,
       );
       expect(getByTestId('details-content-title')).toHaveTextContent(
         'Timeline: alpine',
