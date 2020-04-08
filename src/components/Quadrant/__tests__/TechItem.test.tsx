@@ -42,7 +42,7 @@ describe('TechItem', () => {
     expect(label).toHaveStyleRule('font-weight', '400');
 
     wrapper.setProps({
-      highlighted: parsedMockDataItem[0].name,
+      highlighted: parsedMockDataItem[0].positionId,
     });
 
     label = wrapper.find(LabelSelector);
@@ -59,7 +59,7 @@ describe('TechItem', () => {
     expect(label).toHaveStyleRule('font-weight', '400');
 
     wrapper.setProps({
-      selected: parsedMockDataItem[0].name,
+      selected: parsedMockDataItem[0].positionId,
     });
 
     label = wrapper.find(LabelSelector);
@@ -76,7 +76,7 @@ describe('TechItem', () => {
     expect(details).toHaveStyleRule('max-height', '0px');
 
     wrapper.setProps({
-      selected: parsedMockDataItem[0].name,
+      selected: parsedMockDataItem[0].positionId!,
     });
 
     details = wrapper.find(DetailsSelector);
@@ -92,7 +92,9 @@ describe('TechItem', () => {
       .find(LabelSelector)
       .at(0)
       .simulate('mouseOver');
-    expect(defaultProps.setHighlighted).toHaveBeenCalledWith(parsedMockDataItem[0].name);
+    expect(defaultProps.setHighlighted).toHaveBeenCalledWith(
+      parsedMockDataItem[0].positionId,
+    );
 
     wrapper
       .find(LabelSelector)
@@ -111,7 +113,7 @@ describe('TechItem', () => {
       .at(0)
       .simulate('click');
     expect(defaultProps.setSelected).toHaveBeenCalledWith(
-      `?tech=${parsedMockDataItem[0].name}`,
+      `?tech=${parsedMockDataItem[0].positionId}`,
     );
   });
 });

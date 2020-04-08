@@ -69,6 +69,7 @@ exports[`TechItem it should matches the snapshot with default values 1`] = `
   <li
     class="c0"
     data-testid="list-item-A-Frame"
+    id="i-0-1"
   >
     <div
       class="c1"

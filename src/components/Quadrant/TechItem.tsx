@@ -70,21 +70,21 @@ export class TechItem extends React.Component<TechnologyProps> {
     const {
       highlighted: prevHighlighted,
       selected: prevActive,
-      technology: { name: prevName },
+      technology: { positionId: prevPosition },
     } = this.props;
     const {
       highlighted: nextHighlighted,
       selected: nextActive,
-      technology: { name: nextName },
+      technology: { positionId: nextPosition },
     } = nextProps;
 
     // updating if selected or highlighted property changed
     return (
-      (prevHighlighted === prevName && nextHighlighted !== nextName) ||
-      (prevHighlighted !== prevName && nextHighlighted === nextName) ||
-      (prevActive === prevName && nextActive !== nextName) ||
-      (prevActive !== prevName && nextActive === nextName) ||
-      nextActive === nextName
+      (prevHighlighted === prevPosition && nextHighlighted !== nextPosition) ||
+      (prevHighlighted !== prevPosition && nextHighlighted === nextPosition) ||
+      (prevActive === prevPosition && nextActive !== nextPosition) ||
+      (prevActive !== prevPosition && nextActive === nextPosition) ||
+      nextActive === nextPosition
     );
   }
 
@@ -94,34 +94,36 @@ export class TechItem extends React.Component<TechnologyProps> {
   handleClick = () => {
     const {
       setSelected,
-      technology: { name },
+      technology: { positionId },
       selected,
     } = this.props;
 
-    name !== selected ? setSelected(`?tech=${name}`) : setSelected('?tech=');
+    positionId !== selected
+      ? setSelected(`?tech=${positionId}`)
+      : setSelected('?tech=');
   };
 
   render() {
     const {
       selected,
       highlighted,
-      technology: { name, description },
+      technology: { name, description, positionId },
       quadrant,
     } = this.props;
 
     return (
-      <ListItem data-testid={`list-item-${name}`}>
+      <ListItem data-testid={`list-item-${name}`} id={positionId}>
         <Label
           data-testid="label"
-          onMouseOver={this.handleHovering(name)}
+          onMouseOver={this.handleHovering(positionId || null)}
           onMouseOut={this.handleHovering(null)}
           onClick={this.handleClick}
-          highlighted={highlighted === name || selected === name}
+          highlighted={highlighted === positionId || selected === positionId}
         >
           {name}
         </Label>
 
-        <Details data-testid="details" isOpened={selected === name}>
+        <Details data-testid="details" isOpened={selected === positionId}>
           <Content>
             <span dangerouslySetInnerHTML={{ __html: description }} />
             <DetailsLink to={`/${quadrant}/${name.toLowerCase()}`}>

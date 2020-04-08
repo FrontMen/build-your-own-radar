@@ -25,14 +25,10 @@ const options = {
 };
 
 export interface SearchProps {
-  setHighlighted: (a: string | null) => void;
   setSelected: (a: string | null) => void;
 }
 
-export const Search: React.FC<SearchProps> = ({
-  setHighlighted,
-  setSelected,
-}) => {
+export const Search: React.FC<SearchProps> = ({ setSelected }) => {
   const technologies = useSelector(selectedTechnologyDataSetSelector());
 
   const [value, setValue] = useState<string>('');
@@ -78,7 +74,7 @@ export const Search: React.FC<SearchProps> = ({
                         d3Config.quadrants[technology.quadrant].route
                       }`;
                       setValue('');
-                      setSelected(`${baseLink}?tech=${technology.name}`);
+                      setSelected(`${baseLink}?tech=${technology.positionId}`);
                     }}
                   >
                     {technology.name}
