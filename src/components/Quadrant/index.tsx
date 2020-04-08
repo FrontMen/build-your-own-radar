@@ -42,6 +42,16 @@ export const Quadrant = () => {
     [quadrantNum, technologies, selectedCompanies],
   );
 
+  const graphData = useMemo(
+    () =>
+      technologies.filter(technology =>
+        technology.companies.some(
+          companyType => selectedCompanies[companyType],
+        ),
+      ),
+    [technologies, selectedCompanies],
+  );
+
   if (quadrantNum < 0) return <Redirect to="not-found" />;
   if (showLoader) return <QuadrantPageSkeleton />;
 
@@ -83,7 +93,7 @@ export const Quadrant = () => {
           quadrantNum={quadrantNum}
           setHighlighted={setHighlighted}
           setSelected={setSelected}
-          technologies={data}
+          technologies={graphData}
         />
       </Content>
     </Slot>
