@@ -3,14 +3,14 @@ import { mount } from 'enzyme';
 
 import { TechLists, TechnologiesListProps } from '../TechLists';
 import { TechItem } from '../TechItem';
-import { mockData } from 'test/mockData';
+import { parsedMockDataItem } from 'test/mockData';
 import { AllProvidersWrapper, withAllProviders } from 'test/helpers';
 
 const defaultProps: TechnologiesListProps = {
   highlighted: null,
   setHighlighted: jest.fn(),
   setSelected: jest.fn(),
-  technologies: mockData,
+  technologies: parsedMockDataItem,
   quadrant: 'tools',
   selected: null,
   color: 'default'

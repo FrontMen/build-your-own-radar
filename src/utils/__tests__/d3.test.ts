@@ -1,6 +1,6 @@
 import { radar_visualization } from 'utils/d3';
 import { d3Config } from 'utils/d3-config';
-import { mockData } from 'test/mockData';
+import { parsedMockDataItem } from 'test/mockData';
 
 import { fireEvent, getByTestId } from '@testing-library/dom';
 
@@ -21,7 +21,7 @@ describe('d3', () => {
 
     radar_visualization(
       svg,
-      mockData,
+      parsedMockDataItem,
       d3Config,
       setHighlighted,
       setSelected,
@@ -36,7 +36,7 @@ describe('d3', () => {
       setTimeout(resolve, 400);
     });
 
-    const g = getByTestId(svg, mockData[0].name);
+    const g = getByTestId(svg, parsedMockDataItem[0].name);
 
     fireEvent(
       g,
@@ -45,7 +45,7 @@ describe('d3', () => {
         cancelable: true,
       }),
     );
-    expect(setHighlighted).toHaveBeenCalledWith(mockData[0].name);
+    expect(setHighlighted).toHaveBeenCalledWith(parsedMockDataItem[0].name);
 
     fireEvent(
       g,
@@ -65,7 +65,7 @@ describe('d3', () => {
 
     radar_visualization(
       svg,
-      mockData,
+      parsedMockDataItem,
       d3Config,
       setHighlighted,
       setSelected,
@@ -80,7 +80,7 @@ describe('d3', () => {
       setTimeout(resolve, 400);
     });
 
-    const g = getByTestId(svg, mockData[0].name);
+    const g = getByTestId(svg, parsedMockDataItem[0].name);
 
     fireEvent(
       g,
@@ -89,7 +89,7 @@ describe('d3', () => {
         cancelable: true,
       }),
     );
-    expect(setSelected).toHaveBeenCalledWith(`?tech=${mockData[0].name}`);
+    expect(setSelected).toHaveBeenCalledWith(`?tech=${parsedMockDataItem[0].name}`);
   });
 
   it('should push correct path to history on quadrant click in fullSize mode', async () => {
@@ -100,7 +100,7 @@ describe('d3', () => {
 
     radar_visualization(
       svg,
-      mockData,
+      parsedMockDataItem,
       d3Config,
       setHighlighted,
       setSelected,
