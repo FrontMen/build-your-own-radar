@@ -47,11 +47,10 @@ exports[`Details when path is correct should render correctly 1`] = `
 
 .c5 {
   border-left: 4px solid #fd7e14;
-  margin: 50px auto;
-  padding: 50px;
+  margin: 50px 0% 0 30%;
+  padding: 50px 0 50px 20px;
   list-style: none;
   text-align: left;
-  max-width: 50%;
 }
 
 .c5 h3 {
@@ -79,7 +78,8 @@ exports[`Details when path is correct should render correctly 1`] = `
 }
 
 .c6:before {
-  left: -200px;
+  left: -160px;
+  top: 2px;
   content: 'Jan, 2020';
   text-align: right;
   min-width: 120px;
@@ -93,7 +93,7 @@ exports[`Details when path is correct should render correctly 1`] = `
 
 .c6:after {
   box-shadow: 0 0 0 4px #fd7e14;
-  left: -58px;
+  left: -28px;
   background: #fff;
   border-radius: 50%;
   height: 11px;
@@ -128,7 +128,7 @@ exports[`Details when path is correct should render correctly 1`] = `
     <a
       class="c1"
       data-testid="details-back-link"
-      href="/platforms-infra-and-data?tech=alpine"
+      href="/platforms-infra-and-data"
     >
       <svg
         class="c2"
