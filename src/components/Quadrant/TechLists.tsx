@@ -27,27 +27,28 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
 
   return (
     <Section data-testid="tech-lists-section">
-      {Object.entries(data).map(([ring, technologiesInRing]) => (
-        <Ring key={ring}>
-          <Title data-testid={`ring-title-${ring}`}>
+      {Object.keys(d3Config.rings).map(ringName => (
+        <Ring key={ringName}>
+          <Title data-testid={`ring-title-${ringName}`}>
             <Dot color={color}>●</Dot>
-            {ring}
+            {ringName}
             <Tooltip>
-              ?<span>{d3Config.tooltips[ring as RingNamesType]}</span>
+              ?<span>{d3Config.tooltips[ringName as RingNamesType]}</span>
             </Tooltip>
           </Title>
           <List>
-            {technologiesInRing.map(technology => (
-              <TechItem
-                technology={technology}
-                key={technology.name}
-                selected={selected}
-                setSelected={setSelected}
-                highlighted={highlighted}
-                setHighlighted={setHighlighted}
-                quadrant={quadrant}
-              />
-            ))}
+            {data[ringName] &&
+              data[ringName].map(technology => (
+                <TechItem
+                  technology={technology}
+                  key={technology.name}
+                  selected={selected}
+                  setSelected={setSelected}
+                  highlighted={highlighted}
+                  setHighlighted={setHighlighted}
+                  quadrant={quadrant}
+                />
+              ))}
           </List>
         </Ring>
       ))}

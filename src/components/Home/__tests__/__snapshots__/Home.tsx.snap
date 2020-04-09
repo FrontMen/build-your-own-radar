@@ -421,14 +421,7 @@ exports[`Home should render correctly when content is there 1`] = `
                 cx="0"
                 cy="0"
                 r="0"
-                style="fill: #E4E5E4; stroke-width: 1;"
-              />
-              <circle
-                class="ring"
-                cx="0"
-                cy="0"
-                r="0"
-                style="fill: #D7D8D6; stroke-width: 1;"
+                style="fill: #BFC0BF; stroke-width: 1;"
               />
               <circle
                 class="ring"
@@ -442,7 +435,14 @@ exports[`Home should render correctly when content is there 1`] = `
                 cx="0"
                 cy="0"
                 r="0"
-                style="fill: #BFC0BF; stroke-width: 1;"
+                style="fill: #D7D8D6; stroke-width: 1;"
+              />
+              <circle
+                class="ring"
+                cx="0"
+                cy="0"
+                r="0"
+                style="fill: #E4E5E4; stroke-width: 1;"
               />
               <line
                 style="stroke: #fff; stroke-width: 16; opacity: 0.3;"
