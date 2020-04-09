@@ -15,7 +15,6 @@ const rings = [
   { radius: 400 },
 ];
 
-const NUMBER_OF_RINGS = 4;
 const AXIS_STROKE_WIDTH = 16;
 
 const bounded_ring = (
@@ -113,9 +112,6 @@ export const hideBubble = () => {
     .attr('transform', translate(0, 0))
     .style('opacity', 0);
 };
-
-const sortTechnologyByName = (a: Technology, b: Technology) =>
-  a.name.localeCompare(b.name);
 
 const getHoverPolygons = (maxRadius: number) => [
   [
@@ -225,10 +221,6 @@ export const radar_visualization = (
   { quadrantNum: quadrantProp, isNotMobile }: RadarVisualizationParams,
   redirect: (path: string) => void,
 ) => {
-  if (!data.length) {
-    return null;
-  }
-
   const maxRadius = rings[rings.length - 1].radius;
   const isFullSize = typeof quadrantProp === 'undefined';
   const ringsNames = Object.keys(config.rings);
@@ -236,6 +228,12 @@ export const radar_visualization = (
   const svg = d3
     .select(container)
     .style('background-color', config.colors.background);
+
+  if (!data.length) {
+    svg.html(null);
+    return null;
+  }
+
   const isFirstRender = !svg.html();
 
   // position each entry randomly in its segment
@@ -458,6 +456,8 @@ export const radar_visualization = (
           enter
             .append('g')
             .attr('class', 'blip')
+            .attr('data-testid', (d: any) => d.name)
+            .style('cursor', 'pointer')
             .on('mouseover', mouseOverListener)
             .on('mouseout', mouseOutListener)
             .on('click', onClick)
@@ -506,7 +506,7 @@ export const radar_visualization = (
           );
           const trans = d3
             .transition()
-            .duration(2000)
+            .duration(600)
             .on('end', function() {
               if (selection.size() > 0) {
                 simulation = simulateCollision();
@@ -529,8 +529,6 @@ export const radar_visualization = (
     function ticked() {
       rink
         .selectAll('.blip')
-        .transition()
-        .duration(50)
         .attr('transform', d =>
           translate(
             (d as Technology).segment!.clipx(d as Point),
