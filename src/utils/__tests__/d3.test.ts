@@ -7,6 +7,7 @@ import { fireEvent, getByTestId } from '@testing-library/dom';
 const setHighlighted = jest.fn();
 const setSelected = jest.fn();
 const redirect = jest.fn();
+const setHoveredQuadrant = jest.fn();
 
 describe('d3', () => {
   beforeEach(() => {
@@ -25,6 +26,7 @@ describe('d3', () => {
       d3Config,
       setHighlighted,
       setSelected,
+      setHoveredQuadrant,
       {
         isNotMobile: true,
         quadrantNum: 0,
@@ -67,6 +69,7 @@ describe('d3', () => {
       d3Config,
       setHighlighted,
       setSelected,
+      setHoveredQuadrant,
       {
         quadrantNum: 0,
         isNotMobile: true,
@@ -100,6 +103,7 @@ describe('d3', () => {
       d3Config,
       setHighlighted,
       setSelected,
+      setHoveredQuadrant,
       { isNotMobile: true },
       redirect,
     );

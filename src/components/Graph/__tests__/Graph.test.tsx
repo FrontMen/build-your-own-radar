@@ -86,6 +86,7 @@ describe('Graph', () => {
       config,
       setHighlighted,
       setSelected,
+      setHoveredQuadrant,
       { quadrantNum },
     ] = radar_visualization.mock.calls[0];
     expect(config).toBe(d3Config);

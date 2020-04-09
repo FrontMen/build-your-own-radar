@@ -47,7 +47,7 @@ export const Home: React.FC = () => {
           laboris ut ea aute.
         </Content>
       </Intro>
-      <Graph highlighted={null} technologies={technologies} fullSize />
+      <Graph highlighted={null} technologies={technologies} />
       <Quads data-testid="home-quadrants-wrapper">
         {quads.map((quad, i) => (
           <Quadrant key={i} data-testid={`home-quadrant-${i}-container`}>

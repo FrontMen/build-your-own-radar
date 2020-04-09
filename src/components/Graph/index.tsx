@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { radar_visualization, showBubble, hideBubble } from 'utils/d3';
 import { d3Config } from 'utils/d3-config';
@@ -12,6 +12,7 @@ const GraphWrapper = styled.div<{ fullSize: boolean | undefined }>`
   min-width: 280px;
   height: auto;
   margin: 0 auto ${props => props.theme.space[2]}px;
+  position: relative;
 
   @media ${MediaQueries.phablet} {
     max-width: 80%;
@@ -31,6 +32,35 @@ const GraphContainer = styled.div`
   }
 `;
 
+const QuadrantToolTip = styled.div<{
+  hoveredQuadrant: number;
+  position: { posTop: number; posLeft: number };
+}>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: ${props => props.position.posTop + '%'};
+  left: ${props => props.position.posLeft + '%'};
+  width: 220px;
+  min-height: 70px;
+  padding: 0 20px;
+  text-align: center;
+  background: ${props => d3Config.quadrants[props.hoveredQuadrant].color};
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  font-family: Montserrat, san-serif;
+  transition: 0.3s;
+`;
+
+const getTooltipPosition = (quadrant: number) => {
+  const posTop = quadrant > 1 ? 10 : 80;
+  const posLeft = quadrant % 3 === 0 ? 100 : -40;
+
+  return { posTop, posLeft };
+};
+
 interface TechnologiesListProps {
   technologies: Technology[];
   highlighted: string | null;
@@ -47,8 +77,6 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   technologies,
   setHighlighted = () => {},
   setSelected = () => {},
-  className: StylesFromParent,
-  fullSize,
 }) => {
   const d3Container = useRef<SVGSVGElement>(null);
   const history = useHistory();
@@ -59,8 +87,10 @@ export const Graph: React.FC<TechnologiesListProps> = ({
     },
     [history],
   );
+  const [hoveredQuadrant, setHoveredQuadrant] = useState<number>(-1);
 
   const isNotMobile = useMediaQuery({ query: MediaQueries.phablet });
+  const isFullSize = typeof quadrantNum === 'undefined';
   useEffect(() => {
     if (d3Container.current) {
       radar_visualization(
@@ -69,6 +99,7 @@ export const Graph: React.FC<TechnologiesListProps> = ({
         d3Config,
         setHighlighted,
         setSelected,
+        setHoveredQuadrant,
         {
           quadrantNum,
           isNotMobile,
@@ -95,10 +126,18 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   }, [highlighted, technologies, quadrantNum]);
 
   return (
-    <GraphWrapper fullSize={fullSize}>
+    <GraphWrapper fullSize={isFullSize}>
       <GraphContainer>
         <svg ref={d3Container} data-testid="graph" />
       </GraphContainer>
+      {hoveredQuadrant > -1 && (
+        <QuadrantToolTip
+          hoveredQuadrant={hoveredQuadrant}
+          position={getTooltipPosition(hoveredQuadrant)}
+        >
+          {d3Config.quadrants[hoveredQuadrant].name}
+        </QuadrantToolTip>
+      )}
     </GraphWrapper>
   );
 };

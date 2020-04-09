@@ -88,7 +88,7 @@ export const showBubble = (technology: Technology, quadrant: number) => {
   const tooltip = d3
     .select<SVGTextElement, SVGTextElement>('#bubble text')
     .text(technology.name)
-    .style('font-size', '0.7em')
+    .style('font-size', '0.6em')
     .node();
   if (tooltip) {
     const bbox = tooltip.getBBox?.() || { width: 0, height: 0 }; // default value for testing env
@@ -217,6 +217,7 @@ export const radar_visualization = (
   config: any,
   setHighlighted: (a: string | null) => void,
   setSelected: (a: string | null) => void,
+  setHoveredQuadrant: (a: number) => void,
   { quadrantNum: quadrantProp, isNotMobile }: RadarVisualizationParams,
   redirect: (path: string) => void,
 ) => {
@@ -374,9 +375,11 @@ export const radar_visualization = (
             .on('mouseover', function() {
               svg.selectAll('.quadrant-hover').attr('opacity', '0.3');
               this.setAttribute('opacity', '0');
+              setHoveredQuadrant((2 + i) % 4);
             })
             .on('mouseout', function() {
               svg.selectAll('.quadrant-hover').attr('opacity', '0');
+              setHoveredQuadrant(-1);
             });
         }
       });
