@@ -15,7 +15,6 @@ const rings = [
   { radius: 400 },
 ];
 
-const NUMBER_OF_RINGS = 4;
 const AXIS_STROKE_WIDTH = 16;
 
 const bounded_ring = (
@@ -113,9 +112,6 @@ export const hideBubble = () => {
     .attr('transform', translate(0, 0))
     .style('opacity', 0);
 };
-
-const sortTechnologyByName = (a: Technology, b: Technology) =>
-  a.name.localeCompare(b.name);
 
 const getHoverPolygons = (maxRadius: number) => [
   [
