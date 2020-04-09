@@ -115,7 +115,7 @@ export class TechItem extends React.Component<TechnologyProps> {
       <ListItem data-testid={`list-item-${name}`} id={positionId}>
         <Label
           data-testid="label"
-          onMouseOver={this.handleHovering(positionId || null)}
+          onMouseOver={this.handleHovering(positionId!)}
           onMouseOut={this.handleHovering(null)}
           onClick={this.handleClick}
           highlighted={highlighted === positionId || selected === positionId}

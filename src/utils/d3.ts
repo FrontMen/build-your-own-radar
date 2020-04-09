@@ -14,7 +14,6 @@ const rings = [
   { radius: 310 },
   { radius: 400 },
 ];
-
 const AXIS_STROKE_WIDTH = 16;
 
 const bounded_ring = (
@@ -285,7 +284,7 @@ export const radar_visualization = (
     filter.append('feComposite').attr('in', 'SourceGraphic');
 
     // draw rings
-    for (let ringName of ringsNames.reverse()) {
+    for (let ringName of ringsNames) {
       grid
         .append('circle')
         .attr('class', 'ring')
@@ -472,8 +471,7 @@ export const radar_visualization = (
                     .size(250),
                 )
                 //@ts-ignore
-                .attr('fill', d => d.color)
-                .style('cursor', 'pointer');
+                .attr('fill', d => d.color);
 
               if (!isFullSize) {
                 gg.append('text')

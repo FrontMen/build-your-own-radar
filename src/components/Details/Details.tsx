@@ -133,8 +133,7 @@ const DetailsComponent: React.FC = () => {
 
   if (loading || !initialized) return <DetailsSkeleton />;
 
-  if (!quadrant || technologies.length === 0)
-    return <Redirect to="/not-found" />;
+  if (!quadrant || !technologies.length) return <Redirect to="/not-found" />;
 
   return (
     <Slot>

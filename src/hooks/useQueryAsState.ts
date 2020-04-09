@@ -25,7 +25,7 @@ export const useQueryAsState = () => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const [_, positionId] = route.split('='); // Lazy split, the logic could be improved!
         setTimeout(() => {
-          const element = document.querySelector(`#${positionId}`);
+          const element = document.getElementById(`${positionId}`);
           if (element) {
             element.scrollIntoView({
               behavior: 'smooth',

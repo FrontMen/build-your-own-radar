@@ -30,7 +30,7 @@ export const Quadrant = () => {
   const quadrantNum: number = d3Config.quadrants.findIndex(
     (item: { route: string }) => item.route === quadrantParam,
   );
-  const data = useMemo(
+  const filteredTechnologies = useMemo(
     () =>
       technologies.filter(
         technology =>
@@ -67,7 +67,7 @@ export const Quadrant = () => {
           <ContentTitle data-testid="quadrant-content-title">
             {quadrantName}
           </ContentTitle>
-          {data.length ? (
+          {filteredTechnologies.length > 0 ? (
             <TechLists
               data-testid="tech-lists"
               quadrant={quadrantParam}
@@ -75,7 +75,7 @@ export const Quadrant = () => {
               setSelected={setSelected}
               highlighted={highlighted}
               setHighlighted={setHighlighted}
-              technologies={data}
+              technologies={filteredTechnologies}
               color={quadrantColor}
             />
           ) : (

@@ -24,7 +24,7 @@ function flattenSheet(
   return (remainingDataRows as RowValues[]).reduce((acc, row, index) => {
     const tempRow = flattenDataRows(row, keys, index);
     if (tempRow) {
-      tempRow.positionId = `i-${sheetIndex}-${index}`;
+      tempRow.positionId = `${sheetIndex}-${index}`;
       acc.push(tempRow);
     }
     return acc;
