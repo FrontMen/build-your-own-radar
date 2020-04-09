@@ -1,5 +1,5 @@
 import React from 'react';
-import Details from '../Details';
+import { Details } from '../';
 import { AllProvidersWrapper, withAllProviders } from 'test/helpers';
 import { getByRole } from '@testing-library/react';
 import { mount } from 'enzyme';
