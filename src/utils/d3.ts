@@ -221,10 +221,6 @@ export const radar_visualization = (
   { quadrantNum: quadrantProp, isNotMobile }: RadarVisualizationParams,
   redirect: (path: string) => void,
 ) => {
-  if (!data.length) {
-    return null;
-  }
-
   const maxRadius = rings[rings.length - 1].radius;
   const isFullSize = typeof quadrantProp === 'undefined';
   const ringsNames = Object.keys(config.rings);
@@ -232,6 +228,12 @@ export const radar_visualization = (
   const svg = d3
     .select(container)
     .style('background-color', config.colors.background);
+
+  if (!data.length) {
+    svg.html(null);
+    return;
+  }
+
   const isFirstRender = !svg.html();
 
   // position each entry randomly in its segment
