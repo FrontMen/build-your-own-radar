@@ -32,10 +32,6 @@ describe('d3', () => {
       redirect,
     );
 
-    await new Promise(resolve => {
-      setTimeout(resolve, 400);
-    });
-
     const g = getByTestId(svg, parsedMockDataItem[0].name);
 
     fireEvent(
@@ -76,10 +72,6 @@ describe('d3', () => {
       redirect,
     );
 
-    await new Promise(resolve => {
-      setTimeout(resolve, 400);
-    });
-
     const g = getByTestId(svg, parsedMockDataItem[0].name);
 
     fireEvent(
@@ -89,7 +81,9 @@ describe('d3', () => {
         cancelable: true,
       }),
     );
-    expect(setSelected).toHaveBeenCalledWith(`?tech=${parsedMockDataItem[0].name}`);
+    expect(setSelected).toHaveBeenCalledWith(
+      `?tech=${parsedMockDataItem[0].name}`,
+    );
   });
 
   it('should push correct path to history on quadrant click in fullSize mode', async () => {
@@ -107,10 +101,6 @@ describe('d3', () => {
       { isNotMobile: true },
       redirect,
     );
-
-    await new Promise(resolve => {
-      setTimeout(resolve, 400);
-    });
 
     const g = getByTestId(svg, 'quadrant-0');
 

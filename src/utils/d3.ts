@@ -458,6 +458,8 @@ export const radar_visualization = (
           enter
             .append('g')
             .attr('class', 'blip')
+            .attr('data-testid', (d: any) => d.name)
+            .style('cursor', 'pointer')
             .on('mouseover', mouseOverListener)
             .on('mouseout', mouseOutListener)
             .on('click', onClick)
@@ -506,7 +508,7 @@ export const radar_visualization = (
           );
           const trans = d3
             .transition()
-            .duration(2000)
+            .duration(600)
             .on('end', function() {
               if (selection.size() > 0) {
                 simulation = simulateCollision();
@@ -529,8 +531,6 @@ export const radar_visualization = (
     function ticked() {
       rink
         .selectAll('.blip')
-        .transition()
-        .duration(50)
         .attr('transform', d =>
           translate(
             (d as Technology).segment!.clipx(d as Point),
