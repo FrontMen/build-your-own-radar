@@ -477,7 +477,6 @@ exports[`Home should render correctly when content is there 1`] = `
                 <path
                   d="M0,-13.872638167626057L12.01405707067377,6.936319083813029L-12.01405707067377,6.936319083813029Z"
                   fill="#31bd70"
-                  style="cursor: pointer;"
                 />
               </g>
               <g
@@ -488,7 +487,6 @@ exports[`Home should render correctly when content is there 1`] = `
                 <path
                   d="M0,-13.872638167626057L12.01405707067377,6.936319083813029L-12.01405707067377,6.936319083813029Z"
                   fill="#fd7e14"
-                  style="cursor: pointer;"
                 />
               </g>
               <g
@@ -499,7 +497,6 @@ exports[`Home should render correctly when content is there 1`] = `
                 <path
                   d="M0,-13.872638167626057L12.01405707067377,6.936319083813029L-12.01405707067377,6.936319083813029Z"
                   fill="#7843ab"
-                  style="cursor: pointer;"
                 />
               </g>
               <g
@@ -510,7 +507,6 @@ exports[`Home should render correctly when content is there 1`] = `
                 <path
                   d="M0,-13.872638167626057L12.01405707067377,6.936319083813029L-12.01405707067377,6.936319083813029Z"
                   fill="#31bd70"
-                  style="cursor: pointer;"
                 />
               </g>
               <g
@@ -521,7 +517,6 @@ exports[`Home should render correctly when content is there 1`] = `
                 <path
                   d="M0,-13.872638167626057L12.01405707067377,6.936319083813029L-12.01405707067377,6.936319083813029Z"
                   fill="#31bd70"
-                  style="cursor: pointer;"
                 />
               </g>
             </g>
