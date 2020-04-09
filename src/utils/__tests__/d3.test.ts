@@ -41,7 +41,9 @@ describe('d3', () => {
         cancelable: true,
       }),
     );
-    expect(setHighlighted).toHaveBeenCalledWith(parsedMockDataItem[0].name);
+    expect(setHighlighted).toHaveBeenCalledWith(
+      parsedMockDataItem[0].positionId,
+    );
 
     fireEvent(
       g,
@@ -82,7 +84,7 @@ describe('d3', () => {
       }),
     );
     expect(setSelected).toHaveBeenCalledWith(
-      `?tech=${parsedMockDataItem[0].name}`,
+      `?tech=${parsedMockDataItem[0].positionId}`,
     );
   });
 

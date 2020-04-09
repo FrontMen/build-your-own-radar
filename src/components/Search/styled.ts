@@ -68,6 +68,7 @@ export const Technology = styled.a`
   text-decoration: none;
   display: block;
   color: ${props => props.theme.colors.body};
+  cursor: pointer;
 
   &:hover,
   &:focus {

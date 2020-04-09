@@ -3,24 +3,30 @@ import { d3Config } from 'utils/d3-config';
 export function parseGoogleSheetsApiResponse(
   sheets: IncomingGoogleSheetsData,
 ): ParsedGoogleSheets {
-  return sheets.sheets.reduce((acc: ParsedGoogleSheets, sheet) => {
+  return sheets.sheets.reduce((acc: ParsedGoogleSheets, sheet, index) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, title] = sheet.properties.title.split(':');
     if (!isNaN(Date.parse(title))) {
-      acc[title.trim()] = flattenSheet(sheet.data[0].rowData);
+      acc[title.trim()] = flattenSheet(sheet.data[0].rowData, index);
     }
 
     return acc;
   }, {});
 }
 
-function flattenSheet(data: [KeyRowValues, ...RowValues[]]) {
+function flattenSheet(
+  data: [KeyRowValues, ...RowValues[]],
+  sheetIndex: number,
+) {
   const [keyRow, ...remainingDataRows] = data;
   const keys = getSheetTableHeaders(keyRow);
 
   return (remainingDataRows as RowValues[]).reduce((acc, row, index) => {
     const tempRow = flattenDataRows(row, keys, index);
-    if (tempRow) acc.push(tempRow);
+    if (tempRow) {
+      tempRow.positionId = `${sheetIndex}-${index}`;
+      acc.push(tempRow);
+    }
     return acc;
   }, [] as Technology[]);
 }
@@ -52,7 +58,6 @@ function flattenDataRows(
     return acc;
   }, {} as MappedDataRow);
 
-  // return newRow;
   return cleanRow(newRow, index);
 }
 

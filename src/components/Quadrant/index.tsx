@@ -61,7 +61,7 @@ export const Quadrant = () => {
 
   return (
     <Slot>
-      <SubNav setHighlighted={setHighlighted} setSelected={setSelected} />
+      <SubNav setSelected={setSelected} />
       <Content>
         <Article>
           <ContentTitle data-testid="quadrant-content-title">

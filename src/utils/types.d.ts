@@ -29,6 +29,7 @@ interface Technology extends Partial<Point> {
   segment?: Segment;
   color?: string;
   id?: string;
+  positionId?: string;
 }
 
 type Segmented = Array<Array<Technology[]>>;

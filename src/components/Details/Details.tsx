@@ -107,21 +107,12 @@ const DetailsComponent: React.FC = () => {
     DetailsParams
   >();
   const allData = useSelector(allTechnologyDataSetSelector);
-  const { loading, initialized } = useSelector(technologiesLoadingStateSelector());
-  const matchingTechnology = Object.values(allData).some(dataset =>
-    dataset.some(item => item.name.toLowerCase().includes(technologyParam!)),
+  const { loading, initialized } = useSelector(
+    technologiesLoadingStateSelector(),
   );
   const quadrant = d3Config.quadrants.find(
     quad => quad.route === quadrantParam,
   );
-
-  if (loading || !initialized) {
-    return <DetailsSkeleton />;
-  }
-
-  if (!quadrant || !matchingTechnology) {
-    return <Redirect to="/not-found" />;
-  }
 
   let lastDescription: string;
   const technologies = Object.entries(allData)
@@ -140,9 +131,17 @@ const DetailsComponent: React.FC = () => {
     })
     .filter(Boolean);
 
+  if (loading || !initialized) return <DetailsSkeleton />;
+
+  if (!quadrant || !technologies.length) return <Redirect to="/not-found" />;
+
   return (
     <Slot>
-      <BackLink quadName={quadrant.name} to={`/${quadrantParam}`} data-testid="details-back-link">
+      <BackLink
+        quadName={quadrant.name}
+        to={`/${quadrantParam}`}
+        data-testid="details-back-link"
+      >
         <ArrowLeftIcon />
         Back to {quadrant.name}
       </BackLink>

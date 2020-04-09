@@ -200,6 +200,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
         <li
           class="c6"
           data-testid="list-item-Alpine"
+          id="0-2"
         >
           <div
             class="c7"
@@ -270,6 +271,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
         <li
           class="c6"
           data-testid="list-item-AMQP"
+          id="0-3"
         >
           <div
             class="c7"
@@ -342,6 +344,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
         <li
           class="c6"
           data-testid="list-item-A-Frame"
+          id="0-1"
         >
           <div
             class="c7"
@@ -386,6 +389,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
         <li
           class="c6"
           data-testid="list-item-Angular 2+"
+          id="0-4"
         >
           <div
             class="c7"
@@ -456,6 +460,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
         <li
           class="c6"
           data-testid="list-item-AngularJS (Angular 1)"
+          id="0-5"
         >
           <div
             class="c7"
