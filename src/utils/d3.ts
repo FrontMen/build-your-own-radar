@@ -231,7 +231,7 @@ export const radar_visualization = (
 
   if (!data.length) {
     svg.html(null);
-    return;
+    return null;
   }
 
   const isFirstRender = !svg.html();
