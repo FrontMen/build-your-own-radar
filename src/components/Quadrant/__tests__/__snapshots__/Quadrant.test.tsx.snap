@@ -485,6 +485,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   min-width: 280px;
   height: auto;
   margin: 0 auto 8px;
+  position: relative;
 }
 
 .c23 {
