@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import Fuse from 'fuse.js';
 import Groupby from 'lodash.groupby';
 
@@ -30,7 +30,7 @@ export interface SearchProps {
 
 export const Search: React.FC<SearchProps> = ({ setSelected }) => {
   const technologies = useSelector(selectedTechnologyDataSetSelector());
-
+  const containerRef: any = useRef();
   const [value, setValue] = useState<string>('');
 
   const data = useMemo(() => {
@@ -45,8 +45,16 @@ export const Search: React.FC<SearchProps> = ({ setSelected }) => {
   }, [value, technologies]);
   const dataEntries = Object.entries(data);
 
+  useEffect(() => {
+    const clickHandler = (e: any) => {
+      if (!containerRef.current?.contains(e.target)) setValue('');
+    };
+    document.addEventListener('click', clickHandler);
+    return () => document.removeEventListener('click', clickHandler);
+  }, []);
+
   return (
-    <Container data-testid="subnav-search-container">
+    <Container data-testid="subnav-search-container" ref={containerRef}>
       <SearchIcon data-testid="search-icon" />
       <InputContainer>
         <Input
