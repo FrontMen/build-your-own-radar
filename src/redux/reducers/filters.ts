@@ -11,6 +11,7 @@ export interface IFiltersState {
   dataSet: {
     availableDates: string[];
     selected: string | null;
+    prevSelected: string | null;
   };
 }
 export const defaultState: IFiltersState = {
@@ -22,6 +23,7 @@ export const defaultState: IFiltersState = {
   dataSet: {
     availableDates: [],
     selected: null,
+    prevSelected: null,
   },
 };
 
@@ -45,6 +47,7 @@ export const filtersReducer: Reducer<IFiltersState, TActions> = (
         dataSet: {
           ...state.dataSet,
           selected: action.payload,
+          prevSelected: state.dataSet.selected,
         },
       };
 
