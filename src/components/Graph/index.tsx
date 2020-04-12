@@ -63,7 +63,7 @@ const getTooltipPosition = (quadrant: number) => {
   return { posTop, posLeft };
 };
 
-interface TechnologiesListProps {
+export interface GraphProps {
   blips: Blip[];
   highlighted: string | null;
   setHighlighted?: (a: string | null) => void;
@@ -73,7 +73,7 @@ interface TechnologiesListProps {
   fullSize?: boolean;
 }
 
-export const Graph: React.FC<TechnologiesListProps> = ({
+export const Graph: React.FC<GraphProps> = ({
   highlighted,
   quadrantNum,
   blips,

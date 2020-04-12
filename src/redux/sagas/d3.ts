@@ -10,11 +10,9 @@ import { d3Config } from 'utils/d3-config';
 import { segment } from 'utils/d3';
 import { blipsSelector, changedTechnologiesSelector } from 'redux/selectors/d3';
 
-export function* configureBlipsSaga(action: TFetchTechnologiesSuccess) {
-  const parsedData = action.payload;
-  const blips = Object.values(parsedData)
-    .flat()
-    .reduce(
+export const convertTechToBlips = (data: Technology[]) =>
+  Object.values(
+    data.reduce(
       (
         acc: { [key: string]: Blip },
         { quadrant, id, positionId, name, ring, isNew },
@@ -42,9 +40,14 @@ export function* configureBlipsSaga(action: TFetchTechnologiesSuccess) {
         return acc;
       },
       {},
-    );
+    ),
+  );
 
-  yield put(d3Actions.setBlips(Object.values(blips)));
+export function* configureBlipsSaga(action: TFetchTechnologiesSuccess) {
+  const parsedData = action.payload;
+  const blips = convertTechToBlips(Object.values(parsedData).flat());
+
+  yield put(d3Actions.setBlips(blips));
 }
 
 function* watchChangesSaga() {
