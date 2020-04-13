@@ -1,0 +1,17 @@
+name: DEPL
+
+on:
+  push:
+    branches:
+      - 'fix/trigger-specific-branch-deploy'
+jobs:
+  trigger-deploy:
+    needs: [unit-tests, e2e-tests]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Invoke deployment hook
+        run: echo ${{ secrets.DEVELOP_BUILD_HOOK_URL }}
+        env:
+          webhook_url: ${{ secrets.DEVELOP_BUILD_HOOK_URL }}
+          webhook_secret: ${{ secrets.DEVELOP_BUILD_HOOK_SECRET }}

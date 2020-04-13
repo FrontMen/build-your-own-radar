@@ -1,9 +1,9 @@
 name: CI
 
 on:
-  push:
+  pull_request:
     branches:
-      - 'fix/trigger-specific-branch-deploy'
+      - 'develop'
 
 jobs:
   unit-tests:
@@ -41,5 +41,5 @@ jobs:
       - name: Invoke deployment hook
         uses: distributhor/workflow-webhook@v1
         env:
-          webhook_url: format('{0}?trigger_branch={1}', ${{ secrets.DEVELOP_BUILD_HOOK_URL }}, 'simplebranchname')
+          webhook_url: ${{ secrets.DEVELOP_BUILD_HOOK_URL }}
           webhook_secret: ${{ secrets.DEVELOP_BUILD_HOOK_SECRET }}
