@@ -12,4 +12,4 @@ jobs:
         env:
           webhook_url: ${{ secrets.DEVELOP_BUILD_HOOK_URL }}
           webhook_secret: ${{ secrets.DEVELOP_BUILD_HOOK_SECRET }}
-        run: echo "$webhook_url"
+        run: echo $webhook_url
