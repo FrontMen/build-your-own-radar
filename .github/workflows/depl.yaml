@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Invoke deployment hook
-        run: echo ${{ secrets.DEVELOP_BUILD_HOOK_URL }}
+        run: echo format('qwe?={0}', '123')
         env:
           webhook_url: ${{ secrets.DEVELOP_BUILD_HOOK_URL }}
           webhook_secret: ${{ secrets.DEVELOP_BUILD_HOOK_SECRET }}
