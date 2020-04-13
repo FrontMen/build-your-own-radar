@@ -1,8 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectedDataSetSelector } from 'redux/selectors/filters';
 import { filtersActions } from 'redux/actions/filters';
 import { dateFormat } from 'utils';
+import { useClickAway } from 'hooks/useClickAway';
 import {
   Container,
   Selected,
@@ -16,16 +17,8 @@ export const DataSetFilter = () => {
   const [opened, setOpened] = useState<boolean>(false);
   const { availableDates, selected } = useSelector(selectedDataSetSelector);
   const dispatch = useDispatch();
-  const filterContainer: any = useRef(null);
+  const filterContainer = useClickAway(setOpened);
   const toggleOpened = (opened: boolean) => setOpened.bind(null, opened);
-
-  useEffect(() => {
-    const clickHandler = (e: any) => {
-      if (!filterContainer.current?.contains(e.target)) setOpened(false);
-    };
-    document.addEventListener('click', clickHandler);
-    return () => document.removeEventListener('click', clickHandler);
-  }, []);
 
   return (
     <Container data-testid="dataSetFilter-container" ref={filterContainer}>
