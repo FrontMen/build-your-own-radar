@@ -12,7 +12,7 @@ jobs:
         env:
           key1: "foo"
           key2: "bar"
-          key3: ${{ $key1 + key2 }}
+          key3: ${{ format('k1 + k2 = ${0}', $key1 + $key2) }}
 
           webhook_url: ${{ secrets.DEVELOP_BUILD_HOOK_URL }}
           webhook_secret: ${{ secrets.DEVELOP_BUILD_HOOK_SECRET }}
