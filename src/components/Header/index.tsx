@@ -9,7 +9,7 @@ import { Logo } from 'components/Header/Logo';
 const Slot = styled(HeaderSlot)`
   height: 48px;
 
-  @media ${MediaQueries.desktop} {
+  @media (${MediaQueries.desktop}) {
     height: 88px;
   }
 `;
@@ -25,7 +25,7 @@ const PageTitle = styled.h1`
   margin: 0;
   text-decoration: none;
 
-  @media ${MediaQueries.phablet} {
+  @media (${MediaQueries.phablet}) {
     font-size: ${props => props.theme.fontSize[2]}em;
     font-weight: 700;
   }

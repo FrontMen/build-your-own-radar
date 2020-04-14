@@ -13,7 +13,7 @@ export const HeaderSlot = styled.div`
     theme.pallet.white};
   padding: ${({ theme }) => `${theme.space[0]}px ${theme.space[2]}px`};
 
-  @media ${MediaQueries.phablet} {
+  @media (${MediaQueries.phablet}) {
     padding: ${({ theme }) => `${theme.space[2]}px ${theme.space[4]}px`};
   }
 `;
@@ -24,7 +24,7 @@ export const MainContentSlot = styled.div`
     theme.colors.blocks};
   padding: ${({ theme }) => theme.space[3]}px;
 
-  @media ${MediaQueries.phablet} {
+  @media (${MediaQueries.phablet}) {
     padding: ${({ theme }) => theme.space[4]}px;
   }
 `;
@@ -36,7 +36,7 @@ export const FooterSlot = styled.div`
     theme.colors.blocks};
   padding: ${({ theme }) => theme.space[3]}px;
 
-  @media ${MediaQueries.phablet} {
+  @media (${MediaQueries.phablet}) {
     padding: ${({ theme }) => theme.space[4]}px;
   }
 `;
