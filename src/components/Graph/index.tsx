@@ -5,6 +5,8 @@ import { d3Config } from 'utils/d3-config';
 import styled from 'styled-components';
 import { MediaQueries } from 'Theme/Helpers';
 import { useHistory } from 'react-router';
+import { useSelector } from 'react-redux';
+import { changedTechnologiesSelector } from 'redux/selectors/d3';
 
 const GraphWrapper = styled.div<{ fullSize: boolean | undefined }>`
   width: 100%;
@@ -61,8 +63,8 @@ const getTooltipPosition = (quadrant: number) => {
   return { posTop, posLeft };
 };
 
-interface TechnologiesListProps {
-  technologies: Technology[];
+export interface GraphProps {
+  blips: Blip[];
   highlighted: string | null;
   setHighlighted?: (a: string | null) => void;
   setSelected?: (a: string | null) => void;
@@ -71,10 +73,10 @@ interface TechnologiesListProps {
   fullSize?: boolean;
 }
 
-export const Graph: React.FC<TechnologiesListProps> = ({
+export const Graph: React.FC<GraphProps> = ({
   highlighted,
   quadrantNum,
-  technologies,
+  blips,
   setHighlighted = () => {},
   setSelected = () => {},
 }) => {
@@ -88,14 +90,15 @@ export const Graph: React.FC<TechnologiesListProps> = ({
     [history],
   );
   const [hoveredQuadrant, setHoveredQuadrant] = useState<number>(-1);
-
+  const changed = useSelector(changedTechnologiesSelector);
   const isNotMobile = useMediaQuery({ query: `(${MediaQueries.phablet})` });
   const isFullSize = typeof quadrantNum === 'undefined';
   useEffect(() => {
     if (d3Container.current) {
       radar_visualization(
         d3Container.current,
-        technologies,
+        blips,
+        changed,
         d3Config,
         setHighlighted,
         setSelected,
@@ -108,22 +111,23 @@ export const Graph: React.FC<TechnologiesListProps> = ({
       );
     }
   }, [
-    technologies,
+    blips,
     quadrantNum,
     setHighlighted,
     setSelected,
     redirect,
     isNotMobile,
+    changed,
   ]);
 
   useEffect(() => {
-    const technology = technologies?.find(t => t.positionId === highlighted);
-    if (technology) {
-      showBubble(technology, quadrantNum!);
+    const matchingBlip = blips?.find(blip => blip.positionId === highlighted);
+    if (matchingBlip) {
+      showBubble(matchingBlip, quadrantNum!);
     } else {
       hideBubble();
     }
-  }, [highlighted, technologies, quadrantNum]);
+  }, [highlighted, blips, quadrantNum]);
 
   return (
     <GraphWrapper fullSize={isFullSize}>

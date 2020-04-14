@@ -1,6 +1,6 @@
 import { radar_visualization } from 'utils/d3';
 import { d3Config } from 'utils/d3-config';
-import { parsedMockDataItem } from 'test/mockData';
+import { blips } from 'test/mockData';
 
 import { fireEvent, getByTestId } from '@testing-library/dom';
 
@@ -8,6 +8,7 @@ const setHighlighted = jest.fn();
 const setSelected = jest.fn();
 const redirect = jest.fn();
 const setHoveredQuadrant = jest.fn();
+const changed: Technology[] = [];
 
 describe('d3', () => {
   beforeEach(() => {
@@ -22,7 +23,8 @@ describe('d3', () => {
 
     radar_visualization(
       svg,
-      parsedMockDataItem,
+      blips,
+      changed,
       d3Config,
       setHighlighted,
       setSelected,
@@ -34,7 +36,7 @@ describe('d3', () => {
       redirect,
     );
 
-    const g = getByTestId(svg, parsedMockDataItem[0].name);
+    const g = getByTestId(svg, blips[0].name);
 
     fireEvent(
       g,
@@ -43,9 +45,7 @@ describe('d3', () => {
         cancelable: true,
       }),
     );
-    expect(setHighlighted).toHaveBeenCalledWith(
-      parsedMockDataItem[0].positionId,
-    );
+    expect(setHighlighted).toHaveBeenCalledWith(blips[0].positionId);
 
     fireEvent(
       g,
@@ -65,7 +65,8 @@ describe('d3', () => {
 
     radar_visualization(
       svg,
-      parsedMockDataItem,
+      blips,
+      changed,
       d3Config,
       setHighlighted,
       setSelected,
@@ -77,7 +78,7 @@ describe('d3', () => {
       redirect,
     );
 
-    const g = getByTestId(svg, parsedMockDataItem[0].name);
+    const g = getByTestId(svg, blips[0].name);
 
     fireEvent(
       g,
@@ -86,9 +87,7 @@ describe('d3', () => {
         cancelable: true,
       }),
     );
-    expect(setSelected).toHaveBeenCalledWith(
-      `?tech=${parsedMockDataItem[0].positionId}`,
-    );
+    expect(setSelected).toHaveBeenCalledWith(`?tech=${blips[0].positionId}`);
   });
 
   it('should push correct path to history on quadrant click in fullSize mode', async () => {
@@ -99,7 +98,8 @@ describe('d3', () => {
 
     radar_visualization(
       svg,
-      parsedMockDataItem,
+      blips,
+      changed,
       d3Config,
       setHighlighted,
       setSelected,

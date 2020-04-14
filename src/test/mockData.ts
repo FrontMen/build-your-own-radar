@@ -1,4 +1,5 @@
 import { parseGoogleSheetsApiResponse } from 'utils/dataParser';
+import { convertTechToBlips } from 'redux/sagas/d3';
 
 export const MockGoogleSheetsData: IncomingGoogleSheetsData = {
   sheets: [
@@ -309,5 +310,8 @@ export const MockGoogleSheetsData: IncomingGoogleSheetsData = {
   ],
 };
 
-export const parsedMockData = parseGoogleSheetsApiResponse(MockGoogleSheetsData);
+export const parsedMockData = parseGoogleSheetsApiResponse(
+  MockGoogleSheetsData,
+);
 export const parsedMockDataItem = Object.values(parsedMockData)[0];
+export const blips = convertTechToBlips(parsedMockDataItem);

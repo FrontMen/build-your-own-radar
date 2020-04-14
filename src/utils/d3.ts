@@ -15,6 +15,13 @@ const rings = [
   { radius: 400 },
 ];
 const AXIS_STROKE_WIDTH = 16;
+const CIRCLE_SIZE = 170;
+const TRIANGLE_SIZE = 150;
+
+const getSymbolSize = (item: Blip) =>
+  item.isNew ? TRIANGLE_SIZE : CIRCLE_SIZE;
+const getSymbol = (item: Blip) =>
+  item.isNew ? d3.symbolTriangle : d3.symbolCircle;
 
 const bounded_ring = (
   { t, r }: Polar,
@@ -30,7 +37,7 @@ const bounded_box = (point: Point, min: Point, max: Point): Point => ({
   y: bounded_interval(point.y, min.y, max.y),
 });
 
-const segment = (quadrant: number, ring: number) => {
+export const segment = (quadrant: number, ring: number) => {
   const polar_min = {
     t: quadrants[quadrant].radial_min * Math.PI,
     r: ring === 0 ? 30 : rings[ring - 1].radius,
@@ -82,20 +89,20 @@ const viewbox = (quadrant: number, maxRadius: number) => [
   maxRadius + AXIS_STROKE_WIDTH,
 ];
 
-export const showBubble = (technology: Technology, quadrant: number) => {
+export const showBubble = (blip: Blip, quadrant: number) => {
   const { factor_x } = quadrants[quadrant];
 
   const tooltip = d3
     .select<SVGTextElement, SVGTextElement>('#bubble text')
-    .text(technology.name)
+    .text(blip.name)
     .style('font-size', '0.6em')
     .node();
   if (tooltip) {
     const bbox = tooltip.getBBox?.() || { width: 0, height: 0 }; // default value for testing env
-    const dx = technology.x! < factor_x * 250 ? 5 : bbox.width;
+    const dx = blip.x < factor_x * 250 ? 5 : bbox.width;
 
     d3.select('#bubble')
-      .attr('transform', translate(technology.x! - dx, technology.y! - 22))
+      .attr('transform', translate(blip.x - dx, blip.y - 22))
       .style('opacity', 1);
     d3.select('#bubble rect')
       .attr('x', -5)
@@ -152,7 +159,6 @@ const getHoverPolygons = (maxRadius: number) => [
 ];
 
 let simulation: d3.Simulation<any, any>;
-let prevData: Technology[];
 
 //order of quadrants in config is 2 3 0 1, so rotating twice
 const getQuadrantRoute = (quadrant: number) =>
@@ -213,7 +219,8 @@ export interface RadarVisualizationParams {
 
 export const radar_visualization = (
   container: any,
-  data: Technology[],
+  data: Blip[],
+  changed: Technology[],
   config: any,
   setHighlighted: (a: string | null) => void,
   setSelected: (a: string | null) => void,
@@ -235,23 +242,6 @@ export const radar_visualization = (
   }
 
   const isFirstRender = !svg.html();
-
-  // position each entry randomly in its segment
-  data.forEach(technology => {
-    const quadNum: number = technology.quadrant;
-    const ringNum: number = config.rings[technology.ring].num;
-
-    technology.segment = segment(quadNum, ringNum);
-    const { x, y } = technology.segment.random();
-    if (!technology.x) {
-      technology.x = x;
-    }
-    if (!technology.y) {
-      technology.y = y;
-    }
-    technology.color = config.quadrants[quadNum].color;
-  });
-
   const radar = isFirstRender ? svg.append('g') : svg.select('g');
 
   if (typeof quadrantProp !== 'undefined') {
@@ -433,13 +423,13 @@ export const radar_visualization = (
       .style('fill', '#333');
   }
 
-  const mouseOverListener = (technology: Technology) => {
-    showBubble(technology, quadrantProp!);
-    setHighlighted(technology.positionId!);
+  const mouseOverListener = (blip: Blip) => {
+    showBubble(blip, quadrantProp!);
+    setHighlighted(blip.positionId!);
   };
 
-  const onClick = (technology: Technology) => {
-    setSelected(`?tech=${technology.positionId}`);
+  const onClick = (blip: Blip) => {
+    setSelected(`?tech=${blip.positionId}`);
   };
 
   const mouseOutListener = () => {
@@ -447,38 +437,43 @@ export const radar_visualization = (
     setHighlighted(null);
   };
 
+  // draw blips on radar
   function setBlips() {
-    // draw blips on radar
     rink
-      .selectAll<SVGGElement, Technology>('.blip')
-      .data<Technology>(data, (d: any) => d.name)
+      .selectAll<SVGGElement, Blip>('.blip')
+      .data(data, blip => blip.name)
       .join(
+        //lib typings are outdated
         //@ts-ignore
         function(enter) {
           enter
             .append('g')
             .attr('class', 'blip')
-            .attr('data-testid', (d: any) => d.name)
+            .attr('data-testid', d => d.name)
             .style('cursor', 'pointer')
             .on('mouseover', mouseOverListener)
             .on('mouseout', mouseOutListener)
             .on('click', onClick)
-            .each(function(t) {
-              const gg = d3.select(this);
-              gg.append('path')
+            .each(function(blip) {
+              const g: d3.Selection<
+                SVGGElement,
+                Blip,
+                null,
+                undefined
+              > = d3.select(this);
+              g.append('path')
                 .attr(
                   'd',
                   d3
                     .symbol()
-                    .type(d => (d.isNew ? d3.symbolTriangle : d3.symbolCircle))
-                    .size(250),
+                    .type(getSymbol)
+                    .size(getSymbolSize),
                 )
-                //@ts-ignore
                 .attr('fill', d => d.color);
 
               if (!isFullSize) {
-                gg.append('text')
-                  .text(`${t.id}`)
+                g.append('text')
+                  .text(`${blip.id}`)
                   .attr('y', 3)
                   .attr('text-anchor', 'middle')
                   .style('fill', '#fff')
@@ -489,52 +484,61 @@ export const radar_visualization = (
               }
             });
 
-          return enter.selectAll('g');
+          if (enter.size() > 0) {
+            simulation = simulateCollision();
+          }
         },
         up => {
-          simulation?.stop();
-          const selection = up.select(function(d, i) {
-            const prev = prevData.find(({ name }) => name === d.name);
-            const shouldUpdate = prev!.ring !== d.ring;
-            return shouldUpdate ? this : null;
+          const changedSelection = up.select<SVGGElement>(function(d) {
+            return changed.findIndex(({ name }) => name === d.name) >= 0
+              ? this
+              : ((null as unknown) as SVGGElement);
           });
 
-          selection.select('path').attr(
-            'd',
-            d3
-              .symbol()
-              .type(d => (d.isNew ? d3.symbolTriangle : d3.symbolCircle))
-              .size(250),
-          );
-          const trans = d3
-            .transition()
-            .duration(600)
-            .on('end', function() {
-              if (selection.size() > 0) {
-                simulation = simulateCollision();
-              }
-            });
-          //@ts-ignore
-          selection.transition(trans).attr('transform', d => {
-            const { x, y } = d;
-            return translate(x, y);
-          });
-
-          return up.select('g');
+          if (changedSelection.size() > 0) {
+            simulation?.stop();
+            changedSelection.select('path').attr(
+              'd',
+              d3
+                .symbol()
+                .type(getSymbol)
+                .size(getSymbolSize),
+            );
+            const trans = d3
+              .transition()
+              .duration(600)
+              .on('end', function() {
+                if (changedSelection.size() > 0) {
+                  simulation = simulateCollision();
+                }
+              });
+            changedSelection
+              //lib typings are incorrect
+              //@ts-ignore
+              .transition(trans)
+              .attr('transform', (d: Blip) => translate(d.x, d.y));
+          }
+          return up.selectAll('g');
         },
         exit => {
-          return exit.remove();
+          exit
+            .transition()
+            .duration(600)
+            .attr('transform', d => {
+              const { factor_x, factor_y } = quadrants[d.quadrant];
+              return translate(d.x + factor_x * 400, d.y + factor_y * 400);
+            })
+            .remove();
         },
       );
-
     // make sure that blips stay inside their segment
     function ticked() {
       rink
         .selectAll('.blip')
         .attr('transform', d =>
           translate(
-            (d as Technology).segment!.clipx(d as Point),
-            (d as Technology).segment!.clipy(d as Point),
+            (d as Blip).segment.clipx(d as Point),
+            (d as Blip).segment.clipy(d as Point),
           ),
         );
     }
@@ -549,16 +553,11 @@ export const radar_visualization = (
           'collision',
           d3
             .forceCollide()
-            .radius(16)
-            .strength(0.05),
+            .radius(12)
+            .strength(0.15),
         )
         .on('tick', ticked);
     }
-
-    if (isFirstRender) {
-      simulation = simulateCollision();
-    }
   }
   setBlips();
-  prevData = data;
 };
