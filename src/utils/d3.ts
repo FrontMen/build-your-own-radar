@@ -9,9 +9,9 @@ const quadrants = [
   { radial_min: -0.5, radial_max: 0, factor_x: 1, factor_y: -1 },
 ];
 const rings = [
-  { radius: 130 },
-  { radius: 220 },
-  { radius: 310 },
+  { radius: 175 },
+  { radius: 250 },
+  { radius: 325 },
   { radius: 400 },
 ];
 const AXIS_STROKE_WIDTH = 16;
