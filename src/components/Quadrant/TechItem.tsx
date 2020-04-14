@@ -11,7 +11,7 @@ const ListItem = styled.li`
   break-inside: avoid;
   overflow: hidden;
 
-  @media ${MediaQueries.phablet} {
+  @media (${MediaQueries.phablet}) {
     min-width: 9em;
   }
 `;

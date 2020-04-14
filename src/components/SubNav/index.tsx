@@ -34,11 +34,11 @@ const QuadLink = styled(Link)`
   background-color: ${props => props.theme.pallet.secondary};
   border-left: 1px solid ${props => props.theme.pallet.grayLight};
 
-  @media ${MediaQueries.phablet} {
+  @media (${MediaQueries.phablet}) {
     max-width: 50%;
   }
 
-  @media ${MediaQueries.tablet} {
+  @media (${MediaQueries.tablet}) {
     max-width: 25%;
     margin-bottom: ${props => props.theme.space[0]}px;
   }

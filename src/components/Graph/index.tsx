@@ -14,11 +14,11 @@ const GraphWrapper = styled.div<{ fullSize: boolean | undefined }>`
   margin: 0 auto ${props => props.theme.space[2]}px;
   position: relative;
 
-  @media ${MediaQueries.phablet} {
+  @media (${MediaQueries.phablet}) {
     max-width: 80%;
     margin-bottom: ${props => props.theme.space[3]}px;
   }
-  @media ${MediaQueries.desktop} {
+  @media (${MediaQueries.desktop}) {
     max-width: 50%;
     margin-bottom: ${props => props.theme.space[5]}px;
   }
@@ -26,7 +26,7 @@ const GraphWrapper = styled.div<{ fullSize: boolean | undefined }>`
 
 const GraphContainer = styled.div`
   text-align: center;
-  @media ${MediaQueries.desktop} {
+  @media (${MediaQueries.desktop}) {
     position: sticky;
     top: 0;
   }
@@ -89,7 +89,7 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   );
   const [hoveredQuadrant, setHoveredQuadrant] = useState<number>(-1);
 
-  const isNotMobile = useMediaQuery({ query: MediaQueries.phablet });
+  const isNotMobile = useMediaQuery({ query: `(${MediaQueries.phablet})` });
   const isFullSize = typeof quadrantNum === 'undefined';
   useEffect(() => {
     if (d3Container.current) {

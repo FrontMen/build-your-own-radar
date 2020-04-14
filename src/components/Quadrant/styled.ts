@@ -15,7 +15,7 @@ export const Ring = styled.div`
   margin-bottom: ${props => props.theme.space[4]}px;
   break-inside: avoid;
 
-  @media ${MediaQueries.phablet} {
+  @media (${MediaQueries.phablet}) {
     width: 50%;
   }
 `;
@@ -26,7 +26,7 @@ export const Title = styled.h3`
   margin: 0;
   margin-bottom: ${props => props.theme.space[2]}px;
 
-  @media ${MediaQueries.phablet} {
+  @media (${MediaQueries.phablet}) {
     font-size: ${props => props.theme.fontSize[1]};
   }
 `;
@@ -110,11 +110,11 @@ export const Article = styled.div`
   display: flex;
   flex-direction: column;
   padding-right: ${props => props.theme.space[2]}px;
-  @media ${MediaQueries.phablet} {
+  @media (${MediaQueries.phablet}) {
     padding-right: ${props => props.theme.space[3]}px;
   }
 
-  @media ${MediaQueries.desktop} {
+  @media (${MediaQueries.desktop}) {
     max-width: 50%;
   }
 `;
