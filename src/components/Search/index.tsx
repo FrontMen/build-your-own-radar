@@ -14,6 +14,7 @@ import {
 import { d3Config } from 'utils/d3-config';
 import { useSelector } from 'react-redux';
 import { selectedTechnologyDataSetSelector } from 'redux/selectors/technologies';
+import { useClickAway } from 'hooks/useClickAway';
 
 const options = {
   keys: [
@@ -30,8 +31,8 @@ export interface SearchProps {
 
 export const Search: React.FC<SearchProps> = ({ setSelected }) => {
   const technologies = useSelector(selectedTechnologyDataSetSelector());
-
   const [value, setValue] = useState<string>('');
+  const containerRef = useClickAway(setValue);
 
   const data = useMemo(() => {
     if (value.length < 2) return [];
@@ -46,7 +47,7 @@ export const Search: React.FC<SearchProps> = ({ setSelected }) => {
   const dataEntries = Object.entries(data);
 
   return (
-    <Container data-testid="subnav-search-container">
+    <Container data-testid="subnav-search-container" ref={containerRef}>
       <SearchIcon data-testid="search-icon" />
       <InputContainer>
         <Input
