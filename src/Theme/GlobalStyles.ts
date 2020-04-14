@@ -16,7 +16,7 @@ export const GlobalStyle = createGlobalStyle<{ theme: LightThemeType }>`
         color: ${props => props.theme.colors.body};
         background-color: ${props => props.theme.colors.background};
         
-        @media ${MediaQueries.phablet} {
+        @media (${MediaQueries.phablet}) {
             font-size: 16px;
         }
     }
