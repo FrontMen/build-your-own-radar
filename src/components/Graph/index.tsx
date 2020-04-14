@@ -89,7 +89,7 @@ export const Graph: React.FC<TechnologiesListProps> = ({
   );
   const [hoveredQuadrant, setHoveredQuadrant] = useState<number>(-1);
 
-  const isNotMobile = useMediaQuery({ query: MediaQueries.phablet });
+  const isNotMobile = useMediaQuery({ query: `(${MediaQueries.phablet})` });
   const isFullSize = typeof quadrantNum === 'undefined';
   useEffect(() => {
     if (d3Container.current) {
