@@ -70,7 +70,7 @@ export class TechItem extends React.Component<TechnologyProps> {
     const {
       highlighted: prevHighlighted,
       selected: prevActive,
-      technology: { positionId: prevPosition },
+      technology: { positionId },
     } = this.props;
     const {
       highlighted: nextHighlighted,
@@ -78,13 +78,12 @@ export class TechItem extends React.Component<TechnologyProps> {
       technology: { positionId: nextPosition },
     } = nextProps;
 
-    // updating if selected or highlighted property changed
     return (
-      (prevHighlighted === prevPosition && nextHighlighted !== nextPosition) ||
-      (prevHighlighted !== prevPosition && nextHighlighted === nextPosition) ||
-      (prevActive === prevPosition && nextActive !== nextPosition) ||
-      (prevActive !== prevPosition && nextActive === nextPosition) ||
-      nextActive === nextPosition
+      prevHighlighted === positionId ||
+      nextHighlighted === positionId ||
+      prevActive === positionId ||
+      nextActive === positionId ||
+      positionId !== nextPosition
     );
   }
 
