@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import { dataTestId } from 'helpers';
+import { dataTestId, hexToRgb } from 'helpers';
 import { d3Config } from '../../src/utils/d3-config';
 
 describe('Home', () => {
@@ -10,8 +10,7 @@ describe('Home', () => {
   });
 
   it('renders page skeleton when request is in progress', () => {
-    dataTestId('home-skeleton')
-      .should('be.visible');
+    dataTestId('home-skeleton').should('be.visible');
   });
 
   it('renders page elements', () => {
@@ -65,6 +64,23 @@ describe('Home', () => {
 
       dataTestId(`quadrant-${i}`).click();
       cy.url().should('include', `/${d3Config.quadrants[(2 + i) % 4].route}`);
+    });
+  });
+
+  d3Config.quadrants.forEach((quadrant, i) => {
+    it(`shows quadrant ${i} tooltip on hover`, () => {
+      dataTestId('graph')
+        .get(`[data-testid=quadrant-${i}]`)
+        .trigger('mouseover', 'center');
+
+      dataTestId(`graph-tooltip`)
+        .should('be.visible')
+        .should(
+          'have.css',
+          'background-color',
+          hexToRgb(d3Config.quadrants[(2 + i) % 4].color),
+        )
+        .should('have.text', d3Config.quadrants[(2 + i) % 4].name);
     });
   });
 });

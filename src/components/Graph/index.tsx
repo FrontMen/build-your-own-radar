@@ -136,6 +136,7 @@ export const Graph: React.FC<GraphProps> = ({
       </GraphContainer>
       {hoveredQuadrant > -1 && (
         <QuadrantToolTip
+          data-testid="graph-tooltip"
           hoveredQuadrant={hoveredQuadrant}
           position={getTooltipPosition(hoveredQuadrant)}
         >

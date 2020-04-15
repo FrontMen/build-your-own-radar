@@ -12,7 +12,6 @@ export const useClickAway = (onClickOutside: any) => {
     document.addEventListener('click', checkForClickOutside);
     return () => {
       document.removeEventListener('click', checkForClickOutside);
-      console.log('cleanner..');
     };
   }, [onClickOutside]);
 
