@@ -15,13 +15,13 @@ import {
 } from 'redux/selectors/technologies';
 import { selectedCompaniesSelector } from 'redux/selectors/filters';
 import { Slot, Content, Article } from './styled';
-import { blipsSelector } from 'redux/selectors/d3';
+import { filterBlipsSelector } from 'redux/selectors/d3';
 
 export const Quadrant = () => {
   const { quadrant: quadrantParam } = useParams<QuadParamType>();
   const technologies = useSelector(selectedTechnologyDataSetSelector());
   const selectedCompanies = useSelector(selectedCompaniesSelector);
-  const blips = useSelector(blipsSelector());
+  const filteredBlips = useSelector(filterBlipsSelector);
   const { initialized, loading } = useSelector(
     technologiesLoadingStateSelector(),
   );
@@ -43,15 +43,6 @@ export const Quadrant = () => {
       ),
     [quadrantNum, technologies, selectedCompanies],
   );
-
-  const filteredBlips = useMemo(() => {
-    const matchingTechnologies = technologies.filter(technology =>
-      technology.companies.some(companyType => selectedCompanies[companyType]),
-    );
-    return blips.filter(
-      blip => !!matchingTechnologies.find(t => t.name === blip.name),
-    );
-  }, [technologies, selectedCompanies, blips]);
 
   if (quadrantNum < 0) return <Redirect to="not-found" />;
   if (showLoader) return <QuadrantPageSkeleton />;
