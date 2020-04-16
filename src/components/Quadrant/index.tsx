@@ -15,11 +15,13 @@ import {
 } from 'redux/selectors/technologies';
 import { selectedCompaniesSelector } from 'redux/selectors/filters';
 import { Slot, Content, Article } from './styled';
+import { filterBlipsSelector } from 'redux/selectors/d3';
 
 export const Quadrant = () => {
   const { quadrant: quadrantParam } = useParams<QuadParamType>();
   const technologies = useSelector(selectedTechnologyDataSetSelector());
   const selectedCompanies = useSelector(selectedCompaniesSelector);
+  const filteredBlips = useSelector(filterBlipsSelector);
   const { initialized, loading } = useSelector(
     technologiesLoadingStateSelector(),
   );
@@ -30,7 +32,7 @@ export const Quadrant = () => {
   const quadrantNum: number = d3Config.quadrants.findIndex(
     (item: { route: string }) => item.route === quadrantParam,
   );
-  const data = useMemo(
+  const filteredTechnologies = useMemo(
     () =>
       technologies.filter(
         technology =>
@@ -42,16 +44,6 @@ export const Quadrant = () => {
     [quadrantNum, technologies, selectedCompanies],
   );
 
-  const graphData = useMemo(
-    () =>
-      technologies.filter(technology =>
-        technology.companies.some(
-          companyType => selectedCompanies[companyType],
-        ),
-      ),
-    [technologies, selectedCompanies],
-  );
-
   if (quadrantNum < 0) return <Redirect to="not-found" />;
   if (showLoader) return <QuadrantPageSkeleton />;
 
@@ -61,13 +53,13 @@ export const Quadrant = () => {
 
   return (
     <Slot>
-      <SubNav setHighlighted={setHighlighted} setSelected={setSelected} />
+      <SubNav setSelected={setSelected} />
       <Content>
         <Article>
           <ContentTitle data-testid="quadrant-content-title">
             {quadrantName}
           </ContentTitle>
-          {data.length ? (
+          {filteredTechnologies.length > 0 ? (
             <TechLists
               data-testid="tech-lists"
               quadrant={quadrantParam}
@@ -75,7 +67,7 @@ export const Quadrant = () => {
               setSelected={setSelected}
               highlighted={highlighted}
               setHighlighted={setHighlighted}
-              technologies={data}
+              technologies={filteredTechnologies}
               color={quadrantColor}
             />
           ) : (
@@ -93,7 +85,7 @@ export const Quadrant = () => {
           quadrantNum={quadrantNum}
           setHighlighted={setHighlighted}
           setSelected={setSelected}
-          technologies={graphData}
+          blips={filteredBlips}
         />
       </Content>
     </Slot>

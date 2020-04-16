@@ -1,8 +1,9 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectedDataSetSelector } from 'redux/selectors/filters';
 import { filtersActions } from 'redux/actions/filters';
 import { dateFormat } from 'utils';
+import { useClickAway } from 'hooks/useClickAway';
 import {
   Container,
   Selected,
@@ -16,19 +17,15 @@ export const DataSetFilter = () => {
   const [opened, setOpened] = useState<boolean>(false);
   const { availableDates, selected } = useSelector(selectedDataSetSelector);
   const dispatch = useDispatch();
-  const selectDate = useCallback(
-    (date: string) => {
-      dispatch(filtersActions.selectDataSet(date));
-    },
-    [dispatch],
-  );
-  const toggleOpened = useCallback(() => {
-    setOpened(prevOpened => !prevOpened);
-  }, [setOpened]);
+  const filterContainer = useClickAway(setOpened);
+  const toggleOpened = (opened: boolean) => setOpened.bind(null, opened);
 
   return (
-    <Container data-testid="dataSetFilter-container">
-      <Selected data-testid="dataSetFilter-anchor" onClick={toggleOpened}>
+    <Container data-testid="dataSetFilter-container" ref={filterContainer}>
+      <Selected
+        data-testid="dataSetFilter-anchor"
+        onClick={toggleOpened(!opened)}
+      >
         <Text data-testid="dataSetFilter-text">{dateFormat(selected)}</Text>
         <Triangle
           opened={opened}
@@ -48,7 +45,7 @@ export const DataSetFilter = () => {
               data-testid={`dataSetFilter-dropdown-option-${date}`}
               selected={selected === date}
               onClick={() => {
-                selectDate(date);
+                dispatch(filtersActions.selectDataSet(date));
                 setOpened(false);
               }}
             >

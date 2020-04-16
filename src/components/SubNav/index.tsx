@@ -34,11 +34,11 @@ const QuadLink = styled(Link)`
   background-color: ${props => props.theme.pallet.secondary};
   border-left: 1px solid ${props => props.theme.pallet.grayLight};
 
-  @media ${MediaQueries.phablet} {
+  @media (${MediaQueries.phablet}) {
     max-width: 50%;
   }
 
-  @media ${MediaQueries.tablet} {
+  @media (${MediaQueries.tablet}) {
     max-width: 25%;
     margin-bottom: ${props => props.theme.space[0]}px;
   }
@@ -59,7 +59,6 @@ const ColoredLinks = styled(({ selected, quadName, ...props }) => (
 `;
 
 type PropTypes = {
-  setHighlighted: React.Dispatch<React.SetStateAction<string | null>>;
   setSelected: (a: string | null) => void;
 };
 
@@ -68,7 +67,7 @@ export interface Params {
   technology?: string;
 }
 
-export const SubNav = ({ setHighlighted, setSelected }: PropTypes) => {
+export const SubNav = ({ setSelected }: PropTypes) => {
   const { quadrant: quadrantPram } = useParams<Params>();
 
   return (
@@ -89,7 +88,7 @@ export const SubNav = ({ setHighlighted, setSelected }: PropTypes) => {
         )}
       </Container>
       <Container>
-        <Search setHighlighted={setHighlighted} setSelected={setSelected} />
+        <Search setSelected={setSelected} />
         <DataSetFilter />
         <FilterByCompany />
       </Container>

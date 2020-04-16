@@ -8,6 +8,18 @@ interface Point {
   y: number;
 }
 
+interface Blip
+  extends Pick<
+      Technology,
+      'positionId' | 'ring' | 'name' | 'isNew' | 'quadrant' | 'id'
+    >,
+    Point {
+  vx: number;
+  vy: number;
+  segment: Segment;
+  color: string;
+}
+
 interface Segment {
   clipx: (d: Point) => number;
   clipy: (d: Point) => number;
@@ -22,16 +34,14 @@ interface Technology extends Partial<Point> {
   ring: RingNamesType;
   quadrant: number;
   isNew: boolean;
-  description: string;
   companies: CompanyTypes[];
   description: string;
   moved: number;
   segment?: Segment;
   color?: string;
   id?: string;
+  positionId?: string;
 }
-
-type Segmented = Array<Array<Technology[]>>;
 
 type QuadParamType = {
   readonly quadrant: string;

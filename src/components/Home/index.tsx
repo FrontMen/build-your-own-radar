@@ -10,6 +10,7 @@ import {
   technologiesLoadingStateSelector,
 } from 'redux/selectors/technologies';
 import { Intro, Quads, Quadrant, Content, StyledLinks } from './styled';
+import { blipsSelector } from 'redux/selectors/d3';
 
 export const Home: React.FC = () => {
   const quads = d3Config.quadrants;
@@ -17,6 +18,7 @@ export const Home: React.FC = () => {
     technologiesLoadingStateSelector(),
   );
   const technologies = useSelector(selectedTechnologyDataSetSelector());
+  const blips = useSelector(blipsSelector());
   const showLoader = !initialized || loading;
 
   if (showLoader) return <HomePageSkeleton />;
@@ -47,7 +49,7 @@ export const Home: React.FC = () => {
           laboris ut ea aute.
         </Content>
       </Intro>
-      <Graph highlighted={null} technologies={technologies} fullSize />
+      <Graph highlighted={null} blips={blips} />
       <Quads data-testid="home-quadrants-wrapper">
         {quads.map((quad, i) => (
           <Quadrant key={i} data-testid={`home-quadrant-${i}-container`}>

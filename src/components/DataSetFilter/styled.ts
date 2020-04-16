@@ -8,7 +8,7 @@ export const Container = styled.div`
   position: relative;
   cursor: pointer;
   padding: ${props => props.theme.space[2]}px;
-  @media ${MediaQueries.desktop} {
+  @media (${MediaQueries.desktop}) {
     margin-left: 0.5em;
   }
   margin-bottom: 20px;

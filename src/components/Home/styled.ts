@@ -8,10 +8,10 @@ export const Intro = styled.div`
   margin-bottom: ${props => props.theme.space[2]}px;
   max-width: 48em;
 
-  @media ${MediaQueries.phablet} {
+  @media (${MediaQueries.phablet}) {
     margin-bottom: ${props => props.theme.space[3]}px;
   }
-  @media ${MediaQueries.desktop} {
+  @media (${MediaQueries.desktop}) {
     margin-bottom: ${props => props.theme.space[5]}px;
   }
 `;
@@ -21,7 +21,7 @@ export const Quads = styled.div`
   grid-template-columns: repeat(1fr);
   grid-gap: ${props => props.theme.space[4]}px;
 
-  @media ${MediaQueries.tablet} {
+  @media (${MediaQueries.tablet}) {
     grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
   }
 `;
@@ -32,7 +32,7 @@ export const Quadrant = styled.div`
   width: 100%;
   margin-bottom: ${props => props.theme.space[2]}px;
 
-  @media ${MediaQueries.tablet} {
+  @media (${MediaQueries.tablet}) {
     width: 100%;
     margin-bottom: ${props => props.theme.space[4]}px;
   }
