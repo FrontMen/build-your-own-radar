@@ -26,6 +26,13 @@ const GraphWrapper = styled.div<{ fullSize: boolean | undefined }>`
   }
 `;
 
+interface tooltipPosition {
+  top?: number;
+  right?: number;
+  bottom?: number;
+  left?: number;
+}
+
 const GraphContainer = styled.div`
   text-align: center;
   @media (${MediaQueries.desktop}) {
@@ -36,14 +43,16 @@ const GraphContainer = styled.div`
 
 const QuadrantToolTip = styled.div<{
   hoveredQuadrant: number;
-  position: { posTop: number; posLeft: number };
+  position: tooltipPosition;
 }>`
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: ${props => props.position.posTop + '%'};
-  left: ${props => props.position.posLeft + '%'};
+  top: ${props => props.position.top + '%'};
+  left: ${props => props.position.left + '%'};
+  right: ${props => props.position.right + '%'};
+  bottom: ${props => props.position.bottom + '%'};
   width: 220px;
   min-height: 70px;
   padding: 0 20px;
@@ -53,14 +62,15 @@ const QuadrantToolTip = styled.div<{
   font-weight: bold;
   border-radius: 5px;
   font-family: Montserrat, san-serif;
-  transition: 0.3s;
+  pointer-events: none;
 `;
 
 const getTooltipPosition = (quadrant: number) => {
-  const posTop = quadrant > 1 ? 10 : 80;
-  const posLeft = quadrant % 3 === 0 ? 100 : -40;
+  let position: tooltipPosition = {};
+  quadrant > 1 ? (position.top = 10) : (position.bottom = 10);
+  quadrant % 3 === 0 ? (position.right = 0) : (position.left = 0);
 
-  return { posTop, posLeft };
+  return position;
 };
 
 export interface GraphProps {
@@ -69,8 +79,6 @@ export interface GraphProps {
   setHighlighted?: (a: string | null) => void;
   setSelected?: (a: string | null) => void;
   quadrantNum?: number;
-  className?: string | undefined;
-  fullSize?: boolean;
 }
 
 export const Graph: React.FC<GraphProps> = ({
@@ -93,6 +101,7 @@ export const Graph: React.FC<GraphProps> = ({
   const changed = useSelector(changedTechnologiesSelector);
   const isNotMobile = useMediaQuery({ query: `(${MediaQueries.phablet})` });
   const isFullSize = typeof quadrantNum === 'undefined';
+
   useEffect(() => {
     if (d3Container.current) {
       radar_visualization(
