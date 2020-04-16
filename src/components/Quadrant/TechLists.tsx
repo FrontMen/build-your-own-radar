@@ -3,6 +3,7 @@ import Groupby from 'lodash.groupby';
 import { Section, Ring, Title, List, Dot, Tooltip } from './styled';
 import { d3Config } from 'utils/d3-config';
 import { TechItem } from './TechItem';
+import { ringTooltip } from 'res/strings';
 
 export interface TechnologiesListProps {
   technologies: Technology[];
@@ -33,7 +34,7 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
             <Dot color={color}>●</Dot>
             {ringName}
             <Tooltip>
-              ?<span>{d3Config.tooltips[ringName as RingNamesType]}</span>
+              ?<span>{ringTooltip[ringName as RingNamesType]}</span>
             </Tooltip>
           </Title>
           <List>

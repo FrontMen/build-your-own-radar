@@ -1,5 +1,4 @@
 import * as d3 from 'd3';
-import { d3Config } from 'utils/d3-config';
 import { random_between, polar, cartesian, bounded_interval } from 'utils';
 
 const quadrants = [
@@ -160,10 +159,6 @@ const getHoverPolygons = (maxRadius: number) => [
 
 let simulation: d3.Simulation<any, any>;
 
-//order of quadrants in config is 2 3 0 1, so rotating twice
-const getQuadrantRoute = (quadrant: number) =>
-  d3Config.quadrants[(2 + quadrant) % 4].route;
-
 const drawLegend = (radar: any, quadrant: number, maxRadius: number) => {
   removeLegend();
   const [x, y] = viewbox(quadrant, maxRadius).slice(0, 2);
@@ -226,7 +221,7 @@ export const radar_visualization = (
   setSelected: (a: string | null) => void,
   setHoveredQuadrant: (a: number) => void,
   { quadrantNum, isNotMobile }: RadarVisualizationParams,
-  redirect: (path: string) => void,
+  redirect: (index: number) => void,
 ) => {
   const maxRadius = rings[rings.length - 1].radius;
   const isFullSize = typeof quadrantNum === 'undefined';
@@ -360,7 +355,8 @@ export const radar_visualization = (
           .attr('opacity', 0)
           .attr('points', p.map(({ x, y }) => `${x}, ${y}`).join(' '))
           .on('click', function() {
-            redirect(getQuadrantRoute(i));
+            // Order of quadrants in config is 2 3 0 1, so rotating twice
+            redirect((2 + i) % 4);
           });
 
         if (isNotMobile) {
