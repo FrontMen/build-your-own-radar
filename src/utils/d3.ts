@@ -225,11 +225,11 @@ export const radar_visualization = (
   setHighlighted: (a: string | null) => void,
   setSelected: (a: string | null) => void,
   setHoveredQuadrant: (a: number) => void,
-  { quadrantNum: quadrantProp, isNotMobile }: RadarVisualizationParams,
+  { quadrantNum, isNotMobile }: RadarVisualizationParams,
   redirect: (path: string) => void,
 ) => {
   const maxRadius = rings[rings.length - 1].radius;
-  const isFullSize = typeof quadrantProp === 'undefined';
+  const isFullSize = typeof quadrantNum === 'undefined';
   const ringsNames = Object.keys(config.rings);
 
   const svg = d3
@@ -244,13 +244,13 @@ export const radar_visualization = (
   const isFirstRender = !svg.html();
   const radar = isFirstRender ? svg.append('g') : svg.select('g');
 
-  if (typeof quadrantProp !== 'undefined') {
+  if (typeof quadrantNum !== 'undefined') {
     svg
       .transition()
       .duration(500)
-      .attr('viewBox', viewbox(quadrantProp, maxRadius).join(' '));
+      .attr('viewBox', viewbox(quadrantNum, maxRadius).join(' '));
 
-    drawLegend(radar, quadrantProp, maxRadius);
+    drawLegend(radar, quadrantNum, maxRadius);
   } else {
     svg.attr('viewBox', `0 0 ${maxRadius * 2} ${maxRadius * 2}`);
     radar.attr('transform', translate(maxRadius, maxRadius));
@@ -320,10 +320,13 @@ export const radar_visualization = (
     //ring names displaying
     if (!isFullSize) {
       ringsNames.forEach((ringName, i) => {
+        const prevRadius = i > 0 ? rings[i - 1].radius : 0;
+        const currentRadius = rings[i].radius;
+        const position = prevRadius + (currentRadius - prevRadius) / 2;
         grid
           .append('text')
           .text(ringName)
-          .attr('x', rings[i].radius - 62)
+          .attr('x', position)
           .attr('text-anchor', 'middle')
           .style('fill', '#000')
           .style('transform', 'translateY(4px)')
@@ -335,12 +338,12 @@ export const radar_visualization = (
         grid
           .append('text')
           .text(ringName)
-          .attr('x', -rings[i].radius + 62)
+          .attr('x', position * -1)
           .attr('text-anchor', 'middle')
           .style('fill', '#000')
           .style('transform', 'translateY(4px)')
           .style('font-family', 'Arial, Helvetica')
-          .style('font-size', '12px')
+          .style('font-size', 12)
           .style('font-weight', 'bold')
           .style('pointer-events', 'none')
           .style('user-select', 'none');
@@ -424,7 +427,7 @@ export const radar_visualization = (
   }
 
   const mouseOverListener = (blip: Blip) => {
-    showBubble(blip, quadrantProp!);
+    showBubble(blip, quadrantNum!);
     setHighlighted(blip.positionId!);
   };
 
