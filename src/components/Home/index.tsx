@@ -11,6 +11,7 @@ import {
 } from 'redux/selectors/technologies';
 import { Intro, Quads, Quadrant, Content, StyledLinks } from './styled';
 import { blipsSelector } from 'redux/selectors/d3';
+import { quandrantDescription } from 'res/strings';
 
 export const Home: React.FC = () => {
   const quads = d3Config.quadrants;
@@ -57,10 +58,7 @@ export const Home: React.FC = () => {
               {quad.name}
             </ContentTitle>
             <Content data-testid={`home-quadrant-${i}-content`}>
-              Ex tempor nulla est nostrud non consectetur enim commodo. Elit
-              aute ex pariatur commodo aute. Adipisicing eu dolore fugiat culpa
-              deserunt id reprehenderit. Reprehenderit eiusmod exercitation
-              labore sint enim.
+              {quandrantDescription[i]}
             </Content>
             <StyledLinks
               data-testid={`home-quadrant-${i}-link`}

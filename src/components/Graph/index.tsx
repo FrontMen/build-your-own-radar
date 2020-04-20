@@ -50,9 +50,9 @@ const QuadrantToolTip = styled.div<{
   justify-content: center;
   position: absolute;
   top: ${props => props.position.top + '%'};
-  left: ${props => props.position.left + '%'};
   right: ${props => props.position.right + '%'};
   bottom: ${props => props.position.bottom + '%'};
+  left: ${props => props.position.left + '%'};
   width: 220px;
   min-height: 70px;
   padding: 0 20px;
@@ -92,7 +92,8 @@ export const Graph: React.FC<GraphProps> = ({
   const history = useHistory();
 
   const redirect = useCallback(
-    (path: string) => {
+    (index: number) => {
+      const path = d3Config.quadrants[index].route;
       history.push(path);
     },
     [history],
