@@ -82,7 +82,7 @@ describe('Details', () => {
       const store = storeCreator(state);
       const { getByTestId, container } = withAllProviders(<Details />, {
         path: '/:quadrant/:technology',
-        route: `/${correctQuadrant.route}/alpine`,
+        route: `/${correctQuadrant.route}/Alpine`,
         store,
       });
 
@@ -93,14 +93,14 @@ describe('Details', () => {
         `/${correctQuadrant.route}`,
       );
       expect(getByTestId('details-content-title')).toHaveTextContent(
-        'Timeline: alpine',
+        'Timeline: Alpine',
       );
       expect(getByTestId('details-timeline-container')).toHaveStyle({
         'border-left': `4px solid ${correctQuadrant.color}`,
       });
 
       expect(getByTestId('details-content-title')).toHaveTextContent(
-        'Timeline: alpine',
+        'Timeline: Alpine',
       );
 
       const timeLineItem = getByTestId('details-timeline-item-0');
