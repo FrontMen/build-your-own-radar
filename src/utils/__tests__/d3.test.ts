@@ -118,6 +118,6 @@ describe('d3', () => {
       }),
     );
 
-    expect(redirect).toHaveBeenCalledWith(d3Config.quadrants[2].route);
+    expect(redirect).toHaveBeenCalledWith((0 + 2) % 4);
   });
 });
