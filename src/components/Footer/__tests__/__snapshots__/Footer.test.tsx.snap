@@ -160,6 +160,7 @@ exports[`Footer should matches the snapshot 1`] = `
       </div>
       <a
         class="c3"
+        data-testid="footer-Frontmen-link"
         href="https://www.frontmen.nl/"
         target="_blank"
       />
@@ -175,6 +176,7 @@ exports[`Footer should matches the snapshot 1`] = `
         cookie policy
       </a>
       <a
+        data-testid="footer-Intracto-link"
         href="https://www.intracto.com/en-be/privacy-policy"
         rel="noopener noreferrer"
         target="_blank"

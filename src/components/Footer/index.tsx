@@ -112,7 +112,11 @@ export const Footer = () => (
           <img src={instagramLogo} alt="instagram-logo" />
         </a>
       </IntractoLinks>
-      <FrontmenLink href="https://www.frontmen.nl/" target="_blank" />
+      <FrontmenLink
+        href="https://www.frontmen.nl/"
+        data-testid="footer-Frontmen-link"
+        target="_blank"
+      />
     </Links>
     <PrivacyLinks>
       <a
@@ -126,6 +130,7 @@ export const Footer = () => (
         href="https://www.intracto.com/en-be/privacy-policy"
         target="_blank"
         rel="noopener noreferrer"
+        data-testid="footer-Intracto-link"
       >
         privacy policy
       </a>
