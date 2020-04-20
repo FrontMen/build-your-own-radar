@@ -8,6 +8,7 @@ exports[`Footer should matches the snapshot 1`] = `
   flex-wrap: wrap;
   background-color: #fff;
   padding: 16px;
+  height: 150px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -22,41 +23,174 @@ exports[`Footer should matches the snapshot 1`] = `
   align-items: center;
 }
 
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #bfc0bf;
+  padding-bottom: 12px;
+}
+
+.c2 a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+  opacity: 0.7;
+}
+
+.c2 a:hover {
+  opacity: 1;
+}
+
+.c3 {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  font-family: Montserrat,san-serif;
+  font-weight: 700;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 106'%3E%3Cpath fill='%23201E33' d='M0 0h80v60H0z'/%3E%3Cpath fill='%231F1D32' d='M40.07 0L0 23.16v59.674L39.97 106 80 82.676V23.16z'/%3E%3Cpath fill='%23FFF' d='M10 29v48.49L19.333 83V65.44L38 76.462v-11.02L19.333 54.42v-8.919L38 56.551v-11.02z'/%3E%3Cpath fill='%23FF5900' d='M42 45.53v11.021l18.667-11.02V83L70 77.49V29z'/%3E%3Cpath fill='%230CC' d='M14 26.473L23.464 32 40.5 22.053 57.536 32 67 26.473 40.5 11z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: right;
+  color: #37383d;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+.c3::before {
+  content: 'In Collaboration with Frontmen';
+  margin-right: 20px;
+}
+
+.c3:hover {
+  opacity: 1;
+}
+
+.c4 {
+  margin-top: 12px;
+}
+
+.c4 a {
+  margin-right: 10px;
+  font-size: 13px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  opacity: 0.7;
+  color: #343a40;
+}
+
+.c4 a:hover {
+  opacity: 1;
+}
+
 @media (min-width:481px) {
   .c0 {
     padding: 32px;
   }
 }
 
+@media (min-width:481px) {
+  .c3 {
+    margin-top: 0;
+  }
+}
+
 <div>
-  <div
+  <footer
     class="PageSlots__FooterSlot-sc-1quj5xc-2 c0"
   >
-    <div>
-      <a
-        data-testid="footer-home-link"
-        href="/"
+    <div
+      class="c1"
+    >
+      <div
+        class="c2"
       >
-        Home
-      </a>
-    </div>
-    <i>
-      A collaboration between 
+        <a
+          href="https://www.facebook.com/Intracto"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            alt="facebook-logo"
+            src="facebook.svg"
+          />
+        </a>
+        <a
+          href="https://www.linkedin.com/company/intracto/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            alt="linkedin-logo"
+            src="linkedin.svg"
+          />
+        </a>
+        <a
+          href="https://www.youtube.com/channel/UCxdOVsGyzWkQ2zxx8ojSxHQ"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            alt="youtube-logo"
+            src="youtube.svg"
+          />
+        </a>
+        <a
+          href="https://www.instagram.com/intracto_agency/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            alt="instagram-logo"
+            src="instagram.svg"
+          />
+        </a>
+      </div>
       <a
+        class="c3"
         data-testid="footer-Frontmen-link"
         href="https://www.frontmen.nl/"
+        target="_blank"
+      />
+    </div>
+    <div
+      class="c4"
+    >
+      <a
+        href="https://www.intracto.com/en-be/cookie-policy"
+        rel="noopener noreferrer"
+        target="_blank"
       >
-        Frontmen
+        cookie policy
       </a>
-       and 
       <a
         data-testid="footer-Intracto-link"
-        href="https://www.intracto.com/"
+        href="https://www.intracto.com/en-be/privacy-policy"
+        rel="noopener noreferrer"
+        target="_blank"
       >
-        Intracto
+        privacy policy
       </a>
-      .
-    </i>
-  </div>
+      <a
+        href="https://www.intracto.com/en-be/conditions"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        terms & conditions
+      </a>
+    </div>
+  </footer>
 </div>
 `;

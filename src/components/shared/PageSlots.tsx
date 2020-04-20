@@ -29,12 +29,13 @@ export const MainContentSlot = styled.div`
   }
 `;
 
-export const FooterSlot = styled.div`
+export const FooterSlot = styled.footer`
   grid-area: footer;
   flex-wrap: wrap;
   background-color: ${({ theme }: { theme: LightThemeType }) =>
     theme.colors.blocks};
   padding: ${({ theme }) => theme.space[3]}px;
+  height: 150px;
 
   @media (${MediaQueries.phablet}) {
     padding: ${({ theme }) => theme.space[4]}px;
