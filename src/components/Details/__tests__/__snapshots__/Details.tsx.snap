@@ -59,7 +59,7 @@ exports[`Details when path is correct should render correctly 1`] = `
 }
 
 .c6 {
-  border-bottom: 1px dashed #82cdd8;
+  border-bottom: 1px dashed #fd7e14;
   padding-bottom: 25px;
   position: relative;
 }
@@ -105,6 +105,19 @@ exports[`Details when path is correct should render correctly 1`] = `
 .c6 h3 {
   font-weight: 400;
   font-size: 1.4em;
+}
+
+.c7 {
+  background: #f3f3f3;
+  max-width: 205px;
+  padding: 10px;
+  color: #37383d;
+  border: 1px solid #f3f3f3;
+  border-radius: 6px;
+  word-break: break-word;
+  font-family: Montserrat,san-serif;
+  font-size: 0.9em;
+  line-height: 20px;
 }
 
 @media (min-width:481px) {
@@ -154,7 +167,7 @@ exports[`Details when path is correct should render correctly 1`] = `
         class="c4"
         data-testid="details-content-title"
       >
-        Timeline: alpine
+        Timeline: Alpine
       </h2>
       <ul
         class="c5"
@@ -170,7 +183,11 @@ exports[`Details when path is correct should render correctly 1`] = `
           <h3>
             Alpine
           </h3>
-          <p />
+          <div
+            class="c7"
+          >
+            No Description Available
+          </div>
         </li>
       </ul>
     </div>

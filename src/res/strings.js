@@ -26,3 +26,5 @@ export const quandrantDescription = [
     deserunt id reprehenderit. Reprehenderit eiusmod exercitation
     labore sint enim.`,
 ];
+
+export const emptyDescription = 'No Description Available';

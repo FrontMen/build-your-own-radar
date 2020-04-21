@@ -6,7 +6,7 @@ import { d3Config } from '../../src/utils/d3-config';
 describe('Details', () => {
   describe('when link is incorrect', () => {
     it('redirects to not found page if quadrant param is invalid', function() {
-      cy.visit('/invalid-quadrant-param/alpine');
+      cy.visit('/invalid-quadrant-param/Alpine');
       cy.url().should('include', '/not-found');
     });
 
@@ -18,7 +18,7 @@ describe('Details', () => {
 
   describe('when link is correct', () => {
     beforeEach(() => {
-      cy.visit('/platforms-infra-and-data/apache');
+      cy.visit('/platforms-infra-and-data/Apache');
     });
 
     it('renders page elements', () => {
@@ -30,7 +30,7 @@ describe('Details', () => {
 
       dataTestId(' details-content-title')
         .should('be.visible')
-        .should('have.text', 'Timeline: apache');
+        .should('have.text', 'Timeline: Apache');
 
       dataTestId('details-timeline-container')
         .should('be.visible')
@@ -46,7 +46,7 @@ describe('Details', () => {
         .should('contain.text', 'Apache')
         .parent()
         .get('p')
-        .should('contain.text', 'In NL voorkeur Nginx')
+        .should('contain.text', 'In NL voorkeur Nginx');
     });
   });
 });
