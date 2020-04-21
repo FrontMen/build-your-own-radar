@@ -15,6 +15,7 @@ import {
   technologiesLoadingStateSelector,
 } from 'redux/selectors/technologies';
 import { dateFormat } from 'utils';
+import { emptyDescription } from 'res/strings';
 
 const Slot = styled(MainContentSlot)``;
 const BackLink = styled(({ quadName, ...props }) => <Link {...props} />)`
@@ -38,7 +39,7 @@ const Content = styled.div`
 `;
 
 const Timeline = styled.ul<{ color: string }>`
-  border-left: ${props => `4px solid ${props.theme.colors[props.color || '']}`};
+  border-left: 4px solid ${props => props.theme.colors[props.color || '']};
   margin: 50px 0% 0 30%;
   padding: 50px 0 50px 20px;
   list-style: none;
@@ -51,7 +52,7 @@ const Timeline = styled.ul<{ color: string }>`
 `;
 
 const TimelineItem = styled.li<{ color: string; value: string }>`
-  border-bottom: 1px dashed #82cdd8;
+  border-bottom: 1px dashed ${props => props.theme.colors[props.color || '']};
   padding-bottom: 25px;
   position: relative;
 
@@ -97,6 +98,19 @@ const TimelineItem = styled.li<{ color: string; value: string }>`
   }
 `;
 
+const Tag = styled.div`
+  background: ${props => props.theme.pallet.light};
+  max-width: 205px;
+  padding: 10px;
+  color: ${props => props.theme.pallet.dark};
+  border: 1px solid ${props => props.theme.pallet.light};
+  border-radius: 6px;
+  word-break: break-word;
+  font-family: Montserrat, san-serif;
+  font-size: 0.9em;
+  line-height: 20px;
+`;
+
 export interface DetailsParams {
   technology?: string;
   quadrant?: string;
@@ -113,13 +127,14 @@ export const Details: React.FC = () => {
   const quadrant = d3Config.quadrants.find(
     quad => quad.route === quadrantParam,
   );
+  const decodedTechName = decodeURIComponent(technologyParam || '');
 
   let lastDescription: string;
   const technologies = Object.entries(allData)
     .sort((a, b) => Date.parse(b[0]) - Date.parse(a[0]))
     .map(([date, data]) => {
-      const foundItem = data.find((item: Technology) =>
-        item.name.toLowerCase().includes(technologyParam!),
+      const foundItem = data.find(
+        (item: Technology) => item.name === decodedTechName,
       );
       if (foundItem) {
         if (lastDescription !== foundItem.description) {
@@ -159,7 +174,11 @@ export const Details: React.FC = () => {
               color={quadrant.name}
             >
               <h3>{item!.name}</h3>
-              <p>{item!.description}</p>
+              {item?.description ? (
+                <p>{item!.description}</p>
+              ) : (
+                <Tag>{emptyDescription}</Tag>
+              )}
             </TimelineItem>
           ))}
         </Timeline>

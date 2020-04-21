@@ -125,7 +125,7 @@ export class TechItem extends React.Component<TechnologyProps> {
         <Details data-testid="details" isOpened={selected === positionId}>
           <Content>
             <span dangerouslySetInnerHTML={{ __html: description }} />
-            <DetailsLink to={`/${quadrant}/${name.toLowerCase()}`}>
+            <DetailsLink to={`/${quadrant}/${encodeURIComponent(name)}`}>
               {'More '}
               <ArrowRightIcon data-testid="arrow-right-icon" />
             </DetailsLink>

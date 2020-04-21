@@ -218,7 +218,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
               <span />
               <a
                 class="c10"
-                href="/tools/alpine"
+                href="/tools/Alpine"
               >
                 More 
                 <svg
@@ -291,7 +291,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
               </span>
               <a
                 class="c10"
-                href="/tools/amqp"
+                href="/tools/AMQP"
               >
                 More 
                 <svg
@@ -364,7 +364,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
               </span>
               <a
                 class="c10"
-                href="/tools/a-frame"
+                href="/tools/A-Frame"
               >
                 More 
                 <svg
@@ -407,7 +407,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
               <span />
               <a
                 class="c10"
-                href="/tools/angular 2+"
+                href="/tools/Angular 2%2B"
               >
                 More 
                 <svg
@@ -478,7 +478,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
               <span />
               <a
                 class="c10"
-                href="/tools/angularjs (angular 1)"
+                href="/tools/AngularJS (Angular 1)"
               >
                 More 
                 <svg
