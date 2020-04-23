@@ -2,11 +2,12 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { MediaQueries } from 'Theme/Helpers';
 import { Typography } from 'Theme/Typography';
+import { ContentTitle } from 'components/shared/ContentTitle';
 
 export const Intro = styled.div`
   margin: auto;
   margin-bottom: ${props => props.theme.space[2]}px;
-  max-width: 48em;
+  max-width: 60em;
 
   @media (${MediaQueries.phablet}) {
     margin-bottom: ${props => props.theme.space[3]}px;
@@ -42,11 +43,38 @@ export const Content = styled.p`
   ${Typography.body};
   margin: 0;
   margin-bottom: ${props => props.theme.space[3]}px;
+  height: 110px;
+  scroll-y: auto;
 `;
 
 export const StyledLinks = styled(Link)`
-  margin-top: auto;
+  position: relative;
   text-decoration: none;
   font-weight: 700;
-  color: ${props => props.theme.pallet.primary};
+  width: fit-content;
+  padding: 0.9em 1.25em;
+  padding-right: 3.5em;
+
+  color: ${props => props.theme.pallet.white};
+  background-color: ${props => props.theme.pallet.blue};
+  border-color: ${props => props.theme.pallet.blue};
+
+  img {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 1.4em;
+    height: 1.1em;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  &:hover {
+    img {
+      transform: translateX(5px);
+    }
+  }
+`;
+
+export const AboutTitle = styled(ContentTitle)`
+  color: ${props => props.theme.pallet.blue};
 `;
