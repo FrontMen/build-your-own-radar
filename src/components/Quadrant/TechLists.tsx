@@ -25,10 +25,14 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
   color,
 }) => {
   const data = useMemo(() => Groupby(technologies, 'ring'), [technologies]);
+  const availableRings = useMemo(
+    () => Object.keys(d3Config.rings).filter(ringName => data[ringName]),
+    [data],
+  );
 
   return (
     <Section data-testid="tech-lists-section">
-      {Object.keys(d3Config.rings).map(ringName => (
+      {availableRings.map(ringName => (
         <Ring key={ringName}>
           <Title data-testid={`ring-title-${ringName}`}>
             <Dot color={color}>●</Dot>
