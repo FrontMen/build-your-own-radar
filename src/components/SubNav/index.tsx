@@ -59,7 +59,7 @@ const ColoredLinks = styled(({ selected, quadName, ...props }) => (
 `;
 
 type PropTypes = {
-  setSelected: (a: string | null) => void;
+  setSelected: (a: string | null, shouldScroll?: boolean) => void;
 };
 
 export interface Params {
