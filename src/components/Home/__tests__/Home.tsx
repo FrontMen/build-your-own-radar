@@ -61,12 +61,7 @@ describe('Home', () => {
 
     //intro
     expect(getByTestId('home-intro')).toBeTruthy();
-    expect(getByTestId('home-intro-title')).toHaveTextContent(
-      'Whats this all about?',
-    );
-    expect(getByTestId('home-intro-content').textContent).toContain(
-      'Consequat incididunt',
-    );
+    expect(getByTestId('home-intro-title')).toHaveTextContent('About');
 
     //Graph
     expect(getByTestId('graph')).toBeTruthy();
@@ -75,15 +70,6 @@ describe('Home', () => {
     expect(getByTestId('home-quadrants-wrapper')).toBeTruthy();
     d3Config.quadrants.forEach((quadrant, i) => {
       expect(getByTestId(`home-quadrant-${i}-container`)).toBeTruthy();
-      expect(getByTestId(`home-quadrant-${i}-title`)).toHaveTextContent(
-        quadrant.name,
-      );
-      expect(getByTestId(`home-quadrant-${i}-content`)).toHaveTextContent(
-        'Ex tempor nulla',
-      );
-      expect(getByTestId(`home-quadrant-${i}-link`)).toHaveTextContent(
-        `look at ${quadrant.name}`,
-      );
     });
   });
 });

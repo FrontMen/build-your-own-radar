@@ -18,11 +18,9 @@ describe('Home', () => {
 
     dataTestId('home-intro-title')
       .should('be.visible')
-      .contains('Whats this all about?');
+      .contains('About');
 
-    dataTestId('home-intro-content')
-      .should('be.visible')
-      .contains('Consequat incididunt');
+    dataTestId('home-intro-content').should('be.visible');
 
     dataTestId('graph')
       .should('be.visible')
@@ -33,12 +31,8 @@ describe('Home', () => {
     it(`renders quadrant ${i} and redirects to proper quadrant on link click`, () => {
       dataTestId(`home-quadrant-${i}-container`).should('be.visible');
 
-      dataTestId(`home-quadrant-${i}-title`).contains(quadrant.name);
-
-      dataTestId(`home-quadrant-${i}-content`).contains('Ex tempor nulla est');
-
       dataTestId(`home-quadrant-${i}-link`)
-        .contains('look at ' + quadrant.name)
+        .contains('Overview of')
         .click();
 
       cy.url().should('include', `/${quadrant.route}`);
