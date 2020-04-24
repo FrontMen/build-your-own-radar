@@ -26,7 +26,7 @@ export const changedTechnologiesSelector = createSelector(
     const prevTechs = allTechnologies[prevSelected];
     return allTechnologies[selected].filter(s => {
       const prev = prevTechs.find(p => p.name === s.name);
-      return !!prev && s.ring !== prev.ring;
+      return !!prev && (s.ring !== prev.ring || s.isNew !== prev.isNew);
     });
   },
 );

@@ -18,6 +18,7 @@ interface Blip
   vy: number;
   segment: Segment;
   color: string;
+  animate: 'translate' | 'bounce' | null;
 }
 
 interface Segment {
