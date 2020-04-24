@@ -7,7 +7,7 @@ exports[`Home should render correctly when content is there 1`] = `
   padding: 16px;
 }
 
-.c2 {
+.c8 {
   font-family: Montserrat,san-serif;
   font-weight: 700;
   line-height: 1.15;
@@ -31,7 +31,7 @@ exports[`Home should render correctly when content is there 1`] = `
 .c1 {
   margin: auto;
   margin-bottom: 8px;
-  max-width: 48em;
+  max-width: 60em;
 }
 
 .c6 {
@@ -59,13 +59,51 @@ exports[`Home should render correctly when content is there 1`] = `
   line-height: 1.65;
   margin: 0;
   margin-bottom: 16px;
+  height: 110px;
+  -webkit-scroll-y: auto;
+  -moz-scroll-y: auto;
+  -ms-scroll-y: auto;
+  scroll-y: auto;
 }
 
-.c8 {
-  margin-top: auto;
+.c9 {
+  position: relative;
   -webkit-text-decoration: none;
   text-decoration: none;
   font-weight: 700;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.9em 1.25em;
+  padding-right: 3.5em;
+  color: #fff;
+  background-color: #526de4;
+  border-color: #526de4;
+}
+
+.c9 img {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 1.4em;
+  height: 1.1em;
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.23,1,0.32,1);
+  -webkit-transition: transform 0.3s cubic-bezier(0.23,1,0.32,1);
+  transition: transform 0.3s cubic-bezier(0.23,1,0.32,1);
+}
+
+.c9:hover img {
+  -webkit-transform: translateX(5px);
+  -ms-transform: translateX(5px);
+  transform: translateX(5px);
+}
+
+.c2 {
+  font-family: Montserrat,san-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  font-size: 1.5em;
+  text-transform: capitalize;
   color: #526de4;
 }
 
@@ -76,7 +114,7 @@ exports[`Home should render correctly when content is there 1`] = `
 }
 
 @media (min-width:481px) {
-  .c2 {
+  .c8 {
     font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 16px;
@@ -130,6 +168,14 @@ exports[`Home should render correctly when content is there 1`] = `
   }
 }
 
+@media (min-width:481px) {
+  .c2 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+}
+
 <div>
   <div
     class="c0"
@@ -142,13 +188,13 @@ exports[`Home should render correctly when content is there 1`] = `
         class="c2"
         data-testid="home-intro-title"
       >
-        Whats this all about?
+        About
       </h2>
       <p
         class="c3"
         data-testid="home-intro-content"
       >
-        Consequat incididunt in occaecat reprehenderit culpa elit. Est cupidatat ex dolore duis do aliquip magna ullamco anim. Fugiat non eu laboris ut ea aute.
+        The Intracto Technology Radar displays our assessments about the risks and rewards of existing and upcoming technologies, tools and techniques we use to develop digital applications. It is a living document which is periodically updated by our experts and displays the evolution over time how we use these technologies and techniques.
       </p>
     </div>
     <div
@@ -171,27 +217,28 @@ exports[`Home should render correctly when content is there 1`] = `
         data-testid="home-quadrant-0-container"
       >
         <h2
-          class="c2"
+          class="c8"
           data-testid="home-quadrant-0-title"
         >
-          Frameworks, CMS & Programmeertalen
+          Tooling & Testing
         </h2>
         <p
           class="c3"
           data-testid="home-quadrant-0-content"
         >
-          Ex tempor nulla est nostrud non consectetur enim commodo. Elit
-    aute ex pariatur commodo aute. Adipisicing eu dolore fugiat culpa
-    deserunt id reprehenderit. Reprehenderit eiusmod exercitation
-    labore sint enim.
+          Successful application development relies on the use of the best suited frameworks, cms and programming languages. This quadrant displays the technologies we use for application development.
         </p>
         <a
-          class="c8"
+          class="c9"
           data-testid="home-quadrant-0-link"
           href="/frameworks-and-lang"
         >
-          look at 
-          Frameworks, CMS & Programmeertalen
+          Overview of 
+          Frameworks, CMS & programming languages
+          <img
+            alt="right-arrow"
+            src="arrow-right.svg"
+          />
         </a>
       </div>
       <div
@@ -199,27 +246,28 @@ exports[`Home should render correctly when content is there 1`] = `
         data-testid="home-quadrant-1-container"
       >
         <h2
-          class="c2"
+          class="c8"
           data-testid="home-quadrant-1-title"
         >
-          Tooling en testing
+          Tooling & Testing
         </h2>
         <p
           class="c3"
           data-testid="home-quadrant-1-content"
         >
-          Ex tempor nulla est nostrud non consectetur enim commodo. Elit
-    aute ex pariatur commodo aute. Adipisicing eu dolore fugiat culpa
-    deserunt id reprehenderit. Reprehenderit eiusmod exercitation
-    labore sint enim.
+          To ensure effective application development and the delivery of applications with optimal UX, performance, maintainability and security, we use a range of tooling and testing frameworks.
         </p>
         <a
-          class="c8"
+          class="c9"
           data-testid="home-quadrant-1-link"
           href="/tooling-and-testing"
         >
-          look at 
-          Tooling en testing
+          Overview of 
+          Tooling & Testing
+          <img
+            alt="right-arrow"
+            src="arrow-right.svg"
+          />
         </a>
       </div>
       <div
@@ -227,27 +275,28 @@ exports[`Home should render correctly when content is there 1`] = `
         data-testid="home-quadrant-2-container"
       >
         <h2
-          class="c2"
+          class="c8"
           data-testid="home-quadrant-2-title"
         >
-          Platforms, infrastructure & Data
+          Tooling & Testing
         </h2>
         <p
           class="c3"
           data-testid="home-quadrant-2-content"
         >
-          Ex tempor nulla est nostrud non consectetur enim commodo. Elit
-    aute ex pariatur commodo aute. Adipisicing eu dolore fugiat culpa
-    deserunt id reprehenderit. Reprehenderit eiusmod exercitation
-    labore sint enim.
+          Applications can be build on or served from platforms (e.g. SaaS) and/ or need platforms and infrastructure for hosting (e.g. cloud). Applications often rely on other applications to manage their data and message flows such as databases, caching applications or service/ message busses.
         </p>
         <a
-          class="c8"
+          class="c9"
           data-testid="home-quadrant-2-link"
           href="/platforms-infra-and-data"
         >
-          look at 
-          Platforms, infrastructure & Data
+          Overview of 
+          Platforms, infrastructure & data
+          <img
+            alt="right-arrow"
+            src="arrow-right.svg"
+          />
         </a>
       </div>
       <div
@@ -255,27 +304,28 @@ exports[`Home should render correctly when content is there 1`] = `
         data-testid="home-quadrant-3-container"
       >
         <h2
-          class="c2"
+          class="c8"
           data-testid="home-quadrant-3-title"
         >
-          Technieken
+          Tooling & Testing
         </h2>
         <p
           class="c3"
           data-testid="home-quadrant-3-content"
         >
-          Ex tempor nulla est nostrud non consectetur enim commodo. Elit
-    aute ex pariatur commodo aute. Adipisicing eu dolore fugiat culpa
-    deserunt id reprehenderit. Reprehenderit eiusmod exercitation
-    labore sint enim.
+          The design, development, hosting, maintenance and monitoring of applications and infrastructure can be complex. To ensure optimal efficiency and quality for all of these topics, we use a variety of proven techniques and market standards.
         </p>
         <a
-          class="c8"
+          class="c9"
           data-testid="home-quadrant-3-link"
           href="/technique"
         >
-          look at 
-          Technieken
+          Overview of 
+          Techniques
+          <img
+            alt="right-arrow"
+            src="arrow-right.svg"
+          />
         </a>
       </div>
     </div>

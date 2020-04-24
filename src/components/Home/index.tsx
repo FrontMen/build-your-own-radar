@@ -9,9 +9,17 @@ import {
   selectedTechnologyDataSetSelector,
   technologiesLoadingStateSelector,
 } from 'redux/selectors/technologies';
-import { Intro, Quads, Quadrant, Content, StyledLinks } from './styled';
+import {
+  Intro,
+  Quads,
+  Quadrant,
+  Content,
+  StyledLinks,
+  AboutTitle,
+} from './styled';
 import { blipsSelector } from 'redux/selectors/d3';
-import { quandrantDescription } from 'res/strings';
+import { quandrantDescription, aboutText, quandrantNames } from 'res/strings';
+import RightArrow from 'res/svg/arrow-right.svg';
 
 export const Home: React.FC = () => {
   const quads = d3Config.quadrants;
@@ -41,21 +49,15 @@ export const Home: React.FC = () => {
   return (
     <MainContentSlot>
       <Intro data-testid="home-intro">
-        <ContentTitle data-testid="home-intro-title">
-          Whats this all about?
-        </ContentTitle>
-        <Content data-testid="home-intro-content">
-          Consequat incididunt in occaecat reprehenderit culpa elit. Est
-          cupidatat ex dolore duis do aliquip magna ullamco anim. Fugiat non eu
-          laboris ut ea aute.
-        </Content>
+        <AboutTitle data-testid="home-intro-title">About</AboutTitle>
+        <Content data-testid="home-intro-content">{aboutText}</Content>
       </Intro>
       <Graph highlighted={null} blips={blips} />
       <Quads data-testid="home-quadrants-wrapper">
         {quads.map((quad, i) => (
           <Quadrant key={i} data-testid={`home-quadrant-${i}-container`}>
             <ContentTitle data-testid={`home-quadrant-${i}-title`}>
-              {quad.name}
+              {quandrantNames[1]}
             </ContentTitle>
             <Content data-testid={`home-quadrant-${i}-content`}>
               {quandrantDescription[i]}
@@ -64,7 +66,8 @@ export const Home: React.FC = () => {
               data-testid={`home-quadrant-${i}-link`}
               to={`/${quad.route}`}
             >
-              look at {quad.name}
+              Overview of {quandrantNames[i]}
+              <img src={RightArrow} alt="right-arrow" />
             </StyledLinks>
           </Quadrant>
         ))}

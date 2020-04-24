@@ -511,11 +511,24 @@ export const radar_visualization = (
                   simulation = simulateCollision();
                 }
               });
-            changedSelection
-              //lib typings are incorrect
-              //@ts-ignore
-              .transition(trans)
-              .attr('transform', (d: Blip) => translate(d.x, d.y));
+            changedSelection.each(function(b) {
+              const selectedBlip = d3.select(this);
+              if (b.animate === 'translate') {
+                selectedBlip
+                  //@ts-ignore
+                  .transition(trans)
+                  .attr('transform', translate(b.x, b.y));
+              } else if (b.animate === 'bounce') {
+                selectedBlip
+                  .transition()
+                  .duration(300)
+                  .attr('transform', translate(b.x, b.y - 25))
+                  //@ts-ignore
+                  .transition(trans)
+                  .ease(d3.easeBounceOut)
+                  .attr('transform', translate(b.x, b.y));
+              }
+            });
           }
           return up.selectAll('g');
         },

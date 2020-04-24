@@ -26,7 +26,7 @@ const options = {
 };
 
 export interface SearchProps {
-  setSelected: (a: string | null) => void;
+  setSelected: (a: string | null, shouldScroll?: boolean) => void;
 }
 
 export const Search: React.FC<SearchProps> = ({ setSelected }) => {
@@ -75,7 +75,10 @@ export const Search: React.FC<SearchProps> = ({ setSelected }) => {
                         d3Config.quadrants[technology.quadrant].route
                       }`;
                       setValue('');
-                      setSelected(`${baseLink}?tech=${technology.positionId}`);
+                      setSelected(
+                        `${baseLink}?tech=${technology.positionId}`,
+                        true,
+                      );
                     }}
                   >
                     {technology.name}
