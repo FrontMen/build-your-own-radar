@@ -35,6 +35,7 @@ export const convertTechToBlips = (data: Technology[]) =>
           ring: ring,
           segment: blipSegment,
           color: d3Config.quadrants[quadNum].color,
+          animate: null,
         };
 
         return acc;
@@ -63,18 +64,25 @@ function* watchChangesSaga() {
         );
         if (matchingTechnology) {
           const quadNum = matchingTechnology.quadrant;
-          const newRingNum = d3Config.rings[matchingTechnology.ring].num;
-          const blipSegment = segment(quadNum, newRingNum);
-          const { x, y } = blipSegment.random();
-          return {
+          const modifiedBlip: Blip = {
             ...blip,
-            x,
-            y,
             isNew: matchingTechnology.isNew,
             ring: matchingTechnology.ring,
-            segment: blipSegment,
             color: d3Config.quadrants[quadNum].color,
           };
+          if (blip.isNew !== matchingTechnology.isNew) {
+            modifiedBlip.animate = 'bounce';
+          }
+          if (blip.ring !== matchingTechnology.ring) {
+            const newRingNum = d3Config.rings[matchingTechnology.ring].num;
+            const blipSegment = segment(quadNum, newRingNum);
+            const { x, y } = blipSegment.random();
+            modifiedBlip.x = x;
+            modifiedBlip.y = y;
+            modifiedBlip.segment = blipSegment;
+            modifiedBlip.animate = 'translate';
+          }
+          return modifiedBlip;
         }
         return blip;
       });
