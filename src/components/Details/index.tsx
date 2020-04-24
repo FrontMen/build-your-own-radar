@@ -161,7 +161,7 @@ export const Details: React.FC = () => {
         Back to {quadrant.name}
       </BackLink>
       <Content>
-        <ContentTitle data-testid="details-content-title">{`Timeline: ${technologyParam}`}</ContentTitle>
+        <ContentTitle data-testid="details-content-title">{`Timeline: ${decodedTechName}`}</ContentTitle>
         <Timeline
           data-testid="details-timeline-container"
           color={quadrant.name}
