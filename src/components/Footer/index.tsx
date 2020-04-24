@@ -50,7 +50,7 @@ const FrontmenLink = styled.a`
   margin-top: 10px;
 
   &::before {
-    content: 'In Collaboration with Frontmen';
+    content: 'In collaboration with Frontmen';
     margin-right: 20px;
   }
 
