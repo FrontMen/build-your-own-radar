@@ -9,6 +9,7 @@ import { d3Actions } from 'redux/actions/d3';
 import { d3Config } from 'utils/d3-config';
 import { segment } from 'utils/d3';
 import { blipsSelector, changedTechnologiesSelector } from 'redux/selectors/d3';
+import { selectedTechnologyDataSetSelector } from 'redux/selectors/technologies';
 
 export const convertTechToBlips = (data: Technology[]) =>
   Object.values(
@@ -55,6 +56,9 @@ function* watchChangesSaga() {
   while (true) {
     yield take(EFilterActionTypes.SELECT_DATA_SET);
     const changed: Technology[] = yield select(changedTechnologiesSelector);
+    const selected: Technology[] = yield select(
+      selectedTechnologyDataSetSelector(),
+    );
     const blips: Blip[] = yield select(blipsSelector());
 
     if (changed.length > 0) {
@@ -62,6 +66,10 @@ function* watchChangesSaga() {
         const matchingTechnology = changed.find(
           technology => technology.name === blip.name,
         );
+        const selectedTechnology = selected.find(
+          technology => technology.name === blip.name,
+        );
+
         if (matchingTechnology) {
           const quadNum = matchingTechnology.quadrant;
           const modifiedBlip: Blip = {
@@ -69,6 +77,7 @@ function* watchChangesSaga() {
             isNew: matchingTechnology.isNew,
             ring: matchingTechnology.ring,
             color: d3Config.quadrants[quadNum].color,
+            positionId: selectedTechnology!.positionId,
           };
           if (blip.isNew !== matchingTechnology.isNew) {
             modifiedBlip.animate = 'bounce';
@@ -84,7 +93,7 @@ function* watchChangesSaga() {
           }
           return modifiedBlip;
         }
-        return blip;
+        return { ...blip, positionId: selectedTechnology!.positionId };
       });
 
       yield put(d3Actions.setBlips(updated));
