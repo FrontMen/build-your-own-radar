@@ -4,6 +4,7 @@ import { MediaQueries } from 'Theme/Helpers';
 import { Typography } from 'Theme/Typography';
 import { HeaderSlot } from '../shared/PageSlots';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Logo } from 'components/Header/Logo';
 
 const Slot = styled(HeaderSlot)`
@@ -31,11 +32,14 @@ const PageTitle = styled.h1`
   }
 `;
 
-export const Header = () => (
-  <Slot>
-    <StylelessLink to="/" data-testid="home-link">
-      <PageTitle>Tech Radar</PageTitle>
-    </StylelessLink>
-    <Logo />
-  </Slot>
-);
+export const Header = () => {
+  const { t } = useTranslation();
+  return (
+    <Slot>
+      <StylelessLink to="/" data-testid="home-link">
+        <PageTitle>{t('header.welcome')}</PageTitle>
+      </StylelessLink>
+      <Logo />
+    </Slot>
+  );
+};
