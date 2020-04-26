@@ -27,9 +27,10 @@ const options = {
 
 export interface SearchProps {
   setSelected: (a: string | null, shouldScroll?: boolean) => void;
+  className?: string | undefined;
 }
 
-export const Search: React.FC<SearchProps> = ({ setSelected }) => {
+export const Search: React.FC<SearchProps> = ({ setSelected, className }) => {
   const technologies = useSelector(selectedTechnologyDataSetSelector());
   const [value, setValue] = useState<string>('');
   const containerRef = useClickAway(setValue);
@@ -47,7 +48,11 @@ export const Search: React.FC<SearchProps> = ({ setSelected }) => {
   const dataEntries = Object.entries(data);
 
   return (
-    <Container data-testid="subnav-search-container" ref={containerRef}>
+    <Container
+      data-testid="subnav-search-container"
+      ref={containerRef}
+      className={className}
+    >
       <SearchIcon data-testid="search-icon" />
       <InputContainer>
         <Input

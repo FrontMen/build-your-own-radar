@@ -7,7 +7,7 @@ exports[`Home should render correctly when content is there 1`] = `
   padding: 16px;
 }
 
-.c8 {
+.c13 {
   font-family: Montserrat,san-serif;
   font-weight: 700;
   line-height: 1.15;
@@ -15,7 +15,7 @@ exports[`Home should render correctly when content is there 1`] = `
   text-transform: capitalize;
 }
 
-.c4 {
+.c9 {
   width: 100%;
   max-width: 800px;
   min-width: 280px;
@@ -24,8 +24,64 @@ exports[`Home should render correctly when content is there 1`] = `
   position: relative;
 }
 
-.c5 {
+.c10 {
   text-align: center;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  position: relative;
+  padding: 8px 0;
+  margin-bottom: 20px;
+}
+
+.c6 {
+  -webkit-flex: 0 0 1.5em;
+  -ms-flex: 0 0 1.5em;
+  flex: 0 0 1.5em;
+  height: 2em;
+  width: 2em;
+  margin: 5px;
+}
+
+.c8 {
+  border: none;
+  border-bottom: 2px solid;
+  border-color: #767676;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.c8:focus {
+  border-color: #526de4;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  position: relative;
 }
 
 .c1 {
@@ -34,13 +90,13 @@ exports[`Home should render correctly when content is there 1`] = `
   max-width: 60em;
 }
 
-.c6 {
+.c11 {
   display: grid;
   grid-template-columns: repeat(1fr);
   grid-gap: 32px;
 }
 
-.c7 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -59,14 +115,9 @@ exports[`Home should render correctly when content is there 1`] = `
   line-height: 1.65;
   margin: 0;
   margin-bottom: 16px;
-  height: 110px;
-  -webkit-scroll-y: auto;
-  -moz-scroll-y: auto;
-  -ms-scroll-y: auto;
-  scroll-y: auto;
 }
 
-.c9 {
+.c14 {
   position: relative;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -81,7 +132,7 @@ exports[`Home should render correctly when content is there 1`] = `
   border-color: #526de4;
 }
 
-.c9 img {
+.c14 img {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -92,7 +143,7 @@ exports[`Home should render correctly when content is there 1`] = `
   transition: transform 0.3s cubic-bezier(0.23,1,0.32,1);
 }
 
-.c9:hover img {
+.c14:hover img {
   -webkit-transform: translateX(5px);
   -ms-transform: translateX(5px);
   transform: translateX(5px);
@@ -107,6 +158,12 @@ exports[`Home should render correctly when content is there 1`] = `
   color: #526de4;
 }
 
+.c5 {
+  max-width: 60em;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
 @media (min-width:481px) {
   .c0 {
     padding: 32px;
@@ -114,7 +171,7 @@ exports[`Home should render correctly when content is there 1`] = `
 }
 
 @media (min-width:481px) {
-  .c8 {
+  .c13 {
     font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 16px;
@@ -122,49 +179,43 @@ exports[`Home should render correctly when content is there 1`] = `
 }
 
 @media (min-width:481px) {
-  .c4 {
+  .c9 {
     max-width: 80%;
     margin-bottom: 16px;
   }
 }
 
 @media (min-width:1024px) {
-  .c4 {
+  .c9 {
     max-width: 50%;
     margin-bottom: 64px;
   }
 }
 
 @media (min-width:1024px) {
-  .c5 {
+  .c10 {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
   }
 }
 
-@media (min-width:481px) {
-  .c1 {
-    margin-bottom: 16px;
-  }
-}
-
-@media (min-width:1024px) {
-  .c1 {
-    margin-bottom: 64px;
-  }
-}
-
 @media (min-width:768px) {
-  .c6 {
+  .c11 {
     grid-template-columns: repeat(auto-fit,minmax(25em,1fr));
   }
 }
 
 @media (min-width:768px) {
-  .c7 {
+  .c12 {
     width: 100%;
     margin-bottom: 32px;
+  }
+}
+
+@media (min-width:768px) {
+  .c3 {
+    height: 110px;
   }
 }
 
@@ -173,6 +224,12 @@ exports[`Home should render correctly when content is there 1`] = `
     font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 16px;
+  }
+}
+
+@media (min-width:768px) {
+  .c5 {
+    margin-top: 0;
   }
 }
 
@@ -198,10 +255,41 @@ exports[`Home should render correctly when content is there 1`] = `
       </p>
     </div>
     <div
-      class="c4"
+      class="c4 c5 home-search"
+      data-testid="subnav-search-container"
+    >
+      <svg
+        class="c6"
+        data-testid="search-icon"
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 512 512"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M443.5 420.2L336.7 312.4c20.9-26.2 33.5-59.4 33.5-95.5 0-84.5-68.5-153-153.1-153S64 132.5 64 217s68.5 153 153.1 153c36.6 0 70.1-12.8 96.5-34.2l106.1 107.1c3.2 3.4 7.6 5.1 11.9 5.1 4.1 0 8.2-1.5 11.3-4.5 6.6-6.3 6.8-16.7.6-23.3zm-226.4-83.1c-32.1 0-62.3-12.5-85-35.2-22.7-22.7-35.2-52.9-35.2-84.9 0-32.1 12.5-62.3 35.2-84.9 22.7-22.7 52.9-35.2 85-35.2s62.3 12.5 85 35.2c22.7 22.7 35.2 52.9 35.2 84.9 0 32.1-12.5 62.3-35.2 84.9-22.7 22.7-52.9 35.2-85 35.2z"
+        />
+      </svg>
+      <div
+        class="c7"
+      >
+        <input
+          class="c8"
+          data-testid="search-input"
+          placeholder="Search..."
+          type="search"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="c9"
     >
       <div
-        class="c5"
+        class="c10"
       >
         <svg
           data-testid="graph"
@@ -209,15 +297,15 @@ exports[`Home should render correctly when content is there 1`] = `
       </div>
     </div>
     <div
-      class="c6"
+      class="c11"
       data-testid="home-quadrants-wrapper"
     >
       <div
-        class="c7"
+        class="c12"
         data-testid="home-quadrant-0-container"
       >
         <h2
-          class="c8"
+          class="c13"
           data-testid="home-quadrant-0-title"
         >
           Tooling & Testing
@@ -229,7 +317,7 @@ exports[`Home should render correctly when content is there 1`] = `
           Successful application development relies on the use of the best suited frameworks, cms and programming languages. This quadrant displays the technologies we use for application development.
         </p>
         <a
-          class="c9"
+          class="c14"
           data-testid="home-quadrant-0-link"
           href="/frameworks-and-lang"
         >
@@ -242,11 +330,11 @@ exports[`Home should render correctly when content is there 1`] = `
         </a>
       </div>
       <div
-        class="c7"
+        class="c12"
         data-testid="home-quadrant-1-container"
       >
         <h2
-          class="c8"
+          class="c13"
           data-testid="home-quadrant-1-title"
         >
           Tooling & Testing
@@ -258,7 +346,7 @@ exports[`Home should render correctly when content is there 1`] = `
           To ensure effective application development and the delivery of applications with optimal UX, performance, maintainability and security, we use a range of tooling and testing frameworks.
         </p>
         <a
-          class="c9"
+          class="c14"
           data-testid="home-quadrant-1-link"
           href="/tooling-and-testing"
         >
@@ -271,11 +359,11 @@ exports[`Home should render correctly when content is there 1`] = `
         </a>
       </div>
       <div
-        class="c7"
+        class="c12"
         data-testid="home-quadrant-2-container"
       >
         <h2
-          class="c8"
+          class="c13"
           data-testid="home-quadrant-2-title"
         >
           Tooling & Testing
@@ -287,7 +375,7 @@ exports[`Home should render correctly when content is there 1`] = `
           Applications can be build on or served from platforms (e.g. SaaS) and/ or need platforms and infrastructure for hosting (e.g. cloud). Applications often rely on other applications to manage their data and message flows such as databases, caching applications or service/ message busses.
         </p>
         <a
-          class="c9"
+          class="c14"
           data-testid="home-quadrant-2-link"
           href="/platforms-infra-and-data"
         >
@@ -300,11 +388,11 @@ exports[`Home should render correctly when content is there 1`] = `
         </a>
       </div>
       <div
-        class="c7"
+        class="c12"
         data-testid="home-quadrant-3-container"
       >
         <h2
-          class="c8"
+          class="c13"
           data-testid="home-quadrant-3-title"
         >
           Tooling & Testing
@@ -316,7 +404,7 @@ exports[`Home should render correctly when content is there 1`] = `
           The design, development, hosting, maintenance and monitoring of applications and infrastructure can be complex. To ensure optimal efficiency and quality for all of these topics, we use a variety of proven techniques and market standards.
         </p>
         <a
-          class="c9"
+          class="c14"
           data-testid="home-quadrant-3-link"
           href="/technique"
         >
