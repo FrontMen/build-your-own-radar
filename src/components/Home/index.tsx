@@ -6,10 +6,7 @@ import { Graph } from 'components/Graph';
 import { HomePageSkeleton } from 'components/Skeleton/Homepage';
 import { Text } from 'components/Text';
 import { useSelector } from 'react-redux';
-import {
-  selectedTechnologyDataSetSelector,
-  technologiesLoadingStateSelector,
-} from 'redux/selectors/technologies';
+import { technologiesLoadingStateSelector } from 'redux/selectors/technologies';
 import {
   Intro,
   Quads,
@@ -28,7 +25,6 @@ export const Home: React.FC = () => {
   const { initialized, loading, error, errorMessage } = useSelector(
     technologiesLoadingStateSelector(),
   );
-  const technologies = useSelector(selectedTechnologyDataSetSelector());
   const blips = useSelector(blipsSelector());
   const showLoader = !initialized || loading;
 
@@ -41,11 +37,6 @@ export const Home: React.FC = () => {
         Unexpected error occurred: {errorMessage}
       </div>
     );
-  }
-
-  if (technologies === null) {
-    //TODO: define the state when no technologies from API
-    return null;
   }
 
   return (
@@ -73,7 +64,8 @@ export const Home: React.FC = () => {
                 data-testid={`home-quadrant-${i}-link`}
                 to={`/${quad.route}`}
               >
-                Overview of <Text value={`quadrant.${transKey}.name`} />
+                <Text value="words.overview" />
+                <Text value={`quadrant.${transKey}.name`} />
                 <img src={RightArrow} alt="right-arrow" />
               </StyledLinks>
             </Quadrant>

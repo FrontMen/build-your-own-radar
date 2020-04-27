@@ -6,7 +6,10 @@
     "about": "The Intracto Technology Radar displays our assessments about the risks and rewards of existing and upcoming technologies, tools and techniques we use to develop digital applications. It is a living document which is periodically updated by our experts and displays the evolution over time how we use these technologies and techniques."
   },
   "words": {
-    "more": "More"
+    "more": "More",
+    "back": "Back to ",
+    "overview": "Overview of ",
+    "search": "Search..."
   },
   "quadrant": {
     "framework": {
@@ -39,5 +42,8 @@
     "Hold": {
       "tooltip": "Proceed with caution."
     }
+  },
+  "details": {
+    "emptyDescription": "No Description Available"
   }
 }
