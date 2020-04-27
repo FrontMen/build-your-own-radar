@@ -7,6 +7,7 @@ import facebookLogo from 'res/svg/facebook.svg';
 import instagramLogo from 'res/svg/instagram.svg';
 import youtubeLogo from 'res/svg/youtube.svg';
 import linkedinLogo from 'res/svg/linkedin.svg';
+import i18n from 'i18n';
 
 const Slot = styled(FooterSlot)`
   display: flex;
@@ -79,6 +80,10 @@ const PrivacyLinks = styled.div`
   }
 `;
 
+const changeLanguage = (e: any) => {
+  i18n.changeLanguage(e.target.value);
+};
+
 export const Footer = () => (
   <Slot>
     <Links>
@@ -143,6 +148,10 @@ export const Footer = () => (
       >
         <Text value="footer.terms" />
       </a>
+      <select onChange={changeLanguage}>
+        <option value="en">English</option>
+        <option value="nl">Nederlands</option>
+      </select>
     </PrivacyLinks>
   </Slot>
 );
