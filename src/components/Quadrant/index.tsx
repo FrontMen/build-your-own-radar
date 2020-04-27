@@ -14,8 +14,11 @@ import {
   technologiesLoadingStateSelector,
 } from 'redux/selectors/technologies';
 import { selectedCompaniesSelector } from 'redux/selectors/filters';
-import { Slot, Content, Article } from './styled';
+import { quandrantDescription } from 'res/strings';
+import { Slot, Content, Article, Description } from './styled';
 import { filterBlipsSelector } from 'redux/selectors/d3';
+import { useMediaQuery } from 'react-responsive';
+import { MediaQueries } from 'Theme/Helpers';
 
 export const Quadrant = () => {
   const { quadrant: quadrantParam } = useParams<QuadParamType>();
@@ -25,6 +28,7 @@ export const Quadrant = () => {
   const { initialized, loading } = useSelector(
     technologiesLoadingStateSelector(),
   );
+  const isNotMobile = useMediaQuery({ query: `(${MediaQueries.phablet})` });
   const [highlighted, setHighlighted] = useState<null | string>(null);
   const [selected, setSelected] = useQueryAsState();
 
@@ -51,14 +55,21 @@ export const Quadrant = () => {
     quadrantNum
   ];
 
+  const intro = (
+    <>
+      <ContentTitle data-testid="quadrant-content-title">
+        {quadrantName}
+      </ContentTitle>
+      <Description>{quandrantDescription[quadrantNum]}</Description>
+    </>
+  );
+
   return (
     <Slot>
-      <SubNav setSelected={setSelected} />
+      <SubNav setSelected={setSelected}>{!isNotMobile && intro}</SubNav>
       <Content>
         <Article>
-          <ContentTitle data-testid="quadrant-content-title">
-            {quadrantName}
-          </ContentTitle>
+          {isNotMobile && intro}
           {filteredTechnologies.length > 0 ? (
             <TechLists
               data-testid="tech-lists"
