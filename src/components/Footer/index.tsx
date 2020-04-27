@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FooterSlot } from '../shared/PageSlots';
 import { MediaQueries } from 'Theme/Helpers';
+import { Text } from 'components/Text';
 import facebookLogo from 'res/svg/facebook.svg';
 import instagramLogo from 'res/svg/instagram.svg';
 import youtubeLogo from 'res/svg/youtube.svg';
@@ -49,8 +50,7 @@ const FrontmenLink = styled.a`
   opacity: 0.8;
   margin-top: 10px;
 
-  &::before {
-    content: 'In collaboration with Frontmen';
+  span {
     margin-right: 20px;
   }
 
@@ -116,7 +116,9 @@ export const Footer = () => (
         href="https://www.frontmen.nl/"
         data-testid="footer-Frontmen-link"
         target="_blank"
-      />
+      >
+        <Text value="footer.frontmen" />
+      </FrontmenLink>
     </Links>
     <PrivacyLinks>
       <a
@@ -124,7 +126,7 @@ export const Footer = () => (
         target="_blank"
         rel="noopener noreferrer"
       >
-        cookie policy
+        <Text value="footer.cookie" />
       </a>
       <a
         href="https://www.intracto.com/en-be/privacy-policy"
@@ -132,14 +134,14 @@ export const Footer = () => (
         rel="noopener noreferrer"
         data-testid="footer-Intracto-link"
       >
-        privacy policy
+        <Text value="footer.privacy" />
       </a>
       <a
         href="https://www.intracto.com/en-be/conditions"
         target="_blank"
         rel="noopener noreferrer"
       >
-        terms & conditions
+        <Text value="footer.terms" />
       </a>
     </PrivacyLinks>
   </Slot>

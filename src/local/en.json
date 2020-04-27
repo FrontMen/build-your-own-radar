@@ -45,5 +45,11 @@
   },
   "details": {
     "emptyDescription": "No Description Available"
+  },
+  "footer": {
+    "frontmen": "In collaboration with Frontmen",
+    "cookie": "cookie policy",
+    "privacy": "privacy policy",
+    "terms": "terms & conditions"
   }
 }
