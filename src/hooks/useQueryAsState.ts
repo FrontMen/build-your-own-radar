@@ -22,18 +22,20 @@ export const useQueryAsState = () => {
     (route: string, shouldScroll?: boolean) => {
       if (route) {
         history.push(route);
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const [_, positionId] = route.split('='); // Lazy split, the logic could be improved!
-        setTimeout(() => {
-          const element = document.getElementById(`${positionId}`);
-          if (element && shouldScroll) {
-            element.scrollIntoView({
-              behavior: 'smooth',
-              block: 'end',
-              inline: 'nearest',
-            });
-          }
-        }, 0);
+        if (shouldScroll) {
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const [_, positionId] = route.split('='); // Lazy split, the logic could be improved!
+          setTimeout(() => {
+            const element = document.getElementById(`${positionId}`);
+            if (element) {
+              element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'end',
+                inline: 'nearest',
+              });
+            }
+          });
+        }
       }
     },
     [history],
