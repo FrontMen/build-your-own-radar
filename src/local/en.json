@@ -5,6 +5,9 @@
   "home": {
     "about": "The Intracto Technology Radar displays our assessments about the risks and rewards of existing and upcoming technologies, tools and techniques we use to develop digital applications. It is a living document which is periodically updated by our experts and displays the evolution over time how we use these technologies and techniques."
   },
+  "words": {
+    "more": "More"
+  },
   "quadrant": {
     "framework": {
       "name": "Frameworks, CMS & Programming Languages",
@@ -21,6 +24,20 @@
     "techniques": {
       "name": "Techniques",
       "description": "The design, development, hosting, maintenance and monitoring of applications and infrastructure can be complex. To ensure optimal efficiency and quality for all of these topics, we use a variety of proven techniques and market standards."
+    }
+  },
+  "rings": {
+    "Adopt": {
+      "tooltip": "We feel strongly that the industry should be adopting these items. We use them when appropriate on our projects."
+    },
+    "Trial": {
+      "tooltip": "Worth pursuing. It is important to understand how to build up this capability. Enterprises should try this technology on a project that can handle the risk."
+    },
+    "Assess": {
+      "tooltip": "Worth exploring with the goal of understanding how it will affect your enterprise."
+    },
+    "Hold": {
+      "tooltip": "Proceed with caution."
     }
   }
 }
