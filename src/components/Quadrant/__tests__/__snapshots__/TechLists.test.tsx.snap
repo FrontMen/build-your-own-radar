@@ -190,7 +190,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
         >
           ?
           <span>
-            We feel strongly that the industry should be adopting these items. We use them when appropriate on our projects.
+            rings.Adopt.tooltip
           </span>
         </span>
       </h3>
@@ -220,7 +220,9 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
                 class="c10"
                 href="/tools/Alpine"
               >
-                More 
+                <span>
+                  words.more
+                </span>
                 <svg
                   class="c11"
                   data-testid="arrow-right-icon"
@@ -261,7 +263,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
         >
           ?
           <span>
-            Worth pursuing. It is important to understand how to build up this capability. Enterprises should try this technology on a project that can handle the risk.
+            rings.Trial.tooltip
           </span>
         </span>
       </h3>
@@ -293,7 +295,9 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
                 class="c10"
                 href="/tools/AMQP"
               >
-                More 
+                <span>
+                  words.more
+                </span>
                 <svg
                   class="c11"
                   data-testid="arrow-right-icon"
@@ -334,7 +338,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
         >
           ?
           <span>
-            Worth exploring with the goal of understanding how it will affect your enterprise.
+            rings.Assess.tooltip
           </span>
         </span>
       </h3>
@@ -366,7 +370,9 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
                 class="c10"
                 href="/tools/A-Frame"
               >
-                More 
+                <span>
+                  words.more
+                </span>
                 <svg
                   class="c11"
                   data-testid="arrow-right-icon"
@@ -409,7 +415,9 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
                 class="c10"
                 href="/tools/Angular 2%2B"
               >
-                More 
+                <span>
+                  words.more
+                </span>
                 <svg
                   class="c11"
                   data-testid="arrow-right-icon"
@@ -450,7 +458,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
         >
           ?
           <span>
-            Proceed with caution.
+            rings.Hold.tooltip
           </span>
         </span>
       </h3>
@@ -480,7 +488,9 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
                 class="c10"
                 href="/tools/AngularJS (Angular 1)"
               >
-                More 
+                <span>
+                  words.more
+                </span>
                 <svg
                   class="c11"
                   data-testid="arrow-right-icon"

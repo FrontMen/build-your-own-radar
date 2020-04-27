@@ -73,8 +73,7 @@ describe('Home', () => {
           'have.css',
           'background-color',
           hexToRgb(d3Config.quadrants[(2 + i) % 4].color),
-        )
-        .should('have.text', d3Config.quadrants[(2 + i) % 4].name);
+        );
     });
   });
 });

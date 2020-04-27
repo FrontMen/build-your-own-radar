@@ -91,7 +91,9 @@ exports[`TechItem it should matches the snapshot with default values 1`] = `
           class="c4"
           href="/tools/A-Frame"
         >
-          More 
+          <span>
+            words.more
+          </span>
           <svg
             class="c5"
             data-testid="arrow-right-icon"

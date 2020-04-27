@@ -73,7 +73,9 @@ exports[`Header matches the snapshot 1`] = `
       <h1
         class="c2"
       >
-        header.welcome
+        <span>
+          header.sitename
+        </span>
       </h1>
     </a>
     <svg
@@ -165,7 +167,9 @@ exports[`Header matches the snapshot 2`] = `
       <h1
         class="c2"
       >
-        header.welcome
+        <span>
+          header.sitename
+        </span>
       </h1>
     </a>
     <svg

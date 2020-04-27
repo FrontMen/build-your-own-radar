@@ -8,13 +8,13 @@ describe('SubNav component', () => {
   const setHighlighted = jest.fn();
 
   it('Selected quadrant should be coloured', () => {
-    const { getByText } = withAllProviders(
+    const { getByTestId } = withAllProviders(
       <SubNav setHighlighted={setHighlighted} />,
 
       { path: '/:quadrant', route: '/foo' },
     );
 
-    const link = getByText('Tooling en testing');
+    const link = getByTestId('subnav-link-1');
 
     expect(link).toHaveStyleRule(
       'background-color',

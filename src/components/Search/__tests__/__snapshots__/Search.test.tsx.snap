@@ -83,7 +83,7 @@ exports[`Search render search icon and input field 1`] = `
       <input
         class="c3"
         data-testid="search-input"
-        placeholder="Search..."
+        placeholder="words.search"
         type="search"
         value=""
       />
