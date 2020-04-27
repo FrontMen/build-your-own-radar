@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from '../';
+import { Text } from '..';
 import { mount } from 'enzyme';
 import { TranslationWrapper } from 'test/helpers';
 
