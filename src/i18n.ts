@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import englishTranslation from 'local/en.json';
+import dutchTranslation from 'local/nl.json';
 
 i18n.use(LanguageDetector).init({
   resources: {
@@ -8,9 +9,7 @@ i18n.use(LanguageDetector).init({
       radar: englishTranslation,
     },
     nl: {
-      radar: {
-        welcome: 'Hello translation (Dutch)',
-      },
+      radar: dutchTranslation,
     },
   },
   fallbackLng: 'en',

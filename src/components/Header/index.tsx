@@ -4,8 +4,9 @@ import { MediaQueries } from 'Theme/Helpers';
 import { Typography } from 'Theme/Typography';
 import { HeaderSlot } from '../shared/PageSlots';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Logo } from 'components/Header/Logo';
+import { Text } from 'components/Text';
+// import i18n from 'i18n';
 
 const Slot = styled(HeaderSlot)`
   height: 48px;
@@ -33,11 +34,17 @@ const PageTitle = styled.h1`
 `;
 
 export const Header = () => {
-  const { t } = useTranslation();
+  // const handleClick = () => {
+  //   const nextLanguage = i18n.language === 'nl' ? 'en' : 'nl';
+  //   i18n.changeLanguage(nextLanguage);
+  // };
+
   return (
     <Slot>
       <StylelessLink to="/" data-testid="home-link">
-        <PageTitle>{t('header.welcome')}</PageTitle>
+        <PageTitle>
+          <Text value="header.sitename" />
+        </PageTitle>
       </StylelessLink>
       <Logo />
     </Slot>

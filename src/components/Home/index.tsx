@@ -4,6 +4,7 @@ import { ContentTitle } from 'components/shared/ContentTitle';
 import { d3Config } from 'utils/d3-config';
 import { Graph } from 'components/Graph';
 import { HomePageSkeleton } from 'components/Skeleton/Homepage';
+import { Text } from 'components/Text';
 import { useSelector } from 'react-redux';
 import {
   selectedTechnologyDataSetSelector,
@@ -18,8 +19,9 @@ import {
   AboutTitle,
 } from './styled';
 import { blipsSelector } from 'redux/selectors/d3';
-import { quandrantDescription, aboutText, quandrantNames } from 'res/strings';
 import RightArrow from 'res/svg/arrow-right.svg';
+
+const translationMapper = ['framework', 'tooling', 'platform', 'techniques'];
 
 export const Home: React.FC = () => {
   const quads = d3Config.quadrants;
@@ -50,27 +52,33 @@ export const Home: React.FC = () => {
     <MainContentSlot>
       <Intro data-testid="home-intro">
         <AboutTitle data-testid="home-intro-title">About</AboutTitle>
-        <Content data-testid="home-intro-content">{aboutText}</Content>
+        <Content data-testid="home-intro-content">
+          <Text value="home.about" />
+        </Content>
       </Intro>
       <Graph highlighted={null} blips={blips} />
       <Quads data-testid="home-quadrants-wrapper">
-        {quads.map((quad, i) => (
-          <Quadrant key={i} data-testid={`home-quadrant-${i}-container`}>
-            <ContentTitle data-testid={`home-quadrant-${i}-title`}>
-              {quandrantNames[1]}
-            </ContentTitle>
-            <Content data-testid={`home-quadrant-${i}-content`}>
-              {quandrantDescription[i]}
-            </Content>
-            <StyledLinks
-              data-testid={`home-quadrant-${i}-link`}
-              to={`/${quad.route}`}
-            >
-              Overview of {quandrantNames[i]}
-              <img src={RightArrow} alt="right-arrow" />
-            </StyledLinks>
-          </Quadrant>
-        ))}
+        {quads.map((quad, i) => {
+          const transKey = translationMapper[i];
+
+          return (
+            <Quadrant key={i} data-testid={`home-quadrant-${i}-container`}>
+              <ContentTitle data-testid={`home-quadrant-${i}-title`}>
+                <Text value={`quadrant.${transKey}.name`} />
+              </ContentTitle>
+              <Content data-testid={`home-quadrant-${i}-content`}>
+                <Text value={`quadrant.${transKey}.description`} />
+              </Content>
+              <StyledLinks
+                data-testid={`home-quadrant-${i}-link`}
+                to={`/${quad.route}`}
+              >
+                Overview of <Text value={`quadrant.${transKey}.name`} />
+                <img src={RightArrow} alt="right-arrow" />
+              </StyledLinks>
+            </Quadrant>
+          );
+        })}
       </Quads>
     </MainContentSlot>
   );
