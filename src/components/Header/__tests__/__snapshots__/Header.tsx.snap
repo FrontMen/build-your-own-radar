@@ -73,7 +73,7 @@ exports[`Header matches the snapshot 1`] = `
       <h1
         class="c2"
       >
-        Tech Radar
+        header.welcome
       </h1>
     </a>
     <svg
@@ -165,7 +165,7 @@ exports[`Header matches the snapshot 2`] = `
       <h1
         class="c2"
       >
-        Tech Radar
+        header.welcome
       </h1>
     </a>
     <svg

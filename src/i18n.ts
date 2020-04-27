@@ -14,13 +14,10 @@ i18n.use(LanguageDetector).init({
     },
   },
   fallbackLng: 'en',
-  debug: true,
 
   // have a common namespace used around the full app
   ns: ['radar'],
   defaultNS: 'radar',
-
-  // keySeparator: false,
 
   interpolation: {
     formatSeparator: ',',
