@@ -148,8 +148,8 @@ export const Footer = () => (
       >
         <Text value="footer.terms" />
       </a>
-      <select onChange={changeLanguage}>
-        <option value="en">English</option>
+      <select onChange={changeLanguage} defaultValue={i18n.language}>
+        <option value="en-US">English</option>
         <option value="nl">Nederlands</option>
       </select>
     </PrivacyLinks>

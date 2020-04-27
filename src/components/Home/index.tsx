@@ -17,8 +17,7 @@ import {
 } from './styled';
 import { blipsSelector } from 'redux/selectors/d3';
 import RightArrow from 'res/svg/arrow-right.svg';
-
-const translationMapper = ['framework', 'tooling', 'platform', 'techniques'];
+import { transMapper } from 'utils';
 
 export const Home: React.FC = () => {
   const quads = d3Config.quadrants;
@@ -50,7 +49,7 @@ export const Home: React.FC = () => {
       <Graph highlighted={null} blips={blips} />
       <Quads data-testid="home-quadrants-wrapper">
         {quads.map((quad, i) => {
-          const transKey = translationMapper[i];
+          const transKey = transMapper[i];
 
           return (
             <Quadrant key={i} data-testid={`home-quadrant-${i}-container`}>

@@ -8,6 +8,7 @@ import { Search } from 'components/Search';
 import { FilterByCompany } from 'components/FilterByCompany';
 import { DataSetFilter } from 'components/DataSetFilter';
 import { Text } from 'components/Text';
+import { transMapper } from 'utils';
 
 const Container = styled.div`
   display: flex;
@@ -68,8 +69,6 @@ export interface Params {
   technology?: string;
 }
 
-const translationMapper = ['framework', 'tooling', 'platform', 'techniques'];
-
 export const SubNav = ({ setSelected }: PropTypes) => {
   const { quadrant: quadrantPram } = useParams<Params>();
 
@@ -85,7 +84,7 @@ export const SubNav = ({ setSelected }: PropTypes) => {
               to={`/${route}`}
               key={name}
             >
-              <Text value={`quadrant.${translationMapper[index]}.name`} />
+              <Text value={`quadrant.${transMapper[index]}.name`} />
             </ColoredLinks>
           ),
         )}

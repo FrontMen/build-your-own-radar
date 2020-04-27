@@ -8,6 +8,7 @@ import { useHistory } from 'react-router';
 import { useSelector } from 'react-redux';
 import { changedTechnologiesSelector } from 'redux/selectors/d3';
 import { Text } from 'components/Text';
+import { transMapper } from 'utils';
 
 const GraphWrapper = styled.div<{ fullSize: boolean | undefined }>`
   width: 100%;
@@ -82,8 +83,6 @@ export interface GraphProps {
   quadrantNum?: number;
 }
 
-const translationMapper = ['framework', 'tooling', 'platform', 'techniques'];
-
 export const Graph: React.FC<GraphProps> = ({
   highlighted,
   quadrantNum,
@@ -153,7 +152,7 @@ export const Graph: React.FC<GraphProps> = ({
           hoveredQuadrant={hoveredQuadrant}
           position={getTooltipPosition(hoveredQuadrant)}
         >
-          <Text value={`quadrant.${translationMapper[hoveredQuadrant]}.name`} />
+          <Text value={`quadrant.${transMapper[hoveredQuadrant]}.name`} />
         </QuadrantToolTip>
       )}
     </GraphWrapper>

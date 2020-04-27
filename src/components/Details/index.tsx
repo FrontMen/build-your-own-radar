@@ -14,7 +14,7 @@ import {
   allTechnologyDataSetSelector,
   technologiesLoadingStateSelector,
 } from 'redux/selectors/technologies';
-import { dateFormat } from 'utils';
+import { dateFormat, transMapper } from 'utils';
 
 const Slot = styled(MainContentSlot)``;
 const BackLink = styled(({ quadName, ...props }) => <Link {...props} />)`
@@ -115,8 +115,6 @@ export interface DetailsParams {
   quadrant?: string;
 }
 
-const translationMapper = ['framework', 'tooling', 'platform', 'techniques'];
-
 export const Details: React.FC = () => {
   const { quadrant: quadrantParam, technology: technologyParam } = useParams<
     DetailsParams
@@ -161,7 +159,7 @@ export const Details: React.FC = () => {
         data-testid="details-back-link"
       >
         <ArrowLeftIcon />
-        <Text value={`quadrant.${translationMapper[quadrantIndex]}.name`} />
+        <Text value={`quadrant.${transMapper[quadrantIndex]}.name`} />
       </BackLink>
       <Content>
         <ContentTitle data-testid="details-content-title">{`Timeline: ${decodedTechName}`}</ContentTitle>

@@ -16,8 +16,7 @@ import {
 import { selectedCompaniesSelector } from 'redux/selectors/filters';
 import { Slot, Content, Article } from './styled';
 import { filterBlipsSelector } from 'redux/selectors/d3';
-
-const translationMapper = ['framework', 'tooling', 'platform', 'techniques'];
+import { transMapper } from 'utils';
 
 export const Quadrant = () => {
   const { quadrant: quadrantParam } = useParams<QuadParamType>();
@@ -57,7 +56,7 @@ export const Quadrant = () => {
       <Content>
         <Article>
           <ContentTitle data-testid="quadrant-content-title">
-            <Text value={`quadrant.${translationMapper[quadrantNum]}.name`} />
+            <Text value={`quadrant.${transMapper[quadrantNum]}.name`} />
           </ContentTitle>
           {filteredTechnologies.length > 0 ? (
             <TechLists

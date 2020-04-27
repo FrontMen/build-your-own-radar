@@ -31,3 +31,5 @@ export const dateFormat = (date: string | null) => {
     })
     .replace(/ /g, ', ');
 };
+
+export const transMapper = ['framework', 'tooling', 'platform', 'techniques'];
