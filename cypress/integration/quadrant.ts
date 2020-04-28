@@ -264,9 +264,7 @@ describe('quadrant', () => {
 
   describe('technologies list', () => {
     it('renders content', () => {
-      dataTestId('quadrant-content-title')
-        .should('exist')
-        .and('contain.text', d3Config.quadrants[0].name);
+      dataTestId('quadrant-content-title').should('exist');
 
       dataTestId('tech-lists-section').should('exist');
 

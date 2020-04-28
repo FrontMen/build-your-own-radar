@@ -268,28 +268,36 @@ exports[`SubNav component should match snapshot 1`] = `
       data-testid="subnav-link-0"
       href="/frameworks-and-lang"
     >
-      Frameworks, CMS & Programmeertalen
+      <span>
+        quadrant.framework.name
+      </span>
     </a>
     <a
       class="c1 c3"
       data-testid="subnav-link-1"
       href="/tooling-and-testing"
     >
-      Tooling en testing
+      <span>
+        quadrant.tooling.name
+      </span>
     </a>
     <a
       class="c1 c4"
       data-testid="subnav-link-2"
       href="/platforms-infra-and-data"
     >
-      Platforms, infrastructure & Data
+      <span>
+        quadrant.platform.name
+      </span>
     </a>
     <a
       class="c1 c5"
       data-testid="subnav-link-3"
       href="/technique"
     >
-      Technieken
+      <span>
+        quadrant.techniques.name
+      </span>
     </a>
   </div>
   <div
@@ -320,7 +328,7 @@ exports[`SubNav component should match snapshot 1`] = `
         <input
           class="c9"
           data-testid="search-input"
-          placeholder="Search..."
+          placeholder="words.search"
           type="search"
           value=""
         />

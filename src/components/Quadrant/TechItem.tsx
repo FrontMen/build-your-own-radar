@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Typography } from 'Theme/Typography';
 import { MediaQueries } from 'Theme/Helpers';
 import { Link } from 'react-router-dom';
+import { Text } from 'components/Text';
 import { IoIosArrowRoundForward } from 'react-icons/io';
 
 const ListItem = styled.li`
@@ -126,7 +127,7 @@ export class TechItem extends React.Component<TechnologyProps> {
           <Content>
             <span dangerouslySetInnerHTML={{ __html: description }} />
             <DetailsLink to={`/${quadrant}/${encodeURIComponent(name)}`}>
-              {'More '}
+              <Text value="words.more" />
               <ArrowRightIcon data-testid="arrow-right-icon" />
             </DetailsLink>
           </Content>

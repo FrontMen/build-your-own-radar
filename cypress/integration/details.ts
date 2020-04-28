@@ -26,7 +26,7 @@ describe('Details', () => {
 
       dataTestId('details-back-link')
         .should('be.visible')
-        .should('have.text', 'Back to Platforms, infrastructure & Data');
+        .should('have.text', 'Platforms, Infrastructure & Data');
 
       dataTestId(' details-content-title')
         .should('be.visible')

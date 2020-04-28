@@ -3,18 +3,12 @@ import { Link } from 'react-router-dom';
 import { MediaQueries } from 'Theme/Helpers';
 import { Typography } from 'Theme/Typography';
 import { ContentTitle } from 'components/shared/ContentTitle';
+import { Search } from 'components/Search';
 
 export const Intro = styled.div`
   margin: auto;
   margin-bottom: ${props => props.theme.space[2]}px;
   max-width: 60em;
-
-  @media (${MediaQueries.phablet}) {
-    margin-bottom: ${props => props.theme.space[3]}px;
-  }
-  @media (${MediaQueries.desktop}) {
-    margin-bottom: ${props => props.theme.space[5]}px;
-  }
 `;
 
 export const Quads = styled.div`
@@ -43,8 +37,10 @@ export const Content = styled.p`
   ${Typography.body};
   margin: 0;
   margin-bottom: ${props => props.theme.space[3]}px;
-  height: 110px;
-  scroll-y: auto;
+
+  @media (${MediaQueries.tablet}) {
+    height: 110px;
+  }
 `;
 
 export const StyledLinks = styled(Link)`
@@ -77,4 +73,14 @@ export const StyledLinks = styled(Link)`
 
 export const AboutTitle = styled(ContentTitle)`
   color: ${props => props.theme.pallet.blue};
+`;
+
+export const HomeSearch = styled(Search)`
+  max-width: 60em;
+  margin: 0 auto;
+  margin-bottom: 20px;
+
+  @media (${MediaQueries.tablet}) {
+    margin-top: 0;
+  }
 `;

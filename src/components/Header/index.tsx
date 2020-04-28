@@ -5,6 +5,7 @@ import { Typography } from 'Theme/Typography';
 import { HeaderSlot } from '../shared/PageSlots';
 import { Link } from 'react-router-dom';
 import { Logo } from 'components/Header/Logo';
+import { Text } from 'components/Text';
 
 const Slot = styled(HeaderSlot)`
   height: 48px;
@@ -34,7 +35,9 @@ const PageTitle = styled.h1`
 export const Header = () => (
   <Slot>
     <StylelessLink to="/" data-testid="home-link">
-      <PageTitle>Tech Radar</PageTitle>
+      <PageTitle>
+        <Text value="header.sitename" />
+      </PageTitle>
     </StylelessLink>
     <Logo />
   </Slot>

@@ -7,6 +7,8 @@ import { d3Config } from 'utils/d3-config';
 import { Search } from 'components/Search';
 import { FilterByCompany } from 'components/FilterByCompany';
 import { DataSetFilter } from 'components/DataSetFilter';
+import { Text } from 'components/Text';
+import { transMapper } from 'utils';
 
 const Container = styled.div`
   display: flex;
@@ -58,16 +60,17 @@ const ColoredLinks = styled(({ selected, quadName, ...props }) => (
   }
 `;
 
-type PropTypes = {
+interface SubNavProps {
   setSelected: (a: string | null, shouldScroll?: boolean) => void;
-};
+  children?: React.ReactNode;
+}
 
 export interface Params {
   quadrant?: string;
   technology?: string;
 }
 
-export const SubNav = ({ setSelected }: PropTypes) => {
+export const SubNav: React.FC<SubNavProps> = ({ setSelected, children }) => {
   const { quadrant: quadrantPram } = useParams<Params>();
 
   return (
@@ -82,12 +85,13 @@ export const SubNav = ({ setSelected }: PropTypes) => {
               to={`/${route}`}
               key={name}
             >
-              {name}
+              <Text value={`quadrant.${transMapper[index]}.name`} />
             </ColoredLinks>
           ),
         )}
       </Container>
       <Container>
+        {children}
         <Search setSelected={setSelected} />
         <DataSetFilter />
         <FilterByCompany />

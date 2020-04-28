@@ -118,3 +118,8 @@ export const Article = styled.div`
     max-width: 50%;
   }
 `;
+
+export const Description = styled.p`
+  ${Typography.body};
+  margin: 0 0 ${props => props.theme.space[2]}px;
+`;
