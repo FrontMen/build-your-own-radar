@@ -81,8 +81,8 @@ const QuadrantToolTipMobile = styled.div<{
   left: ${props => mobileToolTipConfig[props.hoveredQuadrant].left};
   right: ${props => mobileToolTipConfig[props.hoveredQuadrant].right};
   bottom: ${props => mobileToolTipConfig[props.hoveredQuadrant].bottom};
-  width: 220px;
-  padding: 0 20px;
+  width: 160px;
+  padding: 0;
   text-align: center;
   font-weight: bold;
   font-family: Montserrat, san-serif;
