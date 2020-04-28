@@ -15,6 +15,7 @@ import { d3Config } from 'utils/d3-config';
 import { useSelector } from 'react-redux';
 import { selectedTechnologyDataSetSelector } from 'redux/selectors/technologies';
 import { useClickAway } from 'hooks/useClickAway';
+import { useTranslation } from 'react-i18next';
 
 const options = {
   keys: [
@@ -34,6 +35,7 @@ export const Search: React.FC<SearchProps> = ({ setSelected, className }) => {
   const technologies = useSelector(selectedTechnologyDataSetSelector());
   const [value, setValue] = useState<string>('');
   const containerRef = useClickAway(setValue);
+  const { t } = useTranslation();
 
   const data = useMemo(() => {
     if (value.length < 2) return [];
@@ -59,7 +61,7 @@ export const Search: React.FC<SearchProps> = ({ setSelected, className }) => {
           data-testid="search-input"
           value={value}
           onChange={e => setValue(e.target.value)}
-          placeholder={'Search...'}
+          placeholder={t('words.search')}
           type="search"
         />
       </InputContainer>

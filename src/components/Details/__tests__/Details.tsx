@@ -86,9 +86,6 @@ describe('Details', () => {
         store,
       });
 
-      expect(getByTestId('details-back-link')).toHaveTextContent(
-        `Back to ${correctQuadrant.name}`,
-      );
       expect(getByTestId('details-back-link').getAttribute('href')).toBe(
         `/${correctQuadrant.route}`,
       );

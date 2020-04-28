@@ -3,11 +3,13 @@ import { Route, Router, Switch } from 'react-router-dom';
 import { createMemoryHistory, History } from 'history';
 import { render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components/macro';
+import { I18nextProvider } from 'react-i18next';
 import { lightTheme } from 'Theme';
 import { Provider } from 'react-redux';
 import { rootStateBuilder, storeCreator } from 'test/builders';
 import { IRootState } from 'redux/reducers';
 import { MockStore } from '@jedmao/redux-mock-store';
+import i18n from './i18nTest';
 
 interface Params {
   route?: string;
@@ -106,3 +108,7 @@ export const getSelector = (id: string) => ({
   'data-testid': id,
 });
 // #endregion Enzyme
+
+export const TranslationWrapper = (Component: ReactNode) => {
+  return <I18nextProvider i18n={i18n}>{Component}</I18nextProvider>;
+};

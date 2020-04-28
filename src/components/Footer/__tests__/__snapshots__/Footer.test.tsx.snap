@@ -69,8 +69,7 @@ exports[`Footer should matches the snapshot 1`] = `
   margin-top: 10px;
 }
 
-.c3::before {
-  content: 'In collaboration with Frontmen';
+.c3 span {
   margin-right: 20px;
 }
 
@@ -163,7 +162,11 @@ exports[`Footer should matches the snapshot 1`] = `
         data-testid="footer-Frontmen-link"
         href="https://www.frontmen.nl/"
         target="_blank"
-      />
+      >
+        <span>
+          footer.frontmen
+        </span>
+      </a>
     </div>
     <div
       class="c4"
@@ -173,7 +176,9 @@ exports[`Footer should matches the snapshot 1`] = `
         rel="noopener noreferrer"
         target="_blank"
       >
-        cookie policy
+        <span>
+          footer.cookie
+        </span>
       </a>
       <a
         data-testid="footer-Intracto-link"
@@ -181,15 +186,31 @@ exports[`Footer should matches the snapshot 1`] = `
         rel="noopener noreferrer"
         target="_blank"
       >
-        privacy policy
+        <span>
+          footer.privacy
+        </span>
       </a>
       <a
         href="https://www.intracto.com/en-be/conditions"
         rel="noopener noreferrer"
         target="_blank"
       >
-        terms & conditions
+        <span>
+          footer.terms
+        </span>
       </a>
+      <select>
+        <option
+          value="en-US"
+        >
+          English
+        </option>
+        <option
+          value="nl"
+        >
+          Nederlands
+        </option>
+      </select>
     </div>
   </footer>
 </div>

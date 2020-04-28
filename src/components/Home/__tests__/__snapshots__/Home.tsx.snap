@@ -361,7 +361,9 @@ exports[`Home should render correctly when content is there 1`] = `
         class="c3"
         data-testid="home-intro-content"
       >
-        The Intracto Technology Radar displays our assessments about the risks and rewards of existing and upcoming technologies, tools and techniques we use to develop digital applications. It is a living document which is periodically updated by our experts and displays the evolution over time how we use these technologies and techniques.
+        <span>
+          home.about
+        </span>
       </p>
     </div>
     <div
@@ -389,7 +391,7 @@ exports[`Home should render correctly when content is there 1`] = `
         <input
           class="c8"
           data-testid="search-input"
-          placeholder="Search..."
+          placeholder="words.search"
           type="search"
           value=""
         />
@@ -442,21 +444,29 @@ exports[`Home should render correctly when content is there 1`] = `
           class="c17"
           data-testid="home-quadrant-0-title"
         >
-          Tooling & Testing
+          <span>
+            quadrant.framework.name
+          </span>
         </h2>
         <p
           class="c3"
           data-testid="home-quadrant-0-content"
         >
-          Successful application development relies on the use of the best suited frameworks, cms and programming languages. This quadrant displays the technologies we use for application development.
+          <span>
+            quadrant.framework.description
+          </span>
         </p>
         <a
           class="c18"
           data-testid="home-quadrant-0-link"
           href="/frameworks-and-lang"
         >
-          Overview of 
-          Frameworks, CMS & programming languages
+          <span>
+            words.overview
+          </span>
+          <span>
+            quadrant.framework.name
+          </span>
           <img
             alt="right-arrow"
             src="arrow-right.svg"
@@ -471,21 +481,29 @@ exports[`Home should render correctly when content is there 1`] = `
           class="c17"
           data-testid="home-quadrant-1-title"
         >
-          Tooling & Testing
+          <span>
+            quadrant.tooling.name
+          </span>
         </h2>
         <p
           class="c3"
           data-testid="home-quadrant-1-content"
         >
-          To ensure effective application development and the delivery of applications with optimal UX, performance, maintainability and security, we use a range of tooling and testing frameworks.
+          <span>
+            quadrant.tooling.description
+          </span>
         </p>
         <a
           class="c18"
           data-testid="home-quadrant-1-link"
           href="/tooling-and-testing"
         >
-          Overview of 
-          Tooling & Testing
+          <span>
+            words.overview
+          </span>
+          <span>
+            quadrant.tooling.name
+          </span>
           <img
             alt="right-arrow"
             src="arrow-right.svg"
@@ -500,21 +518,29 @@ exports[`Home should render correctly when content is there 1`] = `
           class="c17"
           data-testid="home-quadrant-2-title"
         >
-          Tooling & Testing
+          <span>
+            quadrant.platform.name
+          </span>
         </h2>
         <p
           class="c3"
           data-testid="home-quadrant-2-content"
         >
-          Applications can be build on or served from platforms (e.g. SaaS) and/ or need platforms and infrastructure for hosting (e.g. cloud). Applications often rely on other applications to manage their data and message flows such as databases, caching applications or service/ message busses.
+          <span>
+            quadrant.platform.description
+          </span>
         </p>
         <a
           class="c18"
           data-testid="home-quadrant-2-link"
           href="/platforms-infra-and-data"
         >
-          Overview of 
-          Platforms, infrastructure & data
+          <span>
+            words.overview
+          </span>
+          <span>
+            quadrant.platform.name
+          </span>
           <img
             alt="right-arrow"
             src="arrow-right.svg"
@@ -529,21 +555,29 @@ exports[`Home should render correctly when content is there 1`] = `
           class="c17"
           data-testid="home-quadrant-3-title"
         >
-          Tooling & Testing
+          <span>
+            quadrant.techniques.name
+          </span>
         </h2>
         <p
           class="c3"
           data-testid="home-quadrant-3-content"
         >
-          The design, development, hosting, maintenance and monitoring of applications and infrastructure can be complex. To ensure optimal efficiency and quality for all of these topics, we use a variety of proven techniques and market standards.
+          <span>
+            quadrant.techniques.description
+          </span>
         </p>
         <a
           class="c18"
           data-testid="home-quadrant-3-link"
           href="/technique"
         >
-          Overview of 
-          Techniques
+          <span>
+            words.overview
+          </span>
+          <span>
+            quadrant.techniques.name
+          </span>
           <img
             alt="right-arrow"
             src="arrow-right.svg"

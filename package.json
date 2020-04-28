@@ -5,10 +5,13 @@
   "dependencies": {
     "d3": "^5.15.0",
     "fuse.js": "^5.0.9-beta",
+    "i18next": "^19.4.3",
+    "i18next-browser-languagedetector": "^4.1.1",
     "lodash.groupby": "^4.6.0",
     "react": "^16.12.0",
     "react-content-loader": "^5.0.2",
     "react-dom": "^16.12.0",
+    "react-i18next": "^11.3.5",
     "react-icons": "^3.9.0",
     "react-redux": "^7.2.0",
     "react-responsive": "^8.0.3",

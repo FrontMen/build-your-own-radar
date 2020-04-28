@@ -1,12 +1,12 @@
 import React, { useMemo, useState } from 'react';
 import { Redirect, useParams } from 'react-router';
-
 import { TechLists } from './TechLists';
 import { d3Config } from 'utils/d3-config';
 import { Graph } from 'components/Graph';
 import { ContentTitle } from 'components/shared/ContentTitle';
 import { SubNav } from 'components/SubNav';
 import { QuadrantPageSkeleton } from 'components/Skeleton/Quadrantpage';
+import { Text } from 'components/Text';
 import { useQueryAsState } from 'hooks/useQueryAsState';
 import { useSelector } from 'react-redux';
 import {
@@ -14,9 +14,9 @@ import {
   technologiesLoadingStateSelector,
 } from 'redux/selectors/technologies';
 import { selectedCompaniesSelector } from 'redux/selectors/filters';
-import { quandrantDescription } from 'res/strings';
 import { Slot, Content, Article, Description } from './styled';
 import { filterBlipsSelector } from 'redux/selectors/d3';
+import { transMapper } from 'utils';
 import { useMediaQuery } from 'react-responsive';
 import { MediaQueries } from 'Theme/Helpers';
 
@@ -51,16 +51,16 @@ export const Quadrant = () => {
   if (quadrantNum < 0) return <Redirect to="not-found" />;
   if (showLoader) return <QuadrantPageSkeleton />;
 
-  const { color: quadrantColor, name: quadrantName } = d3Config.quadrants[
-    quadrantNum
-  ];
+  const { color: quadrantColor } = d3Config.quadrants[quadrantNum];
 
   const intro = (
     <>
       <ContentTitle data-testid="quadrant-content-title">
-        {quadrantName}
+        <Text value={`quadrant.${transMapper[quadrantNum]}.name`} />
       </ContentTitle>
-      <Description>{quandrantDescription[quadrantNum]}</Description>
+      <Description>
+        <Text value={`quadrant.${transMapper[quadrantNum]}.description`} />
+      </Description>
     </>
   );
 

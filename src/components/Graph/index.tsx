@@ -7,6 +7,8 @@ import { MediaQueries } from 'Theme/Helpers';
 import { useHistory } from 'react-router';
 import { useSelector } from 'react-redux';
 import { changedTechnologiesSelector } from 'redux/selectors/d3';
+import { Text } from 'components/Text';
+import { transMapper } from 'utils';
 import mobileToolTipConfig from './mobileToolTipConfig';
 
 const GraphWrapper = styled.div<{ fullSize: boolean | undefined }>`
@@ -175,7 +177,7 @@ export const Graph: React.FC<GraphProps> = ({
           hoveredQuadrant={hoveredQuadrant}
           position={getTooltipPosition(hoveredQuadrant)}
         >
-          {d3Config.quadrants[hoveredQuadrant].name}
+          <Text value={`quadrant.${transMapper[hoveredQuadrant]}.name`} />
         </QuadrantToolTip>
       )}
       {!isNotMobile &&

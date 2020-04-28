@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { MainContentSlot } from 'components/shared/PageSlots';
 import { ContentTitle } from 'components/shared/ContentTitle';
 import { DetailsSkeleton } from 'components/Skeleton/Details';
-
+import { Text } from 'components/Text';
 import { Link } from 'react-router-dom';
 import { d3Config } from 'utils/d3-config';
 import { Typography } from 'Theme/Typography';
@@ -14,8 +14,7 @@ import {
   allTechnologyDataSetSelector,
   technologiesLoadingStateSelector,
 } from 'redux/selectors/technologies';
-import { dateFormat } from 'utils';
-import { emptyDescription } from 'res/strings';
+import { dateFormat, transMapper } from 'utils';
 
 const Slot = styled(MainContentSlot)``;
 const BackLink = styled(({ quadName, ...props }) => <Link {...props} />)`
@@ -124,7 +123,7 @@ export const Details: React.FC = () => {
   const { loading, initialized } = useSelector(
     technologiesLoadingStateSelector(),
   );
-  const quadrant = d3Config.quadrants.find(
+  const quadrantIndex = d3Config.quadrants.findIndex(
     quad => quad.route === quadrantParam,
   );
   const decodedTechName = decodeURIComponent(technologyParam || '');
@@ -148,36 +147,37 @@ export const Details: React.FC = () => {
 
   if (loading || !initialized) return <DetailsSkeleton />;
 
-  if (!quadrant || !technologies.length) return <Redirect to="/not-found" />;
+  if (quadrantIndex < 0 || !technologies.length)
+    return <Redirect to="/not-found" />;
 
+  const quadrantName = d3Config.quadrants[quadrantIndex].name;
   return (
     <Slot>
       <BackLink
-        quadName={quadrant.name}
+        quadName={quadrantName}
         to={`/${quadrantParam}`}
         data-testid="details-back-link"
       >
         <ArrowLeftIcon />
-        Back to {quadrant.name}
+        <Text value={`quadrant.${transMapper[quadrantIndex]}.name`} />
       </BackLink>
       <Content>
         <ContentTitle data-testid="details-content-title">{`Timeline: ${decodedTechName}`}</ContentTitle>
-        <Timeline
-          data-testid="details-timeline-container"
-          color={quadrant.name}
-        >
+        <Timeline data-testid="details-timeline-container" color={quadrantName}>
           {technologies.map((item, index) => (
             <TimelineItem
               data-testid={`details-timeline-item-${index}`}
               key={index}
               value={dateFormat(item!.date)}
-              color={quadrant.name}
+              color={quadrantName}
             >
               <h3>{item!.name}</h3>
               {item?.description ? (
                 <p>{item!.description}</p>
               ) : (
-                <Tag>{emptyDescription}</Tag>
+                <Tag>
+                  <Text value="details.emptyDescription" />
+                </Tag>
               )}
             </TimelineItem>
           ))}
