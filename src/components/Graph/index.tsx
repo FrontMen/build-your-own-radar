@@ -9,21 +9,24 @@ import { useSelector } from 'react-redux';
 import { changedTechnologiesSelector } from 'redux/selectors/d3';
 import { Text } from 'components/Text';
 import { transMapper } from 'utils';
+import mobileToolTipConfig from './mobileToolTipConfig';
 
 const GraphWrapper = styled.div<{ fullSize: boolean | undefined }>`
   width: 100%;
   max-width: ${props => (props.fullSize ? '800px' : '440px')};
   min-width: 280px;
   height: auto;
-  margin: 0 auto ${props => props.theme.space[2]}px;
+  margin: 40px auto 50px;
   position: relative;
 
   @media (${MediaQueries.phablet}) {
     max-width: 80%;
+    margin-top: ${props => props.theme.space[3]}px;
     margin-bottom: ${props => props.theme.space[3]}px;
   }
   @media (${MediaQueries.desktop}) {
     max-width: 50%;
+    margin-top: ${props => props.theme.space[3]}px;
     margin-bottom: ${props => props.theme.space[5]}px;
   }
 `;
@@ -65,6 +68,28 @@ const QuadrantToolTip = styled.div<{
   border-radius: 5px;
   font-family: Montserrat, san-serif;
   pointer-events: none;
+`;
+
+const QuadrantToolTipMobile = styled.div<{
+  hoveredQuadrant: number;
+}>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: ${props => mobileToolTipConfig[props.hoveredQuadrant].top};
+  left: ${props => mobileToolTipConfig[props.hoveredQuadrant].left};
+  right: ${props => mobileToolTipConfig[props.hoveredQuadrant].right};
+  bottom: ${props => mobileToolTipConfig[props.hoveredQuadrant].bottom};
+  width: 220px;
+  padding: 0 20px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Montserrat, san-serif;
+  pointer-events: none;
+  transform: rotateZ(
+    ${props => mobileToolTipConfig[props.hoveredQuadrant].rotateZ}
+  );
 `;
 
 const getTooltipPosition = (quadrant: number) => {
@@ -155,6 +180,16 @@ export const Graph: React.FC<GraphProps> = ({
           <Text value={`quadrant.${transMapper[hoveredQuadrant]}.name`} />
         </QuadrantToolTip>
       )}
+      {!isNotMobile &&
+        d3Config.quadrants.map(({ name }, index) => (
+          <QuadrantToolTipMobile
+            key={name}
+            data-testid="graph-tooltip-mobile"
+            hoveredQuadrant={index}
+          >
+            {name}
+          </QuadrantToolTipMobile>
+        ))}
     </GraphWrapper>
   );
 };

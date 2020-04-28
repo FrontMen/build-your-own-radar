@@ -5,6 +5,7 @@ import { d3Config } from 'utils/d3-config';
 import { Graph } from 'components/Graph';
 import { HomePageSkeleton } from 'components/Skeleton/Homepage';
 import { Text } from 'components/Text';
+import { useQueryAsState } from 'hooks/useQueryAsState';
 import { useSelector } from 'react-redux';
 import { technologiesLoadingStateSelector } from 'redux/selectors/technologies';
 import {
@@ -14,6 +15,7 @@ import {
   Content,
   StyledLinks,
   AboutTitle,
+  HomeSearch,
 } from './styled';
 import { blipsSelector } from 'redux/selectors/d3';
 import RightArrow from 'res/svg/arrow-right.svg';
@@ -25,6 +27,8 @@ export const Home: React.FC = () => {
     technologiesLoadingStateSelector(),
   );
   const blips = useSelector(blipsSelector());
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_, setSelected] = useQueryAsState();
   const showLoader = !initialized || loading;
 
   if (showLoader) return <HomePageSkeleton />;
@@ -46,6 +50,7 @@ export const Home: React.FC = () => {
           <Text value="home.about" />
         </Content>
       </Intro>
+      <HomeSearch setSelected={setSelected} className="home-search" />
       <Graph highlighted={null} blips={blips} />
       <Quads data-testid="home-quadrants-wrapper">
         {quads.map((quad, i) => {

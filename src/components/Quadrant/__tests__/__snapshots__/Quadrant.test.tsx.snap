@@ -454,7 +454,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   justify-content: space-between;
 }
 
-.c19 {
+.c21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -468,7 +468,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   flex-grow: 1;
 }
 
-.c20 {
+.c22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -479,20 +479,136 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   padding-right: 8px;
 }
 
-.c22 {
+.c8 {
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  margin: 0 0 8px;
+}
+
+.c23 {
   width: 100%;
   max-width: 440px;
   min-width: 280px;
   height: auto;
-  margin: 0 auto 8px;
+  margin: 40px auto 50px;
   position: relative;
 }
 
-.c23 {
+.c24 {
   text-align: center;
 }
 
-.c21 {
+.c25 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  right: -10%;
+  bottom: -3%;
+  width: 220px;
+  padding: 0 20px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Montserrat,san-serif;
+  pointer-events: none;
+  -webkit-transform: rotateZ( -35deg );
+  -ms-transform: rotateZ( -35deg );
+  transform: rotateZ( -35deg );
+}
+
+.c26 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  left: -15%;
+  bottom: 5%;
+  width: 220px;
+  padding: 0 20px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Montserrat,san-serif;
+  pointer-events: none;
+  -webkit-transform: rotateZ( 35deg );
+  -ms-transform: rotateZ( 35deg );
+  transform: rotateZ( 35deg );
+}
+
+.c27 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: -15%;
+  width: 220px;
+  padding: 0 20px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Montserrat,san-serif;
+  pointer-events: none;
+  -webkit-transform: rotateZ( -34deg );
+  -ms-transform: rotateZ( -34deg );
+  transform: rotateZ( -34deg );
+}
+
+.c28 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  top: 5%;
+  right: -15%;
+  width: 220px;
+  padding: 0 20px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Montserrat,san-serif;
+  pointer-events: none;
+  -webkit-transform: rotateZ( 36deg );
+  -ms-transform: rotateZ( 36deg );
+  transform: rotateZ( 36deg );
+}
+
+.c7 {
   font-family: Montserrat,san-serif;
   font-weight: 700;
   line-height: 1.15;
@@ -500,7 +616,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   text-transform: capitalize;
 }
 
-.c7 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -514,7 +630,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   margin-bottom: 20px;
 }
 
-.c8 {
+.c10 {
   -webkit-flex: 0 0 1.5em;
   -ms-flex: 0 0 1.5em;
   flex: 0 0 1.5em;
@@ -523,7 +639,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   margin: 5px;
 }
 
-.c10 {
+.c12 {
   border: none;
   border-bottom: 2px solid;
   border-color: #767676;
@@ -538,11 +654,11 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   -webkit-appearance: none;
 }
 
-.c10:focus {
+.c12:focus {
   border-color: #526de4;
 }
 
-.c9 {
+.c11 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -556,7 +672,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   position: relative;
 }
 
-.c18 {
+.c20 {
   border: 2px solid #526de4;
   background-color: #526de4;
   padding: 2px;
@@ -582,7 +698,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   line-height: 1.65;
 }
 
-.c17 {
+.c19 {
   font-family: Roboto,san-serif;
   font-size: 1em;
   font-weight: 400;
@@ -590,7 +706,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   margin-right: 16px;
 }
 
-.c16 {
+.c18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -606,7 +722,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   align-items: center;
 }
 
-.c15 {
+.c17 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -617,7 +733,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   margin: 8px 0;
 }
 
-.c11 {
+.c13 {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
@@ -627,7 +743,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   margin-bottom: 20px;
 }
 
-.c12 {
+.c14 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -649,7 +765,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   justify-content: space-between;
 }
 
-.c14 {
+.c16 {
   fill: #767676;
   width: 1em;
   height: 1em;
@@ -660,7 +776,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   transform: scale( 1 );
 }
 
-.c13 {
+.c15 {
   margin-right: 8px;
 }
 
@@ -725,33 +841,35 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
 }
 
 @media (min-width:481px) {
-  .c20 {
+  .c22 {
     padding-right: 16px;
   }
 }
 
 @media (min-width:1024px) {
-  .c20 {
+  .c22 {
     max-width: 50%;
   }
 }
 
 @media (min-width:481px) {
-  .c22 {
+  .c23 {
     max-width: 80%;
+    margin-top: 16px;
     margin-bottom: 16px;
   }
 }
 
 @media (min-width:1024px) {
-  .c22 {
+  .c23 {
     max-width: 50%;
+    margin-top: 16px;
     margin-bottom: 64px;
   }
 }
 
 @media (min-width:1024px) {
-  .c23 {
+  .c24 {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -759,7 +877,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
 }
 
 @media (min-width:481px) {
-  .c21 {
+  .c7 {
     font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 16px;
@@ -767,7 +885,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
 }
 
 @media (min-width:1024px) {
-  .c11 {
+  .c13 {
     margin-left: 0.5em;
   }
 }
@@ -857,12 +975,27 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
     <div
       class="c1"
     >
-      <div
+      <h2
         class="c7"
+        data-testid="quadrant-content-title"
+      >
+        <span>
+          quadrant.techniques.name
+        </span>
+      </h2>
+      <p
+        class="c8"
+      >
+        <span>
+          quadrant.techniques.description
+        </span>
+      </p>
+      <div
+        class="c9"
         data-testid="subnav-search-container"
       >
         <svg
-          class="c8"
+          class="c10"
           data-testid="search-icon"
           fill="currentColor"
           height="1em"
@@ -877,10 +1010,10 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
           />
         </svg>
         <div
-          class="c9"
+          class="c11"
         >
           <input
-            class="c10"
+            class="c12"
             data-testid="search-input"
             placeholder="words.search"
             type="search"
@@ -889,20 +1022,20 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
         </div>
       </div>
       <div
-        class="c11"
+        class="c13"
         data-testid="dataSetFilter-container"
       >
         <div
-          class="c12"
+          class="c14"
           data-testid="dataSetFilter-anchor"
         >
           <span
-            class="c13"
+            class="c15"
             data-testid="dataSetFilter-text"
           />
           <svg
             aria-hidden="true"
-            class="c14"
+            class="c16"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -914,20 +1047,20 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
         </div>
       </div>
       <div
-        class="c15"
+        class="c17"
         data-testid="subnav-filters-container"
       >
         <div
-          class="c16"
+          class="c18"
           data-testid="ITR_BE"
         >
           <label
-            class="c17"
+            class="c19"
           >
             Intracto BE
           </label>
           <span
-            class="c18"
+            class="c20"
             data-testid="checkbox"
           >
             <svg
@@ -948,16 +1081,16 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
           </span>
         </div>
         <div
-          class="c16"
+          class="c18"
           data-testid="ITR_NL"
         >
           <label
-            class="c17"
+            class="c19"
           >
             Intracto NL
           </label>
           <span
-            class="c18"
+            class="c20"
             data-testid="checkbox"
           >
             <svg
@@ -978,16 +1111,16 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
           </span>
         </div>
         <div
-          class="c16"
+          class="c18"
           data-testid="FM"
         >
           <label
-            class="c17"
+            class="c19"
           >
             Frontmen
           </label>
           <span
-            class="c18"
+            class="c20"
             data-testid="checkbox"
           >
             <svg
@@ -1010,19 +1143,11 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
       </div>
     </div>
     <div
-      class="c19"
+      class="c21"
     >
       <div
-        class="c20"
+        class="c22"
       >
-        <h2
-          class="c21"
-          data-testid="quadrant-content-title"
-        >
-          <span>
-            quadrant.techniques.name
-          </span>
-        </h2>
         <p
           data-testid="quadrant-no-content"
         >
@@ -1037,14 +1162,38 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
         </p>
       </div>
       <div
-        class="c22"
+        class="c23"
       >
         <div
-          class="c23"
+          class="c24"
         >
           <svg
             data-testid="graph"
           />
+        </div>
+        <div
+          class="c25"
+          data-testid="graph-tooltip-mobile"
+        >
+          Frameworks, CMS & Programmeertalen
+        </div>
+        <div
+          class="c26"
+          data-testid="graph-tooltip-mobile"
+        >
+          Tooling en testing
+        </div>
+        <div
+          class="c27"
+          data-testid="graph-tooltip-mobile"
+        >
+          Platforms, infrastructure & Data
+        </div>
+        <div
+          class="c28"
+          data-testid="graph-tooltip-mobile"
+        >
+          Technieken
         </div>
       </div>
     </div>

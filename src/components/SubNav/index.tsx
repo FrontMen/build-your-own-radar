@@ -60,16 +60,17 @@ const ColoredLinks = styled(({ selected, quadName, ...props }) => (
   }
 `;
 
-type PropTypes = {
+interface SubNavProps {
   setSelected: (a: string | null, shouldScroll?: boolean) => void;
-};
+  children?: React.ReactNode;
+}
 
 export interface Params {
   quadrant?: string;
   technology?: string;
 }
 
-export const SubNav = ({ setSelected }: PropTypes) => {
+export const SubNav: React.FC<SubNavProps> = ({ setSelected, children }) => {
   const { quadrant: quadrantPram } = useParams<Params>();
 
   return (
@@ -90,6 +91,7 @@ export const SubNav = ({ setSelected }: PropTypes) => {
         )}
       </Container>
       <Container>
+        {children}
         <Search setSelected={setSelected} />
         <DataSetFilter />
         <FilterByCompany />
