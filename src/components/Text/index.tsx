@@ -6,7 +6,7 @@ type PropTypes = {
   value?: string;
 };
 
-export const Text = ({ tag, value }: PropTypes) => {
+export const Text: React.FC<PropTypes> = ({ tag, value }) => {
   const { t } = useTranslation();
   const Tag: React.ElementType = tag || 'span';
 
