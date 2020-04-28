@@ -4,12 +4,14 @@ import { SubNav } from 'components/SubNav';
 import { fireEvent } from '@testing-library/react';
 import { lightTheme } from 'Theme';
 
+const child = <div data-testid="child" />;
+
 describe('SubNav component', () => {
-  const setHighlighted = jest.fn();
+  const setSelected = jest.fn();
 
   it('Selected quadrant should be coloured', () => {
     const { getByText } = withAllProviders(
-      <SubNav setHighlighted={setHighlighted} />,
+      <SubNav setSelected={setSelected} />,
 
       { path: '/:quadrant', route: '/foo' },
     );
@@ -31,11 +33,20 @@ describe('SubNav component', () => {
 
   it('should match snapshot', () => {
     const { container } = withAllProviders(
-      <SubNav setHighlighted={setHighlighted} />,
+      <SubNav setSelected={setSelected} />,
 
       { path: '/:quadrant', route: '/foo' },
     );
 
     expect(container).toMatchSnapshot();
+  });
+
+  it('should render children if exist', () => {
+    const { getByTestId } = withAllProviders(
+      <SubNav setSelected={setSelected}>{child}</SubNav>,
+
+      { path: '/:quadrant', route: '/foo' },
+    );
+    expect(getByTestId('child')).toBeTruthy();
   });
 });
