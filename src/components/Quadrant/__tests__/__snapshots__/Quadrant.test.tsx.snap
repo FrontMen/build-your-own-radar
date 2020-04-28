@@ -492,12 +492,120 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   max-width: 440px;
   min-width: 280px;
   height: auto;
-  margin: 0 auto 8px;
+  margin: 40px auto 50px;
   position: relative;
 }
 
 .c24 {
   text-align: center;
+}
+
+.c25 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  right: -10%;
+  bottom: -3%;
+  width: 220px;
+  padding: 0 20px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Montserrat,san-serif;
+  pointer-events: none;
+  -webkit-transform: rotateZ( -35deg );
+  -ms-transform: rotateZ( -35deg );
+  transform: rotateZ( -35deg );
+}
+
+.c26 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  left: -15%;
+  bottom: 5%;
+  width: 220px;
+  padding: 0 20px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Montserrat,san-serif;
+  pointer-events: none;
+  -webkit-transform: rotateZ( 35deg );
+  -ms-transform: rotateZ( 35deg );
+  transform: rotateZ( 35deg );
+}
+
+.c27 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: -15%;
+  width: 220px;
+  padding: 0 20px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Montserrat,san-serif;
+  pointer-events: none;
+  -webkit-transform: rotateZ( -34deg );
+  -ms-transform: rotateZ( -34deg );
+  transform: rotateZ( -34deg );
+}
+
+.c28 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  top: 5%;
+  right: -15%;
+  width: 220px;
+  padding: 0 20px;
+  text-align: center;
+  font-weight: bold;
+  font-family: Montserrat,san-serif;
+  pointer-events: none;
+  -webkit-transform: rotateZ( 36deg );
+  -ms-transform: rotateZ( 36deg );
+  transform: rotateZ( 36deg );
 }
 
 .c7 {
@@ -747,6 +855,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
 @media (min-width:481px) {
   .c23 {
     max-width: 80%;
+    margin-top: 16px;
     margin-bottom: 16px;
   }
 }
@@ -754,6 +863,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
 @media (min-width:1024px) {
   .c23 {
     max-width: 50%;
+    margin-top: 16px;
     margin-bottom: 64px;
   }
 }
@@ -1048,6 +1158,30 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
           <svg
             data-testid="graph"
           />
+        </div>
+        <div
+          class="c25"
+          data-testid="graph-tooltip-mobile"
+        >
+          Frameworks, CMS & Programmeertalen
+        </div>
+        <div
+          class="c26"
+          data-testid="graph-tooltip-mobile"
+        >
+          Tooling en testing
+        </div>
+        <div
+          class="c27"
+          data-testid="graph-tooltip-mobile"
+        >
+          Platforms, infrastructure & Data
+        </div>
+        <div
+          class="c28"
+          data-testid="graph-tooltip-mobile"
+        >
+          Technieken
         </div>
       </div>
     </div>
