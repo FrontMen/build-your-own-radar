@@ -14,16 +14,17 @@ const GraphWrapper = styled.div<{ fullSize: boolean | undefined }>`
   max-width: ${props => (props.fullSize ? '800px' : '440px')};
   min-width: 280px;
   height: auto;
-  margin: ${props => props.theme.space[3]}px auto
-    ${props => props.theme.space[4]}px;
+  margin: 40px auto 50px;
   position: relative;
 
   @media (${MediaQueries.phablet}) {
     max-width: 80%;
+    margin-top: ${props => props.theme.space[3]}px;
     margin-bottom: ${props => props.theme.space[3]}px;
   }
   @media (${MediaQueries.desktop}) {
     max-width: 50%;
+    margin-top: ${props => props.theme.space[3]}px;
     margin-bottom: ${props => props.theme.space[5]}px;
   }
 `;

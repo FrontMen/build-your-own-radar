@@ -492,7 +492,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   max-width: 440px;
   min-width: 280px;
   height: auto;
-  margin: 16px auto 32px;
+  margin: 40px auto 50px;
   position: relative;
 }
 
@@ -855,6 +855,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
 @media (min-width:481px) {
   .c23 {
     max-width: 80%;
+    margin-top: 16px;
     margin-bottom: 16px;
   }
 }
@@ -862,6 +863,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
 @media (min-width:1024px) {
   .c23 {
     max-width: 50%;
+    margin-top: 16px;
     margin-bottom: 64px;
   }
 }
