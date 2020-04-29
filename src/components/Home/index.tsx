@@ -45,9 +45,9 @@ export const Home: React.FC = () => {
   return (
     <MainContentSlot>
       <Intro data-testid="home-intro">
-        <AboutTitle data-testid="home-intro-title">About</AboutTitle>
+        <AboutTitle data-testid="home-intro-title"><Text value="about.name" /></AboutTitle>
         <Content data-testid="home-intro-content">
-          <Text value="home.about" />
+          <Text value="about.description" />
         </Content>
       </Intro>
       <HomeSearch setSelected={setSelected} className="home-search" />

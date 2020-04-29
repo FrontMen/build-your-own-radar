@@ -355,14 +355,16 @@ exports[`Home should render correctly when content is there 1`] = `
         class="c2"
         data-testid="home-intro-title"
       >
-        About
+        <span>
+          about.name
+        </span>
       </h2>
       <p
         class="c3"
         data-testid="home-intro-content"
       >
         <span>
-          home.about
+          about.description
         </span>
       </p>
     </div>
