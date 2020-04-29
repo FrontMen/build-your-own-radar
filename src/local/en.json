@@ -2,8 +2,9 @@
   "header": {
     "sitename": "Tech Radar"
   },
-  "home": {
-    "about": "The Intracto Technology Radar displays our assessments about the risks and rewards of existing and upcoming technologies, tools and techniques we use to develop digital applications. It is a living document which is periodically updated by our experts and displays the evolution over time how we use these technologies and techniques."
+  "about": {
+    "name": "About",
+    "description": "The Intracto Technology Radar displays our assessments about the risks and rewards of existing and upcoming technologies, tools and techniques we use to develop digital applications. It is a living document which is periodically updated by our experts and displays the evolution over time how we use these technologies and techniques."
   },
   "words": {
     "more": "More",
@@ -44,7 +45,7 @@
     }
   },
   "details": {
-    "emptyDescription": "No Description Available"
+    "emptyDescription": "No description available"
   },
   "footer": {
     "frontmen": "In collaboration with Frontmen",
