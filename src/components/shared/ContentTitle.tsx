@@ -5,7 +5,6 @@ import { MediaQueries } from 'Theme/Helpers';
 export const ContentTitle = styled.h2`
   ${Typography.header};
   font-size: ${props => props.theme.fontSize[1]}em;
-  text-transform: capitalize;
 
   @media (${MediaQueries.phablet}) {
     font-size: ${props => props.theme.fontSize[1]}em;
