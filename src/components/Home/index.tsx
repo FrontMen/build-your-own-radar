@@ -45,7 +45,9 @@ export const Home: React.FC = () => {
   return (
     <MainContentSlot>
       <Intro data-testid="home-intro">
-        <AboutTitle data-testid="home-intro-title"><Text value="about.name" /></AboutTitle>
+        <AboutTitle data-testid="home-intro-title">
+          <Text value="about.name" />
+        </AboutTitle>
         <Content data-testid="home-intro-content">
           <Text value="about.description" />
         </Content>
@@ -68,8 +70,8 @@ export const Home: React.FC = () => {
                 data-testid={`home-quadrant-${i}-link`}
                 to={`/${quad.route}`}
               >
-                <Text value="words.overview" />
                 <Text value={`quadrant.${transKey}.name`} />
+                <Text value="words.overview" />
                 <img src={RightArrow} alt="right-arrow" />
               </StyledLinks>
             </Quadrant>

@@ -32,7 +32,7 @@ describe('Home', () => {
       dataTestId(`home-quadrant-${i}-container`).should('be.visible');
 
       dataTestId(`home-quadrant-${i}-link`)
-        .contains('Overview of')
+        .contains('overview')
         .click();
 
       cy.url().should('include', `/${quadrant.route}`);

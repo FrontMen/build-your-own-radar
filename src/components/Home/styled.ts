@@ -36,7 +36,7 @@ export const Quadrant = styled.div`
 export const Content = styled.p`
   ${Typography.body};
   margin: 0;
-  margin-bottom: ${props => props.theme.space[3]}px;
+  margin-bottom: ${props => props.theme.space[4]}px;
 
   @media (${MediaQueries.tablet}) {
     height: 110px;
