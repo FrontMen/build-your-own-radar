@@ -7,9 +7,11 @@ import { PageGrid } from 'components/shared/PageGrid';
 import { Header } from 'components/Header';
 import { Footer } from 'components/Footer';
 import { NotFound } from 'components/NotFound';
+import { ScrollToTop } from 'hooks/topScroll';
 
 export const Router: React.FC = () => (
   <BrowserRouter>
+    <ScrollToTop />
     <PageGrid>
       <Header />
       <Switch>
