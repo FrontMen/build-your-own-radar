@@ -61,7 +61,8 @@ describe('Home', () => {
 
     //intro
     expect(getByTestId('home-intro')).toBeTruthy();
-    expect(getByTestId('home-intro-title')).toHaveTextContent('About');
+    expect(getByTestId('home-intro-title')).toHaveTextContent('about.name');
+    expect(getByTestId('home-intro-content')).toHaveTextContent('about.description');
 
     //Graph
     expect(getByTestId('graph')).toBeTruthy();
