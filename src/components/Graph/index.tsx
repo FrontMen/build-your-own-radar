@@ -129,6 +129,7 @@ export const Graph: React.FC<GraphProps> = ({
   const changed = useSelector(changedTechnologiesSelector);
   const isNotMobile = useMediaQuery({ query: `(${MediaQueries.phablet})` });
   const isFullSize = typeof quadrantNum === 'undefined';
+  const showMobileToolTips = isFullSize && !isNotMobile;
 
   useEffect(() => {
     if (d3Container.current) {
@@ -180,7 +181,7 @@ export const Graph: React.FC<GraphProps> = ({
           <Text value={`quadrant.${transMapper[hoveredQuadrant]}.name`} />
         </QuadrantToolTip>
       )}
-      {!isNotMobile &&
+      {showMobileToolTips &&
         d3Config.quadrants.map(({ name }, index) => (
           <QuadrantToolTipMobile
             key={name}
