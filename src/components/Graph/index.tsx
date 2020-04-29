@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux';
 import { changedTechnologiesSelector } from 'redux/selectors/d3';
 import { Text } from 'components/Text';
 import { transMapper } from 'utils';
-import mobileToolTipConfig from './mobileToolTipConfig';
 
 const GraphWrapper = styled.div<{ fullSize: boolean | undefined }>`
   width: 100%;
@@ -70,28 +69,6 @@ const QuadrantToolTip = styled.div<{
   pointer-events: none;
 `;
 
-const QuadrantToolTipMobile = styled.div<{
-  hoveredQuadrant: number;
-}>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: ${props => mobileToolTipConfig[props.hoveredQuadrant].top};
-  left: ${props => mobileToolTipConfig[props.hoveredQuadrant].left};
-  right: ${props => mobileToolTipConfig[props.hoveredQuadrant].right};
-  bottom: ${props => mobileToolTipConfig[props.hoveredQuadrant].bottom};
-  width: 160px;
-  padding: 0;
-  text-align: center;
-  font-weight: bold;
-  font-family: Montserrat, san-serif;
-  pointer-events: none;
-  transform: rotateZ(
-    ${props => mobileToolTipConfig[props.hoveredQuadrant].rotateZ}
-  );
-`;
-
 const getTooltipPosition = (quadrant: number) => {
   let position: tooltipPosition = {};
   quadrant > 1 ? (position.top = 10) : (position.bottom = 10);
@@ -129,7 +106,6 @@ export const Graph: React.FC<GraphProps> = ({
   const changed = useSelector(changedTechnologiesSelector);
   const isNotMobile = useMediaQuery({ query: `(${MediaQueries.phablet})` });
   const isFullSize = typeof quadrantNum === 'undefined';
-  const showMobileToolTips = isFullSize && !isNotMobile;
 
   useEffect(() => {
     if (d3Container.current) {
@@ -181,16 +157,6 @@ export const Graph: React.FC<GraphProps> = ({
           <Text value={`quadrant.${transMapper[hoveredQuadrant]}.name`} />
         </QuadrantToolTip>
       )}
-      {showMobileToolTips &&
-        d3Config.quadrants.map(({ name }, index) => (
-          <QuadrantToolTipMobile
-            key={name}
-            data-testid="graph-tooltip-mobile"
-            hoveredQuadrant={index}
-          >
-            {name}
-          </QuadrantToolTipMobile>
-        ))}
     </GraphWrapper>
   );
 };

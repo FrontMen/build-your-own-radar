@@ -7,7 +7,7 @@ exports[`Home should render correctly when content is there 1`] = `
   padding: 16px;
 }
 
-.c17 {
+.c13 {
   font-family: Montserrat,san-serif;
   font-weight: 700;
   line-height: 1.15;
@@ -26,114 +26,6 @@ exports[`Home should render correctly when content is there 1`] = `
 
 .c10 {
   text-align: center;
-}
-
-.c11 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  position: absolute;
-  right: 0;
-  bottom: -3%;
-  width: 160px;
-  padding: 0;
-  text-align: center;
-  font-weight: bold;
-  font-family: Montserrat,san-serif;
-  pointer-events: none;
-  -webkit-transform: rotateZ( -35deg );
-  -ms-transform: rotateZ( -35deg );
-  transform: rotateZ( -35deg );
-}
-
-.c12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  position: absolute;
-  left: 0;
-  bottom: 2%;
-  width: 160px;
-  padding: 0;
-  text-align: center;
-  font-weight: bold;
-  font-family: Montserrat,san-serif;
-  pointer-events: none;
-  -webkit-transform: rotateZ( 35deg );
-  -ms-transform: rotateZ( 35deg );
-  transform: rotateZ( 35deg );
-}
-
-.c13 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  left: -7%;
-  width: 160px;
-  padding: 0;
-  text-align: center;
-  font-weight: bold;
-  font-family: Montserrat,san-serif;
-  pointer-events: none;
-  -webkit-transform: rotateZ( -34deg );
-  -ms-transform: rotateZ( -34deg );
-  transform: rotateZ( -34deg );
-}
-
-.c14 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  position: absolute;
-  top: 5%;
-  right: -5%;
-  width: 160px;
-  padding: 0;
-  text-align: center;
-  font-weight: bold;
-  font-family: Montserrat,san-serif;
-  pointer-events: none;
-  -webkit-transform: rotateZ( 36deg );
-  -ms-transform: rotateZ( 36deg );
-  transform: rotateZ( 36deg );
 }
 
 .c4 {
@@ -198,13 +90,13 @@ exports[`Home should render correctly when content is there 1`] = `
   max-width: 60em;
 }
 
-.c15 {
+.c11 {
   display: grid;
   grid-template-columns: repeat(1fr);
   grid-gap: 32px;
 }
 
-.c16 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -225,7 +117,7 @@ exports[`Home should render correctly when content is there 1`] = `
   margin-bottom: 16px;
 }
 
-.c18 {
+.c14 {
   position: relative;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -240,7 +132,7 @@ exports[`Home should render correctly when content is there 1`] = `
   border-color: #526de4;
 }
 
-.c18 img {
+.c14 img {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -251,7 +143,7 @@ exports[`Home should render correctly when content is there 1`] = `
   transition: transform 0.3s cubic-bezier(0.23,1,0.32,1);
 }
 
-.c18:hover img {
+.c14:hover img {
   -webkit-transform: translateX(5px);
   -ms-transform: translateX(5px);
   transform: translateX(5px);
@@ -279,7 +171,7 @@ exports[`Home should render correctly when content is there 1`] = `
 }
 
 @media (min-width:481px) {
-  .c17 {
+  .c13 {
     font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 16px;
@@ -311,13 +203,13 @@ exports[`Home should render correctly when content is there 1`] = `
 }
 
 @media (min-width:768px) {
-  .c15 {
+  .c11 {
     grid-template-columns: repeat(auto-fit,minmax(25em,1fr));
   }
 }
 
 @media (min-width:768px) {
-  .c16 {
+  .c12 {
     width: 100%;
     margin-bottom: 32px;
   }
@@ -409,41 +301,17 @@ exports[`Home should render correctly when content is there 1`] = `
           data-testid="graph"
         />
       </div>
-      <div
-        class="c11"
-        data-testid="graph-tooltip-mobile"
-      >
-        Frameworks, CMS & Programmeertalen
-      </div>
-      <div
-        class="c12"
-        data-testid="graph-tooltip-mobile"
-      >
-        Tooling en testing
-      </div>
-      <div
-        class="c13"
-        data-testid="graph-tooltip-mobile"
-      >
-        Platforms, infrastructure & Data
-      </div>
-      <div
-        class="c14"
-        data-testid="graph-tooltip-mobile"
-      >
-        Technieken
-      </div>
     </div>
     <div
-      class="c15"
+      class="c11"
       data-testid="home-quadrants-wrapper"
     >
       <div
-        class="c16"
+        class="c12"
         data-testid="home-quadrant-0-container"
       >
         <h2
-          class="c17"
+          class="c13"
           data-testid="home-quadrant-0-title"
         >
           <span>
@@ -459,7 +327,7 @@ exports[`Home should render correctly when content is there 1`] = `
           </span>
         </p>
         <a
-          class="c18"
+          class="c14"
           data-testid="home-quadrant-0-link"
           href="/frameworks-and-lang"
         >
@@ -476,11 +344,11 @@ exports[`Home should render correctly when content is there 1`] = `
         </a>
       </div>
       <div
-        class="c16"
+        class="c12"
         data-testid="home-quadrant-1-container"
       >
         <h2
-          class="c17"
+          class="c13"
           data-testid="home-quadrant-1-title"
         >
           <span>
@@ -496,7 +364,7 @@ exports[`Home should render correctly when content is there 1`] = `
           </span>
         </p>
         <a
-          class="c18"
+          class="c14"
           data-testid="home-quadrant-1-link"
           href="/tooling-and-testing"
         >
@@ -513,11 +381,11 @@ exports[`Home should render correctly when content is there 1`] = `
         </a>
       </div>
       <div
-        class="c16"
+        class="c12"
         data-testid="home-quadrant-2-container"
       >
         <h2
-          class="c17"
+          class="c13"
           data-testid="home-quadrant-2-title"
         >
           <span>
@@ -533,7 +401,7 @@ exports[`Home should render correctly when content is there 1`] = `
           </span>
         </p>
         <a
-          class="c18"
+          class="c14"
           data-testid="home-quadrant-2-link"
           href="/platforms-infra-and-data"
         >
@@ -550,11 +418,11 @@ exports[`Home should render correctly when content is there 1`] = `
         </a>
       </div>
       <div
-        class="c16"
+        class="c12"
         data-testid="home-quadrant-3-container"
       >
         <h2
-          class="c17"
+          class="c13"
           data-testid="home-quadrant-3-title"
         >
           <span>
@@ -570,7 +438,7 @@ exports[`Home should render correctly when content is there 1`] = `
           </span>
         </p>
         <a
-          class="c18"
+          class="c14"
           data-testid="home-quadrant-3-link"
           href="/technique"
         >

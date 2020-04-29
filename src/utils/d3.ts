@@ -1,5 +1,6 @@
 import * as d3 from 'd3';
 import { random_between, polar, cartesian, bounded_interval } from 'utils';
+import { d3Config } from 'utils/d3-config';
 
 const quadrants = [
   { radial_min: 0, radial_max: 0.5, factor_x: 1, factor_y: 1 },
@@ -238,6 +239,7 @@ export const radar_visualization = (
 
   const isFirstRender = !svg.html();
   const radar = isFirstRender ? svg.append('g') : svg.select('g');
+  const showMobileToolTips = isFullSize && !isNotMobile;
 
   if (typeof quadrantNum !== 'undefined') {
     svg
@@ -259,6 +261,96 @@ export const radar_visualization = (
 
   // animate rings
   if (isFirstRender) {
+    if (showMobileToolTips) {
+      const mobileTooltipConfig = [
+        {
+          startX: maxRadius + AXIS_STROKE_WIDTH / 2,
+          startY: maxRadius * 2,
+          endX: maxRadius * 2,
+          endY: maxRadius - AXIS_STROKE_WIDTH / 2,
+          sweepFlag: 0,
+          translateXFactor: [20, 40],
+          translateYFactor: [20, 40],
+        },
+        {
+          startX: 0,
+          startY: maxRadius + AXIS_STROKE_WIDTH / 2,
+          endX: maxRadius - AXIS_STROKE_WIDTH / 2,
+          endY: maxRadius * 2,
+          sweepFlag: 0,
+          translateXFactor: [-22],
+          translateYFactor: [22],
+        },
+        {
+          startX: 0,
+          startY: maxRadius,
+          endX: maxRadius,
+          endY: 0,
+          sweepFlag: 1,
+          translateXFactor: [-8, -30],
+          translateYFactor: [-8, -30],
+        },
+        {
+          startX: maxRadius + AXIS_STROKE_WIDTH / 2,
+          startY: 0,
+          endX: maxRadius * 2,
+          endY: maxRadius - AXIS_STROKE_WIDTH / 2,
+          sweepFlag: 1,
+          translateXFactor: [8],
+          translateYFactor: [-8],
+        },
+      ];
+
+      svg
+        .selectAll('.mobile-tooltip')
+        .data(d3Config.quadrants)
+        .enter()
+        .each(function(q, i) {
+          let lines = [q.name];
+          if (q.name.length > 20) {
+            const words = q.name.split(' ');
+            const lastLine = i > 1 ? words.shift() : words.pop();
+            lines = [words.join(' '), lastLine!];
+          }
+          const selection = d3.select(this);
+          const {
+            startX,
+            startY,
+            endX,
+            endY,
+            sweepFlag,
+            translateXFactor,
+            translateYFactor,
+          } = mobileTooltipConfig[i];
+          selection
+            .append('path')
+            .attr('id', `curve-${i}`) //Unique id of the path
+            .attr(
+              'd',
+              `M ${startX},${startY} A ${maxRadius},${maxRadius} 0, 0, ${sweepFlag} ${endX}, ${endY}`,
+            ) //SVG path
+            .style('fill', 'none');
+
+          lines.forEach((line, lineIndex) => {
+            selection
+              .append('text')
+              .attr(
+                'transform',
+                translate(
+                  translateXFactor[lineIndex],
+                  translateYFactor[lineIndex],
+                ),
+              )
+              .attr('fill', '#BFC0BF')
+              .append('textPath') //append a textPath to the text element
+              .attr('xlink:href', `#curve-${i}`) //place the ID of the path here
+              .style('text-anchor', 'middle') //place the text halfway on the arc
+              .attr('startOffset', '50%')
+              .style('font-size', '32px')
+              .text(line);
+          });
+        });
+    }
     const filter = defs
       .append('filter')
       .attr('x', 0)
