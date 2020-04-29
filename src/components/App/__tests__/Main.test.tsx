@@ -5,6 +5,8 @@ import { GlobalStyle } from 'Theme/GlobalStyles';
 import { AllProvidersWrapper } from 'test/helpers';
 import { Main } from '../Main';
 
+window.scrollTo = jest.fn();
+
 describe('Main', () => {
   const mainWrapper = mount(<Main />, {
     wrappingComponent: AllProvidersWrapper,
