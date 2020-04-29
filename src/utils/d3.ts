@@ -341,6 +341,7 @@ export const radar_visualization = (
                   translateYFactor[lineIndex],
                 ),
               )
+              .attr('fill', '#BFC0BF')
               .append('textPath') //append a textPath to the text element
               .attr('xlink:href', `#curve-${i}`) //place the ID of the path here
               .style('text-anchor', 'middle') //place the text halfway on the arc
