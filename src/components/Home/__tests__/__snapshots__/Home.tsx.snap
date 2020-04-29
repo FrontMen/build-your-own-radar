@@ -12,7 +12,6 @@ exports[`Home should render correctly when content is there 1`] = `
   font-weight: 700;
   line-height: 1.15;
   font-size: 1.5em;
-  text-transform: capitalize;
 }
 
 .c9 {
@@ -222,7 +221,7 @@ exports[`Home should render correctly when content is there 1`] = `
   font-weight: 400;
   line-height: 1.65;
   margin: 0;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 }
 
 .c18 {
@@ -262,7 +261,6 @@ exports[`Home should render correctly when content is there 1`] = `
   font-weight: 700;
   line-height: 1.15;
   font-size: 1.5em;
-  text-transform: capitalize;
   color: #526de4;
 }
 
@@ -464,10 +462,10 @@ exports[`Home should render correctly when content is there 1`] = `
           href="/frameworks-and-lang"
         >
           <span>
-            words.overview
+            quadrant.framework.name
           </span>
           <span>
-            quadrant.framework.name
+            words.overview
           </span>
           <img
             alt="right-arrow"
@@ -501,10 +499,10 @@ exports[`Home should render correctly when content is there 1`] = `
           href="/tooling-and-testing"
         >
           <span>
-            words.overview
+            quadrant.tooling.name
           </span>
           <span>
-            quadrant.tooling.name
+            words.overview
           </span>
           <img
             alt="right-arrow"
@@ -538,10 +536,10 @@ exports[`Home should render correctly when content is there 1`] = `
           href="/platforms-infra-and-data"
         >
           <span>
-            words.overview
+            quadrant.platform.name
           </span>
           <span>
-            quadrant.platform.name
+            words.overview
           </span>
           <img
             alt="right-arrow"
@@ -575,10 +573,10 @@ exports[`Home should render correctly when content is there 1`] = `
           href="/technique"
         >
           <span>
-            words.overview
+            quadrant.techniques.name
           </span>
           <span>
-            quadrant.techniques.name
+            words.overview
           </span>
           <img
             alt="right-arrow"
