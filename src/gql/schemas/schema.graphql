@@ -1,5 +1,0 @@
-# import Technology from 'technology.graphql'
-
-type Query {
-  technologies: [Technology]
-}

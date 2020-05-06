@@ -1,6 +1,0 @@
-type Ring {
-  name: String!
-  color: String!
-  backgroundColor: String!
-  order: Int
-}

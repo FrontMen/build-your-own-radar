@@ -1,4 +1,0 @@
-type Quadrant {
-  name: String!
-  color: String!
-}
