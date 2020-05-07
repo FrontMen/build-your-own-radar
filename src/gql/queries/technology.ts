@@ -1,8 +1,9 @@
 import gql from 'graphql-tag';
 
-const TECHNOLOGY_QUERY = gql`
-  query Technologies($wh: JSON) {
-    technologies(where: $wh) {
+export const TECHNOLOGY_ONE_QUERY = gql`
+  query OneTechnology($id: ID!) {
+    technology(id: $id) {
+      id
       name
       description
       published_at
@@ -13,5 +14,3 @@ const TECHNOLOGY_QUERY = gql`
     }
   }
 `;
-
-export default TECHNOLOGY_QUERY;

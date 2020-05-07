@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-const TECHNOLOGIES_QUERY = gql`
+export const TECHNOLOGIES_QUERY = gql`
   query Technologies {
     technologies {
       id
@@ -25,4 +25,17 @@ const TECHNOLOGIES_QUERY = gql`
   }
 `;
 
-export default TECHNOLOGIES_QUERY;
+export const TECHNOLOGIES_FILTER = gql`
+  query Technologies($wh: JSON) {
+    technologies(where: $wh) {
+      id
+      name
+      description
+      published_at
+      quadrant {
+        name
+        color
+      }
+    }
+  }
+`;
