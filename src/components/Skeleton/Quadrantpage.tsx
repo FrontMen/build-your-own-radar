@@ -1,16 +1,17 @@
 import React from 'react';
 import { ContentTitle } from 'components/shared/ContentTitle';
+import { MainContentSlot } from 'components/shared/PageSlots';
 import {
   RadarSkeleton,
   TitleSkeleton,
   ContentSkeleton,
   NavSkeleton,
 } from './styled';
-import { Slot, Content, Article, Ring, Section } from '../Quadrant/styled';
+import { Content, Article, Ring, Section } from '../Quadrant/styled';
 
 export const QuadrantPageSkeleton: React.FC = () => {
   return (
-    <Slot>
+    <MainContentSlot>
       <NavSkeleton />
       <Content>
         <Article>
@@ -28,6 +29,6 @@ export const QuadrantPageSkeleton: React.FC = () => {
         </Article>
         <RadarSkeleton />
       </Content>
-    </Slot>
+    </MainContentSlot>
   );
 };

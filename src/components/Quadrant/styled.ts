@@ -94,12 +94,6 @@ export const Tooltip = styled.span`
   }
 `;
 
-export const Slot = styled(MainContentSlot)`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-`;
-
 export const Content = styled.div`
   display: flex;
   flex-wrap: wrap-reverse;

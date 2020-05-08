@@ -4,6 +4,7 @@ import { TechLists } from './TechLists';
 import { d3Config } from 'utils/d3-config';
 import { Graph } from 'components/Graph';
 import { ContentTitle } from 'components/shared/ContentTitle';
+import { MainContentSlot } from 'components/shared/PageSlots';
 import { SubNav } from 'components/SubNav';
 import { QuadrantPageSkeleton } from 'components/Skeleton/Quadrantpage';
 import { Text } from 'components/Text';
@@ -14,7 +15,7 @@ import {
   technologiesLoadingStateSelector,
 } from 'redux/selectors/technologies';
 import { selectedCompaniesSelector } from 'redux/selectors/filters';
-import { Slot, Content, Article, Description } from './styled';
+import { Content, Article, Description } from './styled';
 import { filterBlipsSelector } from 'redux/selectors/d3';
 import { transMapper } from 'utils';
 import { useMediaQuery } from 'react-responsive';
@@ -65,7 +66,7 @@ export const Quadrant = () => {
   );
 
   return (
-    <Slot>
+    <MainContentSlot>
       <SubNav setSelected={setSelected}>{!isNotMobile && intro}</SubNav>
       <Content>
         <Article>
@@ -99,6 +100,6 @@ export const Quadrant = () => {
           blips={filteredBlips}
         />
       </Content>
-    </Slot>
+    </MainContentSlot>
   );
 };
