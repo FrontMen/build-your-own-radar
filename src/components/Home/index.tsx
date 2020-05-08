@@ -8,6 +8,7 @@ import { Text } from 'components/Text';
 import { useQueryAsState } from 'hooks/useQueryAsState';
 import { useSelector } from 'react-redux';
 import { technologiesLoadingStateSelector } from 'redux/selectors/technologies';
+import { quadrantsSelector } from 'redux/selectors/filters';
 import {
   Intro,
   Quads,
@@ -19,7 +20,6 @@ import {
 } from './styled';
 import { blipsSelector } from 'redux/selectors/d3';
 import RightArrow from 'res/svg/arrow-right.svg';
-import { transMapper } from 'utils';
 
 export const Home: React.FC = () => {
   const quads = d3Config.quadrants;
@@ -27,6 +27,7 @@ export const Home: React.FC = () => {
     technologiesLoadingStateSelector(),
   );
   const blips = useSelector(blipsSelector());
+  const quadrants = useSelector(quadrantsSelector);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setSelected] = useQueryAsState();
   const showLoader = !initialized || loading;
@@ -55,22 +56,22 @@ export const Home: React.FC = () => {
       <HomeSearch setSelected={setSelected} className="home-search" />
       <Graph highlighted={null} blips={blips} />
       <Quads data-testid="home-quadrants-wrapper">
-        {quads.map((quad, i) => {
-          const transKey = transMapper[i];
+        {quadrants.map((quad, i) => {
+          const { order, localName } = quad;
 
           return (
             <Quadrant key={i} data-testid={`home-quadrant-${i}-container`}>
               <ContentTitle data-testid={`home-quadrant-${i}-title`}>
-                <Text value={`quadrant.${transKey}.name`} />
+                <Text value={`quadrant.${localName}.name`} />
               </ContentTitle>
               <Content data-testid={`home-quadrant-${i}-content`}>
-                <Text value={`quadrant.${transKey}.description`} />
+                <Text value={`quadrant.${localName}.description`} />
               </Content>
               <StyledLinks
                 data-testid={`home-quadrant-${i}-link`}
-                to={`/${quad.route}`}
+                to={`/${quads[order].route}`}
               >
-                <Text value={`quadrant.${transKey}.name`} />
+                <Text value={`quadrant.${localName}.name`} />
                 <Text value="words.overview" />
                 <img src={RightArrow} alt="right-arrow" />
               </StyledLinks>

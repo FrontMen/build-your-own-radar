@@ -23,7 +23,7 @@ const getQuadrantsData = async () => {
     query: QUADRANTS_QUERY,
   });
 
-  return data.quadrants.sort((a: Quadrant, b: Quadrant) => b.order - a.order);
+  return data.quadrants.sort((a: Quadrant, b: Quadrant) => a.order - b.order);
 };
 
 export function* fetchTechnologiesSaga() {
