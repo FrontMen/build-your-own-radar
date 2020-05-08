@@ -19,7 +19,7 @@ export const convertTechToBlips = (data: Technology[]) =>
         { quadrant, id, positionId, name, ring, isNew },
       ) => {
         // position each entry randomly in its segment
-        const quadNum = quadrant;
+        const quadNum = quadrant.order;
         const ringNum = d3Config.rings[ring].num;
         const blipSegment = segment(quadNum, ringNum);
         const { x, y } = blipSegment.random();
@@ -71,7 +71,7 @@ function* watchChangesSaga() {
         );
 
         if (matchingTechnology) {
-          const quadNum = matchingTechnology.quadrant;
+          const quadNum = matchingTechnology.quadrant.order;
           const modifiedBlip: Blip = {
             ...blip,
             isNew: matchingTechnology.isNew,
@@ -103,10 +103,10 @@ function* watchChangesSaga() {
 
 export function* d3Saga() {
   yield all([
-    takeLatest(
-      ETechnologiesActionTypes.FETCH_TECHNOLOGIES_SUCCESS,
-      configureBlipsSaga,
-    ),
+    // takeLatest(
+    //   ETechnologiesActionTypes.FETCH_TECHNOLOGIES_SUCCESS,
+    //   configureBlipsSaga,
+    // ),
     watchChangesSaga(),
   ]);
 }

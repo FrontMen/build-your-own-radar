@@ -39,8 +39,8 @@ const addIndex = (data: Technology[], cumulativeCounter: any) => {
   data.forEach(item => {
     const { ring, quadrant } = item;
     const ringOrder = ringsOrder[ring];
-    const startFrom = cumulativeCounter[quadrant][ringOrder];
-    const currentIndex = ++newCounter[quadrant][ringOrder];
+    const startFrom = cumulativeCounter[quadrant.order][ringOrder];
+    const currentIndex = ++newCounter[quadrant.order][ringOrder];
 
     item.id = `${startFrom + currentIndex}`;
   });
@@ -64,7 +64,7 @@ const flattenSheet = (
         const ringOrder = ringsOrder[flatRow.ring];
         for (i = ringOrder + 1; i < ARRAY_LENGTH; i++) {
           // Cumulate the count
-          counter[flatRow.quadrant][i]++;
+          counter[flatRow.quadrant.order][i]++;
         }
       }
 
@@ -117,7 +117,7 @@ const cleanRow = (
     ...item,
     id: `${index}`,
     moved: 0,
-    quadrant: d3Config.quadrants.findIndex(quad => quad.name === quadrant),
+    quadrant: { name: 'test', color: 'test', order: 0 },
     companies: [
       ITR_BE === 'X' ? 'ITR_BE' : false,
       ITR_NL === 'X' ? 'ITR_NL' : false,

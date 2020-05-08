@@ -40,7 +40,7 @@ export const Quadrant = () => {
     () =>
       technologies.filter(
         technology =>
-          technology.quadrant === quadrantNum &&
+          technology.quadrant.order === quadrantNum &&
           technology.companies.some(
             companyType => selectedCompanies[companyType],
           ),

@@ -4,29 +4,37 @@ import {
 } from 'redux/actions/technologies';
 import { filtersActions } from 'redux/actions/filters';
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { parseGoogleSheetsApiResponse } from 'utils/dataParser';
+import { client } from 'utils/apolloClient';
+import { TECHNOLOGIES_QUERY } from 'gql/queries/technologies';
+import { QUADRANTS_QUERY } from 'gql/queries/quadrants';
+import Groupby from 'lodash.groupby';
 
-import { isErrorResponse, fetchSpreadSheet } from 'utils/API';
+const getTechnologyData = async () => {
+  const { data } = await client.query({
+    query: TECHNOLOGIES_QUERY,
+  });
 
-export const getGoogleSheetsData = async () => {
-  const response = await fetchSpreadSheet();
-  const data = await response.json();
+  return data.technologies;
+};
 
-  if (isErrorResponse(response)) {
-    throw data.error;
-  }
+const getQuadrantsData = async () => {
+  const { data } = await client.query({
+    query: QUADRANTS_QUERY,
+  });
 
-  return data;
+  return data.quadrants.sort((a: Quadrant, b: Quadrant) => b.order - a.order);
 };
 
 export function* fetchTechnologiesSaga() {
   try {
-    const data: IncomingGoogleSheetsData = yield call(getGoogleSheetsData);
-    const parsedData = parseGoogleSheetsApiResponse(data);
+    const data = yield call(getTechnologyData);
+    const quadrants = yield call(getQuadrantsData);
+    const groupedData = Groupby(data, 'publishedAt');
 
-    yield put(technologiesActions.fetchTechnologiesSuccess(parsedData));
+    yield put(technologiesActions.fetchTechnologiesSuccess(groupedData));
+    yield put(filtersActions.fillQuandrants(quadrants));
 
-    const dates = Object.keys(parsedData).sort(
+    const dates = Object.keys(groupedData).sort(
       (a, b) => Date.parse(b) - Date.parse(a),
     );
 

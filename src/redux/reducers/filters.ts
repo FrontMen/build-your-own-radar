@@ -2,7 +2,7 @@ import { Reducer } from 'redux';
 import { TActions } from 'redux/types';
 import { EFilterActionTypes } from 'redux/actions/filters';
 
-export type TCompany = {
+type TCompany = {
   [key in CompanyTypes]: boolean;
 };
 
@@ -13,6 +13,7 @@ export interface IFiltersState {
     selected: string | null;
     prevSelected: string | null;
   };
+  quadrants: Quadrant[];
 }
 export const defaultState: IFiltersState = {
   companies: {
@@ -25,6 +26,7 @@ export const defaultState: IFiltersState = {
     selected: null,
     prevSelected: null,
   },
+  quadrants: [],
 };
 
 export const filtersReducer: Reducer<IFiltersState, TActions> = (
@@ -58,6 +60,11 @@ export const filtersReducer: Reducer<IFiltersState, TActions> = (
           ...state.dataSet,
           availableDates: action.payload,
         },
+      };
+    case EFilterActionTypes.FILL_QUADRANTS:
+      return {
+        ...state,
+        quadrants: action.payload,
       };
 
     default:
