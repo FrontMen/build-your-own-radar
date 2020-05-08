@@ -6,7 +6,7 @@ export const TECHNOLOGY_ONE_QUERY = gql`
       id
       name
       description
-      published_at
+      publishedAt
       quadrant {
         name
         color
