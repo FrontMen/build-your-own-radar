@@ -1,4 +1,5 @@
 import { d3Config } from 'utils/d3-config';
+import Groupby from 'lodash.groupby';
 
 const ARRAY_LENGTH = 4;
 const ringsOrder = Object.keys(d3Config.rings).reduce(
@@ -9,10 +10,24 @@ const ringsOrder = Object.keys(d3Config.rings).reduce(
   {},
 );
 
-const initNewCounter = () => {
-  return [...Array(ARRAY_LENGTH)].map(() => {
-    return [...Array(ARRAY_LENGTH)].map(() => 0);
+const initNewCounter = () =>
+  [...Array(ARRAY_LENGTH)].map(() => [...Array(ARRAY_LENGTH)].map(() => 0));
+
+export const mapDatabaseEntries = (technologies: Technology[]) => {
+  const cumulativeCounter = countAll(technologies);
+  const newCounter = initNewCounter();
+
+  technologies.forEach(item => {
+    const { ring, quadrant } = item;
+    const ringOrder = ringsOrder[ring.name];
+    const startFrom = cumulativeCounter[quadrant.order][ringOrder];
+    const currentIndex = ++newCounter[quadrant.order][ringOrder];
+    item.positionId = item.id;
+    item.id = `${startFrom + currentIndex}`;
+    debugger;
   });
+
+  return Groupby(technologies, 'publishedAt');
 };
 
 export const parseGoogleSheetsApiResponse = (
@@ -48,6 +63,20 @@ const addIndex = (data: Technology[], cumulativeCounter: any) => {
   return data;
 };
 
+const countAll = (data: Technology[]) => {
+  const counter = initNewCounter();
+
+  data.forEach(item => {
+    const ringOrder = ringsOrder[item.ring.name];
+    for (let i = ringOrder + 1; i < ARRAY_LENGTH; i++) {
+      // Cumulate the count
+      counter[item.quadrant.order][i]++;
+    }
+  });
+
+  return counter;
+};
+
 const flattenSheet = (
   data: [KeyRowValues, ...RowValues[]],
   sheetIndex: number,
@@ -60,7 +89,7 @@ const flattenSheet = (
     .map((row, index) => {
       let flatRow = flattenDataRows(row, keys, index);
       if (flatRow) {
-        flatRow.positionId = `${sheetIndex}-${index}`;
+        flatRow.id = `${sheetIndex}-${index}`;
         const ringOrder = ringsOrder[flatRow.ring.name];
         for (i = ringOrder + 1; i < ARRAY_LENGTH; i++) {
           // Cumulate the count

@@ -4,11 +4,11 @@ import {
 } from 'redux/actions/technologies';
 import { filtersActions } from 'redux/actions/filters';
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { parseGoogleSheetsApiResponse } from 'utils/dataParser';
+import { mapDatabaseEntries } from 'utils/dataParser';
 import { client } from 'utils/apolloClient';
 import { TECHNOLOGIES_QUERY } from 'gql/queries/technologies';
 import { QUADRANTS_QUERY } from 'gql/queries/quadrants';
-import Groupby from 'lodash.groupby';
+// import Groupby from 'lodash.groupby';
 
 const getTechnologyData = async () => {
   const { data } = await client.query({
@@ -29,13 +29,15 @@ const getQuadrantsData = async () => {
 export function* fetchTechnologiesSaga() {
   try {
     const data = yield call(getTechnologyData);
+    const mappedData = mapDatabaseEntries(data);
     const quadrants = yield call(getQuadrantsData);
-    const groupedData = Groupby(data, 'publishedAt');
+    // const groupedData = Groupby(parsedData, 'publishedAt');
+    console.log('mappedData', mappedData);
 
-    yield put(technologiesActions.fetchTechnologiesSuccess(groupedData));
+    yield put(technologiesActions.fetchTechnologiesSuccess(mappedData));
     yield put(filtersActions.fillQuandrants(quadrants));
 
-    const dates = Object.keys(groupedData).sort(
+    const dates = Object.keys(mappedData).sort(
       (a, b) => Date.parse(b) - Date.parse(a),
     );
 

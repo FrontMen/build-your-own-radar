@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { MainContentSlot } from 'components/shared/PageSlots';
 import { MediaQueries } from 'Theme/Helpers';
 import { Typography } from 'Theme/Typography';
 
