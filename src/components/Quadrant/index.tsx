@@ -40,16 +40,15 @@ export const Quadrant = () => {
   const filteredTechnologies = useMemo(
     () =>
       technologies.filter(
-        technology =>
-          technology.quadrant.order === quadrantNum &&
-          technology.companies.some(
-            companyType => selectedCompanies[companyType],
-          ),
+        technology => technology.quadrant.order === quadrantNum,
+        // technology.companies.some(
+        //   companyType => selectedCompanies[companyType],
+        // ),
       ),
-    [quadrantNum, technologies, selectedCompanies],
+    [quadrantNum, technologies],
   );
 
-  if (quadrantNum < 0) return <Redirect to="not-found" />;
+  if (quadrantNum < 0) return <Redirect to="/not-found" />;
   if (showLoader) return <QuadrantPageSkeleton />;
 
   const { color: quadrantColor } = d3Config.quadrants[quadrantNum];

@@ -24,7 +24,9 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
   quadrant,
   color,
 }) => {
-  const data = useMemo(() => Groupby(technologies, 'ring'), [technologies]);
+  const data = useMemo(() => Groupby(technologies, 'ring.name'), [
+    technologies,
+  ]);
   const availableRings = useMemo(
     () => Object.keys(d3Config.rings).filter(ringName => data[ringName]),
     [data],
