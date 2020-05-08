@@ -4,6 +4,7 @@ import {
 } from 'redux/actions/technologies';
 import { filtersActions } from 'redux/actions/filters';
 import { call, put, takeLatest } from 'redux-saga/effects';
+import { parseGoogleSheetsApiResponse } from 'utils/dataParser';
 import { client } from 'utils/apolloClient';
 import { TECHNOLOGIES_QUERY } from 'gql/queries/technologies';
 import { QUADRANTS_QUERY } from 'gql/queries/quadrants';

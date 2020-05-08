@@ -8,7 +8,7 @@ export const TECHNOLOGIES_QUERY = gql`
       description
       isNew
       companies {
-        name
+        shortName
       }
       inRadar
       publishedAt

@@ -113,15 +113,14 @@ const cleanRow = (
   index: number,
 ): Technology | undefined => {
   if (item['In radar?'] === 'N') return;
+  //@ts-ignore
   return {
     ...item,
     id: `${index}`,
     moved: 0,
     quadrant: { name: 'test', color: 'test', order: 0 },
-    companies: [
-      ITR_BE === 'X' ? 'ITR_BE' : false,
-      ITR_NL === 'X' ? 'ITR_NL' : false,
-      FM === 'X' ? 'FM' : false,
-    ].filter(Boolean) as CompanyTypes[],
+    companies: [{ name: 'test', shortName: 'test' }].filter(
+      Boolean,
+    ) as Company[],
   };
 };

@@ -37,7 +37,9 @@ export const filterBlipsSelector = createSelector(
   selectedCompaniesSelector,
   (blips, technologies, selectedCompanies) => {
     const matchingTechnologies = technologies.filter(technology =>
-      technology.companies.some(companyType => selectedCompanies[companyType]),
+      technology.companies.some(
+        ({ shortName }) => selectedCompanies[shortName],
+      ),
     );
     return blips.filter(
       blip => !!matchingTechnologies.find(t => t.name === blip.name),
