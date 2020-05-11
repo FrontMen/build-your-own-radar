@@ -24,7 +24,6 @@ export const mapDatabaseEntries = (technologies: Technology[]) => {
     const currentIndex = ++newCounter[quadrant.order][ringOrder];
     item.positionId = item.id;
     item.id = `${startFrom + currentIndex}`;
-    debugger;
   });
 
   return Groupby(technologies, 'publishedAt');
