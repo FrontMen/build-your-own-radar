@@ -31,7 +31,6 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
     () => Object.keys(d3Config.rings).filter(ringName => data[ringName]),
     [data],
   );
-
   return (
     <Section data-testid="tech-lists-section">
       {availableRings.map(ringName => (

@@ -44,7 +44,7 @@ export const Quadrant = () => {
       ),
     [quadrantNum, technologies],
   );
-  // console.log('filteredTechnologies :>> ', filteredTechnologies);
+
   if (quadrantNum < 0) return <Redirect to="/not-found" />;
   if (showLoader) return <QuadrantPageSkeleton />;
 

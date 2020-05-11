@@ -33,7 +33,7 @@ type Quadrant = {
   name: string;
   color: string;
   order: number;
-  localName: string;
+  localName?: string;
 };
 type Company = {
   name: string;
@@ -41,9 +41,9 @@ type Company = {
 };
 type Ring = {
   name: RingNamesType;
-  color: string;
+  color?: string;
   backgroundColor: string;
-  order: string;
+  order: number;
 };
 interface Technology extends Partial<Point> {
   name: string;
@@ -57,6 +57,8 @@ interface Technology extends Partial<Point> {
   color?: string;
   id?: string;
   positionId?: string;
+  inRadar: boolean;
+  publishedAt: date;
 }
 
 type QuadParamType = {

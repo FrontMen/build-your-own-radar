@@ -8,7 +8,6 @@ import { mapDatabaseEntries } from 'utils/dataParser';
 import { client } from 'utils/apolloClient';
 import { TECHNOLOGIES_QUERY } from 'gql/queries/technologies';
 import { QUADRANTS_QUERY } from 'gql/queries/quadrants';
-// import Groupby from 'lodash.groupby';
 
 const getTechnologyData = async () => {
   const { data } = await client.query({
@@ -31,8 +30,6 @@ export function* fetchTechnologiesSaga() {
     const data = yield call(getTechnologyData);
     const mappedData = mapDatabaseEntries(data);
     const quadrants = yield call(getQuadrantsData);
-    // const groupedData = Groupby(parsedData, 'publishedAt');
-    console.log('mappedData', mappedData);
 
     yield put(technologiesActions.fetchTechnologiesSuccess(mappedData));
     yield put(filtersActions.fillQuandrants(quadrants));

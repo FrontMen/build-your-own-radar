@@ -12,7 +12,6 @@ exports[`Search render search icon and input field 1`] = `
   flex-grow: 1;
   position: relative;
   padding: 8px 0;
-  margin-bottom: 20px;
 }
 
 .c1 {
@@ -37,6 +36,7 @@ exports[`Search render search icon and input field 1`] = `
   line-height: 1.65;
   outline: none;
   -webkit-appearance: none;
+  background: none;
 }
 
 .c3:focus {

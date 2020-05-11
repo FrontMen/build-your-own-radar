@@ -4,19 +4,23 @@ import { mount } from 'enzyme';
 import { Quadrant } from '..';
 import { AllProvidersWrapper, withAllProviders } from 'test/helpers';
 import { MediaQueries } from 'Theme/Helpers';
-import { parsedMockData } from 'test/mockData';
-import { rootStateBuilder, storeCreator, technologiesStateBuilder } from 'test/builders';
+import { parsedTechData } from 'test/mockData';
+import {
+  rootStateBuilder,
+  storeCreator,
+  technologiesStateBuilder,
+} from 'test/builders';
 
 const routeProps = {
   path: '/:quadrant',
   route: '/technique',
 };
-const [dataSetKey, dataSetValue] = Object.entries(parsedMockData)[0];
+const [dataSetKey, dataSetValue] = Object.entries(parsedTechData)[0];
 const state = rootStateBuilder({
   technologies: {
     initialized: true,
     loading: false,
-    data: parsedMockData,
+    data: parsedTechData,
   },
   filters: {
     dataSet: {
@@ -54,7 +58,7 @@ describe('Quadrant', () => {
     const state = technologiesStateBuilder({
       initialized: true,
       loading: false,
-      data: parsedMockData,
+      data: parsedTechData,
     });
     const store = storeCreator(state);
 
@@ -64,7 +68,7 @@ describe('Quadrant', () => {
       </ResponsiveContext.Provider>,
       {
         ...routeProps,
-        store
+        store,
       },
     );
 
@@ -102,7 +106,7 @@ describe('Quadrant', () => {
       .at(0);
 
     expect(techLists.prop('technologies')).toMatchObject(
-      dataSetValue.filter(t => t.quadrant === 3),
+      dataSetValue.filter(t => t.quadrant.order === 3),
     );
   });
 });

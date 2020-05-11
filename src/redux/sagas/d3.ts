@@ -20,8 +20,7 @@ export const convertTechToBlips = (data: Technology[]) =>
       ) => {
         // position each entry randomly in its segment
         const quadNum = quadrant.order;
-        const ringNum = d3Config.rings[ring.name].num;
-        const blipSegment = segment(quadNum, ringNum);
+        const blipSegment = segment(quadNum, Number(ring.order));
         const { x, y } = blipSegment.random();
         acc[name] = {
           x,
