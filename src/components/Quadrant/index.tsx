@@ -40,9 +40,13 @@ export const Quadrant = () => {
   const filteredTechnologies = useMemo(
     () =>
       technologies.filter(
-        technology => technology.quadrant.order === quadrantNum,
+        technology =>
+          technology.quadrant.order === quadrantNum &&
+          technology.companies.some(
+            ({ shortName }) => selectedCompanies[shortName],
+          ),
       ),
-    [quadrantNum, technologies],
+    [quadrantNum, technologies, selectedCompanies],
   );
 
   if (quadrantNum < 0) return <Redirect to="/not-found" />;

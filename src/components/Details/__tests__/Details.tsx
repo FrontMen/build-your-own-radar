@@ -3,7 +3,7 @@ import { Details } from '../';
 import { AllProvidersWrapper, withAllProviders } from 'test/helpers';
 import { getByRole } from '@testing-library/react';
 import { mount } from 'enzyme';
-import { parsedMockData } from 'test/mockData';
+import { parsedTechData } from 'test/mockData';
 import { storeCreator, technologiesStateBuilder } from 'test/builders';
 import { d3Config } from 'utils/d3-config';
 
@@ -37,7 +37,7 @@ describe('Details', () => {
       const state = technologiesStateBuilder({
         initialized: true,
         loading: false,
-        data: parsedMockData,
+        data: parsedTechData,
       });
       const store = storeCreator(state);
       const wrapper = mount(<Details />, {
@@ -61,7 +61,7 @@ describe('Details', () => {
       const state = technologiesStateBuilder({
         initialized: true,
         loading: true,
-        data: parsedMockData,
+        data: parsedTechData,
       });
       const store = storeCreator(state);
       const { getByTestId } = withAllProviders(<Details />, {
@@ -77,7 +77,7 @@ describe('Details', () => {
       const state = technologiesStateBuilder({
         initialized: true,
         loading: false,
-        data: parsedMockData,
+        data: parsedTechData,
       });
       const store = storeCreator(state);
       const { getByTestId, container } = withAllProviders(<Details />, {
