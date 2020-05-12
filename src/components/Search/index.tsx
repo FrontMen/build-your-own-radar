@@ -79,7 +79,7 @@ export const Search: React.FC<SearchProps> = ({ setSelected, className }) => {
                     onClick={e => {
                       e.preventDefault();
                       const baseLink = `/${
-                        d3Config.quadrants[technology.quadrant].route
+                        d3Config.quadrants[technology.quadrant.order].route
                       }`;
                       setValue('');
                       setSelected(

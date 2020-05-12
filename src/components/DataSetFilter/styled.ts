@@ -11,7 +11,6 @@ export const Container = styled.div`
   @media (${MediaQueries.desktop}) {
     margin-left: 0.5em;
   }
-  margin-bottom: 20px;
 `;
 
 export const Selected = styled.div`

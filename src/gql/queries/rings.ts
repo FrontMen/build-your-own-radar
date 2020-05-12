@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-const RINGS_QUERY = gql`
+export const RINGS_QUERY = gql`
   query Rings {
     rings {
       name
@@ -10,5 +10,3 @@ const RINGS_QUERY = gql`
     }
   }
 `;
-
-export default RINGS_QUERY;

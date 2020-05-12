@@ -3,17 +3,17 @@ import { mount } from 'enzyme';
 
 import { TechLists, TechnologiesListProps } from '../TechLists';
 import { TechItem } from '../TechItem';
-import { parsedMockDataItem } from 'test/mockData';
+import { parsedTechDataItem } from 'test/mockData';
 import { AllProvidersWrapper, withAllProviders } from 'test/helpers';
 
 const defaultProps: TechnologiesListProps = {
   highlighted: null,
   setHighlighted: jest.fn(),
   setSelected: jest.fn(),
-  technologies: parsedMockDataItem,
+  technologies: parsedTechDataItem,
   quadrant: 'tools',
   selected: null,
-  color: 'default'
+  color: 'default',
 };
 
 describe('TechLists', () => {

@@ -14,3 +14,8 @@ export const selectedDataSetSelector = createSelector(
   filtersStateSelector,
   ({ dataSet }) => dataSet,
 );
+
+export const quadrantsSelector = createSelector(
+  filtersStateSelector,
+  ({ quadrants }) => quadrants,
+);

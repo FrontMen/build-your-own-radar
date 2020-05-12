@@ -6,7 +6,7 @@ import {
   storeCreator,
   rootStateBuilder,
 } from 'test/builders';
-import { parsedMockData } from 'test/mockData';
+import { parsedTechData, mockQuadrants } from 'test/mockData';
 import { d3Config } from 'utils/d3-config';
 
 describe('Home', () => {
@@ -37,17 +37,18 @@ describe('Home', () => {
   });
 
   it('should render correctly when content is there', () => {
-    const [dataSetKey] = Object.entries(parsedMockData)[0];
+    const [dataSetKey] = Object.entries(parsedTechData)[0];
     const state = rootStateBuilder({
       technologies: {
         initialized: true,
         loading: false,
-        data: parsedMockData,
+        data: parsedTechData,
       },
       filters: {
         dataSet: {
           selected: dataSetKey,
         },
+        quadrants: mockQuadrants,
       },
     });
 
@@ -62,7 +63,9 @@ describe('Home', () => {
     //intro
     expect(getByTestId('home-intro')).toBeTruthy();
     expect(getByTestId('home-intro-title')).toHaveTextContent('about.name');
-    expect(getByTestId('home-intro-content')).toHaveTextContent('about.description');
+    expect(getByTestId('home-intro-content')).toHaveTextContent(
+      'about.description',
+    );
 
     //Graph
     expect(getByTestId('graph')).toBeTruthy();
