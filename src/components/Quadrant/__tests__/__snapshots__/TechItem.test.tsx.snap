@@ -89,7 +89,7 @@ exports[`TechItem it should matches the snapshot with default values 1`] = `
         </span>
         <a
           class="c4"
-          href="/tools/A-Frame"
+          href="/A-Frame/tools"
         >
           <span>
             words.more

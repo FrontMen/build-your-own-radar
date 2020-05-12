@@ -413,7 +413,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
 `;
 
 exports[`Quadrant matches the snapshot when data is there 1`] = `
-.c21 {
+.c16 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -427,7 +427,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   flex-grow: 1;
 }
 
-.c22 {
+.c17 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -438,7 +438,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   padding-right: 8px;
 }
 
-.c8 {
+.c3 {
   font-family: Roboto,san-serif;
   font-size: 1em;
   font-weight: 400;
@@ -446,7 +446,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   margin: 0 0 8px;
 }
 
-.c23 {
+.c18 {
   width: 100%;
   max-width: 440px;
   min-width: 280px;
@@ -455,11 +455,11 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   position: relative;
 }
 
-.c24 {
+.c19 {
   text-align: center;
 }
 
-.c7 {
+.c2 {
   font-family: Montserrat,san-serif;
   font-weight: 700;
   line-height: 1.15;
@@ -472,7 +472,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   padding: 16px;
 }
 
-.c9 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -485,7 +485,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   padding: 8px 0;
 }
 
-.c10 {
+.c5 {
   -webkit-flex: 0 0 1.5em;
   -ms-flex: 0 0 1.5em;
   flex: 0 0 1.5em;
@@ -494,7 +494,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   margin: 5px;
 }
 
-.c12 {
+.c7 {
   border: none;
   border-bottom: 2px solid;
   border-color: #767676;
@@ -510,11 +510,11 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   background: none;
 }
 
-.c12:focus {
+.c7:focus {
   border-color: #526de4;
 }
 
-.c11 {
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -528,7 +528,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   position: relative;
 }
 
-.c20 {
+.c15 {
   border: 2px solid #526de4;
   background-color: #526de4;
   padding: 2px;
@@ -554,7 +554,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   line-height: 1.65;
 }
 
-.c19 {
+.c14 {
   font-family: Roboto,san-serif;
   font-size: 1em;
   font-weight: 400;
@@ -562,7 +562,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   margin-right: 16px;
 }
 
-.c18 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -578,7 +578,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   align-items: center;
 }
 
-.c17 {
+.c12 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -589,7 +589,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   margin: 8px 0;
 }
 
-.c13 {
+.c8 {
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
@@ -598,7 +598,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   padding: 8px;
 }
 
-.c14 {
+.c9 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -620,7 +620,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   justify-content: space-between;
 }
 
-.c16 {
+.c11 {
   fill: #767676;
   width: 1em;
   height: 1em;
@@ -631,7 +631,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   transform: scale( 1 );
 }
 
-.c15 {
+.c10 {
   margin-right: 8px;
 }
 
@@ -649,60 +649,20 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   flex-wrap: wrap;
 }
 
-.c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 1 1 100%;
-  -ms-flex: 1 1 100%;
-  flex: 1 1 100%;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  text-align: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-family: Roboto,san-serif;
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 1.65;
-  font-size: 1em;
-  font-weight: 700;
-  line-height: 1.25;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  color: inherit;
-  padding: 16px;
-  margin-bottom: 8px;
-  color: #fff;
-  -webkit-transition: opacity 100ms ease-in;
-  transition: opacity 100ms ease-in;
-  background-color: #767676;
-  border-left: 1px solid #bfc0bf;
-}
-
-.c6 {
-  background-color: #7843ab;
-}
-
 @media (min-width:481px) {
-  .c22 {
+  .c17 {
     padding-right: 16px;
   }
 }
 
 @media (min-width:1024px) {
-  .c22 {
+  .c17 {
     max-width: 50%;
   }
 }
 
 @media (min-width:481px) {
-  .c23 {
+  .c18 {
     max-width: 80%;
     margin-top: 16px;
     margin-bottom: 16px;
@@ -710,7 +670,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
 }
 
 @media (min-width:1024px) {
-  .c23 {
+  .c18 {
     max-width: 50%;
     margin-top: 16px;
     margin-bottom: 64px;
@@ -718,7 +678,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
 }
 
 @media (min-width:1024px) {
-  .c24 {
+  .c19 {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -726,7 +686,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
 }
 
 @media (min-width:481px) {
-  .c7 {
+  .c2 {
     font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 16px;
@@ -740,45 +700,8 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
 }
 
 @media (min-width:1024px) {
-  .c13 {
+  .c8 {
     margin-left: 0.5em;
-  }
-}
-
-@media (min-width:481px) {
-  .c2 {
-    max-width: 50%;
-  }
-}
-
-@media (min-width:768px) {
-  .c2 {
-    max-width: 25%;
-    margin-bottom: 0px;
-  }
-}
-
-@media (hover:hover) {
-  .c3:hover {
-    background-color: #31bd70;
-  }
-}
-
-@media (hover:hover) {
-  .c4:hover {
-    background-color: #17a2b8;
-  }
-}
-
-@media (hover:hover) {
-  .c5:hover {
-    background-color: #fd7e14;
-  }
-}
-
-@media (hover:hover) {
-  .c6:hover {
-    background-color: #7843ab;
   }
 }
 
@@ -789,49 +712,12 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
     <div
       class="c1"
       data-testid="subnav-container"
-    >
-      <a
-        class="c2 c3"
-        data-testid="subnav-link-0"
-        href="/frameworks-and-lang"
-      >
-        <span>
-          quadrant.framework.name
-        </span>
-      </a>
-      <a
-        class="c2 c4"
-        data-testid="subnav-link-1"
-        href="/tooling-and-testing"
-      >
-        <span>
-          quadrant.tooling.name
-        </span>
-      </a>
-      <a
-        class="c2 c5"
-        data-testid="subnav-link-2"
-        href="/platforms-infra-and-data"
-      >
-        <span>
-          quadrant.platform.name
-        </span>
-      </a>
-      <a
-        class="c2 c6"
-        data-testid="subnav-link-3"
-        href="/technique"
-      >
-        <span>
-          quadrant.techniques.name
-        </span>
-      </a>
-    </div>
+    />
     <div
       class="c1"
     >
       <h2
-        class="c7"
+        class="c2"
         data-testid="quadrant-content-title"
       >
         <span>
@@ -839,18 +725,18 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
         </span>
       </h2>
       <p
-        class="c8"
+        class="c3"
       >
         <span>
           quadrant.techniques.description
         </span>
       </p>
       <div
-        class="c9"
+        class="c4"
         data-testid="subnav-search-container"
       >
         <svg
-          class="c10"
+          class="c5"
           data-testid="search-icon"
           fill="currentColor"
           height="1em"
@@ -865,10 +751,10 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
           />
         </svg>
         <div
-          class="c11"
+          class="c6"
         >
           <input
-            class="c12"
+            class="c7"
             data-testid="search-input"
             placeholder="words.search"
             type="search"
@@ -877,20 +763,20 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
         </div>
       </div>
       <div
-        class="c13"
+        class="c8"
         data-testid="dataSetFilter-container"
       >
         <div
-          class="c14"
+          class="c9"
           data-testid="dataSetFilter-anchor"
         >
           <span
-            class="c15"
+            class="c10"
             data-testid="dataSetFilter-text"
           />
           <svg
             aria-hidden="true"
-            class="c16"
+            class="c11"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
@@ -902,20 +788,20 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
         </div>
       </div>
       <div
-        class="c17"
+        class="c12"
         data-testid="subnav-filters-container"
       >
         <div
-          class="c18"
+          class="c13"
           data-testid="ITR_BE"
         >
           <label
-            class="c19"
+            class="c14"
           >
             Intracto BE
           </label>
           <span
-            class="c20"
+            class="c15"
             data-testid="checkbox"
           >
             <svg
@@ -936,16 +822,16 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
           </span>
         </div>
         <div
-          class="c18"
+          class="c13"
           data-testid="ITR_NL"
         >
           <label
-            class="c19"
+            class="c14"
           >
             Intracto NL
           </label>
           <span
-            class="c20"
+            class="c15"
             data-testid="checkbox"
           >
             <svg
@@ -966,16 +852,16 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
           </span>
         </div>
         <div
-          class="c18"
+          class="c13"
           data-testid="FM"
         >
           <label
-            class="c19"
+            class="c14"
           >
             Frontmen
           </label>
           <span
-            class="c20"
+            class="c15"
             data-testid="checkbox"
           >
             <svg
@@ -998,10 +884,10 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
       </div>
     </div>
     <div
-      class="c21"
+      class="c16"
     >
       <div
-        class="c22"
+        class="c17"
       >
         <p
           data-testid="quadrant-no-content"
@@ -1017,10 +903,10 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
         </p>
       </div>
       <div
-        class="c23"
+        class="c18"
       >
         <div
-          class="c24"
+          class="c19"
         >
           <svg
             data-testid="graph"

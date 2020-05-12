@@ -29,7 +29,6 @@ exports[`Details when path is correct should render correctly 1`] = `
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
-  color: #fd7e14;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
@@ -45,7 +44,7 @@ exports[`Details when path is correct should render correctly 1`] = `
 }
 
 .c5 {
-  border-left: 4px solid #fd7e14;
+  border-left: 4px solid;
   margin: 50px 0% 0 30%;
   padding: 50px 0 50px 20px;
   list-style: none;
@@ -58,7 +57,7 @@ exports[`Details when path is correct should render correctly 1`] = `
 }
 
 .c6 {
-  border-bottom: 1px dashed #fd7e14;
+  border-bottom: 1px dashed;
   padding-bottom: 25px;
   position: relative;
 }
@@ -91,7 +90,7 @@ exports[`Details when path is correct should render correctly 1`] = `
 }
 
 .c6:after {
-  box-shadow: 0 0 0 4px #fd7e14;
+  box-shadow: 0 0 0 4px undefined;
   left: -28px;
   background: #fff;
   border-radius: 50%;
@@ -140,7 +139,7 @@ exports[`Details when path is correct should render correctly 1`] = `
     <a
       class="c1"
       data-testid="details-back-link"
-      href="/platforms-infra-and-data"
+      href="/quadrant/0"
     >
       <svg
         class="c2"
@@ -157,7 +156,7 @@ exports[`Details when path is correct should render correctly 1`] = `
         />
       </svg>
       <span>
-        quadrant.platform.name
+        quadrant.framework.name
       </span>
     </a>
     <div
@@ -171,12 +170,12 @@ exports[`Details when path is correct should render correctly 1`] = `
       </h2>
       <ul
         class="c5"
-        color="Platforms, infrastructure & Data"
+        color="framework"
         data-testid="details-timeline-container"
       >
         <li
           class="c6"
-          color="Platforms, infrastructure & Data"
+          color="framework"
           data-testid="details-timeline-item-0"
           value="Jan, 2020"
         >

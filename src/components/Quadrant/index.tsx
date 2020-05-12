@@ -47,7 +47,8 @@ export const Quadrant = () => {
     [quadrantNum, technologies, selectedCompanies],
   );
 
-  if (quadrantNum < 0) return <Redirect to="/not-found" />;
+  if (isNaN(quadrantNum) || quadrantNum < 0)
+    return <Redirect to="/not-found" />;
   if (showLoader) return <QuadrantPageSkeleton />;
 
   const { color: quadrantColor } = d3Config.quadrants[quadrantNum];

@@ -218,7 +218,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
               <span />
               <a
                 class="c10"
-                href="/tools/Alpine"
+                href="/Alpine/tools"
               >
                 <span>
                   words.more
@@ -263,7 +263,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
               <span />
               <a
                 class="c10"
-                href="/tools/React-hooks"
+                href="/React-hooks/tools"
               >
                 <span>
                   words.more
@@ -338,7 +338,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
               </span>
               <a
                 class="c10"
-                href="/tools/A-Frame"
+                href="/A-Frame/tools"
               >
                 <span>
                   words.more

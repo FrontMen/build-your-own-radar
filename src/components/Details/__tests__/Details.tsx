@@ -4,10 +4,16 @@ import { AllProvidersWrapper, withAllProviders } from 'test/helpers';
 import { getByRole } from '@testing-library/react';
 import { mount } from 'enzyme';
 import { parsedTechData } from 'test/mockData';
-import { storeCreator, technologiesStateBuilder } from 'test/builders';
-import { d3Config } from 'utils/d3-config';
+import {
+  storeCreator,
+  technologiesStateBuilder,
+  filtersStateBuilder,
+} from 'test/builders';
 
-const correctQuadrant = d3Config.quadrants[2];
+const correctQuadrant = {
+  order: 0,
+  color: '',
+};
 
 describe('Details', () => {
   describe('when path is incorrect', () => {
@@ -65,8 +71,8 @@ describe('Details', () => {
       });
       const store = storeCreator(state);
       const { getByTestId } = withAllProviders(<Details />, {
-        path: '/:quadrant/:technology',
-        route: `/${correctQuadrant.route}/alpine`,
+        path: '/:technology/:quadIndex',
+        route: `/alpine/${correctQuadrant.order}`,
         store,
       });
 
@@ -74,20 +80,26 @@ describe('Details', () => {
     });
 
     it('should render correctly', () => {
-      const state = technologiesStateBuilder({
+      const techState = technologiesStateBuilder({
         initialized: true,
         loading: false,
         data: parsedTechData,
       });
-      const store = storeCreator(state);
+      const filterState = filtersStateBuilder({
+        quadrants: [{ name: 'framework', order: 0, color: '' }],
+      });
+      const store = storeCreator({
+        ...techState,
+        filters: { ...filterState.filters },
+      });
       const { getByTestId, container } = withAllProviders(<Details />, {
-        path: '/:quadrant/:technology',
-        route: `/${correctQuadrant.route}/Alpine`,
+        path: '/:technology/:quadIndex',
+        route: `/Alpine/${correctQuadrant.order}`,
         store,
       });
 
       expect(getByTestId('details-back-link').getAttribute('href')).toBe(
-        `/${correctQuadrant.route}`,
+        `/quadrant/${correctQuadrant.order}`,
       );
       expect(getByTestId('details-content-title')).toHaveTextContent(
         'Timeline: Alpine',
