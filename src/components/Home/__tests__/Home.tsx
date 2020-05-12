@@ -7,7 +7,6 @@ import {
   rootStateBuilder,
 } from 'test/builders';
 import { parsedTechData, mockQuadrants } from 'test/mockData';
-import { d3Config } from 'utils/d3-config';
 
 describe('Home', () => {
   it('should render correctly when content is loading', () => {
@@ -72,7 +71,7 @@ describe('Home', () => {
 
     //quads
     expect(getByTestId('home-quadrants-wrapper')).toBeTruthy();
-    d3Config.quadrants.forEach((quadrant, i) => {
+    mockQuadrants.forEach((quadrant, i) => {
       expect(getByTestId(`home-quadrant-${i}-container`)).toBeTruthy();
     });
   });

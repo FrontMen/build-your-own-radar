@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Redirect, useParams } from 'react-router';
 import { TechLists } from './TechLists';
-import { d3Config } from 'utils/d3-config';
 import { Graph } from 'components/Graph';
 import { ContentTitle } from 'components/shared/ContentTitle';
 import { MainContentSlot } from 'components/shared/PageSlots';
@@ -14,7 +13,10 @@ import {
   selectedTechnologyDataSetSelector,
   technologiesLoadingStateSelector,
 } from 'redux/selectors/technologies';
-import { selectedCompaniesSelector } from 'redux/selectors/filters';
+import {
+  selectedCompaniesSelector,
+  quadrantsSelector,
+} from 'redux/selectors/filters';
 import { Content, Article, Description } from './styled';
 import { filterBlipsSelector } from 'redux/selectors/d3';
 import { transMapper } from 'utils';
@@ -30,6 +32,7 @@ export const Quadrant = () => {
   const { initialized, loading } = useSelector(
     technologiesLoadingStateSelector(),
   );
+  const quadrants = useSelector(quadrantsSelector);
   const isNotMobile = useMediaQuery({ query: `(${MediaQueries.phablet})` });
   const [highlighted, setHighlighted] = useState<null | string>(null);
   const [selected, setSelected] = useQueryAsState();
@@ -51,7 +54,7 @@ export const Quadrant = () => {
     return <Redirect to="/not-found" />;
   if (showLoader) return <QuadrantPageSkeleton />;
 
-  const { color: quadrantColor } = d3Config.quadrants[quadrantNum];
+  const quadrantColor = quadrants[quadrantNum] && quadrants[quadrantNum].color;
 
   const intro = (
     <>

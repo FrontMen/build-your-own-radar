@@ -11,7 +11,6 @@ import {
   RingName,
   Technology,
 } from './styled';
-import { d3Config } from 'utils/d3-config';
 import { useSelector } from 'react-redux';
 import { selectedTechnologyDataSetSelector } from 'redux/selectors/technologies';
 import { useClickAway } from 'hooks/useClickAway';
@@ -42,10 +41,7 @@ export const Search: React.FC<SearchProps> = ({ setSelected, className }) => {
 
     const fuse = new Fuse(technologies, options);
     const results = fuse.search(value);
-    return Groupby(
-      results.map(tech => tech.item),
-      'ring',
-    );
+    return Groupby(results, 'item.ring.name');
   }, [value, technologies]);
   const dataEntries = Object.entries(data);
 
@@ -72,15 +68,13 @@ export const Search: React.FC<SearchProps> = ({ setSelected, className }) => {
             <React.Fragment key={ringName}>
               <RingName data-testid="search-ringName">{ringName}</RingName>
               <div>
-                {techArray.map(technology => (
+                {techArray.map(({ item: technology }) => (
                   <Technology
                     data-testid="search-technology"
-                    key={technology.name}
+                    key={technology.positionId}
                     onClick={e => {
                       e.preventDefault();
-                      const baseLink = `/${
-                        d3Config.quadrants[technology.quadrant.order].route
-                      }`;
+                      const baseLink = `/quadrant/${technology.quadrant.order}`;
                       setValue('');
                       setSelected(
                         `${baseLink}?tech=${technology.positionId}`,
