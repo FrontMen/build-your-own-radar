@@ -2,9 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { MediaQueries } from 'Theme/Helpers';
 import { Link, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { Typography } from 'Theme/Typography';
-import { d3Config } from 'utils/d3-config';
 import { Search } from 'components/Search';
+import { quadrantsSelector } from 'redux/selectors/filters';
 import { FilterByCompany } from 'components/FilterByCompany';
 import { DataSetFilter } from 'components/DataSetFilter';
 import { Text } from 'components/Text';
@@ -66,26 +67,27 @@ interface SubNavProps {
 }
 
 export interface Params {
-  quadrant?: string;
+  order?: string;
   technology?: string;
 }
 
 export const SubNav: React.FC<SubNavProps> = ({ setSelected, children }) => {
-  const { quadrant: quadrantPram } = useParams<Params>();
+  const { order: quadrantOrder } = useParams<Params>();
+  const quadrants = useSelector(quadrantsSelector);
 
   return (
     <>
       <Container data-testid="subnav-container">
-        {d3Config.quadrants.map(
-          ({ name, route }: { name: string; route: string }, index) => (
+        {quadrants.map(
+          ({ name, order }: { name: string; order: number }, index) => (
             <ColoredLinks
               data-testid={`subnav-link-${index}`}
-              selected={quadrantPram === route}
+              selected={Number(quadrantOrder) === order}
               quadName={name}
-              to={`/${route}`}
-              key={name}
+              to={`/quadrant/${order}`}
+              key={order}
             >
-              <Text value={`quadrant.${transMapper[index]}.name`} />
+              <Text value={`quadrant.${transMapper[order]}.name`} />
             </ColoredLinks>
           ),
         )}

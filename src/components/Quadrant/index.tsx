@@ -22,7 +22,8 @@ import { useMediaQuery } from 'react-responsive';
 import { MediaQueries } from 'Theme/Helpers';
 
 export const Quadrant = () => {
-  const { quadrant: quadrantParam } = useParams<QuadParamType>();
+  const { order } = useParams<QuadParamType>();
+  const quadrantNum = Number(order);
   const technologies = useSelector(selectedTechnologyDataSetSelector());
   const selectedCompanies = useSelector(selectedCompaniesSelector);
   const filteredBlips = useSelector(filterBlipsSelector);
@@ -34,9 +35,6 @@ export const Quadrant = () => {
   const [selected, setSelected] = useQueryAsState();
 
   const showLoader = !initialized || loading;
-  const quadrantNum: number = d3Config.quadrants.findIndex(
-    (item: { route: string }) => item.route === quadrantParam,
-  );
   const filteredTechnologies = useMemo(
     () =>
       technologies.filter(
@@ -74,7 +72,7 @@ export const Quadrant = () => {
           {filteredTechnologies.length > 0 ? (
             <TechLists
               data-testid="tech-lists"
-              quadrant={quadrantParam}
+              quadrant={order}
               selected={selected}
               setSelected={setSelected}
               highlighted={highlighted}

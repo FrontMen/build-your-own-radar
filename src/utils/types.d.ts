@@ -62,7 +62,7 @@ interface Technology extends Partial<Point> {
 }
 
 type QuadParamType = {
-  readonly quadrant: string;
+  readonly order: string;
 };
 
 type IncomingGoogleSheetsData = {

@@ -6,7 +6,6 @@ import { ContentTitle } from 'components/shared/ContentTitle';
 import { DetailsSkeleton } from 'components/Skeleton/Details';
 import { Text } from 'components/Text';
 import { Link } from 'react-router-dom';
-import { d3Config } from 'utils/d3-config';
 import { Typography } from 'Theme/Typography';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 import { useSelector } from 'react-redux';
@@ -14,6 +13,7 @@ import {
   allTechnologyDataSetSelector,
   technologiesLoadingStateSelector,
 } from 'redux/selectors/technologies';
+import { quadrantsSelector } from 'redux/selectors/filters';
 import { dateFormat, transMapper } from 'utils';
 
 const Slot = styled(MainContentSlot)``;
@@ -112,21 +112,21 @@ const Tag = styled.div`
 
 export interface DetailsParams {
   technology?: string;
-  quadrant?: string;
+  quadIndex?: string;
 }
 
 export const Details: React.FC = () => {
-  const { quadrant: quadrantParam, technology: technologyParam } = useParams<
-    DetailsParams
-  >();
+  const { quadIndex, technology: technologyParam } = useParams<DetailsParams>();
   const allData = useSelector(allTechnologyDataSetSelector);
   const { loading, initialized } = useSelector(
     technologiesLoadingStateSelector(),
   );
-  const quadrantIndex = d3Config.quadrants.findIndex(
-    quad => quad.route === quadrantParam,
-  );
+  const quadrants = useSelector(quadrantsSelector);
   const decodedTechName = decodeURIComponent(technologyParam || '');
+  const numericQuadIndex = Number(quadIndex);
+  const foundQuadrant = quadrants.find(
+    item => item.order === Number(numericQuadIndex),
+  );
 
   let lastDescription: string;
   const technologies = Object.entries(allData)
@@ -147,19 +147,19 @@ export const Details: React.FC = () => {
 
   if (loading || !initialized) return <DetailsSkeleton />;
 
-  if (quadrantIndex < 0 || !technologies.length)
+  if (!foundQuadrant || !technologies.length)
     return <Redirect to="/not-found" />;
 
-  const quadrantName = d3Config.quadrants[quadrantIndex].name;
+  const { name: quadrantName } = foundQuadrant;
   return (
     <Slot>
       <BackLink
         quadName={quadrantName}
-        to={`/${quadrantParam}`}
+        to={`/quadrant/${numericQuadIndex}`}
         data-testid="details-back-link"
       >
         <ArrowLeftIcon />
-        <Text value={`quadrant.${transMapper[quadrantIndex]}.name`} />
+        <Text value={`quadrant.${transMapper[numericQuadIndex]}.name`} />
       </BackLink>
       <Content>
         <ContentTitle data-testid="details-content-title">{`Timeline: ${decodedTechName}`}</ContentTitle>

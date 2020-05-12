@@ -18,15 +18,14 @@ export const Router: React.FC = () => (
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/not-found">
-          <NotFound />
-        </Route>
-        <Route path="/:quadrant/:technology">
-          <Details />
-        </Route>
-        <Route path="/:quadrant">
+        <Route path="/quadrant/:order">
           <Quadrant />
         </Route>
+        <Route path="/:technology/:quadIndex">
+          <Details />
+        </Route>
+
+        <Route component={NotFound} />
       </Switch>
       <Footer />
     </PageGrid>
