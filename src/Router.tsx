@@ -1,11 +1,14 @@
 import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { PrivateRoute } from 'components/PrivateRoute';
 import { Home } from 'components/Home';
 import { Details } from 'components/Details';
 import { Quadrant } from 'components/Quadrant';
 import { PageGrid } from 'components/shared/PageGrid';
 import { Header } from 'components/Header';
 import { Footer } from 'components/Footer';
+import { Login } from 'pages/auth/login';
+import { Register } from 'pages/auth/register';
 import { NotFound } from 'components/NotFound';
 import { ScrollToTop } from 'hooks/topScroll';
 
@@ -15,17 +18,13 @@ export const Router: React.FC = () => (
     <PageGrid>
       <Header />
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
+        <Route path="/auth/login" component={Login} />
+        <Route path="/auth/register" component={Register} />
+        <PrivateRoute exact path="/" component={Home} />
+        <PrivateRoute path="/:quadrant/:technology" component={Details} />
+        <PrivateRoute path="/:quadrant" component={Quadrant} />
         <Route exact path="/not-found">
           <NotFound />
-        </Route>
-        <Route path="/:quadrant/:technology">
-          <Details />
-        </Route>
-        <Route path="/:quadrant">
-          <Quadrant />
         </Route>
       </Switch>
       <Footer />
