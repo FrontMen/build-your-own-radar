@@ -137,15 +137,45 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   font-weight: 400;
   font-size: 0.9em;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c11 {
+.c12 {
   height: 2em;
   width: 2em;
+}
+
+.c11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c14 {
+  margin-right: 8px;
+  font-family: Roboto,san-serif;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.65;
+  font-size: 0.6em;
+}
+
+.c13 {
+  margin-right: 1px;
+  width: 1em;
+  height: 1em;
 }
 
 @media (min-width:481px) {
@@ -220,24 +250,42 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
                 class="c10"
                 href="/tools/Alpine"
               >
-                <span>
-                  words.more
-                </span>
-                <svg
+                <div
                   class="c11"
-                  data-testid="arrow-right-icon"
-                  fill="currentColor"
-                  height="1em"
-                  stroke="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 512 512"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
+                  <span>
+                    words.more
+                  </span>
+                  <svg
+                    class="c12"
+                    data-testid="arrow-right-icon"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="c11"
+                >
+                  <img
+                    alt="company ITR_NL logo"
+                    class="c13"
+                    src="intracto.svg"
                   />
-                </svg>
+                  <span
+                    class="c14"
+                  >
+                    NL
+                  </span>
+                </div>
               </a>
             </div>
           </div>
@@ -265,24 +313,42 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
                 class="c10"
                 href="/tools/React-hooks"
               >
-                <span>
-                  words.more
-                </span>
-                <svg
+                <div
                   class="c11"
-                  data-testid="arrow-right-icon"
-                  fill="currentColor"
-                  height="1em"
-                  stroke="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 512 512"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
+                  <span>
+                    words.more
+                  </span>
+                  <svg
+                    class="c12"
+                    data-testid="arrow-right-icon"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="c11"
+                >
+                  <img
+                    alt="company ITR_NL logo"
+                    class="c13"
+                    src="intracto.svg"
                   />
-                </svg>
+                  <span
+                    class="c14"
+                  >
+                    NL
+                  </span>
+                </div>
               </a>
             </div>
           </div>
@@ -340,24 +406,40 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
                 class="c10"
                 href="/tools/A-Frame"
               >
-                <span>
-                  words.more
-                </span>
-                <svg
+                <div
                   class="c11"
-                  data-testid="arrow-right-icon"
-                  fill="currentColor"
-                  height="1em"
-                  stroke="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 512 512"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
+                  <span>
+                    words.more
+                  </span>
+                  <svg
+                    class="c12"
+                    data-testid="arrow-right-icon"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 512 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M295.6 163.7c-5.1 5-5.1 13.3-.1 18.4l60.8 60.9H124.9c-7.1 0-12.9 5.8-12.9 13s5.8 13 12.9 13h231.3l-60.8 60.9c-5 5.1-4.9 13.3.1 18.4 5.1 5 13.2 5 18.3-.1l82.4-83c1.1-1.2 2-2.5 2.7-4.1.7-1.6 1-3.3 1-5 0-3.4-1.3-6.6-3.7-9.1l-82.4-83c-4.9-5.2-13.1-5.3-18.2-.3z"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="c11"
+                >
+                  <img
+                    alt="company FM logo"
+                    class="c13"
+                    src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 106'%3E%3Cpath fill='%23201E33' d='M0 0h80v60H0z'/%3E%3Cpath fill='%231F1D32' d='M40.07 0L0 23.16v59.674L39.97 106 80 82.676V23.16z'/%3E%3Cpath fill='%23FFF' d='M10 29v48.49L19.333 83V65.44L38 76.462v-11.02L19.333 54.42v-8.919L38 56.551v-11.02z'/%3E%3Cpath fill='%23FF5900' d='M42 45.53v11.021l18.667-11.02V83L70 77.49V29z'/%3E%3Cpath fill='%230CC' d='M14 26.473L23.464 32 40.5 22.053 57.536 32 67 26.473 40.5 11z'/%3E%3C/svg%3E"
                   />
-                </svg>
+                  <span
+                    class="c14"
+                  />
+                </div>
               </a>
             </div>
           </div>
