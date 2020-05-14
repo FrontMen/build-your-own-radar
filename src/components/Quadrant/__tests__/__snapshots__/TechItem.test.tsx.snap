@@ -80,6 +80,7 @@ exports[`TechItem it should matches the snapshot with default values 1`] = `
   font-size: 1em;
   font-weight: 400;
   line-height: 1.65;
+  font-size: 0.6em;
 }
 
 .c7 {

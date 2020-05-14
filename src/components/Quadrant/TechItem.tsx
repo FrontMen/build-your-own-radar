@@ -66,6 +66,7 @@ const DetailsLinkTextContainer = styled.div`
 const CompanyShortName = styled.span`
   margin-right: ${props => props.theme.space[2]}px;
   ${Typography.body};
+  font-size: 0.6em;
 `;
 
 const Logo = styled.img`
@@ -158,8 +159,7 @@ export class TechItem extends React.Component<TechnologyProps> {
                       alt={`company ${c.shortName} logo`}
                     />
                     <CompanyShortName>
-                      {c.shortName.split('_')[1] &&
-                        `/${c.shortName.split('_')[1]}`}
+                      {c.shortName.split('_')[1]}
                     </CompanyShortName>
                   </>
                 ))}
