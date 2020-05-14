@@ -5,6 +5,7 @@ import { MediaQueries } from 'Theme/Helpers';
 import { Link } from 'react-router-dom';
 import { Text } from 'components/Text';
 import { IoIosArrowRoundForward } from 'react-icons/io';
+import { getSrc } from 'utils';
 
 const ListItem = styled.li`
   list-style: none;
@@ -46,6 +47,7 @@ const DetailsLink = styled(Link)`
   width: 100%;
   color: ${props => props.theme.pallet.blue};
   display: flex;
+  justify-content: space-between;
   font-weight: 400;
   font-size: 0.9em;
   text-decoration: none;
@@ -54,6 +56,22 @@ const DetailsLink = styled(Link)`
 const ArrowRightIcon = styled(IoIosArrowRoundForward)`
   height: 2em;
   width: 2em;
+`;
+
+const DetailsLinkTextContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const CompanyShortName = styled.span`
+  margin-right: ${props => props.theme.space[2]}px;
+  ${Typography.body};
+`;
+
+const Logo = styled.img`
+  margin-right: 1px;
+  width: 1em;
+  height: 1em;
 `;
 
 export interface TechnologyProps {
@@ -107,7 +125,7 @@ export class TechItem extends React.Component<TechnologyProps> {
     const {
       selected,
       highlighted,
-      technology: { name, description, positionId },
+      technology: { name, description, positionId, companies },
       quadrant,
     } = this.props;
 
@@ -127,8 +145,25 @@ export class TechItem extends React.Component<TechnologyProps> {
           <Content>
             <span dangerouslySetInnerHTML={{ __html: description }} />
             <DetailsLink to={`/${quadrant}/${encodeURIComponent(name)}`}>
-              <Text value="words.more" />
-              <ArrowRightIcon data-testid="arrow-right-icon" />
+              <DetailsLinkTextContainer>
+                <Text value="words.more" />
+                <ArrowRightIcon data-testid="arrow-right-icon" />
+              </DetailsLinkTextContainer>
+              <DetailsLinkTextContainer>
+                {companies.map(c => (
+                  <>
+                    <Logo
+                      key={c.shortName}
+                      src={getSrc(c.shortName)}
+                      alt={`company ${c.shortName} logo`}
+                    />
+                    <CompanyShortName>
+                      {c.shortName.split('_')[1] &&
+                        `/${c.shortName.split('_')[1]}`}
+                    </CompanyShortName>
+                  </>
+                ))}
+              </DetailsLinkTextContainer>
             </DetailsLink>
           </Content>
         </Details>
