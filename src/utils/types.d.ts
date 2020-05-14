@@ -29,19 +29,36 @@ interface Segment {
 
 type RingNamesType = 'Adopt' | 'Trial' | 'Assess' | 'Hold';
 type CompanyTypes = 'ITR_BE' | 'ITR_NL' | 'FM';
-
+type Quadrant = {
+  name: string;
+  color: string;
+  order: number;
+  localName?: string;
+};
+type Company = {
+  name: string;
+  shortName: CompanyTypes;
+};
+type Ring = {
+  name: RingNamesType;
+  color?: string;
+  backgroundColor: string;
+  order: number;
+};
 interface Technology extends Partial<Point> {
   name: string;
-  ring: RingNamesType;
-  quadrant: number;
+  ring: Ring;
+  quadrant: Quadrant;
   isNew: boolean;
-  companies: CompanyTypes[];
+  companies: Company[];
   description: string;
   moved: number;
   segment?: Segment;
   color?: string;
   id?: string;
   positionId?: string;
+  inRadar: boolean;
+  publishedAt: date;
 }
 
 type QuadParamType = {

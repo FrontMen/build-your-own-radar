@@ -28,6 +28,7 @@ const typeDefs = `
   type Quadrant {
     name: String!
     color: String!
+    order: Int!
   }
 
   type Company {

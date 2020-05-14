@@ -1,13 +1,12 @@
 import gql from 'graphql-tag';
 
-const QUADRANTS_QUERY = gql`
+export const QUADRANTS_QUERY = gql`
   query Quadrants {
     quadrants {
       id
       name
       color
+      order
     }
   }
 `;
-
-export default QUADRANTS_QUERY;

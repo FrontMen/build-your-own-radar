@@ -7,7 +7,6 @@ export const Container = styled.div`
   flex-grow: 1;
   position: relative;
   padding: ${props => props.theme.space[2]}px 0;
-  margin-bottom: 20px;
 `;
 
 export const SearchIcon = styled(IoIosSearch)`
@@ -25,6 +24,7 @@ export const Input = styled.input`
   ${Typography.body};
   outline: none;
   -webkit-appearance: none;
+  background: none;
 
   &:focus {
     border-color: ${props => props.theme.pallet.primary};

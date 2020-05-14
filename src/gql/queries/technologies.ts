@@ -8,13 +8,14 @@ export const TECHNOLOGIES_QUERY = gql`
       description
       isNew
       companies {
-        name
+        shortName
       }
       inRadar
-      published_at
+      publishedAt
       quadrant {
         name
         color
+        order
       }
       ring {
         name
@@ -31,10 +32,11 @@ export const TECHNOLOGIES_FILTER = gql`
       id
       name
       description
-      published_at
+      publishedAt
       quadrant {
         name
         color
+        order
       }
     }
   }

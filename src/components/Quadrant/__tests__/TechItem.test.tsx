@@ -2,13 +2,13 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import { TechItem, TechnologyProps } from '../TechItem';
-import { parsedMockDataItem } from 'test/mockData';
+import { parsedTechDataItem } from 'test/mockData';
 import { withAllProviders, AllProvidersWrapper } from 'test/helpers';
 import { createMemoryHistory } from 'history';
 
 const defaultProps: TechnologyProps = {
   highlighted: null,
-  technology: parsedMockDataItem[0],
+  technology: parsedTechDataItem[0],
   selected: null,
   setSelected: jest.fn(),
   setHighlighted: jest.fn(),
@@ -42,7 +42,7 @@ describe('TechItem', () => {
     expect(label).toHaveStyleRule('font-weight', '400');
 
     wrapper.setProps({
-      highlighted: parsedMockDataItem[0].positionId,
+      highlighted: parsedTechDataItem[0].positionId,
     });
 
     label = wrapper.find(LabelSelector);
@@ -59,7 +59,7 @@ describe('TechItem', () => {
     expect(label).toHaveStyleRule('font-weight', '400');
 
     wrapper.setProps({
-      selected: parsedMockDataItem[0].positionId,
+      selected: parsedTechDataItem[0].positionId,
     });
 
     label = wrapper.find(LabelSelector);
@@ -76,7 +76,7 @@ describe('TechItem', () => {
     expect(details).toHaveStyleRule('max-height', '0px');
 
     wrapper.setProps({
-      selected: parsedMockDataItem[0].positionId!,
+      selected: parsedTechDataItem[0].positionId!,
     });
 
     details = wrapper.find(DetailsSelector);
@@ -93,7 +93,7 @@ describe('TechItem', () => {
       .at(0)
       .simulate('mouseOver');
     expect(defaultProps.setHighlighted).toHaveBeenCalledWith(
-      parsedMockDataItem[0].positionId,
+      parsedTechDataItem[0].positionId,
     );
 
     wrapper
@@ -113,7 +113,7 @@ describe('TechItem', () => {
       .at(0)
       .simulate('click');
     expect(defaultProps.setSelected).toHaveBeenCalledWith(
-      `?tech=${parsedMockDataItem[0].positionId}`,
+      `?tech=${parsedTechDataItem[0].positionId}`,
     );
   });
 });

@@ -629,7 +629,7 @@ export const radar_visualization = (
             .transition()
             .duration(600)
             .attr('transform', d => {
-              const { factor_x, factor_y } = quadrants[d.quadrant];
+              const { factor_x, factor_y } = quadrants[d.quadrant.order];
               return translate(d.x + factor_x * 400, d.y + factor_y * 400);
             })
             .remove();

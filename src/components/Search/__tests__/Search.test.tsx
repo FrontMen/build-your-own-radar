@@ -7,9 +7,9 @@ import {
 } from 'test/helpers';
 import { mount } from 'enzyme';
 import { rootStateBuilder, storeCreator } from 'test/builders';
-import { parsedMockData } from 'test/mockData';
+import { parsedTechData } from 'test/mockData';
 
-const setHighlighted = jest.fn();
+const setSelected = jest.fn();
 
 const inputSelector = getSelector('search-input');
 const dropdownSelector = getSelector('search-content');
@@ -18,7 +18,7 @@ describe('Search', () => {
   /* test to check that the mobile and larger snapshot don't change unintentionally */
   it('render search icon and input field', () => {
     const { container, getByTestId } = withAllProviders(
-      <Search setHighlighted={setHighlighted} />,
+      <Search setSelected={setSelected} />,
     );
 
     expect(getByTestId('search-icon')).toBeTruthy();
@@ -27,12 +27,12 @@ describe('Search', () => {
   });
 
   it('should render dropdown if input has a matching value', () => {
-    const [dataSetKey] = Object.entries(parsedMockData)[0];
+    const [dataSetKey] = Object.entries(parsedTechData)[0];
     const state = rootStateBuilder({
       technologies: {
         initialized: true,
         loading: false,
-        data: parsedMockData,
+        data: parsedTechData,
       },
       filters: {
         dataSet: {
@@ -42,7 +42,7 @@ describe('Search', () => {
     });
     const store = storeCreator(state);
 
-    const wrapper = mount(<Search setHighlighted={setHighlighted} />, {
+    const wrapper = mount(<Search setSelected={setSelected} />, {
       wrappingComponent: AllProvidersWrapper,
       wrappingComponentProps: {
         store,
@@ -57,7 +57,7 @@ describe('Search', () => {
       .at(0)
       .simulate('change', {
         target: {
-          value: 'Angular',
+          value: 'Alpine',
         },
       });
 

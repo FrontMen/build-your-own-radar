@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { MainContentSlot } from 'components/shared/PageSlots';
 import { MediaQueries } from 'Theme/Helpers';
 import { Typography } from 'Theme/Typography';
 
@@ -92,12 +91,6 @@ export const Tooltip = styled.span`
         transparent transparent;
     }
   }
-`;
-
-export const Slot = styled(MainContentSlot)`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 `;
 
 export const Content = styled.div`
