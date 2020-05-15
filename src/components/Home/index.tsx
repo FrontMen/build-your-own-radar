@@ -22,7 +22,7 @@ import { blipsSelector } from 'redux/selectors/d3';
 import RightArrow from 'res/svg/arrow-right.svg';
 import { transMapper } from 'utils';
 
-export const Home: React.FC = () => {
+export const Home: React.FC = props => {
   const quads = d3Config.quadrants;
   const { initialized, loading, error, errorMessage } = useSelector(
     technologiesLoadingStateSelector(),
@@ -32,6 +32,8 @@ export const Home: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setSelected] = useQueryAsState();
   const showLoader = !initialized || loading;
+
+  console.log('props :>> ', props);
 
   if (showLoader) return <HomePageSkeleton />;
 

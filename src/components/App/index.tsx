@@ -9,12 +9,12 @@ import i18n from 'i18n';
 import { Main } from './Main';
 import { client } from 'utils/apolloClient';
 
-export const App: React.FC = () => (
+export const App: React.FC = props => (
   <Provider store={store}>
     <ApolloProvider client={client}>
       <ThemeProvider theme={lightTheme}>
         <I18nextProvider i18n={i18n}>
-          <Main />
+          <Main {...props} />
         </I18nextProvider>
       </ThemeProvider>
     </ApolloProvider>

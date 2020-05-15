@@ -4,7 +4,7 @@ import { GlobalStyle } from 'Theme/GlobalStyles';
 import { useDispatch } from 'react-redux';
 import { actions } from 'redux/actions';
 
-export const Main: React.FC = () => {
+export const Main: React.FC = props => {
   const dispatch = useDispatch();
 
   useEffect(() => {

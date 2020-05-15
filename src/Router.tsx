@@ -8,7 +8,6 @@ import { PageGrid } from 'components/shared/PageGrid';
 import { Header } from 'components/Header';
 import { Footer } from 'components/Footer';
 import { Login } from 'pages/auth/login';
-import { Register } from 'pages/auth/register';
 import { NotFound } from 'components/NotFound';
 import { ScrollToTop } from 'hooks/topScroll';
 
@@ -19,7 +18,6 @@ export const Router: React.FC = () => (
       <Header />
       <Switch>
         <Route path="/auth/login" component={Login} />
-        <Route path="/auth/register" component={Register} />
         <PrivateRoute exact path="/" component={Home} />
         <PrivateRoute path="/:quadrant/:technology" component={Details} />
         <PrivateRoute path="/:quadrant" component={Quadrant} />
