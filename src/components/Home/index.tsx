@@ -33,8 +33,6 @@ export const Home: React.FC = props => {
   const [_, setSelected] = useQueryAsState();
   const showLoader = !initialized || loading;
 
-  console.log('props :>> ', props);
-
   if (showLoader) return <HomePageSkeleton />;
 
   if (error) {

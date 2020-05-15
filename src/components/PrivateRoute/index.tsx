@@ -8,8 +8,6 @@ interface PrivateProps {
   exact?: boolean;
 }
 
-console.log(auth.getToken());
-
 export const PrivateRoute: React.FC<PrivateProps> = ({
   component: Component,
   ...rest
@@ -17,7 +15,7 @@ export const PrivateRoute: React.FC<PrivateProps> = ({
   <Route
     {...rest}
     render={props =>
-      true ? (
+      auth.isLoggedIn() ? (
         <Component {...props} />
       ) : (
         <Redirect
