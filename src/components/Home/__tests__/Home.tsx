@@ -31,9 +31,7 @@ describe('Home', () => {
     });
     const container = getByTestId('home-error');
 
-    expect(container).toHaveTextContent(
-      `Unexpected error occurred: ${errorMessage}`,
-    );
+    expect(container).toHaveTextContent(`${errorMessage}`);
   });
 
   it('should render correctly when content is there', () => {
