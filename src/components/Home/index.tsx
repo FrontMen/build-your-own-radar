@@ -5,6 +5,7 @@ import { d3Config } from 'utils/d3-config';
 import { Graph } from 'components/Graph';
 import { HomePageSkeleton } from 'components/Skeleton/Homepage';
 import { Text } from 'components/Text';
+import { Error } from 'pages/Error';
 import { useQueryAsState } from 'hooks/useQueryAsState';
 import { useSelector } from 'react-redux';
 import { technologiesLoadingStateSelector } from 'redux/selectors/technologies';
@@ -36,12 +37,7 @@ export const Home: React.FC = props => {
   if (showLoader) return <HomePageSkeleton />;
 
   if (error) {
-    //TODO: replace this with component error state
-    return (
-      <div data-testid="home-error">
-        Unexpected error occurred: {errorMessage}
-      </div>
-    );
+    return <Error message={errorMessage} />;
   }
 
   return (

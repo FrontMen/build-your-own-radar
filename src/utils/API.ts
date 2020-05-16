@@ -18,5 +18,33 @@ export const isErrorResponse = (response: { status: number }) =>
 const requestURL = (spreadsheet: string, apiKey: string) =>
   `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheet}?fields=sheets.properties.title%2Csheets.data.rowData.values.effectiveValue&key=${apiKey}`;
 
-export const fetchSpreadSheet = () =>
-  fetch(requestURL(SPREADSHEET, API_KEY));
+export const fetchSpreadSheet = () => fetch(requestURL(SPREADSHEET, API_KEY));
+
+export const request = (url: string, options = {}) => {
+  return fetch(url, options).then(response => response.json());
+  // Set headers
+  // options.headers = Object.assign({
+  //   'Content-Type': 'application/json',
+  // }, options.headers, {});
+
+  // const token = auth.getToken();
+
+  // if (token) {
+  //   options.headers = Object.assign({
+  //     'Authorization': `Bearer ${token}`,
+  //   }, options.headers);
+  // }
+
+  // if (options && options.params) {
+  //   const params = formatQueryParams(options.params);
+  //   url = `${url}?${params}`;
+  // }
+
+  // // Stringify body object
+  // if (options && options.body) {
+  //   options.body = JSON.stringify(options.body);
+  // }
+
+  //  .then(checkStatus)
+  //  .then(parseJSON);
+};

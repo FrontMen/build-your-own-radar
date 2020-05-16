@@ -2,11 +2,11 @@ const TOKEN_KEY: string = 'jwtToken';
 
 export const auth = {
   isLoggedIn(): boolean {
-    return this.getToken() !== null;
+    return auth.getToken() !== null;
   },
 
   logout() {
-    this.clear();
+    auth.clear();
   },
 
   get(key: string): string | null {
@@ -14,7 +14,7 @@ export const auth = {
   },
 
   getToken(tokenKey = TOKEN_KEY): string | null {
-    return this.get(tokenKey);
+    return auth.get(tokenKey);
   },
 
   set(value: string | string[] | null | undefined, key: string) {
@@ -25,11 +25,8 @@ export const auth = {
     return localStorage.setItem(key, value);
   },
 
-  setToken(
-    value: string | string[] | null | undefined = '',
-    tokenKey: string = TOKEN_KEY,
-  ) {
-    return this.set(value, tokenKey);
+  setToken(value: string, tokenKey: string = TOKEN_KEY) {
+    return auth.set(value, tokenKey);
   },
 
   clear() {

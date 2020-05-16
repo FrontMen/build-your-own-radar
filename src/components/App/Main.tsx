@@ -8,18 +8,12 @@ import { auth } from 'utils/auth';
 
 export const Main: React.FC = () => {
   const dispatch = useDispatch();
-  const currentToken = auth.getToken();
-  const { access_token } = parse(window.location.search);
 
   useEffect(() => {
     if (auth.isLoggedIn()) {
       dispatch(actions.fetchTechnologies());
     }
   }, [dispatch]);
-  if (access_token && access_token !== currentToken) {
-    // New Token
-    auth.setToken(access_token);
-  }
 
   return (
     <div className="App">

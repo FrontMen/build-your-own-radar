@@ -199,6 +199,11 @@ exports[`Footer should matches the snapshot 1`] = `
           footer.terms
         </span>
       </a>
+      <a
+        href="/auth/logout"
+      >
+        Logout
+      </a>
       <select>
         <option
           value="en-US"
