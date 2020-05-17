@@ -23,7 +23,7 @@ import { blipsSelector } from 'redux/selectors/d3';
 import RightArrow from 'res/svg/arrow-right.svg';
 import { transMapper } from 'utils';
 
-export const Home: React.FC = props => {
+export const Home: React.FC = () => {
   const quads = d3Config.quadrants;
   const { initialized, loading, error, errorMessage } = useSelector(
     technologiesLoadingStateSelector(),
@@ -35,10 +35,7 @@ export const Home: React.FC = props => {
   const showLoader = !initialized || loading;
 
   if (showLoader) return <HomePageSkeleton />;
-
-  if (error) {
-    return <Error message={errorMessage} />;
-  }
+  if (error) return <Error message={errorMessage} />;
 
   return (
     <MainContentSlot>

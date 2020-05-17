@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Router } from 'Router';
-import { parse } from 'query-string';
 import { GlobalStyle } from 'Theme/GlobalStyles';
 import { useDispatch } from 'react-redux';
 import { actions } from 'redux/actions';
