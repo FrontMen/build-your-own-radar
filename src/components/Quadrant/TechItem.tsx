@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import { Typography } from 'Theme/Typography';
 import { MediaQueries } from 'Theme/Helpers';
@@ -152,16 +152,15 @@ export class TechItem extends React.Component<TechnologyProps> {
               </DetailsLinkTextContainer>
               <DetailsLinkTextContainer>
                 {companies.map(c => (
-                  <>
+                  <Fragment key={c.shortName}>
                     <Logo
-                      key={c.shortName}
                       src={getSrc(c.shortName)}
                       alt={`company ${c.shortName} logo`}
                     />
                     <CompanyShortName>
                       {c.shortName.split('_')[1]}
                     </CompanyShortName>
-                  </>
+                  </Fragment>
                 ))}
               </DetailsLinkTextContainer>
             </DetailsLink>
