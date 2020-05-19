@@ -42,7 +42,10 @@ const cache = new InMemoryCache();
 const link = new HttpLink({
   uri: `${process.env.REACT_APP_BACKEND_URL}/graphql`,
   headers: {
-    Authorization: `Bearer ${auth.getToken()}`,
+    Authorization:
+      auth.isProduction() && auth.getToken() !== null
+        ? `Bearer ${auth.getToken()}`
+        : '',
   },
 });
 

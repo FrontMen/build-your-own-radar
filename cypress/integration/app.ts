@@ -3,12 +3,10 @@
 import { dataTestId } from 'helpers';
 
 describe('App', () => {
-  beforeEach(() => {
-    //go to home page
-    cy.visit('/');
-  });
+  beforeEach(() => cy.generateToken());
 
   it('render application', function() {
+    cy.visit('/');
     //check for app container
     cy.get('.App').should('be.visible');
 

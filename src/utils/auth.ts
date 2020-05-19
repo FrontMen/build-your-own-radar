@@ -2,7 +2,7 @@ const TOKEN_KEY: string = 'jwtToken';
 
 export const auth = {
   isLoggedIn(): boolean {
-    return auth.getToken() !== null;
+    return !auth.isProduction() || auth.getToken() !== null;
   },
 
   logout() {
@@ -27,6 +27,10 @@ export const auth = {
 
   setToken(value: string, tokenKey: string = TOKEN_KEY) {
     return auth.set(value, tokenKey);
+  },
+
+  isProduction() {
+    return process.env.NODE_ENV === 'production';
   },
 
   clear() {

@@ -52,7 +52,9 @@ export const Login: React.FC = () => (
     <Content>
       <LoginBox>
         <LoginTitle>Login</LoginTitle>
-        <GoogleButton href="http://localhost:1337/connect/google">
+        <GoogleButton
+          href={`${process.env.REACT_APP_BACKEND_URL}/connect/google`}
+        >
           Google
         </GoogleButton>
       </LoginBox>
