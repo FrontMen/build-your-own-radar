@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { FooterSlot } from '../shared/PageSlots';
 import { MediaQueries } from 'Theme/Helpers';
 import { Text } from 'components/Text';
@@ -148,6 +149,7 @@ export const Footer = () => (
       >
         <Text value="footer.terms" />
       </a>
+      <Link to="/auth/logout">Logout</Link>
       <select onChange={changeLanguage} defaultValue={i18n.language}>
         <option value="en-US">English</option>
         <option value="nl">Nederlands</option>

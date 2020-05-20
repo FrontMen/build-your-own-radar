@@ -16,7 +16,6 @@ import {
 } from 'redux/selectors/technologies';
 import { dateFormat, transMapper } from 'utils';
 
-const Slot = styled(MainContentSlot)``;
 const BackLink = styled(({ quadName, ...props }) => <Link {...props} />)`
   display: inline-flex;
   align-items: center;
@@ -152,7 +151,7 @@ export const Details: React.FC = () => {
 
   const quadrantName = d3Config.quadrants[quadrantIndex].name;
   return (
-    <Slot>
+    <MainContentSlot>
       <BackLink
         quadName={quadrantName}
         to={`/${quadrantParam}`}
@@ -183,6 +182,6 @@ export const Details: React.FC = () => {
           ))}
         </Timeline>
       </Content>
-    </Slot>
+    </MainContentSlot>
   );
 };
