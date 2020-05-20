@@ -35,7 +35,7 @@
     "eject": "react-scripts eject",
     "prettier": "prettier --write 'src/**/*.ts'",
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "NODE_ENV=development && cypress run"
   },
   "eslintConfig": {
     "extends": "react-app",

@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Details when path is correct should render correctly 1`] = `
+.c0 {
+  grid-area: main;
+  background-color: #fff;
+  padding: 16px;
+}
+
 .c4 {
   font-family: Montserrat,san-serif;
   font-weight: 700;
   line-height: 1.15;
   font-size: 1.5em;
-}
-
-.c0 {
-  grid-area: main;
-  background-color: #fff;
-  padding: 16px;
 }
 
 .c1 {
@@ -120,6 +120,12 @@ exports[`Details when path is correct should render correctly 1`] = `
 }
 
 @media (min-width:481px) {
+  .c0 {
+    padding: 32px;
+  }
+}
+
+@media (min-width:481px) {
   .c4 {
     font-size: 1.5em;
     margin-top: 0;
@@ -127,15 +133,9 @@ exports[`Details when path is correct should render correctly 1`] = `
   }
 }
 
-@media (min-width:481px) {
-  .c0 {
-    padding: 32px;
-  }
-}
-
 <div>
   <div
-    class="PageSlots__MainContentSlot-sc-1quj5xc-1 c0"
+    class="c0"
   >
     <a
       class="c1"

@@ -3,13 +3,15 @@ import { Router } from 'Router';
 import { GlobalStyle } from 'Theme/GlobalStyles';
 import { useDispatch } from 'react-redux';
 import { actions } from 'redux/actions';
+import { auth } from 'utils/auth';
 
 export const Main: React.FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // fetching technologies at the top level
-    dispatch(actions.fetchTechnologies());
+    if (auth.isLoggedIn()) {
+      dispatch(actions.fetchTechnologies());
+    }
   }, [dispatch]);
 
   return (
