@@ -71,7 +71,6 @@ describe('quadrant', () => {
               .should(v => {
                 expect(v.length)
                   .to.be.greaterThan(0)
-                  // to.have.length.of.at.most
                   .and.to.be.at.most(blips.length);
               });
           });
