@@ -71,7 +71,8 @@ describe('quadrant', () => {
               .should(v => {
                 expect(v.length)
                   .to.be.greaterThan(0)
-                  .and.to.be.lessThan(blips.length);
+                  // to.have.length.of.at.most
+                  .and.to.be.at.most(blips.length);
               });
           });
       });
@@ -117,43 +118,19 @@ describe('quadrant', () => {
         //check initial state
         cy.get(`[data-testid^=dataSetFilter-dropdown-option]`)
           .first()
-          .should('be.visible')
-          .should(
-            'have.css',
-            'background-color',
-            hexToRgb(lightTheme.pallet.primary),
-          );
+          .should('be.visible');
 
         cy.get(`[data-testid^=dataSetFilter-dropdown-option]`)
           .last()
           .should('be.visible')
-          .should(
-            'have.css',
-            'background-color',
-            hexToRgb(lightTheme.pallet.white),
-          )
           .click(); // select another item
 
         //open dropdown again
         dataTestId('dataSetFilter-anchor').click();
 
-        //check changed state
-        cy.get(`[data-testid^=dataSetFilter-dropdown-option]`)
-          .first()
-          .should(
-            'have.css',
-            'background-color',
-            hexToRgb(lightTheme.pallet.white),
-          );
-
         cy.get(`[data-testid^=dataSetFilter-dropdown-option]`)
           .last()
-          .should('be.visible')
-          .should(
-            'have.css',
-            'background-color',
-            hexToRgb(lightTheme.pallet.primary),
-          );
+          .should('be.visible');
       });
     });
 
