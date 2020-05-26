@@ -33,3 +33,4 @@ jobs:
           wait-on: http://localhost:3000
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          REACT_APP_BACKEND_URL: https://dev-dot-fm-techradar-strapi.ew.r.appspot.com
