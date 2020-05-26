@@ -1,18 +1,16 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Typography } from 'Theme/Typography';
 import { MediaQueries } from 'Theme/Helpers';
 import { Link } from 'react-router-dom';
 import { Text } from 'components/Text';
 import { IoIosArrowRoundForward } from 'react-icons/io';
-import { getSrc } from 'utils';
 
 const ListItem = styled.li`
   list-style: none;
   width: 100%;
   break-inside: avoid;
   overflow: hidden;
-
   @media (${MediaQueries.phablet}) {
     min-width: 9em;
   }
@@ -47,7 +45,6 @@ const DetailsLink = styled(Link)`
   width: 100%;
   color: ${props => props.theme.pallet.blue};
   display: flex;
-  justify-content: space-between;
   font-weight: 400;
   font-size: 0.9em;
   text-decoration: none;
@@ -56,23 +53,6 @@ const DetailsLink = styled(Link)`
 const ArrowRightIcon = styled(IoIosArrowRoundForward)`
   height: 2em;
   width: 2em;
-`;
-
-const DetailsLinkTextContainer = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const CompanyShortName = styled.span`
-  margin-right: ${props => props.theme.space[2]}px;
-  ${Typography.body};
-  font-size: 0.6em;
-`;
-
-const Logo = styled.img`
-  margin-right: 1px;
-  width: 1em;
-  height: 1em;
 `;
 
 export interface TechnologyProps {
@@ -126,7 +106,7 @@ export class TechItem extends React.Component<TechnologyProps> {
     const {
       selected,
       highlighted,
-      technology: { name, description, positionId, companies },
+      technology: { name, description, positionId },
       quadrant,
     } = this.props;
 
@@ -145,25 +125,9 @@ export class TechItem extends React.Component<TechnologyProps> {
         <Details data-testid="details" isOpened={selected === positionId}>
           <Content>
             <span dangerouslySetInnerHTML={{ __html: description }} />
-            <DetailsLink to={`/${quadrant}/${encodeURIComponent(name)}`}>
-              <DetailsLinkTextContainer>
-                <Text value="words.more" />
-                <ArrowRightIcon data-testid="arrow-right-icon" />
-              </DetailsLinkTextContainer>
-              <DetailsLinkTextContainer>
-                {companies.map(c => (
-                  <Fragment key={c.shortName}>
-                    <Logo
-                      key={c.shortName}
-                      src={getSrc(c.shortName)}
-                      alt={`company ${c.shortName} logo`}
-                    />
-                    <CompanyShortName>
-                      {c.shortName.split('_')[1]}
-                    </CompanyShortName>
-                  </Fragment>
-                ))}
-              </DetailsLinkTextContainer>
+            <DetailsLink to={`/${encodeURIComponent(name)}/${quadrant}`}>
+              <Text value="words.more" />
+              <ArrowRightIcon data-testid="arrow-right-icon" />
             </DetailsLink>
           </Content>
         </Details>

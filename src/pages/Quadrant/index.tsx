@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Redirect, useParams } from 'react-router';
 import { TechLists } from './TechLists';
-import { d3Config } from 'utils/d3-config';
 import { Graph } from 'components/Graph';
 import { ContentTitle } from 'components/shared/ContentTitle';
 import { MainContentSlot } from 'components/shared/PageSlots';
@@ -14,7 +13,10 @@ import {
   selectedTechnologyDataSetSelector,
   technologiesLoadingStateSelector,
 } from 'redux/selectors/technologies';
-import { selectedCompaniesSelector } from 'redux/selectors/filters';
+import {
+  selectedCompaniesSelector,
+  quadrantsSelector,
+} from 'redux/selectors/filters';
 import { Content, Article, Description } from './styled';
 import { filterBlipsSelector } from 'redux/selectors/d3';
 import { transMapper } from 'utils';
@@ -22,21 +24,19 @@ import { useMediaQuery } from 'react-responsive';
 import { MediaQueries } from 'Theme/Helpers';
 
 export const Quadrant = () => {
-  const { quadrant: quadrantParam } = useParams<QuadParamType>();
+  const { order } = useParams<QuadParamType>();
+  const quadrantNum = Number(order);
   const technologies = useSelector(selectedTechnologyDataSetSelector());
   const selectedCompanies = useSelector(selectedCompaniesSelector);
   const filteredBlips = useSelector(filterBlipsSelector);
   const { initialized, loading } = useSelector(
     technologiesLoadingStateSelector(),
   );
+  const quadrants = useSelector(quadrantsSelector);
   const isNotMobile = useMediaQuery({ query: `(${MediaQueries.phablet})` });
   const [highlighted, setHighlighted] = useState<null | string>(null);
   const [selected, setSelected] = useQueryAsState();
-
   const showLoader = !initialized || loading;
-  const quadrantNum: number = d3Config.quadrants.findIndex(
-    (item: { route: string }) => item.route === quadrantParam,
-  );
   const filteredTechnologies = useMemo(
     () =>
       technologies.filter(
@@ -49,10 +49,11 @@ export const Quadrant = () => {
     [quadrantNum, technologies, selectedCompanies],
   );
 
-  if (quadrantNum < 0) return <Redirect to="/not-found" />;
+  if (isNaN(quadrantNum) || quadrantNum < 0)
+    return <Redirect to="/not-found" />;
   if (showLoader) return <QuadrantPageSkeleton />;
 
-  const { color: quadrantColor } = d3Config.quadrants[quadrantNum];
+  const quadrantColor = quadrants[quadrantNum] && quadrants[quadrantNum].color;
 
   const intro = (
     <>
@@ -74,7 +75,7 @@ export const Quadrant = () => {
           {filteredTechnologies.length > 0 ? (
             <TechLists
               data-testid="tech-lists"
-              quadrant={quadrantParam}
+              quadrant={order}
               selected={selected}
               setSelected={setSelected}
               highlighted={highlighted}

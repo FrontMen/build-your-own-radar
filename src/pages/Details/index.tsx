@@ -6,7 +6,6 @@ import { ContentTitle } from 'components/shared/ContentTitle';
 import { DetailsSkeleton } from 'components/Skeleton/Details';
 import { Text } from 'components/Text';
 import { Link } from 'react-router-dom';
-import { d3Config } from 'utils/d3-config';
 import { Typography } from 'Theme/Typography';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 import { useSelector } from 'react-redux';
@@ -14,8 +13,10 @@ import {
   allTechnologyDataSetSelector,
   technologiesLoadingStateSelector,
 } from 'redux/selectors/technologies';
+import { quadrantsSelector } from 'redux/selectors/filters';
 import { dateFormat, transMapper } from 'utils';
 
+const Slot = styled(MainContentSlot)``;
 const BackLink = styled(({ quadName, ...props }) => <Link {...props} />)`
   display: inline-flex;
   align-items: center;
@@ -42,7 +43,6 @@ const Timeline = styled.ul<{ color: string }>`
   padding: 50px 0 50px 20px;
   list-style: none;
   text-align: left;
-
   h3 {
     font-weight: 400;
     font-size: 1.4em;
@@ -53,20 +53,17 @@ const TimelineItem = styled.li<{ color: string; value: string }>`
   border-bottom: 1px dashed ${props => props.theme.colors[props.color || '']};
   padding-bottom: 25px;
   position: relative;
-
   &:last-of-type {
     padding-bottom: 0;
     margin-bottom: 0;
     border: none;
   }
-
   &:before,
   &:after {
     position: absolute;
     display: block;
     top: 0;
   }
-
   &:before {
     left: -160px;
     top: 2px;
@@ -77,7 +74,6 @@ const TimelineItem = styled.li<{ color: string; value: string }>`
     font-size: 1.1em;
     letter-spacing: 1px;
   }
-
   &:after {
     box-shadow: ${props =>
       `0 0 0 4px ${props.theme.colors[props.color || '']}`};
@@ -89,7 +85,6 @@ const TimelineItem = styled.li<{ color: string; value: string }>`
     content: '';
     top: 5px;
   }
-
   h3 {
     font-weight: 400;
     font-size: 1.4em;
@@ -111,21 +106,21 @@ const Tag = styled.div`
 
 export interface DetailsParams {
   technology?: string;
-  quadrant?: string;
+  quadIndex?: string;
 }
 
 export const Details: React.FC = () => {
-  const { quadrant: quadrantParam, technology: technologyParam } = useParams<
-    DetailsParams
-  >();
+  const { quadIndex, technology: technologyParam } = useParams<DetailsParams>();
   const allData = useSelector(allTechnologyDataSetSelector);
   const { loading, initialized } = useSelector(
     technologiesLoadingStateSelector(),
   );
-  const quadrantIndex = d3Config.quadrants.findIndex(
-    quad => quad.route === quadrantParam,
-  );
+  const quadrants = useSelector(quadrantsSelector);
   const decodedTechName = decodeURIComponent(technologyParam || '');
+  const numericQuadIndex = Number(quadIndex);
+  const foundQuadrant = quadrants.find(
+    item => item.order === Number(numericQuadIndex),
+  );
 
   let lastDescription: string;
   const technologies = Object.entries(allData)
@@ -146,19 +141,19 @@ export const Details: React.FC = () => {
 
   if (loading || !initialized) return <DetailsSkeleton />;
 
-  if (quadrantIndex < 0 || !technologies.length)
+  if (!foundQuadrant || !technologies.length)
     return <Redirect to="/not-found" />;
 
-  const quadrantName = d3Config.quadrants[quadrantIndex].name;
+  const { name: quadrantName } = foundQuadrant;
   return (
-    <MainContentSlot>
+    <Slot>
       <BackLink
         quadName={quadrantName}
-        to={`/${quadrantParam}`}
+        to={`/quadrant/${numericQuadIndex}`}
         data-testid="details-back-link"
       >
         <ArrowLeftIcon />
-        <Text value={`quadrant.${transMapper[quadrantIndex]}.name`} />
+        <Text value={`quadrant.${transMapper[numericQuadIndex]}.name`} />
       </BackLink>
       <Content>
         <ContentTitle data-testid="details-content-title">{`Timeline: ${decodedTechName}`}</ContentTitle>
@@ -182,6 +177,6 @@ export const Details: React.FC = () => {
           ))}
         </Timeline>
       </Content>
-    </MainContentSlot>
+    </Slot>
   );
 };
