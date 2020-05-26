@@ -47,7 +47,7 @@ export const TechLists: React.FC<TechnologiesListProps> = ({
               data[ringName].map(technology => (
                 <TechItem
                   technology={technology}
-                  key={technology.name}
+                  key={technology.positionId}
                   selected={selected}
                   setSelected={setSelected}
                   highlighted={highlighted}

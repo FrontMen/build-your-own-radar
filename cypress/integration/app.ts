@@ -3,8 +3,6 @@
 import { dataTestId } from 'helpers';
 
 describe('App', () => {
-  beforeEach(() => cy.generateToken());
-
   it('render application', function() {
     cy.visit('/');
     //check for app container
