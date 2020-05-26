@@ -139,7 +139,8 @@ export const Details: React.FC = () => {
     })
     .filter(Boolean);
 
-  if (loading || !initialized) return <DetailsSkeleton />;
+  if (loading || !initialized || quadrants.length === 0)
+    return <DetailsSkeleton />;
 
   if (!foundQuadrant || !technologies.length)
     return <Redirect to="/not-found" />;

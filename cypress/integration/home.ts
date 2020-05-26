@@ -1,9 +1,10 @@
 /// <reference types="Cypress" />
 
 import { dataTestId, hexToRgb } from 'helpers';
-import { d3Config } from '../../src/utils/d3-config';
+import Quadrants from '../fixtures/quadrants.json';
 
 describe('Home', () => {
+  const quadrantsData = Quadrants.quadrants;
   beforeEach(() => {
     //go to home page
     cy.visit('/');
@@ -27,7 +28,7 @@ describe('Home', () => {
       .should('have.attr', 'viewBox', '0 0 800 800');
   });
 
-  d3Config.quadrants.forEach((quadrant, i) => {
+  quadrantsData.forEach((quadrant: Quadrant, i: number) => {
     it(`renders quadrant ${i} and redirects to proper quadrant on link click`, () => {
       dataTestId(`home-quadrant-${i}-container`).should('be.visible');
 
@@ -35,11 +36,11 @@ describe('Home', () => {
         .contains('overview')
         .click();
 
-      cy.url().should('include', `/${quadrant.route}`);
+      cy.url().should('include', `/quadrant/${quadrant.order}`);
     });
   });
 
-  d3Config.quadrants.forEach((quadrant, i) => {
+  quadrantsData.forEach((quadrant, i) => {
     it(`highlights quadrant on ${i} on hover and redirects to proper page on click`, () => {
       dataTestId('graph')
         .wait(500)
@@ -47,7 +48,7 @@ describe('Home', () => {
         .should('have.css', 'opacity', '0')
         .trigger('mouseover', 'center');
 
-      d3Config.quadrants
+      quadrantsData
         .map((_, index) => index)
         .filter(index => i !== index)
         .forEach(otherQuadrantIndex => {
@@ -57,11 +58,14 @@ describe('Home', () => {
         });
 
       dataTestId(`quadrant-${i}`).click();
-      cy.url().should('include', `/${d3Config.quadrants[(2 + i) % 4].route}`);
+      cy.url().should(
+        'include',
+        `/quadrant/${quadrantsData[(2 + i) % 4].order}`,
+      );
     });
   });
 
-  d3Config.quadrants.forEach((quadrant, i) => {
+  quadrantsData.forEach((quadrant, i) => {
     it(`shows quadrant ${i} tooltip on hover`, () => {
       dataTestId('graph')
         .get(`[data-testid=quadrant-${i}]`)
@@ -72,7 +76,7 @@ describe('Home', () => {
         .should(
           'have.css',
           'background-color',
-          hexToRgb(d3Config.quadrants[(2 + i) % 4].color),
+          hexToRgb(quadrantsData[(2 + i) % 4].color),
         );
     });
   });

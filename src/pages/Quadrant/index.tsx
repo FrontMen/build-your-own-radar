@@ -49,7 +49,11 @@ export const Quadrant = () => {
     [quadrantNum, technologies, selectedCompanies],
   );
 
-  if (isNaN(quadrantNum) || quadrantNum < 0)
+  if (
+    isNaN(quadrantNum) ||
+    quadrantNum < 0 ||
+    (quadrants.length > 0 && quadrantNum > quadrants.length)
+  )
     return <Redirect to="/not-found" />;
   if (showLoader) return <QuadrantPageSkeleton />;
 

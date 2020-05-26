@@ -1,9 +1,10 @@
 /// <reference types="Cypress" />
 
 import { dataTestId, hexToRgb } from 'helpers';
-import { d3Config } from '../../src/utils/d3-config';
+import Quadrants from '../fixtures/quadrants.json';
 
 describe('Details', () => {
+  const quadrantsData = Quadrants.quadrants;
   describe('when link is incorrect', () => {
     it('redirects to not found page if quadrant param is invalid', function() {
       cy.visit('/invalid-quadrant-param/Alpine');
@@ -18,7 +19,7 @@ describe('Details', () => {
 
   describe('when link is correct', () => {
     beforeEach(() => {
-      cy.visit('/platforms-infra-and-data/Apache');
+      cy.visit('/Apache/2');
     });
 
     it('renders page elements', () => {
@@ -37,7 +38,7 @@ describe('Details', () => {
         .should(
           'have.css',
           'border-left',
-          `4px solid ${hexToRgb(d3Config.quadrants[2].color)}`,
+          `4px solid ${hexToRgb(quadrantsData[2].color)}`,
         );
       dataTestId('details-timeline-item-0')
         .should('be.visible')

@@ -16,19 +16,27 @@ const correctQuadrant = {
 };
 
 describe('Details', () => {
+  const filterState = filtersStateBuilder({
+    quadrants: [{ name: 'framework', order: 0, color: '' }],
+  });
   describe('when path is incorrect', () => {
     it('should redirect to not found page when quadrant is incorrect', () => {
-      const state = technologiesStateBuilder({
+      const techState = technologiesStateBuilder({
         initialized: true,
         loading: false,
         data: {},
       });
-      const store = storeCreator(state);
+      const store = storeCreator({
+        ...techState,
+        filters: { ...filterState.filters },
+      });
+
+      // const store = storeCreator(state);
       const wrapper = mount(<Details />, {
         wrappingComponent: AllProvidersWrapper,
         wrappingComponentProps: {
-          path: '/:quadrant/:technology',
-          route: `/invalid-quadrant-param/alpine`,
+          path: '/:technology/:quadIndex',
+          route: `/alpine/5`,
           store,
         },
       });
@@ -45,12 +53,15 @@ describe('Details', () => {
         loading: false,
         data: parsedTechData,
       });
-      const store = storeCreator(state);
+      const store = storeCreator({
+        ...state,
+        filters: { ...filterState.filters },
+      });
       const wrapper = mount(<Details />, {
         wrappingComponent: AllProvidersWrapper,
         wrappingComponentProps: {
-          path: '/:quadrant/:technology',
-          route: `/platforms-infra-and-data/invalid-technology`,
+          path: '/:technology/:quadIndex',
+          route: `/invalid-technology/2`,
           store,
         },
       });
@@ -69,7 +80,10 @@ describe('Details', () => {
         loading: true,
         data: parsedTechData,
       });
-      const store = storeCreator(state);
+      const store = storeCreator({
+        ...state,
+        filters: { ...filterState.filters },
+      });
       const { getByTestId } = withAllProviders(<Details />, {
         path: '/:technology/:quadIndex',
         route: `/alpine/${correctQuadrant.order}`,
@@ -84,9 +98,6 @@ describe('Details', () => {
         initialized: true,
         loading: false,
         data: parsedTechData,
-      });
-      const filterState = filtersStateBuilder({
-        quadrants: [{ name: 'framework', order: 0, color: '' }],
       });
       const store = storeCreator({
         ...techState,

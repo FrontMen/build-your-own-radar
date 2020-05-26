@@ -2,5 +2,5 @@
   "baseUrl": "http://0.0.0.0:3000",
   "video": false,
   "projectId": "1hrppq",
-  "defaultCommandTimeout": 15000
+  "defaultCommandTimeout": 10000
 }

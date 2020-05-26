@@ -4,14 +4,16 @@ import { dataTestId, hexToRgb } from 'helpers';
 import { d3Config } from '../../src/utils/d3-config';
 import { lightTheme } from '../../src/Theme';
 import { COMPANY_NAMES } from '../../src/components/FilterByCompany/config';
+import Quadrants from '../fixtures/quadrants.json';
 
 describe('quadrant', () => {
+  const quadrantsData = Quadrants.quadrants;
   beforeEach(() => {
-    cy.visit(d3Config.quadrants[0].route);
+    cy.visit(`/quadrant/${quadrantsData[0].order}`);
   });
 
   it('should redirect to not found page if quadrant param in url is invalid ', () => {
-    cy.visit('/invalid-quadrant');
+    cy.visit('/quadrant/5');
     cy.url().should('contain', '/not-found');
   });
 
@@ -26,9 +28,9 @@ describe('quadrant', () => {
       dataTestId(`subnav-link-${0}`).should(
         'have.css',
         'background-color',
-        hexToRgb(d3Config.quadrants[0].color),
+        hexToRgb(quadrantsData[0].color),
       );
-      d3Config.quadrants.forEach((q, index) => {
+      quadrantsData.forEach((q, index) => {
         if (index !== 0) {
           dataTestId(`subnav-link-${index}`)
             .should(
