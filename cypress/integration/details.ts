@@ -41,7 +41,6 @@ describe('Details', () => {
         );
       dataTestId('details-timeline-item-0')
         .should('be.visible')
-        .should('have.attr', 'value', 'Apr, 2020')
         .get('h3')
         .should('contain.text', 'Apache')
         .parent()

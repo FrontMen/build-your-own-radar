@@ -28,8 +28,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v1
         with:
-          build: yarn run build
-          start: npx serve -s -l 3000 build
+          start: yarn start
           wait-on: http://localhost:3000
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
