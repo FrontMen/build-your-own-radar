@@ -47,6 +47,10 @@
   "details": {
     "emptyDescription": "No description available"
   },
+  "notfound": {
+    "description": "Oops! Nothing was found",
+    "link": "Back Home"
+  },
   "footer": {
     "frontmen": "In collaboration with Frontmen",
     "cookie": "cookie policy",
