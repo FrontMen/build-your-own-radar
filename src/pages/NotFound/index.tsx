@@ -43,7 +43,7 @@ export const NotFound = () => (
         <PageText>
           <Text value="notfound.description" />
         </PageText>
-        <StyledLinks data-testid="not-found-back-home" to="/">
+        <StyledLinks data-testid="not-found-link" to="/">
           <Text value="notfound.link" />
           <img src={RightArrow} alt="right-arrow" />
         </StyledLinks>
