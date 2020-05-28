@@ -63,6 +63,14 @@ type createCompanyPayload {
   company: Company
 }
 
+input createDevCountCategoryInput {
+  data: DevCountCategoryInput
+}
+
+type createDevCountCategoryPayload {
+  devCountCategory: DevCountCategories
+}
+
 input createQuadrantInput {
   data: QuadrantInput
 }
@@ -95,6 +103,14 @@ type createTechnologyPayload {
   technology: Technology
 }
 
+input createTimelineInput {
+  data: TimelineInput
+}
+
+type createTimelinePayload {
+  timeline: Timeline
+}
+
 input createUserInput {
   data: UserInput
 }
@@ -123,6 +139,14 @@ input deleteCompanyInput {
 
 type deleteCompanyPayload {
   company: Company
+}
+
+input deleteDevCountCategoryInput {
+  where: InputID
+}
+
+type deleteDevCountCategoryPayload {
+  devCountCategory: DevCountCategories
 }
 
 input deleteQuadrantInput {
@@ -157,6 +181,14 @@ type deleteTechnologyPayload {
   technology: Technology
 }
 
+input deleteTimelineInput {
+  where: InputID
+}
+
+type deleteTimelinePayload {
+  timeline: Timeline
+}
+
 input deleteUserInput {
   where: InputID
 }
@@ -165,9 +197,62 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
+type DevCountCategories {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+}
+
+type DevCountCategoriesAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type DevCountCategoriesConnection {
+  values: [DevCountCategories]
+  groupBy: DevCountCategoriesGroupBy
+  aggregate: DevCountCategoriesAggregator
+}
+
+type DevCountCategoriesConnectionCreated_at {
+  key: DateTime
+  connection: DevCountCategoriesConnection
+}
+
+type DevCountCategoriesConnectionId {
+  key: ID
+  connection: DevCountCategoriesConnection
+}
+
+type DevCountCategoriesConnectionName {
+  key: String
+  connection: DevCountCategoriesConnection
+}
+
+type DevCountCategoriesConnectionUpdated_at {
+  key: DateTime
+  connection: DevCountCategoriesConnection
+}
+
+type DevCountCategoriesGroupBy {
+  id: [DevCountCategoriesConnectionId]
+  created_at: [DevCountCategoriesConnectionCreated_at]
+  updated_at: [DevCountCategoriesConnectionUpdated_at]
+  name: [DevCountCategoriesConnectionName]
+}
+
+input DevCountCategoryInput {
+  name: String
+}
+
 input editCompanyInput {
   name: String
   shortName: String
+}
+
+input editDevCountCategoryInput {
+  name: String
 }
 
 input editFileInput {
@@ -191,6 +276,7 @@ input editFileInput {
 input editQuadrantInput {
   name: String
   color: String
+  order: Int
 }
 
 input editRingInput {
@@ -211,12 +297,24 @@ input editRoleInput {
 input editTechnologyInput {
   name: String
   isNew: Boolean
+  inRadar: Boolean
+  companies: [ID]
+  ring: ID
+  quadrant: ID
+  description: String
+  devCount: ID
+}
+
+input editTimelineInput {
+  name: String
+  isNew: Boolean
   publishedAt: Date
   inRadar: Boolean
   companies: [ID]
   ring: ID
   quadrant: ID
   description: String
+  devCount: ID
 }
 
 input editUserInput {
@@ -248,10 +346,6 @@ input FileInput {
   related: [ID]
 }
 
-type ForgotPassword {
-  ok: Boolean
-}
-
 input InputID {
   id: ID!
 }
@@ -264,12 +358,15 @@ scalar JSON
 """The `Long` scalar type represents 52-bit integers"""
 scalar Long
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | ForgotPassword | Company | CompanyConnection | CompanyAggregator | CompanyGroupBy | CompanyConnectionId | CompanyConnectionCreated_at | CompanyConnectionUpdated_at | CompanyConnectionName | CompanyConnectionShortName | createCompanyPayload | updateCompanyPayload | deleteCompanyPayload | Quadrant | QuadrantConnection | QuadrantAggregator | QuadrantGroupBy | QuadrantConnectionId | QuadrantConnectionCreated_at | QuadrantConnectionUpdated_at | QuadrantConnectionName | QuadrantConnectionColor | createQuadrantPayload | updateQuadrantPayload | deleteQuadrantPayload | Ring | RingConnection | RingAggregator | RingAggregatorSum | RingAggregatorAvg | RingAggregatorMin | RingAggregatorMax | RingGroupBy | RingConnectionId | RingConnectionCreated_at | RingConnectionUpdated_at | RingConnectionName | RingConnectionColor | RingConnectionBackgroundColor | RingConnectionOrder | createRingPayload | updateRingPayload | deleteRingPayload | Technology | TechnologyConnection | TechnologyAggregator | TechnologyGroupBy | TechnologyConnectionId | TechnologyConnectionCreated_at | TechnologyConnectionUpdated_at | TechnologyConnectionName | TechnologyConnectionIsNew | TechnologyConnectionPublishedAt | TechnologyConnectionInRadar | TechnologyConnectionRing | TechnologyConnectionQuadrant | TechnologyConnectionDescription | createTechnologyPayload | updateTechnologyPayload | deleteTechnologyPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPersmissionsPasswordPayload | Company | CompanyConnection | CompanyAggregator | CompanyGroupBy | CompanyConnectionId | CompanyConnectionCreated_at | CompanyConnectionUpdated_at | CompanyConnectionName | CompanyConnectionShortName | createCompanyPayload | updateCompanyPayload | deleteCompanyPayload | DevCountCategories | DevCountCategoriesConnection | DevCountCategoriesAggregator | DevCountCategoriesGroupBy | DevCountCategoriesConnectionId | DevCountCategoriesConnectionCreated_at | DevCountCategoriesConnectionUpdated_at | DevCountCategoriesConnectionName | createDevCountCategoryPayload | updateDevCountCategoryPayload | deleteDevCountCategoryPayload | Quadrant | QuadrantConnection | QuadrantAggregator | QuadrantAggregatorSum | QuadrantAggregatorAvg | QuadrantAggregatorMin | QuadrantAggregatorMax | QuadrantGroupBy | QuadrantConnectionId | QuadrantConnectionCreated_at | QuadrantConnectionUpdated_at | QuadrantConnectionName | QuadrantConnectionColor | QuadrantConnectionOrder | createQuadrantPayload | updateQuadrantPayload | deleteQuadrantPayload | Ring | RingConnection | RingAggregator | RingAggregatorSum | RingAggregatorAvg | RingAggregatorMin | RingAggregatorMax | RingGroupBy | RingConnectionId | RingConnectionCreated_at | RingConnectionUpdated_at | RingConnectionName | RingConnectionColor | RingConnectionBackgroundColor | RingConnectionOrder | createRingPayload | updateRingPayload | deleteRingPayload | Technology | TechnologyConnection | TechnologyAggregator | TechnologyGroupBy | TechnologyConnectionId | TechnologyConnectionCreated_at | TechnologyConnectionUpdated_at | TechnologyConnectionName | TechnologyConnectionIsNew | TechnologyConnectionInRadar | TechnologyConnectionRing | TechnologyConnectionQuadrant | TechnologyConnectionDescription | TechnologyConnectionDevCount | createTechnologyPayload | updateTechnologyPayload | deleteTechnologyPayload | Timeline | TimelineConnection | TimelineAggregator | TimelineGroupBy | TimelineConnectionId | TimelineConnectionCreated_at | TimelineConnectionUpdated_at | TimelineConnectionName | TimelineConnectionIsNew | TimelineConnectionPublishedAt | TimelineConnectionInRadar | TimelineConnectionRing | TimelineConnectionQuadrant | TimelineConnectionDescription | TimelineConnectionDevCount | createTimelinePayload | updateTimelinePayload | deleteTimelinePayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
 
 type Mutation {
   createCompany(input: createCompanyInput): createCompanyPayload
   updateCompany(input: updateCompanyInput): updateCompanyPayload
   deleteCompany(input: deleteCompanyInput): deleteCompanyPayload
+  createDevCountCategory(input: createDevCountCategoryInput): createDevCountCategoryPayload
+  updateDevCountCategory(input: updateDevCountCategoryInput): updateDevCountCategoryPayload
+  deleteDevCountCategory(input: deleteDevCountCategoryInput): deleteDevCountCategoryPayload
   createQuadrant(input: createQuadrantInput): createQuadrantPayload
   updateQuadrant(input: updateQuadrantInput): updateQuadrantPayload
   deleteQuadrant(input: deleteQuadrantInput): deleteQuadrantPayload
@@ -279,6 +376,9 @@ type Mutation {
   createTechnology(input: createTechnologyInput): createTechnologyPayload
   updateTechnology(input: updateTechnologyInput): updateTechnologyPayload
   deleteTechnology(input: deleteTechnologyInput): deleteTechnologyPayload
+  createTimeline(input: createTimelineInput): createTimelinePayload
+  updateTimeline(input: updateTimelineInput): updateTimelinePayload
+  deleteTimeline(input: deleteTimelineInput): deleteTimelinePayload
 
   """Create a new role"""
   createRole(input: createRoleInput): createRolePayload
@@ -300,9 +400,9 @@ type Mutation {
   upload(refId: ID, ref: String, field: String, source: String, file: Upload!): UploadFile!
   multipleUpload(refId: ID, ref: String, field: String, source: String, files: [Upload]!): [UploadFile]!
   login(input: UsersPermissionsLoginInput!): UsersPermissionsLoginPayload!
-  register(input: UserInput!): UsersPermissionsLoginPayload!
-  forgotPassword(email: String!): ForgotPassword
-  changePassword(password: String!, passwordConfirmation: String!, code: String!): UsersPermissionsLoginPayload
+  register(input: UsersPermissionsRegisterInput!): UsersPermissionsLoginPayload!
+  forgotPassword(email: String!): UserPersmissionsPasswordPayload
+  resetPassword(password: String!, passwordConfirmation: String!, code: String!): UsersPermissionsLoginPayload
   emailConfirmation(confirmation: String!): UsersPermissionsLoginPayload
 }
 
@@ -312,11 +412,32 @@ type Quadrant {
   updated_at: DateTime!
   name: String
   color: String
+  order: Int!
 }
 
 type QuadrantAggregator {
   count: Int
   totalCount: Int
+  sum: QuadrantAggregatorSum
+  avg: QuadrantAggregatorAvg
+  min: QuadrantAggregatorMin
+  max: QuadrantAggregatorMax
+}
+
+type QuadrantAggregatorAvg {
+  order: Float
+}
+
+type QuadrantAggregatorMax {
+  order: Float
+}
+
+type QuadrantAggregatorMin {
+  order: Float
+}
+
+type QuadrantAggregatorSum {
+  order: Float
 }
 
 type QuadrantConnection {
@@ -345,6 +466,11 @@ type QuadrantConnectionName {
   connection: QuadrantConnection
 }
 
+type QuadrantConnectionOrder {
+  key: Int
+  connection: QuadrantConnection
+}
+
 type QuadrantConnectionUpdated_at {
   key: DateTime
   connection: QuadrantConnection
@@ -356,17 +482,22 @@ type QuadrantGroupBy {
   updated_at: [QuadrantConnectionUpdated_at]
   name: [QuadrantConnectionName]
   color: [QuadrantConnectionColor]
+  order: [QuadrantConnectionOrder]
 }
 
 input QuadrantInput {
   name: String
   color: String
+  order: Int!
 }
 
 type Query {
   company(id: ID!): Company
   companies(sort: String, limit: Int, start: Int, where: JSON): [Company]
   companiesConnection(sort: String, limit: Int, start: Int, where: JSON): CompanyConnection
+  devCountCategory(id: ID!): DevCountCategories
+  devCountCategories(sort: String, limit: Int, start: Int, where: JSON): [DevCountCategories]
+  devCountCategoriesConnection(sort: String, limit: Int, start: Int, where: JSON): DevCountCategoriesConnection
   quadrant(id: ID!): Quadrant
   quadrants(sort: String, limit: Int, start: Int, where: JSON): [Quadrant]
   quadrantsConnection(sort: String, limit: Int, start: Int, where: JSON): QuadrantConnection
@@ -376,6 +507,9 @@ type Query {
   technology(id: ID!): Technology
   technologies(sort: String, limit: Int, start: Int, where: JSON): [Technology]
   technologiesConnection(sort: String, limit: Int, start: Int, where: JSON): TechnologyConnection
+  timeline(id: ID!): Timeline
+  timelines(sort: String, limit: Int, start: Int, where: JSON): [Timeline]
+  timelinesConnection(sort: String, limit: Int, start: Int, where: JSON): TimelineConnection
   files(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
   filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
   role(id: ID!): UsersPermissionsRole
@@ -498,11 +632,11 @@ type Technology {
   updated_at: DateTime!
   name: String
   isNew: Boolean
-  publishedAt: Date
   inRadar: Boolean
   ring: Ring
   quadrant: Quadrant
   description: String
+  devCount: DevCountCategories
   companies(sort: String, limit: Int, start: Int, where: JSON): [Company]
 }
 
@@ -527,6 +661,11 @@ type TechnologyConnectionDescription {
   connection: TechnologyConnection
 }
 
+type TechnologyConnectionDevCount {
+  key: ID
+  connection: TechnologyConnection
+}
+
 type TechnologyConnectionId {
   key: ID
   connection: TechnologyConnection
@@ -544,11 +683,6 @@ type TechnologyConnectionIsNew {
 
 type TechnologyConnectionName {
   key: String
-  connection: TechnologyConnection
-}
-
-type TechnologyConnectionPublishedAt {
-  key: ID
   connection: TechnologyConnection
 }
 
@@ -573,26 +707,133 @@ type TechnologyGroupBy {
   updated_at: [TechnologyConnectionUpdated_at]
   name: [TechnologyConnectionName]
   isNew: [TechnologyConnectionIsNew]
-  publishedAt: [TechnologyConnectionPublishedAt]
   inRadar: [TechnologyConnectionInRadar]
   ring: [TechnologyConnectionRing]
   quadrant: [TechnologyConnectionQuadrant]
   description: [TechnologyConnectionDescription]
+  devCount: [TechnologyConnectionDevCount]
 }
 
 input TechnologyInput {
   name: String
   isNew: Boolean
-  publishedAt: Date
   inRadar: Boolean
   companies: [ID]
   ring: ID
   quadrant: ID
   description: String
+  devCount: ID
 }
 
 """A time string with format: HH:mm:ss.SSS"""
 scalar Time
+
+type Timeline {
+  id: ID!
+  created_at: DateTime!
+  updated_at: DateTime!
+  name: String
+  isNew: Boolean
+  publishedAt: Date!
+  inRadar: Boolean
+  ring: Ring
+  quadrant: Quadrant
+  description: String
+  devCount: DevCountCategories
+  companies(sort: String, limit: Int, start: Int, where: JSON): [Company]
+}
+
+type TimelineAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type TimelineConnection {
+  values: [Timeline]
+  groupBy: TimelineGroupBy
+  aggregate: TimelineAggregator
+}
+
+type TimelineConnectionCreated_at {
+  key: DateTime
+  connection: TimelineConnection
+}
+
+type TimelineConnectionDescription {
+  key: String
+  connection: TimelineConnection
+}
+
+type TimelineConnectionDevCount {
+  key: ID
+  connection: TimelineConnection
+}
+
+type TimelineConnectionId {
+  key: ID
+  connection: TimelineConnection
+}
+
+type TimelineConnectionInRadar {
+  key: Boolean
+  connection: TimelineConnection
+}
+
+type TimelineConnectionIsNew {
+  key: Boolean
+  connection: TimelineConnection
+}
+
+type TimelineConnectionName {
+  key: String
+  connection: TimelineConnection
+}
+
+type TimelineConnectionPublishedAt {
+  key: ID
+  connection: TimelineConnection
+}
+
+type TimelineConnectionQuadrant {
+  key: ID
+  connection: TimelineConnection
+}
+
+type TimelineConnectionRing {
+  key: ID
+  connection: TimelineConnection
+}
+
+type TimelineConnectionUpdated_at {
+  key: DateTime
+  connection: TimelineConnection
+}
+
+type TimelineGroupBy {
+  id: [TimelineConnectionId]
+  created_at: [TimelineConnectionCreated_at]
+  updated_at: [TimelineConnectionUpdated_at]
+  name: [TimelineConnectionName]
+  isNew: [TimelineConnectionIsNew]
+  publishedAt: [TimelineConnectionPublishedAt]
+  inRadar: [TimelineConnectionInRadar]
+  ring: [TimelineConnectionRing]
+  quadrant: [TimelineConnectionQuadrant]
+  description: [TimelineConnectionDescription]
+  devCount: [TimelineConnectionDevCount]
+}
+
+input TimelineInput {
+  name: String
+  isNew: Boolean
+  publishedAt: Date!
+  inRadar: Boolean
+  companies: [ID]
+  ring: ID
+  quadrant: ID
+  description: String
+  devCount: ID
+}
 
 input updateCompanyInput {
   where: InputID
@@ -601,6 +842,15 @@ input updateCompanyInput {
 
 type updateCompanyPayload {
   company: Company
+}
+
+input updateDevCountCategoryInput {
+  where: InputID
+  data: editDevCountCategoryInput
+}
+
+type updateDevCountCategoryPayload {
+  devCountCategory: DevCountCategories
 }
 
 input updateQuadrantInput {
@@ -637,6 +887,15 @@ input updateTechnologyInput {
 
 type updateTechnologyPayload {
   technology: Technology
+}
+
+input updateTimelineInput {
+  where: InputID
+  data: editTimelineInput
+}
+
+type updateTimelinePayload {
+  timeline: Timeline
 }
 
 input updateUserInput {
@@ -827,6 +1086,10 @@ input UserInput {
   role: ID
 }
 
+type UserPersmissionsPasswordPayload {
+  ok: Boolean!
+}
+
 input UsersPermissionsLoginInput {
   identifier: String!
   password: String!
@@ -862,6 +1125,12 @@ type UsersPermissionsPermission {
   enabled: Boolean!
   policy: String
   role: UsersPermissionsRole
+}
+
+input UsersPermissionsRegisterInput {
+  username: String!
+  email: String!
+  password: String!
 }
 
 type UsersPermissionsRole {
