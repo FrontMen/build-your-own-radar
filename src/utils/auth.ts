@@ -2,7 +2,7 @@ const TOKEN_KEY: string = 'jwtToken';
 
 export const auth = {
   isLoggedIn(): boolean {
-    return !auth.isProduction() || auth.getToken() !== null;
+    return true; //!auth.isProduction() || auth.getToken() !== null;
   },
 
   logout() {
