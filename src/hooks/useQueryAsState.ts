@@ -1,4 +1,4 @@
-import { useLocation, useHistory } from 'react-router';
+import { useLocation, useHistory } from 'react-router-dom';
 import { useCallback } from 'react';
 
 // React Router does not have any opinions about

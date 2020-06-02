@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, useParams } from 'react-router';
+import { Redirect, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { MainContentSlot } from 'components/shared/PageSlots';
 import { ContentTitle } from 'components/shared/ContentTitle';
