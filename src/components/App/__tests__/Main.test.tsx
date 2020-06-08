@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Router } from 'Router';
 import { GlobalStyle } from 'Theme/GlobalStyles';
 import { AllProvidersWrapper } from 'test/helpers';
 import { Main } from '../Main';
@@ -13,7 +12,6 @@ describe('Main', () => {
   });
 
   it('should render Router and GlobalStyle', () => {
-    expect(mainWrapper.find(Router)).toHaveLength(1);
     expect(mainWrapper.find(GlobalStyle)).toHaveLength(1);
   });
 });

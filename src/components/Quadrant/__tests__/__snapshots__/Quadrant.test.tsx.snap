@@ -56,6 +56,7 @@ exports[`Quadrant matches the snapshot in desktop resolution 1`] = `
   grid-area: main;
   background-color: #fff;
   padding: 16px;
+  height: 100%;
 }
 
 .c9 {
@@ -262,6 +263,7 @@ exports[`Quadrant matches the snapshot on mobile resolution 1`] = `
   grid-area: main;
   background-color: #fff;
   padding: 16px;
+  height: 100%;
 }
 
 .c9 {
@@ -470,6 +472,7 @@ exports[`Quadrant matches the snapshot when data is there 1`] = `
   grid-area: main;
   background-color: #fff;
   padding: 16px;
+  height: 100%;
 }
 
 .c4 {

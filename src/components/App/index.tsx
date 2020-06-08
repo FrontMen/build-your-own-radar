@@ -6,7 +6,7 @@ import { I18nextProvider } from 'react-i18next';
 import { lightTheme } from 'Theme';
 import { store } from 'redux/store';
 import i18n from 'i18n';
-import { Main } from './Main';
+import { Router } from 'Router';
 import { client } from 'utils/apolloClient';
 
 export const App: React.FC = () => (
@@ -14,7 +14,7 @@ export const App: React.FC = () => (
     <ApolloProvider client={client}>
       <ThemeProvider theme={lightTheme}>
         <I18nextProvider i18n={i18n}>
-          <Main />
+          <Router data-testid="router" />
         </I18nextProvider>
       </ThemeProvider>
     </ApolloProvider>
