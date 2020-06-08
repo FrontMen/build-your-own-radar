@@ -2,13 +2,17 @@ import gql from 'graphql-tag';
 
 export const TECHNOLOGIES_QUERY = gql`
   query Technologies {
-    technologies {
+    timelines {
       id
       name
       description
       isNew
+      devCount {
+        name
+      }
       companies {
         shortName
+        name
       }
       inRadar
       publishedAt
@@ -32,7 +36,6 @@ export const TECHNOLOGIES_FILTER = gql`
       id
       name
       description
-      publishedAt
       quadrant {
         name
         color

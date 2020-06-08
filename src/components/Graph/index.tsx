@@ -4,7 +4,7 @@ import { radar_visualization, showBubble, hideBubble } from 'utils/d3';
 import { d3Config } from 'utils/d3-config';
 import styled from 'styled-components';
 import { MediaQueries } from 'Theme/Helpers';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { changedTechnologiesSelector } from 'redux/selectors/d3';
 import { Text } from 'components/Text';
