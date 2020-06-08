@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import defer from 'lodash.defer';
 import { radar_visualization, showBubble, hideBubble } from 'utils/d3';
 import { d3Config } from 'utils/d3-config';
 import styled from 'styled-components';
@@ -108,7 +109,8 @@ export const Graph: React.FC<GraphProps> = ({
 
   useEffect(() => {
     if (d3Container.current) {
-      radar_visualization(
+      defer(
+        radar_visualization,
         d3Container.current,
         blips,
         changed,
