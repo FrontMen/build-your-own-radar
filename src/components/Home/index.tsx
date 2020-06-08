@@ -1,11 +1,11 @@
 import React from 'react';
-import { MainContentSlot } from '../../components/shared/PageSlots';
+import { MainContentSlot } from '../shared/PageSlots';
 import { ContentTitle } from 'components/shared/ContentTitle';
 import { Graph } from 'components/Graph';
 import { HomePageSkeleton } from 'components/Skeleton/Homepage';
 import { Text } from 'components/Text';
-import { Error } from 'pages/Error';
-import { useQueryAsState } from 'hooks/useQueryAsState';
+import { Error } from 'components/Error';
+import { useQueryAsState } from 'components/hooks/useQueryAsState';
 import { useSelector } from 'react-redux';
 import { technologiesLoadingStateSelector } from 'redux/selectors/technologies';
 import { quadrantsSelector } from 'redux/selectors/filters';

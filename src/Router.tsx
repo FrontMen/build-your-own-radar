@@ -1,17 +1,17 @@
 import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { PrivateRoute } from 'components/PrivateRoute';
-import { Home } from 'pages/Home';
-import { Details } from 'pages/Details';
-import { Quadrant } from 'pages/Quadrant';
+import { Home } from 'components/Home';
+import { Details } from 'components/Details';
+import { Quadrant } from 'components/Quadrant';
 import { PageGrid } from 'components/shared/PageGrid';
 import { Header } from 'components/Header';
 import { Footer } from 'components/Footer';
-import { Login } from 'pages/auth/Login';
-import { Logout } from 'pages/auth/Logout';
-import { Verify } from 'pages/auth/Verify';
-import { NotFound } from 'pages/NotFound';
-import { ScrollToTop } from 'hooks/topScroll';
+import { Login } from 'components/auth/Login';
+import { Logout } from 'components/auth/Logout';
+import { Verify } from 'components/auth/Verify';
+import { NotFound } from 'components/NotFound';
+import { ScrollToTop } from 'components/hooks/topScroll';
 
 export const Router: React.FC = () => (
   <BrowserRouter>

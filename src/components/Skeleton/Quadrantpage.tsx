@@ -7,7 +7,7 @@ import {
   ContentSkeleton,
   NavSkeleton,
 } from './styled';
-import { Content, Article, Ring, Section } from '../../pages/Quadrant/styled';
+import { Content, Article, Ring, Section } from '../Quadrant/styled';
 
 export const QuadrantPageSkeleton: React.FC = () => {
   return (
