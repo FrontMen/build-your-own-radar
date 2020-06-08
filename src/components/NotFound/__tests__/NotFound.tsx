@@ -7,6 +7,6 @@ describe('NotFound', () => {
     const { container, getByTestId } = withAllProviders(<NotFound />);
 
     expect(container).toMatchSnapshot();
-    expect(getByTestId('not-found-content')).toHaveTextContent('Page not found');
+    expect(getByTestId('not-found-content')).toHaveTextContent('404');
   });
 });
