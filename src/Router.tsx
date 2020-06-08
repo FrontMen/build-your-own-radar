@@ -11,7 +11,7 @@ import { Login } from 'components/auth/Login';
 import { Logout } from 'components/auth/Logout';
 import { Verify } from 'components/auth/Verify';
 import { NotFound } from 'components/NotFound';
-import { ScrollToTop } from 'components/hooks/topScroll';
+import { ScrollToTop } from 'hooks/topScroll';
 
 export const Router: React.FC = () => (
   <BrowserRouter>

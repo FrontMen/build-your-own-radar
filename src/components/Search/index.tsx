@@ -13,7 +13,7 @@ import {
 } from './styled';
 import { useSelector } from 'react-redux';
 import { selectedTechnologyDataSetSelector } from 'redux/selectors/technologies';
-import { useClickAway } from 'components/hooks/useClickAway';
+import { useClickAway } from 'hooks/useClickAway';
 import { useTranslation } from 'react-i18next';
 
 const options = {

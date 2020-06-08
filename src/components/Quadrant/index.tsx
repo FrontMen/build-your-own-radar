@@ -7,7 +7,7 @@ import { MainContentSlot } from 'components/shared/PageSlots';
 import { SubNav } from 'components/SubNav';
 import { QuadrantPageSkeleton } from 'components/Skeleton/Quadrantpage';
 import { Text } from 'components/Text';
-import { useQueryAsState } from 'components/hooks/useQueryAsState';
+import { useQueryAsState } from 'hooks/useQueryAsState';
 import { useSelector } from 'react-redux';
 import {
   selectedTechnologyDataSetSelector,

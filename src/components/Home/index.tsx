@@ -5,7 +5,7 @@ import { Graph } from 'components/Graph';
 import { HomePageSkeleton } from 'components/Skeleton/Homepage';
 import { Text } from 'components/Text';
 import { Error } from 'components/Error';
-import { useQueryAsState } from 'components/hooks/useQueryAsState';
+import { useQueryAsState } from 'hooks/useQueryAsState';
 import { useSelector } from 'react-redux';
 import { technologiesLoadingStateSelector } from 'redux/selectors/technologies';
 import { quadrantsSelector } from 'redux/selectors/filters';

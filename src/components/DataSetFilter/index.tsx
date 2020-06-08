@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectedDataSetSelector } from 'redux/selectors/filters';
 import { filtersActions } from 'redux/actions/filters';
 import { dateFormat } from 'utils';
-import { useClickAway } from 'components/hooks/useClickAway';
+import { useClickAway } from 'hooks/useClickAway';
 import {
   Container,
   Selected,
