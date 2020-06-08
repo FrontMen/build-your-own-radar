@@ -7,11 +7,79 @@ exports[`NotFound matches the snapshot 1`] = `
   padding: 16px;
 }
 
+.c4 {
+  position: relative;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 700;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.9em 1.25em;
+  padding-right: 3.5em;
+  color: #fff;
+  background-color: #526de4;
+  border-color: #526de4;
+}
+
+.c4 img {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 1.4em;
+  height: 1.1em;
+  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.23,1,0.32,1);
+  -webkit-transition: transform 0.3s cubic-bezier(0.23,1,0.32,1);
+  transition: transform 0.3s cubic-bezier(0.23,1,0.32,1);
+}
+
+.c4:hover img {
+  -webkit-transform: translateX(5px);
+  -ms-transform: translateX(5px);
+  transform: translateX(5px);
+}
+
 .c1 {
-  padding-left: 16px;
   font-family: Montserrat,san-serif;
   font-weight: 700;
   line-height: 1.15;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 50vh;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c2 {
+  font-size: 140px;
+  font-weight: 200;
+  margin: 0;
+  background: linear-gradient(130deg,#ffa34f,#ff6f68);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.c3 {
+  font-size: 25px;
+  font-weight: 200;
+  text-transform: uppercase;
+  margin-top: 0px;
+  margin-bottom: 50px;
+  -webkit-letter-spacing: 3px;
+  -moz-letter-spacing: 3px;
+  -ms-letter-spacing: 3px;
+  letter-spacing: 3px;
 }
 
 @media (min-width:481px) {
@@ -24,12 +92,38 @@ exports[`NotFound matches the snapshot 1`] = `
   <div
     class="c0"
   >
-    <h4
+    <div
       class="c1"
       data-testid="not-found-content"
     >
-      Page not found
-    </h4>
+      <div>
+        <h1
+          class="c2"
+        >
+          404
+        </h1>
+        <h2
+          class="c3"
+        >
+          <span>
+            notfound.description
+          </span>
+        </h2>
+        <a
+          class="c4"
+          data-testid="not-found-link"
+          href="/"
+        >
+          <span>
+            notfound.link
+          </span>
+          <img
+            alt="right-arrow"
+            src="arrow-right.svg"
+          />
+        </a>
+      </div>
+    </div>
   </div>
 </div>
 `;
