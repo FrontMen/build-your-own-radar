@@ -1,11 +1,10 @@
 import React from 'react';
 import { MainContentSlot } from '../shared/PageSlots';
 import { ContentTitle } from 'components/shared/ContentTitle';
-import { d3Config } from 'utils/d3-config';
 import { Graph } from 'components/Graph';
 import { HomePageSkeleton } from 'components/Skeleton/Homepage';
 import { Text } from 'components/Text';
-import { Error } from 'pages/Error';
+import { Error } from 'components/Error';
 import { useQueryAsState } from 'hooks/useQueryAsState';
 import { useSelector } from 'react-redux';
 import { technologiesLoadingStateSelector } from 'redux/selectors/technologies';
@@ -24,7 +23,6 @@ import RightArrow from 'res/svg/arrow-right.svg';
 import { transMapper } from 'utils';
 
 export const Home: React.FC = () => {
-  const quads = d3Config.quadrants;
   const { initialized, loading, error, errorMessage } = useSelector(
     technologiesLoadingStateSelector(),
   );
@@ -64,7 +62,7 @@ export const Home: React.FC = () => {
               </Content>
               <StyledLinks
                 data-testid={`home-quadrant-${i}-link`}
-                to={`/${quads[order].route}`}
+                to={`/quadrant/${order}`}
               >
                 <Text value={`quadrant.${localName}.name`} />
                 <Text value="words.overview" />

@@ -97,8 +97,7 @@ export const Graph: React.FC<GraphProps> = ({
 
   const redirect = useCallback(
     (index: number) => {
-      const path = d3Config.quadrants[index].route;
-      history.push(path);
+      history.push(`quadrant/${index}`);
     },
     [history],
   );

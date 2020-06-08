@@ -7,9 +7,9 @@ import { Quadrant } from 'components/Quadrant';
 import { PageGrid } from 'components/shared/PageGrid';
 import { Header } from 'components/Header';
 import { Footer } from 'components/Footer';
-import { Login } from 'pages/auth/Login';
-import { Logout } from 'pages/auth/Logout';
-import { Verify } from 'pages/auth/Verify';
+import { Login } from 'components/auth/Login';
+import { Logout } from 'components/auth/Logout';
+import { Verify } from 'components/auth/Verify';
 import { NotFound } from 'components/NotFound';
 import { ScrollToTop } from 'hooks/topScroll';
 
@@ -23,11 +23,9 @@ export const Router: React.FC = () => (
         <Route path="/auth/:provider/callback" component={Verify} />
         <PrivateRoute exact path="/" component={Home} />
         <PrivateRoute path="/auth/logout" component={Logout} />
-        <PrivateRoute path="/:quadrant/:technology" component={Details} />
-        <PrivateRoute path="/:quadrant" component={Quadrant} />
-        <Route exact path="/not-found">
-          <NotFound />
-        </Route>
+        <PrivateRoute path="/quadrant/:order" component={Quadrant} />
+        <PrivateRoute path="/:technology/:quadIndex" component={Details} />
+        <Route component={NotFound} />
       </Switch>
       <Footer />
     </PageGrid>

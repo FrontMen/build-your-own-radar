@@ -1,28 +1,42 @@
 import React from 'react';
-import { Details } from '../';
+import { Details } from '..';
 import { AllProvidersWrapper, withAllProviders } from 'test/helpers';
 import { getByRole } from '@testing-library/react';
 import { mount } from 'enzyme';
 import { parsedTechData } from 'test/mockData';
-import { storeCreator, technologiesStateBuilder } from 'test/builders';
-import { d3Config } from 'utils/d3-config';
+import {
+  storeCreator,
+  technologiesStateBuilder,
+  filtersStateBuilder,
+} from 'test/builders';
 
-const correctQuadrant = d3Config.quadrants[2];
+const correctQuadrant = {
+  order: 0,
+  color: '',
+};
 
 describe('Details', () => {
+  const filterState = filtersStateBuilder({
+    quadrants: [{ name: 'framework', order: 0, color: '' }],
+  });
   describe('when path is incorrect', () => {
     it('should redirect to not found page when quadrant is incorrect', () => {
-      const state = technologiesStateBuilder({
+      const techState = technologiesStateBuilder({
         initialized: true,
         loading: false,
         data: {},
       });
-      const store = storeCreator(state);
+      const store = storeCreator({
+        ...techState,
+        filters: { ...filterState.filters },
+      });
+
+      // const store = storeCreator(state);
       const wrapper = mount(<Details />, {
         wrappingComponent: AllProvidersWrapper,
         wrappingComponentProps: {
-          path: '/:quadrant/:technology',
-          route: `/invalid-quadrant-param/alpine`,
+          path: '/:technology/:quadIndex',
+          route: `/alpine/5`,
           store,
         },
       });
@@ -39,12 +53,15 @@ describe('Details', () => {
         loading: false,
         data: parsedTechData,
       });
-      const store = storeCreator(state);
+      const store = storeCreator({
+        ...state,
+        filters: { ...filterState.filters },
+      });
       const wrapper = mount(<Details />, {
         wrappingComponent: AllProvidersWrapper,
         wrappingComponentProps: {
-          path: '/:quadrant/:technology',
-          route: `/platforms-infra-and-data/invalid-technology`,
+          path: '/:technology/:quadIndex',
+          route: `/invalid-technology/2`,
           store,
         },
       });
@@ -63,10 +80,13 @@ describe('Details', () => {
         loading: true,
         data: parsedTechData,
       });
-      const store = storeCreator(state);
+      const store = storeCreator({
+        ...state,
+        filters: { ...filterState.filters },
+      });
       const { getByTestId } = withAllProviders(<Details />, {
-        path: '/:quadrant/:technology',
-        route: `/${correctQuadrant.route}/alpine`,
+        path: '/:technology/:quadIndex',
+        route: `/alpine/${correctQuadrant.order}`,
         store,
       });
 
@@ -74,20 +94,23 @@ describe('Details', () => {
     });
 
     it('should render correctly', () => {
-      const state = technologiesStateBuilder({
+      const techState = technologiesStateBuilder({
         initialized: true,
         loading: false,
         data: parsedTechData,
       });
-      const store = storeCreator(state);
+      const store = storeCreator({
+        ...techState,
+        filters: { ...filterState.filters },
+      });
       const { getByTestId, container } = withAllProviders(<Details />, {
-        path: '/:quadrant/:technology',
-        route: `/${correctQuadrant.route}/Alpine`,
+        path: '/:technology/:quadIndex',
+        route: `/Alpine/${correctQuadrant.order}`,
         store,
       });
 
       expect(getByTestId('details-back-link').getAttribute('href')).toBe(
-        `/${correctQuadrant.route}`,
+        `/quadrant/${correctQuadrant.order}`,
       );
       expect(getByTestId('details-content-title')).toHaveTextContent(
         'Timeline: Alpine',

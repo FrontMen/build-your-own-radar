@@ -48,10 +48,6 @@ exports[`TechItem it should matches the snapshot with default values 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
   font-weight: 400;
   font-size: 0.9em;
   -webkit-text-decoration: none;
@@ -119,7 +115,7 @@ exports[`TechItem it should matches the snapshot with default values 1`] = `
         </span>
         <a
           class="c4"
-          href="/tools/A-Frame"
+          href="/A-Frame/tools"
         >
           <div
             class="c5"
