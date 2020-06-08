@@ -22,15 +22,15 @@ export const Router: React.FC = () => (
       <Switch>
         <Route path="/auth/login" component={Login} />
         <Route path="/auth/:provider/callback" component={Verify} />
+        <PrivateRoute path="/auth/logout" component={Logout} />
         <Main>
           <Switch>
             <PrivateRoute exact path="/" component={Home} />
             <PrivateRoute path="/quadrant/:order" component={Quadrant} />
             <PrivateRoute path="/:technology/:quadIndex" component={Details} />
+            <Route component={NotFound} />
           </Switch>
         </Main>
-        <PrivateRoute path="/auth/logout" component={Logout} />
-        <Route component={NotFound} />
       </Switch>
       <Footer />
     </PageGrid>
