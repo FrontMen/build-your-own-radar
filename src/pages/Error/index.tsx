@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 import { MainContentSlot } from 'components/shared/PageSlots';
+import { auth } from 'utils/auth';
 
 const Content = styled.div`
   display: flex;
@@ -14,6 +16,12 @@ export interface IError {
 }
 
 export const Error: React.FC<IError> = ({ message }) => {
+  const history = useHistory();
+  if (message.includes('token') || !auth.isLoggedIn()) {
+    auth.logout();
+    history.push('/auth/login');
+    return null;
+  }
   return (
     <MainContentSlot>
       <Content data-testid="home-error">

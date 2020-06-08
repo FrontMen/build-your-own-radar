@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Redirect, useParams } from 'react-router';
+import { Redirect, useParams } from 'react-router-dom';
 import { TechLists } from './TechLists';
 import { d3Config } from 'utils/d3-config';
 import { Graph } from 'components/Graph';
