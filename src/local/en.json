@@ -56,5 +56,8 @@
     "cookie": "cookie policy",
     "privacy": "privacy policy",
     "terms": "terms & conditions"
+  },
+  "login": {
+    "forbidden": "Please login with you intracto or frontmen email account"
   }
 }

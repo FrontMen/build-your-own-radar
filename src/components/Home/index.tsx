@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MainContentSlot } from '../shared/PageSlots';
 import { ContentTitle } from 'components/shared/ContentTitle';
 import { Graph } from 'components/Graph';
@@ -6,7 +6,7 @@ import { HomePageSkeleton } from 'components/Skeleton/Homepage';
 import { Text } from 'components/Text';
 import { Error } from 'components/Error';
 import { useQueryAsState } from 'hooks/useQueryAsState';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { technologiesLoadingStateSelector } from 'redux/selectors/technologies';
 import { quadrantsSelector } from 'redux/selectors/filters';
 import {
@@ -21,16 +21,23 @@ import {
 import { blipsSelector } from 'redux/selectors/d3';
 import RightArrow from 'res/svg/arrow-right.svg';
 import { transMapper } from 'utils';
+import { actions } from 'redux/actions';
 
 export const Home: React.FC = () => {
+  const dispatch = useDispatch();
   const { initialized, loading, error, errorMessage } = useSelector(
     technologiesLoadingStateSelector(),
   );
   const blips = useSelector(blipsSelector());
   const quadrants = useSelector(quadrantsSelector);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_, setSelected] = useQueryAsState();
+  const [, setSelected] = useQueryAsState();
   const showLoader = !initialized || loading;
+
+  useEffect(() => {
+    if (!initialized && !loading) {
+      dispatch(actions.fetchTechnologies());
+    }
+  }, [initialized, loading, dispatch]);
 
   if (showLoader) return <HomePageSkeleton />;
   if (error) return <Error message={errorMessage} />;
