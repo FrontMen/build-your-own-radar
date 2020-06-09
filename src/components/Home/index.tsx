@@ -28,8 +28,7 @@ export const Home: React.FC = () => {
   );
   const blips = useSelector(blipsSelector());
   const quadrants = useSelector(quadrantsSelector);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_, setSelected] = useQueryAsState();
+  const [, setSelected] = useQueryAsState();
   const showLoader = !initialized || loading;
 
   if (showLoader) return <HomePageSkeleton />;
