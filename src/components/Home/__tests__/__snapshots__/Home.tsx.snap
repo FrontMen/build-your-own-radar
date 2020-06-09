@@ -5,6 +5,7 @@ exports[`Home should render correctly when content is there 1`] = `
   grid-area: main;
   background-color: #fff;
   padding: 16px;
+  height: 100%;
 }
 
 .c13 {

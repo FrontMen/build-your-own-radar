@@ -5,6 +5,7 @@ exports[`NotFound matches the snapshot 1`] = `
   grid-area: main;
   background-color: #fff;
   padding: 16px;
+  height: 100%;
 }
 
 .c4 {

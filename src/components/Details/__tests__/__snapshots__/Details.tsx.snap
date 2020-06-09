@@ -12,6 +12,7 @@ exports[`Details when path is correct should render correctly 1`] = `
   grid-area: main;
   background-color: #fff;
   padding: 16px;
+  height: 100%;
 }
 
 .c1 {

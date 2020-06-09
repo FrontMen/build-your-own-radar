@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
-import { Router } from 'Router';
-import { GlobalStyle } from 'Theme/GlobalStyles';
 import { useDispatch } from 'react-redux';
 import { actions } from 'redux/actions';
 import { auth } from 'utils/auth';
 
-export const Main: React.FC = () => {
+export const Main: React.FC = ({ children }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,10 +12,5 @@ export const Main: React.FC = () => {
     }
   }, [dispatch]);
 
-  return (
-    <div className="App">
-      <GlobalStyle />
-      <Router data-testid="router" />
-    </div>
-  );
+  return <div className="App">{children}</div>;
 };
