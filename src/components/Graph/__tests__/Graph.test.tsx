@@ -23,6 +23,8 @@ jest.mock('utils/d3', () => {
   };
 });
 
+const defer = async () => new Promise(r => setTimeout(r, 0));
+
 describe('Graph', () => {
   /* test to check that the mobile and larger snapshot don't change unintentionally */
   it('should matches the snapshot', () => {
@@ -70,6 +72,7 @@ describe('Graph', () => {
       blips,
     });
 
+    await defer();
     const [_, b] = radar_visualization.mock.calls[1];
     expect(b).toBe(blips);
 
@@ -79,6 +82,7 @@ describe('Graph', () => {
       quadrantNum: 3,
     });
 
+    await defer();
     const [
       container,
       bl,

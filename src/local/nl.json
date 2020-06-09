@@ -47,10 +47,17 @@
   "details": {
     "emptyDescription": "Geen beschrijving beschikbaar"
   },
+  "notfound": {
+    "description": "Oops! Nothing was found",
+    "link": "Back Home"
+  },
   "footer": {
     "frontmen": "In samenwerking met Frontmen",
     "cookie": "cookie beleid",
     "privacy": "privacybeleid",
     "terms": "algemene voorwaarden"
+  },
+  "login": {
+    "forbidden": "Log in met je intracto of frontmen e-mailaccount"
   }
 }

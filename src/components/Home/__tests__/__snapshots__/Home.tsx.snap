@@ -5,6 +5,7 @@ exports[`Home should render correctly when content is there 1`] = `
   grid-area: main;
   background-color: #fff;
   padding: 16px;
+  height: 100%;
 }
 
 .c13 {
@@ -327,7 +328,7 @@ exports[`Home should render correctly when content is there 1`] = `
         <a
           class="c14"
           data-testid="home-quadrant-0-link"
-          href="/frameworks-and-lang"
+          href="/quadrant/0"
         >
           <span>
             quadrant.framework.name
@@ -364,7 +365,7 @@ exports[`Home should render correctly when content is there 1`] = `
         <a
           class="c14"
           data-testid="home-quadrant-1-link"
-          href="/tooling-and-testing"
+          href="/quadrant/1"
         >
           <span>
             quadrant.tooling.name
@@ -401,7 +402,7 @@ exports[`Home should render correctly when content is there 1`] = `
         <a
           class="c14"
           data-testid="home-quadrant-2-link"
-          href="/platforms-infra-and-data"
+          href="/quadrant/2"
         >
           <span>
             quadrant.platform.name
@@ -438,7 +439,7 @@ exports[`Home should render correctly when content is there 1`] = `
         <a
           class="c14"
           data-testid="home-quadrant-3-link"
-          href="/technique"
+          href="/quadrant/3"
         >
           <span>
             quadrant.techniques.name

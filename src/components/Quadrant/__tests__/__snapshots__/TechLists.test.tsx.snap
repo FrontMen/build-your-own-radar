@@ -137,10 +137,6 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
   font-weight: 400;
   font-size: 0.9em;
   -webkit-text-decoration: none;
@@ -248,7 +244,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
               <span />
               <a
                 class="c10"
-                href="/tools/Alpine"
+                href="/Alpine/tools"
               >
                 <div
                   class="c11"
@@ -311,7 +307,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
               <span />
               <a
                 class="c10"
-                href="/tools/React-hooks"
+                href="/React-hooks/tools"
               >
                 <div
                   class="c11"
@@ -404,7 +400,7 @@ exports[`TechLists it should matches the snapshot with default values 1`] = `
               </span>
               <a
                 class="c10"
-                href="/tools/A-Frame"
+                href="/A-Frame/tools"
               >
                 <div
                   class="c11"

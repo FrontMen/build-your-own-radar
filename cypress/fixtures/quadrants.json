@@ -1,0 +1,28 @@
+{
+  "quadrants": [
+    {
+      "id": 1,
+      "name": "Frameworks, CMS & Programmeertalen",
+      "color": "#31bd70",
+      "order": 0
+    },
+    {
+      "id": 2,
+      "name": "Tooling en testing",
+      "color": "#17a2b8",
+      "order": 1
+    },
+    {
+      "id": 3,
+      "name": "Platforms, infrastructure & Data",
+      "color": "#fd7e14",
+      "order": 2
+    },
+    {
+      "id": 3,
+      "name": "Technieken",
+      "color": "#7843ab",
+      "order": 3
+    }
+  ]
+}

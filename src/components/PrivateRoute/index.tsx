@@ -3,7 +3,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { auth } from 'utils/auth';
 
 interface PrivateProps {
-  component: React.ReactType;
+  component: React.ElementType;
   path: string;
   exact?: boolean;
 }

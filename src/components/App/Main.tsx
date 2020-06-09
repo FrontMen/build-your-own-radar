@@ -1,23 +1,19 @@
 import React, { useEffect } from 'react';
-import { Router } from 'Router';
-import { GlobalStyle } from 'Theme/GlobalStyles';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { actions } from 'redux/actions';
 import { auth } from 'utils/auth';
+import { technologiesLoadingStateSelector } from 'redux/selectors/technologies';
 
-export const Main: React.FC = () => {
+export const Main: React.FC = ({ children }) => {
   const dispatch = useDispatch();
-
+  const { initialized, loading } = useSelector(
+    technologiesLoadingStateSelector(),
+  );
   useEffect(() => {
-    if (auth.isLoggedIn()) {
+    if (!initialized && !loading && auth.isLoggedIn()) {
       dispatch(actions.fetchTechnologies());
     }
-  }, [dispatch]);
+  }, [initialized, loading, dispatch]);
 
-  return (
-    <div className="App">
-      <GlobalStyle />
-      <Router data-testid="router" />
-    </div>
-  );
+  return <div className="App">{children}</div>;
 };

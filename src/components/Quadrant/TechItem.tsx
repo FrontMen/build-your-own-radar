@@ -12,7 +12,6 @@ const ListItem = styled.li`
   width: 100%;
   break-inside: avoid;
   overflow: hidden;
-
   @media (${MediaQueries.phablet}) {
     min-width: 9em;
   }
@@ -47,7 +46,6 @@ const DetailsLink = styled(Link)`
   width: 100%;
   color: ${props => props.theme.pallet.blue};
   display: flex;
-  justify-content: space-between;
   font-weight: 400;
   font-size: 0.9em;
   text-decoration: none;
@@ -145,7 +143,7 @@ export class TechItem extends React.Component<TechnologyProps> {
         <Details data-testid="details" isOpened={selected === positionId}>
           <Content>
             <span dangerouslySetInnerHTML={{ __html: description }} />
-            <DetailsLink to={`/${quadrant}/${encodeURIComponent(name)}`}>
+            <DetailsLink to={`/${encodeURIComponent(name)}/${quadrant}`}>
               <DetailsLinkTextContainer>
                 <Text value="words.more" />
                 <ArrowRightIcon data-testid="arrow-right-icon" />

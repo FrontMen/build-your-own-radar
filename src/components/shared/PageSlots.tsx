@@ -23,6 +23,7 @@ export const MainContentSlot = styled.div`
   background-color: ${({ theme }: { theme: LightThemeType }) =>
     theme.colors.blocks};
   padding: ${({ theme }) => theme.space[3]}px;
+  height: 100%;
 
   @media (${MediaQueries.phablet}) {
     padding: ${({ theme }) => theme.space[4]}px;

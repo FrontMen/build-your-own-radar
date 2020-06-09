@@ -47,10 +47,17 @@
   "details": {
     "emptyDescription": "No description available"
   },
+  "notfound": {
+    "description": "Oops! Nothing was found",
+    "link": "Back Home"
+  },
   "footer": {
     "frontmen": "In collaboration with Frontmen",
     "cookie": "cookie policy",
     "privacy": "privacy policy",
     "terms": "terms & conditions"
+  },
+  "login": {
+    "forbidden": "Please login with you intracto or frontmen email account"
   }
 }

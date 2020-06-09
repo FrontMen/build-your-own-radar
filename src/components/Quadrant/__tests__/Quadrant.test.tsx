@@ -12,8 +12,8 @@ import {
 } from 'test/builders';
 
 const routeProps = {
-  path: '/:quadrant',
-  route: '/technique',
+  path: '/quadrant/:order',
+  route: '/quadrant/3',
 };
 const [dataSetKey, dataSetValue] = Object.entries(parsedTechData)[0];
 const state = rootStateBuilder({
