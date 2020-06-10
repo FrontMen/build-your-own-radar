@@ -55,7 +55,8 @@
     "frontmen": "In collaboration with Frontmen",
     "cookie": "cookie policy",
     "privacy": "privacy policy",
-    "terms": "terms & conditions"
+    "terms": "terms & conditions",
+    "cms": "CMS"
   },
   "login": {
     "forbidden": "Please login with you intracto or frontmen email account"

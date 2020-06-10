@@ -55,7 +55,8 @@
     "frontmen": "In samenwerking met Frontmen",
     "cookie": "cookie beleid",
     "privacy": "privacybeleid",
-    "terms": "algemene voorwaarden"
+    "terms": "algemene voorwaarden",
+    "cms": "CMS"
   },
   "login": {
     "forbidden": "Log in met je intracto of frontmen e-mailaccount"
