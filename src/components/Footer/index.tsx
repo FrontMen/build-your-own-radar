@@ -149,6 +149,13 @@ export const Footer = () => (
       >
         <Text value="footer.terms" />
       </a>
+      <a
+        href={`${process.env.REACT_APP_BACKEND_URL}/admin`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Text value="footer.cms" />
+      </a>
       <Link to="/auth/logout">Logout</Link>
       <select onChange={changeLanguage} defaultValue={i18n.language}>
         <option value="en-US">English</option>

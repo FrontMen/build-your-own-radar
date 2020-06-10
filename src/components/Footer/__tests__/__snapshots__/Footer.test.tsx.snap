@@ -200,6 +200,15 @@ exports[`Footer should matches the snapshot 1`] = `
         </span>
       </a>
       <a
+        href="https://fm-techradar-strapi.ew.r.appspot.com/admin"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <span>
+          footer.cms
+        </span>
+      </a>
+      <a
         href="/auth/logout"
       >
         Logout
