@@ -2,11 +2,11 @@ import gql from 'graphql-tag';
 
 export const TECHNOLOGIES_QUERY = gql`
   query Technologies {
-    timelines {
+    records {
       id
       name
       description
-      isNewTechnology
+      isNewTopic
       devCount {
         name
       }

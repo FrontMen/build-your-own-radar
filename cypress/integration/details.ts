@@ -31,16 +31,16 @@ describe('Details', () => {
 
       dataTestId(' details-content-title')
         .should('be.visible')
-        .should('have.text', 'Timeline: Apache');
+        .should('have.text', 'Record: Apache');
 
-      dataTestId('details-timeline-container')
+      dataTestId('details-record-container')
         .should('be.visible')
         .should(
           'have.css',
           'border-left',
           `4px solid ${hexToRgb(quadrantsData[2].color)}`,
         );
-      dataTestId('details-timeline-item-0')
+      dataTestId('details-record-item-0')
         .should('be.visible')
         .get('h3')
         .should('contain.text', 'Apache')

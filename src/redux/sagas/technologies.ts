@@ -14,7 +14,7 @@ const getTechnologyData = async () => {
     query: TECHNOLOGIES_QUERY,
   });
 
-  return data.timelines;
+  return data.records;
 };
 
 const getQuadrantsData = async () => {

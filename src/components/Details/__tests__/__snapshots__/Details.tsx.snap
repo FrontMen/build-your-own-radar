@@ -167,17 +167,17 @@ exports[`Details when path is correct should render correctly 1`] = `
         class="c4"
         data-testid="details-content-title"
       >
-        Timeline: Alpine
+        Record: Alpine
       </h2>
       <ul
         class="c5"
         color="framework"
-        data-testid="details-timeline-container"
+        data-testid="details-record-container"
       >
         <li
           class="c6"
           color="framework"
-          data-testid="details-timeline-item-0"
+          data-testid="details-record-item-0"
           value="Jan, 2020"
         >
           <h3>

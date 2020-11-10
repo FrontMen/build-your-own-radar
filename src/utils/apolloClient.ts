@@ -11,7 +11,7 @@ const typeDefs = `
   type Technology {
     name: String!
     description: String
-    isNewTechnology: Boolean
+    isNewTopic: Boolean
     published_at: Date
     inRadar: Boolean
     quadrant: Quadrant
