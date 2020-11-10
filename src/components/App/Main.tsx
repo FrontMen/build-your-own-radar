@@ -1,8 +1,13 @@
 import React, { useEffect } from 'react';
+import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions } from 'redux/actions';
 import { auth } from 'utils/auth';
 import { technologiesLoadingStateSelector } from 'redux/selectors/technologies';
+
+const App = styled.div`
+  grid-area: main;
+`;
 
 export const Main: React.FC = ({ children }) => {
   const dispatch = useDispatch();
@@ -15,5 +20,5 @@ export const Main: React.FC = ({ children }) => {
     }
   }, [initialized, loading, dispatch]);
 
-  return <div className="App">{children}</div>;
+  return <App className="App">{children}</App>;
 };
