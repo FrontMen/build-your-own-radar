@@ -296,7 +296,7 @@ input editRoleInput {
 
 input editTechnologyInput {
   name: String
-  isNew: Boolean
+  isNewTechnology: Boolean
   inRadar: Boolean
   companies: [ID]
   ring: ID
@@ -307,7 +307,7 @@ input editTechnologyInput {
 
 input editTimelineInput {
   name: String
-  isNew: Boolean
+  isNewTechnology: Boolean
   publishedAt: Date
   inRadar: Boolean
   companies: [ID]
@@ -358,7 +358,7 @@ scalar JSON
 """The `Long` scalar type represents 52-bit integers"""
 scalar Long
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPersmissionsPasswordPayload | Company | CompanyConnection | CompanyAggregator | CompanyGroupBy | CompanyConnectionId | CompanyConnectionCreated_at | CompanyConnectionUpdated_at | CompanyConnectionName | CompanyConnectionShortName | createCompanyPayload | updateCompanyPayload | deleteCompanyPayload | DevCountCategories | DevCountCategoriesConnection | DevCountCategoriesAggregator | DevCountCategoriesGroupBy | DevCountCategoriesConnectionId | DevCountCategoriesConnectionCreated_at | DevCountCategoriesConnectionUpdated_at | DevCountCategoriesConnectionName | createDevCountCategoryPayload | updateDevCountCategoryPayload | deleteDevCountCategoryPayload | Quadrant | QuadrantConnection | QuadrantAggregator | QuadrantAggregatorSum | QuadrantAggregatorAvg | QuadrantAggregatorMin | QuadrantAggregatorMax | QuadrantGroupBy | QuadrantConnectionId | QuadrantConnectionCreated_at | QuadrantConnectionUpdated_at | QuadrantConnectionName | QuadrantConnectionColor | QuadrantConnectionOrder | createQuadrantPayload | updateQuadrantPayload | deleteQuadrantPayload | Ring | RingConnection | RingAggregator | RingAggregatorSum | RingAggregatorAvg | RingAggregatorMin | RingAggregatorMax | RingGroupBy | RingConnectionId | RingConnectionCreated_at | RingConnectionUpdated_at | RingConnectionName | RingConnectionColor | RingConnectionBackgroundColor | RingConnectionOrder | createRingPayload | updateRingPayload | deleteRingPayload | Technology | TechnologyConnection | TechnologyAggregator | TechnologyGroupBy | TechnologyConnectionId | TechnologyConnectionCreated_at | TechnologyConnectionUpdated_at | TechnologyConnectionName | TechnologyConnectionIsNew | TechnologyConnectionInRadar | TechnologyConnectionRing | TechnologyConnectionQuadrant | TechnologyConnectionDescription | TechnologyConnectionDevCount | createTechnologyPayload | updateTechnologyPayload | deleteTechnologyPayload | Timeline | TimelineConnection | TimelineAggregator | TimelineGroupBy | TimelineConnectionId | TimelineConnectionCreated_at | TimelineConnectionUpdated_at | TimelineConnectionName | TimelineConnectionIsNew | TimelineConnectionPublishedAt | TimelineConnectionInRadar | TimelineConnectionRing | TimelineConnectionQuadrant | TimelineConnectionDescription | TimelineConnectionDevCount | createTimelinePayload | updateTimelinePayload | deleteTimelinePayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPersmissionsPasswordPayload | Company | CompanyConnection | CompanyAggregator | CompanyGroupBy | CompanyConnectionId | CompanyConnectionCreated_at | CompanyConnectionUpdated_at | CompanyConnectionName | CompanyConnectionShortName | createCompanyPayload | updateCompanyPayload | deleteCompanyPayload | DevCountCategories | DevCountCategoriesConnection | DevCountCategoriesAggregator | DevCountCategoriesGroupBy | DevCountCategoriesConnectionId | DevCountCategoriesConnectionCreated_at | DevCountCategoriesConnectionUpdated_at | DevCountCategoriesConnectionName | createDevCountCategoryPayload | updateDevCountCategoryPayload | deleteDevCountCategoryPayload | Quadrant | QuadrantConnection | QuadrantAggregator | QuadrantAggregatorSum | QuadrantAggregatorAvg | QuadrantAggregatorMin | QuadrantAggregatorMax | QuadrantGroupBy | QuadrantConnectionId | QuadrantConnectionCreated_at | QuadrantConnectionUpdated_at | QuadrantConnectionName | QuadrantConnectionColor | QuadrantConnectionOrder | createQuadrantPayload | updateQuadrantPayload | deleteQuadrantPayload | Ring | RingConnection | RingAggregator | RingAggregatorSum | RingAggregatorAvg | RingAggregatorMin | RingAggregatorMax | RingGroupBy | RingConnectionId | RingConnectionCreated_at | RingConnectionUpdated_at | RingConnectionName | RingConnectionColor | RingConnectionBackgroundColor | RingConnectionOrder | createRingPayload | updateRingPayload | deleteRingPayload | Technology | TechnologyConnection | TechnologyAggregator | TechnologyGroupBy | TechnologyConnectionId | TechnologyConnectionCreated_at | TechnologyConnectionUpdated_at | TechnologyConnectionName | TechnologyConnectionisNewTechnology | TechnologyConnectionInRadar | TechnologyConnectionRing | TechnologyConnectionQuadrant | TechnologyConnectionDescription | TechnologyConnectionDevCount | createTechnologyPayload | updateTechnologyPayload | deleteTechnologyPayload | Timeline | TimelineConnection | TimelineAggregator | TimelineGroupBy | TimelineConnectionId | TimelineConnectionCreated_at | TimelineConnectionUpdated_at | TimelineConnectionName | TimelineConnectionisNewTechnology | TimelineConnectionPublishedAt | TimelineConnectionInRadar | TimelineConnectionRing | TimelineConnectionQuadrant | TimelineConnectionDescription | TimelineConnectionDevCount | createTimelinePayload | updateTimelinePayload | deleteTimelinePayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnectionCreated_at | UploadFileConnectionUpdated_at | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreated_at | UsersPermissionsUserConnectionUpdated_at | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | createUserPayload | updateUserPayload | deleteUserPayload
 
 type Mutation {
   createCompany(input: createCompanyInput): createCompanyPayload
@@ -631,7 +631,7 @@ type Technology {
   created_at: DateTime!
   updated_at: DateTime!
   name: String
-  isNew: Boolean
+  isNewTechnology: Boolean
   inRadar: Boolean
   ring: Ring
   quadrant: Quadrant
@@ -676,7 +676,7 @@ type TechnologyConnectionInRadar {
   connection: TechnologyConnection
 }
 
-type TechnologyConnectionIsNew {
+type TechnologyConnectionisNewTechnology {
   key: Boolean
   connection: TechnologyConnection
 }
@@ -706,7 +706,7 @@ type TechnologyGroupBy {
   created_at: [TechnologyConnectionCreated_at]
   updated_at: [TechnologyConnectionUpdated_at]
   name: [TechnologyConnectionName]
-  isNew: [TechnologyConnectionIsNew]
+  isNewTechnology: [TechnologyConnectionisNewTechnology]
   inRadar: [TechnologyConnectionInRadar]
   ring: [TechnologyConnectionRing]
   quadrant: [TechnologyConnectionQuadrant]
@@ -716,7 +716,7 @@ type TechnologyGroupBy {
 
 input TechnologyInput {
   name: String
-  isNew: Boolean
+  isNewTechnology: Boolean
   inRadar: Boolean
   companies: [ID]
   ring: ID
@@ -733,7 +733,7 @@ type Timeline {
   created_at: DateTime!
   updated_at: DateTime!
   name: String
-  isNew: Boolean
+  isNewTechnology: Boolean
   publishedAt: Date!
   inRadar: Boolean
   ring: Ring
@@ -779,7 +779,7 @@ type TimelineConnectionInRadar {
   connection: TimelineConnection
 }
 
-type TimelineConnectionIsNew {
+type TimelineConnectionisNewTechnology {
   key: Boolean
   connection: TimelineConnection
 }
@@ -814,7 +814,7 @@ type TimelineGroupBy {
   created_at: [TimelineConnectionCreated_at]
   updated_at: [TimelineConnectionUpdated_at]
   name: [TimelineConnectionName]
-  isNew: [TimelineConnectionIsNew]
+  isNewTechnology: [TimelineConnectionisNewTechnology]
   publishedAt: [TimelineConnectionPublishedAt]
   inRadar: [TimelineConnectionInRadar]
   ring: [TimelineConnectionRing]
@@ -825,7 +825,7 @@ type TimelineGroupBy {
 
 input TimelineInput {
   name: String
-  isNew: Boolean
+  isNewTechnology: Boolean
   publishedAt: Date!
   inRadar: Boolean
   companies: [ID]

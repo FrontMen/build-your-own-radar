@@ -6,7 +6,7 @@ export const TECHNOLOGIES_QUERY = gql`
       id
       name
       description
-      isNew
+      isNewTechnology
       devCount {
         name
       }
