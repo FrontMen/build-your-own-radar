@@ -16,7 +16,7 @@ export const Verify: React.FC<RouteComponentProps> = props => {
       dispatch(
         authActions.fetchToken({
           params: match.params,
-          search: location.search,
+          search: location.search.substr(1),
         }),
       );
       history.replace({
