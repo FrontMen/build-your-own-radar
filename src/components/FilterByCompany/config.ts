@@ -4,4 +4,5 @@ export const COMPANY_NAMES: {
   ITR_BE: 'Intracto BE',
   ITR_NL: 'Intracto NL',
   FM: 'Frontmen',
+  IS: 'ISAAC',
 };

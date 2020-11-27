@@ -28,7 +28,7 @@ interface Segment {
 }
 
 type RingNamesType = 'Adopt' | 'Trial' | 'Assess' | 'Hold';
-type CompanyTypes = 'ITR_BE' | 'ITR_NL' | 'FM';
+type CompanyTypes = 'ITR_BE' | 'ITR_NL' | 'FM' | 'IS';
 type Quadrant = {
   name: string;
   color: string;

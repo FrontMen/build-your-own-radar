@@ -20,6 +20,7 @@ export const defaultState: IFiltersState = {
     ITR_BE: true,
     ITR_NL: true,
     FM: true,
+    IS: true,
   },
   dataSet: {
     availableDates: [],

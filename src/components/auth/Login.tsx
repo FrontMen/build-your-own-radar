@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { MainContentSlot } from 'components/shared/PageSlots';
 import { Text } from 'components/Text';
 import googleSvg from 'res/svg/google.svg';
+import microsoftSvg from 'res/svg/microsoft.svg';
 import cross from 'res/svg/cross.svg';
 
 const Content = styled.div`
@@ -29,25 +30,34 @@ const LoginTitle = styled.h1`
   font-size: 1.5em;
 `;
 
-const GoogleButton = styled.a`
+const SocialButton = styled.a`
   font-size: 1em;
   display: inline-block;
   font-family: Montserrat, san-serif;
   width: 90%;
   border: 1px solid #a0a0a0;
   border-radius: 6px;
-  padding: 8px 0;
-  background-image: url(${googleSvg});
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 32px;
   background-position-x: 30%;
+  background-position-y: center;
+  line-height:44px;
   cursor: pointer;
   text-decoration: none;
   opacity: 0.8;
+  margin: 0 auto 8px;
 
   &:hover {
     opacity: 1;
   }
+`;
+
+const GoogleButton = styled(SocialButton)`
+  background-image: url(${googleSvg});
+`;
+
+const MicrosoftButton = styled(SocialButton)`
+  background-image: url(${microsoftSvg});
 `;
 
 const ErrorPopup = styled.div`
@@ -98,6 +108,11 @@ export const Login: React.FC = () => {
           >
             Google
           </GoogleButton>
+          <MicrosoftButton
+            href={`${process.env.REACT_APP_BACKEND_URL}/connect/microsoft`}
+          >
+            Microsoft
+          </MicrosoftButton>
         </LoginBox>
       </Content>
     </MainContentSlot>
