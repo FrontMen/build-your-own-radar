@@ -20,10 +20,16 @@ import {
   defaultState as defaultAuthState,
 } from 'redux/reducers/auth';
 import { TActions } from 'redux/types';
+import {
+  companiesReducer,
+  ICompaniesState,
+  defaultState as defaultCompaniesState,
+} from './companies';
 
 export interface IRootState {
   filters: IFiltersState;
   technologies: ITechnologiesState;
+  companies: ICompaniesState;
   d3: ID3State;
   auth: IAuthState;
 }
@@ -31,6 +37,7 @@ export interface IRootState {
 export const defaultRootState = {
   filters: defaultFiltersState,
   technologies: defaultTechnologiesState,
+  companies: defaultCompaniesState,
   d3: defaultD3State,
   auth: defaultAuthState,
 };
@@ -38,6 +45,7 @@ export const defaultRootState = {
 export const rootReducer: Reducer<IRootState, TActions> = combineReducers({
   filters: filtersReducer,
   technologies: technologiesReducer,
+  companies: companiesReducer,
   d3: d3Reducer,
   auth: authReducer,
 });

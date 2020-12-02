@@ -42,8 +42,8 @@ export const Quadrant = () => {
       technologies.filter(
         technology =>
           technology.quadrant.order === quadrantNum &&
-          technology.companies.some(
-            ({ shortName }) => selectedCompanies[shortName],
+          technology.companies.some(({ shortName }) =>
+            selectedCompanies.find(c => c.shortName === shortName && c.checked),
           ),
       ),
     [quadrantNum, technologies, selectedCompanies],
