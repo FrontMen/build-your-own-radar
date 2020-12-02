@@ -113,17 +113,17 @@ describe('Details', () => {
         `/quadrant/${correctQuadrant.order}`,
       );
       expect(getByTestId('details-content-title')).toHaveTextContent(
-        'Timeline: Alpine',
+        'Record: Alpine',
       );
-      expect(getByTestId('details-timeline-container')).toHaveStyle({
+      expect(getByTestId('details-record-container')).toHaveStyle({
         'border-left': `4px solid ${correctQuadrant.color}`,
       });
 
       expect(getByTestId('details-content-title')).toHaveTextContent(
-        'Timeline: Alpine',
+        'Record: Alpine',
       );
 
-      const timeLineItem = getByTestId('details-timeline-item-0');
+      const timeLineItem = getByTestId('details-record-item-0');
       expect(getByRole(timeLineItem, 'heading')).toHaveTextContent('Alpine');
       expect(container).toMatchSnapshot();
     });

@@ -11,7 +11,7 @@ interface Point {
 interface Blip
   extends Pick<
       Technology,
-      'positionId' | 'ring' | 'name' | 'isNew' | 'quadrant' | 'id'
+      'positionId' | 'ring' | 'name' | 'isNewTopic' | 'quadrant' | 'id'
     >,
     Point {
   vx: number;
@@ -28,7 +28,7 @@ interface Segment {
 }
 
 type RingNamesType = 'Adopt' | 'Trial' | 'Assess' | 'Hold';
-type CompanyTypes = 'ITR_BE' | 'ITR_NL' | 'FM';
+
 type Quadrant = {
   name: string;
   color: string;
@@ -49,7 +49,7 @@ interface Technology extends Partial<Point> {
   name: string;
   ring: Ring;
   quadrant: Quadrant;
-  isNew: boolean;
+  isNewTopic: boolean;
   companies: Company[];
   description: string;
   moved: number;
@@ -94,11 +94,8 @@ interface MappedDataRow {
   name: string;
   quadrant: string;
   ring: RingNamesType;
-  isNew: boolean;
+  isNewTopic: boolean;
   description: string;
-  'ITR BE': string;
-  'ITR NL': string;
-  FM: string;
   'In radar?'?: 'Y' | 'N';
 }
 

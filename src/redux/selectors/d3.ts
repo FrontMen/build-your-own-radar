@@ -27,7 +27,7 @@ export const changedTechnologiesSelector = createSelector(
     return allTechnologies[selected].filter(s => {
       const prev = prevTechs.find(p => p.name === s.name);
       return (
-        !!prev && (s.ring.name !== prev.ring.name || s.isNew !== prev.isNew)
+        !!prev && (s.ring.name !== prev.ring.name || s.isNewTopic !== prev.isNewTopic)
       );
     });
   },
@@ -40,7 +40,7 @@ export const filterBlipsSelector = createSelector(
   (blips, technologies, selectedCompanies) => {
     const matchingTechnologies = technologies.filter(technology =>
       technology.companies.some(
-        ({ shortName }) => selectedCompanies[shortName],
+        ({ shortName }) => selectedCompanies.filter(c => c.shortName === shortName && c.checked).length,
       ),
     );
     return blips.filter(

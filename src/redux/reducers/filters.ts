@@ -1,13 +1,16 @@
 import { Reducer } from 'redux';
 import { TActions } from 'redux/types';
 import { EFilterActionTypes } from 'redux/actions/filters';
+// type TCompany = {
+//   [key in CompanyTypes]: boolean;
+// };
 
-type TCompany = {
-  [key in CompanyTypes]: boolean;
-};
+interface CompanyCheckBox extends Company {
+  checked: boolean;
+}
 
 export interface IFiltersState {
-  companies: TCompany;
+  companies: CompanyCheckBox[];
   dataSet: {
     availableDates: string[];
     selected: string | null;
@@ -16,11 +19,7 @@ export interface IFiltersState {
   quadrants: Quadrant[];
 }
 export const defaultState: IFiltersState = {
-  companies: {
-    ITR_BE: true,
-    ITR_NL: true,
-    FM: true,
-  },
+  companies: [],
   dataSet: {
     availableDates: [],
     selected: null,
@@ -35,12 +34,14 @@ export const filtersReducer: Reducer<IFiltersState, TActions> = (
 ): IFiltersState => {
   switch (action.type) {
     case EFilterActionTypes.TOGGLE_COMPANY:
+      const companies = [...state.companies];
+      const index = companies.findIndex(c => c.shortName === action.payload);
+      const company = companies[index];
+      companies[index] = { ...company, checked: !company.checked };
+
       return {
         ...state,
-        companies: {
-          ...state.companies,
-          [action.payload]: !state.companies[action.payload],
-        },
+        companies,
       };
 
     case EFilterActionTypes.SELECT_DATA_SET:
@@ -66,7 +67,14 @@ export const filtersReducer: Reducer<IFiltersState, TActions> = (
         ...state,
         quadrants: action.payload,
       };
-
+    case EFilterActionTypes.FILL_COMPANIES:
+      return {
+        ...state,
+        companies: action.payload.map(({ ...company }) => ({
+          checked: true,
+          ...company,
+        })),
+      };
     default:
       return state;
   }

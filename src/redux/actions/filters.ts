@@ -5,16 +5,17 @@ export enum EFilterActionTypes {
   SELECT_DATA_SET = 'filters/select-data-set',
   FILL_DATA_SET_DATES = 'filters/fill-data-set-dates',
   FILL_QUADRANTS = 'filters/fill-quadrants',
+  FILL_COMPANIES = 'filters/fill-companies',
 }
 
 type TToggleCompany = ActionWithPayload<
   EFilterActionTypes.TOGGLE_COMPANY,
-  CompanyTypes
+  string
 >;
-const toggleCompany = (company: CompanyTypes): TToggleCompany =>
+const toggleCompany = (shortName: string): TToggleCompany =>
   ({
     type: EFilterActionTypes.TOGGLE_COMPANY,
-    payload: company,
+    payload: shortName,
   } as const);
 
 type TSelectDataSet = ActionWithPayload<
@@ -46,10 +47,19 @@ const fillQuandrants = (quadrants: Quadrant[]): TFillQuadrants =>
     type: EFilterActionTypes.FILL_QUADRANTS,
     payload: quadrants,
   } as const);
+type TFillCompanies = ActionWithPayload<
+  EFilterActionTypes.FILL_COMPANIES,
+  Company[]
+>;
+const fillCompanies = (companies: Company[]): TFillCompanies => ({
+  type: EFilterActionTypes.FILL_COMPANIES,
+  payload: companies,
+});
 
 export const filtersActions = {
   toggleCompany,
   selectDataSet,
   fillDataSetDates,
   fillQuandrants,
+  fillCompanies,
 };

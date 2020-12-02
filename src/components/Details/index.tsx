@@ -37,7 +37,7 @@ const Content = styled.div`
   text-align: center;
 `;
 
-const Timeline = styled.ul<{ color: string }>`
+const Record = styled.ul<{ color: string }>`
   border-left: 4px solid ${props => props.theme.colors[props.color || '']};
   margin: 50px 0% 0 30%;
   padding: 50px 0 50px 20px;
@@ -49,7 +49,7 @@ const Timeline = styled.ul<{ color: string }>`
   }
 `;
 
-const TimelineItem = styled.li<{ color: string; value: string }>`
+const RecordItem = styled.li<{ color: string; value: string }>`
   border-bottom: 1px dashed ${props => props.theme.colors[props.color || '']};
   padding-bottom: 25px;
   position: relative;
@@ -157,11 +157,11 @@ export const Details: React.FC = () => {
         <Text value={`quadrant.${transMapper[numericQuadIndex]}.name`} />
       </BackLink>
       <Content>
-        <ContentTitle data-testid="details-content-title">{`Timeline: ${decodedTechName}`}</ContentTitle>
-        <Timeline data-testid="details-timeline-container" color={quadrantName}>
+        <ContentTitle data-testid="details-content-title">{`Record: ${decodedTechName}`}</ContentTitle>
+        <Record data-testid="details-record-container" color={quadrantName}>
           {technologies.map((item, index) => (
-            <TimelineItem
-              data-testid={`details-timeline-item-${index}`}
+            <RecordItem
+              data-testid={`details-record-item-${index}`}
               key={index}
               value={dateFormat(item!.date)}
               color={quadrantName}
@@ -174,9 +174,9 @@ export const Details: React.FC = () => {
                   <Text value="details.emptyDescription" />
                 </Tag>
               )}
-            </TimelineItem>
+            </RecordItem>
           ))}
-        </Timeline>
+        </Record>
       </Content>
     </Slot>
   );

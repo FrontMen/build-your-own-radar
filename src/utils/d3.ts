@@ -19,9 +19,9 @@ const CIRCLE_SIZE = 170;
 const TRIANGLE_SIZE = 150;
 
 const getSymbolSize = (item: Blip) =>
-  item.isNew ? TRIANGLE_SIZE : CIRCLE_SIZE;
+  item.isNewTopic ? TRIANGLE_SIZE : CIRCLE_SIZE;
 const getSymbol = (item: Blip) =>
-  item.isNew ? d3.symbolTriangle : d3.symbolCircle;
+  item.isNewTopic ? d3.symbolTriangle : d3.symbolCircle;
 
 const bounded_ring = (
   { t, r }: Polar,
