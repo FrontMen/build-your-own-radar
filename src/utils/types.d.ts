@@ -28,7 +28,7 @@ interface Segment {
 }
 
 type RingNamesType = 'Adopt' | 'Trial' | 'Assess' | 'Hold';
-type CompanyTypes = 'ITR_BE' | 'ITR_NL' | 'FM' | 'IS';
+
 type Quadrant = {
   name: string;
   color: string;
@@ -96,9 +96,6 @@ interface MappedDataRow {
   ring: RingNamesType;
   isNewTopic: boolean;
   description: string;
-  'ITR BE': string;
-  'ITR NL': string;
-  FM: string;
   'In radar?'?: 'Y' | 'N';
 }
 
